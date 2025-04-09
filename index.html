@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="lt">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/ikona_spalvotas.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Transportuok.lt – Nemokamas buitinės technikos išvežimas Kaune</title>
+    <meta name="description" content="Transportuok.lt – nemokamas buitinės technikos, elektronikos, metalo laužo ir baldų išvežimas Kaune. Greita, atsakinga ir aplinką tausojanti paslauga. Užpildykite užklausą internetu!" />
+    <meta name="keywords" content="buitinės technikos išvežimas, elektronikos išvežimas, baldų išvežimas, metalo laužo išvežimas, atliekų išvežimas Kaune" />
+    
+    <!-- Preload critical assets -->
+    <link rel="preload" href="/src/assets/hero-bg-appliances.webp" as="image" type="image/webp" fetchpriority="high" />
+    <link rel="preload" as="style" href="/src/index.css" />
+    <link rel="preload" as="script" href="/src/main.tsx" type="module" />
+    
+    <!-- Open Graph tags -->
+    <meta property="og:title" content="Transportuok.lt – Nemokamas buitinės technikos išvežimas Kaune" />
+    <meta property="og:description" content="Greitas ir nemokamas buitinės technikos, elektronikos ir metalo laužo išvežimas Kaune. Užsakykite paslaugą internetu!" />
+    <meta property="og:image" content="/src/assets/hero-bg-appliances.webp" />
+    <meta property="og:url" content="https://transportuok.netlify.app" />
+    <meta property="og:type" content="website" />
+    
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://maps.googleapis.com" crossorigin />
+    
+    <!-- Schema.org markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Transportuok.lt",
+      "image": "/src/assets/hero-bg-appliances.webp",
+      "description": "Patikimas ir atsakingas buitinės technikos, baldų, elektronikos ir metalo laužo išvežimas Kauno mieste ir rajone. Dirbame greitai, laikomės susitarimų ir pasirūpiname saugiu atliekų utilizavimu.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Kaunas",
+        "addressCountry": "LT"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "54.8985",
+        "longitude": "23.9036"
+      },
+      "url": "https://transportuok.netlify.app",
+      "telephone": "+37069925744",
+      "email": "info@transportuok.lt",
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "08:00",
+          "closes": "18:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "09:00",
+          "closes": "15:00"
+        }
+      ],
+      "priceRange": "€€"
+    }
+    </script>
+
+    <style>
+      @font-face {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hjp-Ek-_0ew.woff2) format('woff2');
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx" defer></script>
+  </body>
+</html>

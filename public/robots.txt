@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://polite-vacherin-19829c.netlify.app/sitemap.xml
