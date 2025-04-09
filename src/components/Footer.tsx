@@ -36,10 +36,13 @@ const Footer = () => {
             <h4 className="text-lg font-semibold mb-4">Navigacija</h4>
             <div className="space-y-2">
               <Link to="/" className="block text-gray-400 hover:text-white">Pradžia</Link>
-              <Link to="/services" className="block text-gray-400 hover:text-white">Paslaugos</Link>
-              <Link to="/about" className="block text-gray-400 hover:text-white">Apie mus</Link>
-              <Link to="/blog" className="block text-gray-400 hover:text-white">Naujienos</Link>
-              <Link to="/contact" className="block text-gray-400 hover:text-white">Kontaktai</Link>
+              <Link to="/paslaugos/buitines-technikos-isvezimas" className="block text-gray-400 hover:text-white">Buitinės technikos išvežimas</Link>
+              <Link to="/paslaugos/elektronikos-atlieku-isvezimas" className="block text-gray-400 hover:text-white">Elektronikos išvežimas</Link>
+              <Link to="/paslaugos/baldu-isvezimas" className="block text-gray-400 hover:text-white">Baldų išvežimas</Link>
+              <Link to="/paslaugos/metalo-lauzo-isvezimas" className="block text-gray-400 hover:text-white">Metalo laužo išvežimas</Link>
+              <Link to="/apie-mus" className="block text-gray-400 hover:text-white">Apie mus</Link>
+              <Link to="/naujienos" className="block text-gray-400 hover:text-white">Naujienos</Link>
+              <Link to="/kontaktai" className="block text-gray-400 hover:text-white">Kontaktai</Link>
             </div>
           </div>
 

@@ -1,7 +1,35 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Shield, Users, Leaf } from 'lucide-react';
 
 const About = () => {
+  useEffect(() => {
+    // Update meta tags
+    document.title = 'Apie Transportuok.lt | Patikimas atliekų išvežimas Kaune';
+    
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', 'Transportuok.lt - atsakingas atliekų tvarkytojas Kaune su daugiau nei 5 metų patirtimi. Sužinokite apie mūsų komandą, vertybes ir darbo principus.');
+    }
+
+    // Update Open Graph tags
+    const ogTitle = document.querySelector('meta[property="og:title"]');
+    const ogDescription = document.querySelector('meta[property="og:description"]');
+    const ogUrl = document.querySelector('meta[property="og:url"]');
+    
+    if (ogTitle) ogTitle.setAttribute('content', 'Apie Transportuok.lt | Patikimas atliekų išvežimas Kaune');
+    if (ogDescription) ogDescription.setAttribute('content', 'Transportuok.lt - atsakingas atliekų tvarkytojas Kaune. Sužinokite apie mūsų komandą ir vertybes.');
+    if (ogUrl) ogUrl.setAttribute('content', 'https://transportuok.lt/about');
+
+    // Update canonical URL
+    let canonical = document.querySelector('link[rel="canonical"]');
+    if (!canonical) {
+      canonical = document.createElement('link');
+      canonical.setAttribute('rel', 'canonical');
+      document.head.appendChild(canonical);
+    }
+    canonical.setAttribute('href', 'https://transportuok.lt/about');
+  }, []);
+
   return (
     <div className="py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

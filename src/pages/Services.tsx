@@ -1,8 +1,36 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Truck, Monitor, Touchpad as Couch, Recycle } from 'lucide-react';
 
 const Services = () => {
+  useEffect(() => {
+    // Update meta tags
+    document.title = 'Buitinės technikos, baldų ir elektronikos išvežimas Kaune | Transportuok.lt';
+    
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', 'Profesionalus buitinės technikos, baldų, elektronikos ir metalo laužo išvežimas Kaune. Nemokamas išvežimas, greitas aptarnavimas ir ekologiškas utilizavimas.');
+    }
+
+    // Update Open Graph tags
+    const ogTitle = document.querySelector('meta[property="og:title"]');
+    const ogDescription = document.querySelector('meta[property="og:description"]');
+    const ogUrl = document.querySelector('meta[property="og:url"]');
+    
+    if (ogTitle) ogTitle.setAttribute('content', 'Buitinės technikos, baldų ir elektronikos išvežimas Kaune | Transportuok.lt');
+    if (ogDescription) ogDescription.setAttribute('content', 'Profesionalus buitinės technikos, baldų, elektronikos ir metalo laužo išvežimas Kaune. Nemokamas išvežimas ir ekologiškas utilizavimas.');
+    if (ogUrl) ogUrl.setAttribute('content', 'https://transportuok.lt/services');
+
+    // Update canonical URL
+    let canonical = document.querySelector('link[rel="canonical"]');
+    if (!canonical) {
+      canonical = document.createElement('link');
+      canonical.setAttribute('rel', 'canonical');
+      document.head.appendChild(canonical);
+    }
+    canonical.setAttribute('href', 'https://transportuok.lt/services');
+  }, []);
+
   return (
     <div className="py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
@@ -38,6 +38,34 @@ const Contact = () => {
   } = useForm<ContactForm>({
     resolver: zodResolver(contactSchema)
   });
+
+  useEffect(() => {
+    // Update meta tags
+    document.title = 'Susisiekite dėl atliekų išvežimo Kaune | Transportuok.lt';
+    
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', 'Susisiekite su Transportuok.lt dėl nemokamo daiktų išvežimo Kaune. Užpildykite formą arba skambinkite +370 699 25744. Dirbame visoje Kauno miesto teritorijoje.');
+    }
+
+    // Update Open Graph tags
+    const ogTitle = document.querySelector('meta[property="og:title"]');
+    const ogDescription = document.querySelector('meta[property="og:description"]');
+    const ogUrl = document.querySelector('meta[property="og:url"]');
+    
+    if (ogTitle) ogTitle.setAttribute('content', 'Susisiekite dėl atliekų išvežimo Kaune | Transportuok.lt');
+    if (ogDescription) ogDescription.setAttribute('content', 'Susisiekite su Transportuok.lt dėl nemokamo daiktų išvežimo Kaune. Greitas ir patikimas aptarnavimas.');
+    if (ogUrl) ogUrl.setAttribute('content', 'https://transportuok.lt/contact');
+
+    // Update canonical URL
+    let canonical = document.querySelector('link[rel="canonical"]');
+    if (!canonical) {
+      canonical = document.createElement('link');
+      canonical.setAttribute('rel', 'canonical');
+      document.head.appendChild(canonical);
+    }
+    canonical.setAttribute('href', 'https://transportuok.lt/contact');
+  }, []);
 
   // Scroll to form on mount if hash is present
   React.useEffect(() => {

@@ -1,16 +1,42 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import heroBackground from '../assets/hero-bg-appliances.webp';
 
 const Home = () => {
+  useEffect(() => {
+    // Update meta tags
+    document.title = 'Nemokamas buitinės technikos išvežimas Kaune | Transportuok.lt';
+    
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', 'Nemokamas šaldytuvų, skalbimo mašinų ir kitos buitinės technikos išvežimas Kaune. Atliekų surinkimas greitai ir patikimai. Užsakykite išvežimą dabar - atvykstame per 24 val.');
+    }
+
+    // Update Open Graph tags
+    const ogTitle = document.querySelector('meta[property="og:title"]');
+    const ogDescription = document.querySelector('meta[property="og:description"]');
+    const ogUrl = document.querySelector('meta[property="og:url"]');
+    
+    if (ogTitle) ogTitle.setAttribute('content', 'Nemokamas buitinės technikos išvežimas Kaune | Transportuok.lt');
+    if (ogDescription) ogDescription.setAttribute('content', 'Greitas ir nemokamas buitinės technikos, elektronikos ir metalo laužo išvežimas Kaune. Užsakykite paslaugą internetu!');
+    if (ogUrl) ogUrl.setAttribute('content', 'https://transportuok.lt');
+
+    // Update canonical URL
+    let canonical = document.querySelector('link[rel="canonical"]');
+    if (!canonical) {
+      canonical = document.createElement('link');
+      canonical.setAttribute('rel', 'canonical');
+      document.head.appendChild(canonical);
+    }
+    canonical.setAttribute('href', 'https://transportuok.lt');
+  }, []);
+
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
       <section
         className="relative min-h-[80vh] sm:h-[600px] pt-[96px] flex items-center justify-center bg-cover bg-center bg-no-repeat text-white"
         style={{ backgroundImage: `url(${heroBackground})` }}
-        role="banner"
-        aria-label="Pagrindinis puslapis"
       >
         {/* Overlay */}
         <div className="absolute inset-0 bg-black/40 z-0" />
@@ -18,15 +44,14 @@ const Home = () => {
         {/* Content */}
         <div className="relative z-10 max-w-3xl text-center px-4">
           <h1 className="text-4xl sm:text-5xl font-extrabold leading-tight mb-4">
-            Nemokamas buitinės technikos, elektronikos ir metalo laužo išvežimas Kaune
+            Nemokamas buitinės technikos išvežimas Kaune
           </h1>
           <p className="text-lg sm:text-xl text-gray-100 mb-6">
             Užpildykite užklausą bet kuriuo metu – susisieksime per 24 val.
           </p>
           <Link
-            to="/contact#contact-form"
+            to="/kontaktai#contact-form"
             className="inline-block bg-[#167d36] hover:bg-[#0f5a26] text-white font-bold text-base px-6 py-3 rounded-lg shadow-md transition-colors"
-            aria-label="Pateikti užklausą dėl daiktų išvežimo"
           >
             Pateikti užklausą
           </Link>
@@ -34,7 +59,7 @@ const Home = () => {
       </section>
 
       {/* Services Section */}
-      <section className="py-16 bg-gray-50" aria-label="Mūsų paslaugos">
+      <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12">
             Mūsų teikiamos paslaugos
@@ -45,21 +70,24 @@ const Home = () => {
                 <source srcSet="/images/buitine-technika.webp" type="image/webp" />
                 <img
                   src="/images/buitine-technika.png"
-                  alt="Išvežama buitinė technika – šaldytuvas, skalbimo mašina, viryklė"
+                  alt="Nemokamas šaldytuvų ir skalbimo mašinų išvežimas Kaune - Transportuok.lt specialistai"
                   className="w-full h-48 object-cover rounded-lg mb-4"
                   width="600"
                   height="192"
                   loading="lazy"
                 />
               </picture>
-              <h3 className="text-xl font-semibold mb-4">Buitinės technikos išvežimas</h3>
+              <Link to="/paslaugos/buitines-technikos-isvezimas">
+                <h3 className="text-xl font-semibold mb-4 hover:text-green-600 transition-colors">
+                  Buitinės technikos išvežimas
+                </h3>
+              </Link>
               <p className="text-gray-600 mb-4">
-                Išvežame šaldytuvus, skalbimo mašinas, virykles ir kitus buities prietaisus – nemokamai.
+                Išvežame <Link to="/paslaugos/buitines-technikos-isvezimas" className="text-green-600 hover:text-green-700">šaldytuvus, skalbimo mašinas, virykles</Link> ir kitus buities prietaisus – nemokamai.
               </p>
               <Link 
-                to="/contact" 
+                to="/kontaktai#contact-form" 
                 className="inline-block bg-[#167d36] hover:bg-[#0f5a26] text-white font-bold px-6 py-3 rounded-lg transition-colors"
-                aria-label="Gauti nemokamą buitinės technikos išvežimą"
               >
                 Gauti nemokamą išvežimą
               </Link>
@@ -70,21 +98,24 @@ const Home = () => {
                 <source srcSet="/images/elektronika.webp" type="image/webp" />
                 <img
                   src="/images/elektronika.png"
-                  alt="Išvežama smulki elektronika – kompiuteriai, telefonai, televizoriai"
+                  alt="Elektronikos atliekų surinkimas ir perdirbimas Kaune - kompiuteriai, televizoriai"
                   className="w-full h-48 object-cover rounded-lg mb-4"
                   width="600"
                   height="192"
                   loading="lazy"
                 />
               </picture>
-              <h3 className="text-xl font-semibold mb-4">Elektronikos išvežimas</h3>
+              <Link to="/paslaugos/elektronikos-atlieku-isvezimas">
+                <h3 className="text-xl font-semibold mb-4 hover:text-green-600 transition-colors">
+                  Elektronikos išvežimas
+                </h3>
+              </Link>
               <p className="text-gray-600 mb-4">
-                Kompiuterių, monitorių, televizorių ir kitos elektronikos išvežimas bei utilizavimas.
+                <Link to="/paslaugos/elektronikos-atlieku-isvezimas" className="text-green-600 hover:text-green-700">Kompiuterių, monitorių, televizorių</Link> ir kitos elektronikos išvežimas bei utilizavimas.
               </p>
               <Link 
-                to="/contact" 
+                to="/kontaktai#contact-form" 
                 className="inline-block bg-[#167d36] hover:bg-[#0f5a26] text-white font-bold px-6 py-3 rounded-lg transition-colors"
-                aria-label="Susisiekti dėl elektronikos išvežimo"
               >
                 Susisiekti dėl išvežimo
               </Link>
@@ -95,21 +126,24 @@ const Home = () => {
                 <source srcSet="/images/baldai.webp" type="image/webp" />
                 <img
                   src="/images/baldai.png"
-                  alt="Senų baldų išvežimas – sofa, spinta, čiužinys"
+                  alt="Senų baldų išvežimas Kaune - sofos, spintos, čiužiniai"
                   className="w-full h-48 object-cover rounded-lg mb-4"
                   width="600"
                   height="192"
                   loading="lazy"
                 />
               </picture>
-              <h3 className="text-xl font-semibold mb-4">Baldų išvežimas</h3>
+              <Link to="/paslaugos/baldu-isvezimas">
+                <h3 className="text-xl font-semibold mb-4 hover:text-green-600 transition-colors">
+                  Baldų išvežimas
+                </h3>
+              </Link>
               <p className="text-gray-600 mb-4">
-                Lovų, spintų, sofų, čiužinių ir kitų didelių daiktų išvežimas už simbolinį mokestį.
+                <Link to="/paslaugos/baldu-isvezimas" className="text-green-600 hover:text-green-700">Lovų, spintų, sofų, čiužinių</Link> ir kitų didelių daiktų išvežimas už simbolinį mokestį.
               </p>
               <Link 
-                to="/contact" 
+                to="/kontaktai#contact-form" 
                 className="inline-block bg-[#167d36] hover:bg-[#0f5a26] text-white font-bold px-6 py-3 rounded-lg transition-colors"
-                aria-label="Užsakyti baldų išvežimą"
               >
                 Užsakyti išvežimą
               </Link>
@@ -120,21 +154,24 @@ const Home = () => {
                 <source srcSet="/images/metalo-lauzas.webp" type="image/webp" />
                 <img
                   src="/images/metalo-lauzas.png"
-                  alt="Surinktas metalo laužas iš garažo ir kiemo – vamzdžiai, dalys"
+                  alt="Metalo laužo surinkimas ir išvežimas Kaune - vamzdžiai, konstrukcijos"
                   className="w-full h-48 object-cover rounded-lg mb-4"
                   width="600"
                   height="192"
                   loading="lazy"
                 />
               </picture>
-              <h3 className="text-xl font-semibold mb-4">Metalo laužo išvežimas</h3>
+              <Link to="/paslaugos/metalo-lauzo-isvezimas">
+                <h3 className="text-xl font-semibold mb-4 hover:text-green-600 transition-colors">
+                  Metalo laužo išvežimas
+                </h3>
+              </Link>
               <p className="text-gray-600 mb-4">
-                Surenkame ir nemokamai išvežame metalo atliekas iš namų, garažų, sandėlių.
+                Surenkame ir nemokamai išvežame <Link to="/paslaugos/metalo-lauzo-isvezimas" className="text-green-600 hover:text-green-700">metalo atliekas</Link> iš namų, garažų, sandėlių.
               </p>
               <Link 
-                to="/contact" 
+                to="/kontaktai#contact-form" 
                 className="inline-block bg-[#167d36] hover:bg-[#0f5a26] text-white font-bold px-6 py-3 rounded-lg transition-colors"
-                aria-label="Gauti pasiūlymą dėl metalo laužo išvežimo"
               >
                 Gauti pasiūlymą
               </Link>
@@ -144,7 +181,7 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-12 sm:py-16 bg-[#167d36]" aria-label="Užsakymo kvietimas">
+      <section className="py-12 sm:py-16 bg-[#167d36]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">
             Reikia išvežti seną buitinę techniką ar elektronikos atliekas?
@@ -153,9 +190,8 @@ const Home = () => {
             Užpildykite užklausą dabar ir gaukite nemokamą išvežimą!
           </p>
           <Link
-            to="/contact"
+            to="/kontaktai#contact-form"
             className="inline-block bg-white text-[#167d36] px-6 sm:px-8 py-3 sm:py-4 rounded-lg text-base sm:text-lg font-bold hover:bg-gray-100 transition-colors transform hover:scale-105 shadow-lg"
-            aria-label="Gauti nemokamą daiktų išvežimą"
           >
             Gauti nemokamą išvežimą
           </Link>
@@ -163,7 +199,7 @@ const Home = () => {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-16 bg-gray-50" aria-label="Klientų atsiliepimai">
+      <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12">
             Klientų atsiliepimai
@@ -177,7 +213,7 @@ const Home = () => {
                   </div>
                 </div>
                 <div className="ml-4">
-                  <p className="text-lg font-semibold">Tomas Petrauskas</p>
+                  <h3 className="text-lg font-semibold">Tomas Petrauskas</h3>
                   <p className="text-gray-500">Kaunas</p>
                 </div>
               </div>
@@ -193,7 +229,7 @@ const Home = () => {
                   </div>
                 </div>
                 <div className="ml-4">
-                  <p className="text-lg font-semibold">Laura Kazlauskienė</p>
+                  <h3 className="text-lg font-semibold">Laura Kazlauskienė</h3>
                   <p className="text-gray-500">Kaunas</p>
                 </div>
               </div>
@@ -209,7 +245,7 @@ const Home = () => {
                   </div>
                 </div>
                 <div className="ml-4">
-                  <p className="text-lg font-semibold">Marius Jonaitis</p>
+                  <h3 className="text-lg font-semibold">Marius Jonaitis</h3>
                   <p className="text-gray-500">Kaunas</p>
                 </div>
               </div>
@@ -224,7 +260,6 @@ const Home = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block bg-white text-[#167d36] px-6 py-3 rounded-lg font-bold border-2 border-[#167d36] hover:bg-[#167d36] hover:text-white transition-colors"
-              aria-label="Palikite atsiliepimą Google platformoje"
             >
               Palikite atsiliepimą
             </a>

@@ -3,11 +3,19 @@ import { Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 
+// Pagrindinis puslapis
 const Home = lazy(() => import('./pages/Home'));
-const Services = lazy(() => import('./pages/Services'));
+
+// Paslaugų puslapiai
+const BuitineTechnika = lazy(() => import('./pages/services/BuitineTechnika'));
+const Elektronika = lazy(() => import('./pages/services/Elektronika'));
+const Baldai = lazy(() => import('./pages/services/Baldai'));
+const MetaloLauzas = lazy(() => import('./pages/services/MetaloLauzas'));
+
+// Kiti puslapiai
 const About = lazy(() => import('./pages/About'));
 const Contact = lazy(() => import('./pages/Contact'));
-const Blog = lazy(() => import('./pages/Blog'));
+const Naujienos = lazy(() => import('./pages/Naujienos'));
 
 const LoadingFallback = () => (
   <div className="min-h-screen flex items-center justify-center">
@@ -19,7 +27,6 @@ function ScrollToTop() {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    // Only scroll to top if there's no hash in the URL
     if (!window.location.hash) {
       window.scrollTo(0, 0);
     }
@@ -36,12 +43,20 @@ function App() {
       <main className="flex-grow">
         <Suspense fallback={<LoadingFallback />}>
           <Routes>
+            {/* Pagrindinis puslapis */}
             <Route path="/" element={<Home />} />
-            <Route path="/services" element={<Services />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/blog" element={<Blog />} />
-            <Route path="/blog/:slug" element={<Blog />} />
+
+            {/* Paslaugų puslapiai */}
+            <Route path="/paslaugos/buitines-technikos-isvezimas" element={<BuitineTechnika />} />
+            <Route path="/paslaugos/elektronikos-atlieku-isvezimas" element={<Elektronika />} />
+            <Route path="/paslaugos/baldu-isvezimas" element={<Baldai />} />
+            <Route path="/paslaugos/metalo-lauzo-isvezimas" element={<MetaloLauzas />} />
+
+            {/* Kiti puslapiai */}
+            <Route path="/apie-mus" element={<About />} />
+            <Route path="/kontaktai" element={<Contact />} />
+            <Route path="/naujienos" element={<Naujienos />} />
+            <Route path="/naujienos/:slug" element={<Naujienos />} />
           </Routes>
         </Suspense>
       </main>

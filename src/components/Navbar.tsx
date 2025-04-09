@@ -37,27 +37,54 @@ const Navbar = () => {
             >
               Pradžia
             </Link>
+            <div className="relative group">
+              <span className={`${location.pathname.includes('/paslaugos/') ? 'text-green-700 font-semibold' : 'text-gray-800'} hover:text-green-700 transition-colors cursor-pointer`}>
+                Paslaugos
+              </span>
+              <div className="absolute left-0 mt-2 w-64 bg-white rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                <div className="py-2">
+                  <Link 
+                    to="/paslaugos/buitines-technikos-isvezimas" 
+                    className="block px-4 py-2 text-gray-800 hover:bg-green-50 hover:text-green-700"
+                  >
+                    Buitinės technikos išvežimas
+                  </Link>
+                  <Link 
+                    to="/paslaugos/elektronikos-atlieku-isvezimas" 
+                    className="block px-4 py-2 text-gray-800 hover:bg-green-50 hover:text-green-700"
+                  >
+                    Elektronikos atliekų išvežimas
+                  </Link>
+                  <Link 
+                    to="/paslaugos/baldu-isvezimas" 
+                    className="block px-4 py-2 text-gray-800 hover:bg-green-50 hover:text-green-700"
+                  >
+                    Baldų išvežimas
+                  </Link>
+                  <Link 
+                    to="/paslaugos/metalo-lauzo-isvezimas" 
+                    className="block px-4 py-2 text-gray-800 hover:bg-green-50 hover:text-green-700"
+                  >
+                    Metalo laužo išvežimas
+                  </Link>
+                </div>
+              </div>
+            </div>
             <Link 
-              to="/services" 
-              className={`${isActive('/services') ? 'text-green-700 font-semibold' : 'text-gray-800'} hover:text-green-700 transition-colors`}
-            >
-              Paslaugos
-            </Link>
-            <Link 
-              to="/about" 
-              className={`${isActive('/about') ? 'text-green-700 font-semibold' : 'text-gray-800'} hover:text-green-700 transition-colors`}
+              to="/apie-mus" 
+              className={`${isActive('/apie-mus') ? 'text-green-700 font-semibold' : 'text-gray-800'} hover:text-green-700 transition-colors`}
             >
               Apie mus
             </Link>
             <Link 
-              to="/blog" 
-              className={`${isActive('/blog') ? 'text-green-700 font-semibold' : 'text-gray-800'} hover:text-green-700 transition-colors`}
+              to="/naujienos" 
+              className={`${isActive('/naujienos') ? 'text-green-700 font-semibold' : 'text-gray-800'} hover:text-green-700 transition-colors`}
             >
               Naujienos
             </Link>
             <Link 
-              to="/contact" 
-              className={`${isActive('/contact') ? 'text-green-700 font-semibold' : 'text-gray-800'} hover:text-green-700 transition-colors`}
+              to="/kontaktai" 
+              className={`${isActive('/kontaktai') ? 'text-green-700 font-semibold' : 'text-gray-800'} hover:text-green-700 transition-colors`}
             >
               Kontaktai
             </Link>
@@ -72,7 +99,7 @@ const Navbar = () => {
                 <span className="font-semibold">+370 699 25744</span>
               </a>
               <Link
-                to="/contact#contact-form"
+                to="/kontaktai#contact-form"
                 onClick={handleRegistrationClick}
                 className="flex items-center px-4 py-2 bg-green-600 text-white rounded-lg font-semibold hover:bg-green-700 transition-colors"
               >
@@ -108,37 +135,59 @@ const Navbar = () => {
             >
               Pradžia
             </Link>
+            <div className="space-y-1 pl-3">
+              <div className="px-3 py-2 text-base font-medium text-gray-800">Paslaugos:</div>
+              <Link 
+                to="/paslaugos/buitines-technikos-isvezimas" 
+                className="block px-3 py-2 text-base font-medium text-gray-800 hover:text-green-700 hover:bg-gray-50"
+                onClick={() => setIsOpen(false)}
+              >
+                Buitinės technikos išvežimas
+              </Link>
+              <Link 
+                to="/paslaugos/elektronikos-atlieku-isvezimas" 
+                className="block px-3 py-2 text-base font-medium text-gray-800 hover:text-green-700 hover:bg-gray-50"
+                onClick={() => setIsOpen(false)}
+              >
+                Elektronikos atliekų išvežimas
+              </Link>
+              <Link 
+                to="/paslaugos/baldu-isvezimas" 
+                className="block px-3 py-2 text-base font-medium text-gray-800 hover:text-green-700 hover:bg-gray-50"
+                onClick={() => setIsOpen(false)}
+              >
+                Baldų išvežimas
+              </Link>
+              <Link 
+                to="/paslaugos/metalo-lauzo-isvezimas" 
+                className="block px-3 py-2 text-base font-medium text-gray-800 hover:text-green-700 hover:bg-gray-50"
+                onClick={() => setIsOpen(false)}
+              >
+                Metalo laužo išvežimas
+              </Link>
+            </div>
             <Link 
-              to="/services" 
+              to="/apie-mus" 
               className={`block px-3 py-2 text-base font-medium rounded-md ${
-                isActive('/services') ? 'text-green-700 bg-green-50' : 'text-gray-800 hover:text-green-700 hover:bg-gray-50'
-              }`}
-              onClick={() => setIsOpen(false)}
-            >
-              Paslaugos
-            </Link>
-            <Link 
-              to="/about" 
-              className={`block px-3 py-2 text-base font-medium rounded-md ${
-                isActive('/about') ? 'text-green-700 bg-green-50' : 'text-gray-800 hover:text-green-700 hover:bg-gray-50'
+                isActive('/apie-mus') ? 'text-green-700 bg-green-50' : 'text-gray-800 hover:text-green-700 hover:bg-gray-50'
               }`}
               onClick={() => setIsOpen(false)}
             >
               Apie mus
             </Link>
             <Link 
-              to="/blog" 
+              to="/naujienos" 
               className={`block px-3 py-2 text-base font-medium rounded-md ${
-                isActive('/blog') ? 'text-green-700 bg-green-50' : 'text-gray-800 hover:text-green-700 hover:bg-gray-50'
+                isActive('/naujienos') ? 'text-green-700 bg-green-50' : 'text-gray-800 hover:text-green-700 hover:bg-gray-50'
               }`}
               onClick={() => setIsOpen(false)}
             >
               Naujienos
             </Link>
             <Link 
-              to="/contact" 
+              to="/kontaktai" 
               className={`block px-3 py-2 text-base font-medium rounded-md ${
-                isActive('/contact') ? 'text-green-700 bg-green-50' : 'text-gray-800 hover:text-green-700 hover:bg-gray-50'
+                isActive('/kontaktai') ? 'text-green-700 bg-green-50' : 'text-gray-800 hover:text-green-700 hover:bg-gray-50'
               }`}
               onClick={() => setIsOpen(false)}
             >
@@ -156,7 +205,7 @@ const Navbar = () => {
                 <span className="font-semibold">+370 699 25744</span>
               </a>
               <Link
-                to="/contact#contact-form"
+                to="/kontaktai#contact-form"
                 onClick={handleRegistrationClick}
                 className="flex items-center justify-center w-full px-4 py-2 bg-green-600 text-white rounded-lg font-semibold hover:bg-green-700 transition-colors"
               >
