@@ -469,4 +469,161 @@ const blogPosts = [
     `,
     metaTitle: 'Senų baldų išvežimas Kaune | Transportuok.lt',
     metaDescription: 'Profesionalus senų baldų išvežimas Kaune. Greitas aptarnavimas, konkurencingos kainos ir atsakingas utilizavimas su Transportuok.lt.',
-    ogImage: '/images/straipsnis3.
+    ogImage: '/images/straipsnis3.webp',
+  }
+];
+
+const BlogPost = () => {
+  const navigate = useNavigate();
+  const currentPath = window.location.pathname;
+  const slug = currentPath.split('/').pop();
+  const post = blogPosts.find(p => p.slug === slug);
+
+  if (!post) {
+    return <div>Straipsnis nerastas</div>;
+  }
+
+  React.useEffect(() => {
+    document.title = post.metaTitle;
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', post.metaDescription);
+    }
+
+    const ogTitle = document.querySelector('meta[property="og:title"]');
+    const ogDescription = document.querySelector('meta[property="og:description"]');
+    const ogImage = document.querySelector('meta[property="og:image"]');
+
+    if (ogTitle) ogTitle.setAttribute('content', post.title);
+    if (ogDescription) ogDescription.setAttribute('content', post.metaDescription);
+    if (ogImage) ogImage.setAttribute('content', post.ogImage);
+  }, [post]);
+
+  const shareUrl = window.location.href;
+  const shareText = post.title;
+
+  const shareLinks = {
+    facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`,
+    twitter: `https://twitter.com/intent/tweet?url=${encodeURIComponent(shareUrl)}&text=${encodeURIComponent(shareText)}`,
+    linkedin: `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(shareUrl)}&title=${encodeURIComponent(shareText)}`,
+  };
+
+  return (
+    <article className="py-12" itemScope itemType="http://schema.org/BlogPosting">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mb-8">
+          <button
+            onClick={() => navigate('/naujienos')}
+            className="inline-flex items-center text-green-600 hover:text-green-700 font-medium"
+          >
+            <ArrowLeft className="w-5 h-5 mr-2" />
+            Grįžti į straipsnių sąrašą
+          </button>
+        </div>
+
+        <img
+          src={post.imageUrl}
+          alt={post.title}
+          className="w-full h-64 object-cover rounded-lg mb-8"
+          loading="lazy"
+          itemProp="image"
+        />
+        
+        <div className="flex items-center text-gray-500 text-sm mb-4">
+          <Calendar className="w-4 h-4 mr-2" />
+          <time itemProp="datePublished" dateTime={post.date}>
+            {new Date(post.date).toLocaleDateString('lt-LT')}
+          </time>
+        </div>
+
+        <div 
+          className="prose prose-lg max-w-none"
+          itemProp="articleBody"
+          dangerouslySetInnerHTML={{ __html: post.content }}
+        />
+
+        <div className="mt-8 pt-8 border-t border-gray-200">
+          <h3 className="text-lg font-semibold mb-4">Dalintis straipsniu:</h3>
+          <div className="flex space-x-4">
+            {Object.entries(shareLinks).map(([platform, url]) => (
+<a
+  key={platform}
+  href={url}
+  target="_blank"
+  rel="noopener noreferrer"
+  className="flex items-center text-gray-600 hover:text-green-600"
+>
+  <Share2 className="w-5 h-5 mr-2" />
+  {platform.charAt(0).toUpperCase() + platform.slice(1)}
+</a>
+
+            ))}
+          </div>
+        </div>
+      </div>
+    </article>
+  );
+};
+
+const BlogList = () => {
+  React.useEffect(() => {
+    document.title = 'Naujienos ir patarimai | Transportuok.lt';
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', 'Naujausia informacija apie atliekų tvarkymą ir perdirbimą Kaune. Naudingos žinios apie buitinės technikos ir elektronikos utilizavimą.');
+    }
+  }, []);
+
+  return (
+    <div className="py-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-16">
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">Naujienos ir patarimai</h1>
+          <p className="text-xl text-gray-600">Naujausia informacija apie atliekų tvarkymą ir perdirbimą</p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {blogPosts.map((post) => (
+            <article 
+              key={post.id} 
+              className="bg-white rounded-lg shadow-lg overflow-hidden"
+              itemScope 
+              itemType="http://schema.org/BlogPosting"
+            >
+              <img
+                src={post.imageUrl}
+                alt={post.title}
+                className="w-full h-48 object-cover"
+                loading="lazy"
+                itemProp="image"
+              />
+              <div className="p-6">
+                <div className="flex items-center text-gray-500 text-sm mb-4">
+                  <Calendar className="w-4 h-4 mr-2" />
+                  <time itemProp="datePublished" dateTime={post.date}>
+                    {new Date(post.date).toLocaleDateString('lt-LT')}
+                  </time>
+                </div>
+                <h2 className="text-xl font-bold mb-3" itemProp="headline">{post.title}</h2>
+                <p className="text-gray-600 mb-4" itemProp="description">{post.excerpt}</p>
+                <Link 
+                  to={`/naujienos/${post.slug}`}
+                  className="text-green-600 font-semibold hover:text-green-700"
+                >
+                  Skaityti daugiau →
+                </Link>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const Naujienos = () => {
+  const currentPath = window.location.pathname;
+  return currentPath === '/naujienos' ? <BlogList /> : <BlogPost />;
+};
+
+export default Naujienos;
