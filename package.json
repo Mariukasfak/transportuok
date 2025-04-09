@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "npm run update-browserslist && vite build",
+    "build": "npm run update-browserslist && tsc && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
     "update-browserslist": "node -e \"require('child_process').execSync('npx browserslist@latest --update-db', {stdio: 'inherit'})\""

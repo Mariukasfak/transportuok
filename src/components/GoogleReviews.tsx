@@ -3,8 +3,8 @@ import { Star } from 'lucide-react';
 
 // Global variable to track script loading
 const GOOGLE_MAPS_SCRIPT_ID = 'google-maps-script';
-const API_KEY = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
-const PLACE_ID = 'ChIJUQca9pEZR0YRMFCltlBddjA'; // Updated Transportuok.lt Place ID
+const API_KEY = 'AIzaSyCqDMeJYhYRQylvB9I6artLkAo_EuK4gKc';
+const PLACE_ID = 'ChIJ7c7B8XnZ50YRu13wXwVdK4U';
 
 interface Review {
   author_name: string;
@@ -22,28 +22,24 @@ const GoogleReviews: React.FC = () => {
   const [averageRating, setAverageRating] = useState<number>(0);
 
   useEffect(() => {
+    // Load Google Maps script only when component is visible
+    const observer = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) {
+        loadGoogleMapsScript();
+        observer.disconnect();
+      }
+    });
+
+    observer.observe(document.getElementById('reviews-section') || document.body);
+
+    return () => observer.disconnect();
+  }, []);
+
+  const loadGoogleMapsScript = () => {
     // Check if script is already loaded
     if (document.getElementById(GOOGLE_MAPS_SCRIPT_ID)) {
-      // If Google is already globally available, initialize map
       if (window.google && window.google.maps) {
         initMap();
-      } else {
-        // If script is loaded but Google object not yet created
-        const waitForGoogleMaps = setInterval(() => {
-          if (window.google && window.google.maps) {
-            clearInterval(waitForGoogleMaps);
-            initMap();
-          }
-        }, 100);
-        
-        // Clear interval if Google not created after 10 seconds
-        setTimeout(() => {
-          clearInterval(waitForGoogleMaps);
-          if (!window.google || !window.google.maps) {
-            setError('Nepavyko įkelti Google Maps API per 10s');
-            loadFallbackReviews();
-          }
-        }, 10000);
       }
       return;
     }
@@ -60,11 +56,7 @@ const GoogleReviews: React.FC = () => {
       loadFallbackReviews();
     };
     document.head.appendChild(script);
-
-    return () => {
-      // Don't remove script as it might be used by other components
-    };
-  }, []);
+  };
 
   function initMap() {
     try {
@@ -159,106 +151,74 @@ const GoogleReviews: React.FC = () => {
   }
 
   return (
-    <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "LocalBusiness",
-            "name": "Transportuok.lt",
-            "aggregateRating": {
-              "@type": "AggregateRating",
-              "ratingValue": averageRating.toFixed(1),
-              "reviewCount": reviews.length.toString(),
-              "bestRating": "5",
-              "worstRating": "1"
-            },
-            "review": reviews.map(review => ({
-              "@type": "Review",
-              "author": {
-                "@type": "Person",
-                "name": review.author_name
-              },
-              "reviewRating": {
-                "@type": "Rating",
-                "ratingValue": review.rating
-              },
-              "datePublished": new Date(review.time * 1000).toISOString(),
-              "reviewBody": review.text
-            }))
-          })
-        }}
-      />
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-              Klientų atsiliepimai
-            </h2>
-            <div className="flex justify-center items-center space-x-1 mb-2">
-              {renderStars(averageRating)}
-            </div>
-            <p className="text-lg text-gray-600">
-              {averageRating.toFixed(1)} iš 5 ({reviews.length} atsiliepimai)
-            </p>
+    <section id="reviews-section" className="py-16 bg-gray-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+            Klientų atsiliepimai
+          </h2>
+          <div className="flex justify-center items-center space-x-1 mb-2">
+            {renderStars(averageRating)}
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {reviews.map((review, index) => (
-              <div
-                key={index}
-                className="bg-white p-6 rounded-lg shadow-lg"
-                itemScope
-                itemType="http://schema.org/Review"
-              >
-                <div className="flex items-center mb-4">
-                  <div className="flex-shrink-0">
-                    {review.profile_photo_url ? (
-                      <img
-                        src={review.profile_photo_url}
-                        alt={`${review.author_name} nuotrauka`}
-                        className="w-12 h-12 rounded-full"
-                        loading="lazy"
-                        width="48"
-                        height="48"
-                      />
-                    ) : (
-                      <div className="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center">
-                        <span className="text-xl font-semibold text-green-600">
-                          {review.author_name.charAt(0)}
-                        </span>
-                      </div>
-                    )}
-                  </div>
-                  <div className="ml-4">
-                    <h3 className="text-lg font-semibold" itemProp="author">
-                      {review.author_name}
-                    </h3>
-                    <p className="text-gray-500">{review.relative_time_description}</p>
-                  </div>
-                </div>
-                <div className="flex mb-3">{renderStars(review.rating)}</div>
-                <p className="text-gray-600" itemProp="reviewBody">
-                  {review.text}
-                </p>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-8 text-center">
-            <a
-              href={`https://search.google.com/local/reviews?placeid=${PLACE_ID}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block bg-white text-green-700 px-6 py-3 rounded-lg font-semibold border-2 border-green-700 hover:bg-green-700 hover:text-white transition-colors"
-            >
-              Palikite atsiliepimą
-            </a>
-          </div>
+          <p className="text-lg text-gray-600">
+            {averageRating.toFixed(1)} iš 5 ({reviews.length} atsiliepimai)
+          </p>
         </div>
-      </section>
-    </>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {reviews.map((review, index) => (
+            <div
+              key={index}
+              className="bg-white p-6 rounded-lg shadow-lg"
+              itemScope
+              itemType="http://schema.org/Review"
+            >
+              <div className="flex items-center mb-4">
+                <div className="flex-shrink-0">
+                  {review.profile_photo_url ? (
+                    <img
+                      src={review.profile_photo_url}
+                      alt={`${review.author_name} nuotrauka`}
+                      className="w-12 h-12 rounded-full"
+                      loading="lazy"
+                      width="48"
+                      height="48"
+                    />
+                  ) : (
+                    <div className="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center">
+                      <span className="text-xl font-semibold text-green-600">
+                        {review.author_name.charAt(0)}
+                      </span>
+                    </div>
+                  )}
+                </div>
+                <div className="ml-4">
+                  <h3 className="text-lg font-semibold" itemProp="author">
+                    {review.author_name}
+                  </h3>
+                  <p className="text-gray-500">{review.relative_time_description}</p>
+                </div>
+              </div>
+              <div className="flex mb-3">{renderStars(review.rating)}</div>
+              <p className="text-gray-600" itemProp="reviewBody">
+                {review.text}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-8 text-center">
+          <a
+            href={`https://search.google.com/local/reviews?placeid=${PLACE_ID}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block bg-white text-green-700 px-6 py-3 rounded-lg font-semibold border-2 border-green-700 hover:bg-green-700 hover:text-white transition-colors"
+          >
+            Palikite atsiliepimą
+          </a>
+        </div>
+      </div>
+    </section>
   );
 };
 
