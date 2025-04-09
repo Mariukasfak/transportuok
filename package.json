@@ -5,10 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "npm run update-browserslist && tsc && vite build",
+    "build": "npm run update-browserslist && npm run optimize-images && tsc && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "update-browserslist": "node -e \"require('child_process').execSync('npx browserslist@latest --update-db', {stdio: 'inherit'})\""
+    "update-browserslist": "node -e \"require('child_process').execSync('npx browserslist@latest --update-db', {stdio: 'inherit'})\"",
+    "optimize-images": "node scripts/optimize-images.js"
   },
   "dependencies": {
     "@emailjs/browser": "^4.3.3",
@@ -34,6 +35,7 @@
     "eslint-plugin-react-refresh": "^0.4.11",
     "globals": "^15.9.0",
     "postcss": "^8.4.35",
+    "sharp": "^0.33.2",
     "tailwindcss": "^3.4.1",
     "terser": "^5.28.1",
     "typescript": "^5.5.3",

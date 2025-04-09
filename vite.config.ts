@@ -24,11 +24,9 @@ export default defineConfig({
       }
     },
     assetsDir: 'assets',
-    copyPublicDir: true,
     assetsInlineLimit: 4096, // Inline assets smaller than 4kb
   },
   optimizeDeps: {
     include: ['react', 'react-dom', 'react-router-dom', 'lucide-react']
-  },
-  publicDir: 'public'
+  }
 });
