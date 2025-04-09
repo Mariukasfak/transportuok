@@ -16,6 +16,26 @@
     <link rel="preload" as="style" href="/src/index.css" />
     <link rel="preload" as="script" href="/src/main.tsx" type="module" />
     
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://maps.googleapis.com" crossorigin />
+    
+    <!-- Font optimization -->
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+        type="text/css"
+      />
+    </noscript>
+    
     <!-- Open Graph tags -->
     <meta property="og:title" content="Nemokamas buitinės technikos išvežimas Kaune | Transportuok.lt" />
     <meta property="og:description" content="Greitas ir nemokamas buitinės technikos, elektronikos ir metalo laužo išvežimas Kaune. Užsakykite paslaugą internetu!" />
@@ -29,9 +49,6 @@
     <meta name="twitter:title" content="Nemokamas buitinės technikos išvežimas Kaune | Transportuok.lt" />
     <meta name="twitter:description" content="Greitas ir nemokamas buitinės technikos, elektronikos ir metalo laužo išvežimas Kaune." />
     <meta name="twitter:image" content="/src/assets/hero-bg-appliances.webp" />
-    
-    <!-- Preconnect to external domains -->
-    <link rel="preconnect" href="https://maps.googleapis.com" crossorigin />
     
     <!-- Schema.org markup for LocalBusiness -->
     <script type="application/ld+json">
@@ -92,81 +109,6 @@
       }
     }
     </script>
-
-    <!-- Schema.org markup for Service -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Service",
-      "serviceType": "Buitinės technikos išvežimas",
-      "provider": {
-        "@type": "LocalBusiness",
-        "name": "Transportuok.lt"
-      },
-      "areaServed": {
-        "@type": "City",
-        "name": "Kaunas"
-      },
-      "description": "Nemokamas šaldytuvų, skalbimo mašinų, viryklių ir kitos buitinės technikos išvežimas Kaune ir apylinkėse.",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "EUR"
-      }
-    }
-    </script>
-
-    <!-- Schema.org markup for FAQPage -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "Ar išvežate buitinę techniką nemokamai?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Taip, buitinės technikos ir elektronikos išvežimas Kaune yra nemokamas. Baldų išvežimui taikomas simbolinis mokestis, priklausantis nuo baldų kiekio."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Kaip užsisakyti išvežimą?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Užpildykite užklausos formą mūsų svetainėje arba skambinkite telefonu +370 699 25744. Susisieksime su jumis per 24 valandas ir sutarsime tikslų išvežimo laiką."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Kokią buitinę techniką išvežate?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Išvežame visą buitinę techniką: šaldytuvus, šaldiklius, skalbimo mašinas, indaploves, virykles, orkaites, mikrobangų krosneles, gartraukius ir kitą techniką."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Ar reikia išmontuoti buitinę techniką prieš išvežimą?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Ne, jums nereikia išmontuoti technikos. Mūsų specialistai patys atjungs prietaisus ir profesionaliai juos išveš."
-          }
-        }
-      ]
-    }
-    </script>
-
-    <style>
-      @font-face {
-        font-family: 'Inter';
-        font-style: normal;
-        font-weight: 400;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hjp-Ek-_0ew.woff2) format('woff2');
-      }
-    </style>
   </head>
   <body>
     <div id="root"></div>
