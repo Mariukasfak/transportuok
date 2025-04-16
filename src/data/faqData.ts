@@ -83,8 +83,8 @@ export const buitinesTechnikosFAQ = [
       <p>Buitinės technikos išvežimo procesas yra greitas ir efektyvus:</p>
       <ul>
         <li>Atvykimas po užsakymo: 1-2 darbo dienos</li>
-        <li>Vienos technikos išnešimas: 15-30 minučių</li>
-        <li>Kelių prietaisų išvežimas: 30-60 minučių</li>
+        <li>Vienos technikos išnešimas: Iki 5 minučių</li>
+        <li>Kelių prietaisų išvežimas: Iki 10 minučių</li>
       </ul>
       <p>Tikslų laiką sutarsime pagal jūsų pageidavimus ir technikos kiekį.</p>
     `

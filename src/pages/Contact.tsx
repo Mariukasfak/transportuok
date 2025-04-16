@@ -4,6 +4,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { Phone, Mail, MapPin, Clock, CheckCircle, Home, Trash2, Loader2, HelpCircle } from 'lucide-react';
 import emailjs from '@emailjs/browser';
+import { trackFormSubmission } from '../utils/analytics';
 
 const contactSchema = z.object({
   address: z.string()
@@ -40,7 +41,6 @@ const Contact = () => {
   });
 
   useEffect(() => {
-    // Update meta tags
     document.title = 'Susisiekite dėl atliekų išvežimo Kaune | Transportuok.lt';
     
     const metaDescription = document.querySelector('meta[name="description"]');
@@ -48,7 +48,6 @@ const Contact = () => {
       metaDescription.setAttribute('content', 'Susisiekite su Transportuok.lt dėl nemokamo daiktų išvežimo Kaune. Užpildykite formą arba skambinkite +370 699 25744. Dirbame visoje Kauno miesto teritorijoje.');
     }
 
-    // Update Open Graph tags
     const ogTitle = document.querySelector('meta[property="og:title"]');
     const ogDescription = document.querySelector('meta[property="og:description"]');
     const ogUrl = document.querySelector('meta[property="og:url"]');
@@ -57,7 +56,6 @@ const Contact = () => {
     if (ogDescription) ogDescription.setAttribute('content', 'Susisiekite su Transportuok.lt dėl nemokamo daiktų išvežimo Kaune. Greitas ir patikimas aptarnavimas.');
     if (ogUrl) ogUrl.setAttribute('content', 'https://transportuok.lt/contact');
 
-    // Update canonical URL
     let canonical = document.querySelector('link[rel="canonical"]');
     if (!canonical) {
       canonical = document.createElement('link');
@@ -67,7 +65,6 @@ const Contact = () => {
     canonical.setAttribute('href', 'https://transportuok.lt/contact');
   }, []);
 
-  // Scroll to form on mount if hash is present
   React.useEffect(() => {
     const hash = window.location.hash;
     if (hash === '#contact-form') {
@@ -97,10 +94,17 @@ const Contact = () => {
         'F_bgx8N1D2rFvUIoM'
       );
 
+      // Track successful form submission
+      trackFormSubmission('contact_form', true);
+      
       setStatus('success');
       reset();
     } catch (error) {
       console.error('EmailJS error:', error);
+      
+      // Track form submission error
+      trackFormSubmission('contact_form', false);
+      
       setStatus('error');
     }
   };
@@ -320,7 +324,7 @@ const Contact = () => {
           {/* Contact Info and Map Section */}
           <div>
             <div className="bg-white rounded-lg shadow-lg p-8 mb-8">
-              <h2 className="text-2xl font-bold mb-6">Kontaktinė informacija</h2>
+              <h2 className="text-xl font-bold mb-4">Kontaktinė informacija</h2>
               
               <div className="space-y-6">
                 <div className="flex items-center">

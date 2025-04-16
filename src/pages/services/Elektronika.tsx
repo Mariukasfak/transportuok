@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Truck, Clock, CheckCircle, Phone, Recycle } from 'lucide-react';
+import { Truck, Clock, CheckCircle, Phone } from 'lucide-react';
+import FAQ from '../../components/FAQ';
+import { elektronikosFAQ } from '../../data/faqData';
 
 const Elektronika = () => {
   useEffect(() => {
@@ -90,7 +92,7 @@ const Elektronika = () => {
                     </li>
                     <li className="flex items-center">
                       <CheckCircle className="w-5 h-5 text-green-600 mr-2" />
-                      <span>Žaidimų konsolės</span>
+                      <span>Ir kitą stambią buitinę techniką</span>
                     </li>
                   </ul>
                 </div>
@@ -207,6 +209,13 @@ const Elektronika = () => {
             </div>
           </div>
         </div>
+
+        {/* FAQ Section */}
+        <FAQ 
+          items={elektronikosFAQ}
+          title="Dažniausiai užduodami klausimai apie elektronikos atliekų išvežimą"
+          category="Elektronikos atliekų išvežimas"
+        />
       </div>
     </div>
   );

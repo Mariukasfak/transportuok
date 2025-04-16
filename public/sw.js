@@ -20,6 +20,14 @@ const STATIC_CACHE_URLS = [
   '/ikona_spalvotas.svg'
 ];
 
+// Check if the current request is for a chrome extension or non-https URL
+const shouldHandleRequest = (url) => {
+  return url.startsWith('https://') && 
+         !url.startsWith('chrome-extension://') &&
+         !url.includes('google-analytics.com') &&
+         !url.includes('googletagmanager.com');
+};
+
 // Install event - precache static assets
 self.addEventListener('install', event => {
   event.waitUntil(
@@ -46,16 +54,8 @@ self.addEventListener('activate', event => {
 
 // Fetch event - serve from cache or network
 self.addEventListener('fetch', event => {
-  // Skip non-GET requests
-  if (event.request.method !== 'GET') {
-    return;
-  }
-
-  // Skip Google Maps and font requests
-  if (
-    event.request.url.includes('maps.googleapis.com') ||
-    event.request.url.includes('fonts.googleapis.com')
-  ) {
+  // Skip non-GET requests and non-https URLs
+  if (event.request.method !== 'GET' || !shouldHandleRequest(event.request.url)) {
     return;
   }
 
@@ -68,8 +68,8 @@ self.addEventListener('fetch', event => {
 
         return fetch(event.request)
           .then(response => {
-            // Don't cache non-successful responses
-            if (!response || response.status !== 200 || response.type !== 'basic') {
+            // Don't cache non-successful responses or non-asset responses
+            if (!response || response.status !== 200 || !response.url.match(/\.(js|css|webp|svg|png|jpg|jpeg|gif|woff2?)$/)) {
               return response;
             }
 
@@ -78,11 +78,36 @@ self.addEventListener('fetch', event => {
 
             caches.open(CACHE_NAME)
               .then(cache => {
-                cache.put(event.request, responseToCache);
+                if (shouldHandleRequest(event.request.url)) {
+                  cache.put(event.request, responseToCache);
+                }
+              })
+              .catch(error => {
+                console.error('Cache put error:', error);
               });
 
             return response;
+          })
+          .catch(() => {
+            // Return a fallback response for failed network requests
+            return new Response('Network error occurred', {
+              status: 503,
+              statusText: 'Service Unavailable',
+              headers: new Headers({
+                'Content-Type': 'text/plain'
+              })
+            });
           });
       })
   );
+});
+
+// Handle errors
+self.addEventListener('error', event => {
+  console.error('Service Worker error:', event.error);
+});
+
+// Handle unhandled promise rejections
+self.addEventListener('unhandledrejection', event => {
+  console.error('Service Worker unhandled promise rejection:', event.reason);
 });

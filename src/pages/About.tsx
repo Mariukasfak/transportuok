@@ -80,7 +80,7 @@ const About = () => {
             <ul className="list-disc list-inside space-y-2 ml-4">
               <li>Nemokamas buitinės technikos išvežimas (šaldytuvai, skalbimo mašinos, viryklės)</li>
               <li>Elektronikos atliekų surinkimas ir utilizavimas</li>
-              <li>Metalo laužo išvežimas nemokamai (jei atitinka minimalius kiekius)</li>
+              <li>Metalo laužo išvežimas nemokamai </li>
               <li>Baldų ir stambiagabaričių atliekų išvežimas</li>
             </ul>
           </div>

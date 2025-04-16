@@ -93,6 +93,10 @@ const BuitineTechnika = () => {
                         <CheckCircle className="w-5 h-5 text-green-600 mr-2" />
                         <span>Skalbimo-džiovinimo mašinos</span>
                       </li>
+                                            <li className="flex items-center">
+                        <CheckCircle className="w-5 h-5 text-green-600 mr-2" />
+                        <span>Ir kiti elektronikos prietaisai</span>
+                      </li>
                     </ul>
                   </div>
                 </div>

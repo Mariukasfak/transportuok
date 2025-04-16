@@ -5,16 +5,47 @@
     <link rel="icon" type="image/svg+xml" href="/ikona_spalvotas.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-320YE0N58G"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-320YE0N58G');
+    </script>
+    
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PZ7CJ6M4');</script>
+    
     <!-- Primary Meta Tags -->
     <title>Nemokamas buitinės technikos išvežimas Kaune | Transportuok.lt</title>
     <meta name="description" content="Nemokamas šaldytuvų, skalbimo mašinų ir kitos buitinės technikos išvežimas Kaune. Atliekų surinkimas greitai ir patikimai. Užsakykite išvežimą dabar - atvykstame per 24 val." />
     <meta name="keywords" content="buitinės technikos išvežimas, elektronikos išvežimas, baldų išvežimas, metalo laužo išvežimas, atliekų išvežimas Kaune" />
     <link rel="canonical" href="https://transportuok.lt/" />
     
-    <!-- Preload critical assets -->
-    <link rel="preload" href="/src/assets/hero-bg-appliances.webp" as="image" type="image/webp" fetchpriority="high" />
-    <link rel="preload" as="style" href="/src/index.css" />
-    <link rel="preload" as="script" href="/src/main.tsx" type="module" />
+    <!-- Critical resources preload -->
+    <link 
+      rel="preload" 
+      href="/src/assets/hero-bg-appliances.webp" 
+      as="image" 
+      type="image/webp" 
+      fetchpriority="high" 
+    />
+    <link 
+      rel="preload" 
+      href="/src/index.css" 
+      as="style" 
+    />
+    <link 
+      rel="preload" 
+      href="/src/main.tsx" 
+      as="script" 
+      type="module" 
+    />
     
     <!-- Open Graph tags -->
     <meta property="og:title" content="Nemokamas buitinės technikos išvežimas Kaune | Transportuok.lt" />
@@ -33,12 +64,18 @@
     <!-- Preconnect to external domains -->
     <link rel="preconnect" href="https://maps.googleapis.com" crossorigin />
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
+    <link rel="preconnect" href="https://www.google-analytics.com" crossorigin />
     
     <!-- Styles -->
     <link rel="stylesheet" href="/src/index.css" media="print" onload="this.media='all'" />
     <noscript><link rel="stylesheet" href="/src/index.css" /></noscript>
   </head>
   <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PZ7CJ6M4"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

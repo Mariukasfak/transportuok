@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Truck, Clock, CheckCircle, Phone } from 'lucide-react';
+import FAQ from '../../components/FAQ';
+import { metaloFAQ } from '../../data/faqData';
 
 const MetaloLauzas = () => {
   useEffect(() => {
@@ -88,6 +90,10 @@ const MetaloLauzas = () => {
                       <CheckCircle className="w-5 h-5 text-green-600 mr-2" />
                       <span>Nerūdijantis plienas</span>
                     </li>
+                                        <li className="flex items-center">
+                      <CheckCircle className="w-5 h-5 text-green-600 mr-2" />
+                      <span>Špižines ir skardines vonias</span>
+                    </li>
                   </ul>
                 </div>
               </div>
@@ -136,7 +142,7 @@ const MetaloLauzas = () => {
                 <div className="bg-gray-50 p-4 rounded-lg">
                   <h3 className="font-semibold mb-2">Nemokamas išvežimas</h3>
                   <p className="text-gray-600">
-                    Metalo laužą išvežame nemokamai, kai atitinka minimalų kiekį.
+                    Metalo laužą išvežame nemokamai.
                   </p>
                 </div>
                 <div className="bg-gray-50 p-4 rounded-lg">
@@ -202,6 +208,13 @@ const MetaloLauzas = () => {
             </div>
           </div>
         </div>
+
+        {/* FAQ Section */}
+        <FAQ 
+          items={metaloFAQ}
+          title="Dažniausiai užduodami klausimai apie metalo laužo išvežimą"
+          category="Metalo laužo išvežimas"
+        />
       </div>
     </div>
   );

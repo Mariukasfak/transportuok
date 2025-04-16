@@ -1,7 +1,9 @@
-import React, { lazy, Suspense, useEffect } from 'react';
+import React, { lazy, Suspense } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import GoogleAnalytics from './components/GoogleAnalytics';
+import ErrorBoundary from './components/ErrorBoundary';
 
 // Pagrindinis puslapis
 const Home = lazy(() => import('./pages/Home'));
@@ -26,7 +28,7 @@ const LoadingFallback = () => (
 function ScrollToTop() {
   const { pathname } = useLocation();
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (!window.location.hash) {
       window.scrollTo(0, 0);
     }
@@ -37,31 +39,36 @@ function ScrollToTop() {
 
 function App() {
   return (
-    <div className="min-h-screen flex flex-col">
-      <ScrollToTop />
-      <Navbar />
-      <main className="flex-grow">
-        <Suspense fallback={<LoadingFallback />}>
-          <Routes>
-            {/* Pagrindinis puslapis */}
-            <Route path="/" element={<Home />} />
+    <ErrorBoundary>
+      <div className="min-h-screen flex flex-col">
+        <ScrollToTop />
+        <GoogleAnalytics />
+        <Navbar />
+        <main className="flex-grow">
+          <ErrorBoundary>
+            <Suspense fallback={<LoadingFallback />}>
+              <Routes>
+                {/* Pagrindinis puslapis */}
+                <Route path="/" element={<Home />} />
 
-            {/* Paslaugų puslapiai */}
-            <Route path="/paslaugos/buitines-technikos-isvezimas" element={<BuitineTechnika />} />
-            <Route path="/paslaugos/elektronikos-atlieku-isvezimas" element={<Elektronika />} />
-            <Route path="/paslaugos/baldu-isvezimas" element={<Baldai />} />
-            <Route path="/paslaugos/metalo-lauzo-isvezimas" element={<MetaloLauzas />} />
+                {/* Paslaugų puslapiai */}
+                <Route path="/paslaugos/buitines-technikos-isvezimas" element={<BuitineTechnika />} />
+                <Route path="/paslaugos/elektronikos-atlieku-isvezimas" element={<Elektronika />} />
+                <Route path="/paslaugos/baldu-isvezimas" element={<Baldai />} />
+                <Route path="/paslaugos/metalo-lauzo-isvezimas" element={<MetaloLauzas />} />
 
-            {/* Kiti puslapiai */}
-            <Route path="/apie-mus" element={<About />} />
-            <Route path="/kontaktai" element={<Contact />} />
-            <Route path="/naujienos" element={<Naujienos />} />
-            <Route path="/naujienos/:slug" element={<Naujienos />} />
-          </Routes>
-        </Suspense>
-      </main>
-      <Footer />
-    </div>
+                {/* Kiti puslapiai */}
+                <Route path="/apie-mus" element={<About />} />
+                <Route path="/kontaktai" element={<Contact />} />
+                <Route path="/naujienos" element={<Naujienos />} />
+                <Route path="/naujienos/:slug" element={<Naujienos />} />
+              </Routes>
+            </Suspense>
+          </ErrorBoundary>
+        </main>
+        <Footer />
+      </div>
+    </ErrorBoundary>
   );
 }
 

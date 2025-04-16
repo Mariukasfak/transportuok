@@ -1,6 +1,23 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Phone, Mail, MapPin } from 'lucide-react';
+import { Phone, Mail, MapPin, Facebook, Instagram } from 'lucide-react';
+
+const PaslaugosIcon = () => (
+  <svg 
+    xmlns="images\paslaugos.svg" 
+    width="24" 
+    height="24" 
+    viewBox="0 0 24 24" 
+    fill="none" 
+    stroke="currentColor" 
+    strokeWidth="2" 
+    strokeLinecap="round" 
+    strokeLinejoin="round"
+    className="lucide lucide-icon"
+  >
+    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+  </svg>
+);
 
 const Footer = () => {
   return (
@@ -12,6 +29,35 @@ const Footer = () => {
             <p className="text-gray-400">
               Profesionalus buitinės technikos ir elektronikos atliekų išvežimas Kaune ir apylinkėse.
             </p>
+            <div className="flex space-x-4 mt-4">
+              <a 
+                href="https://facebook.com/transportuok.lt" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                aria-label="Sekite mus Facebook"
+                className="text-gray-400 hover:text-white transition-colors"
+              >
+                <Facebook className="w-6 h-6" />
+              </a>
+              <a 
+                href="https://instagram.com/transportuok.lt" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                aria-label="Sekite mus Instagram"
+                className="text-gray-400 hover:text-white transition-colors"
+              >
+                <Instagram className="w-6 h-6" />
+              </a>
+              <a 
+                href="https://paslaugos.lt/transportuoklt-ti412" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                aria-label="Mūsų profilis Paslaugos.lt"
+                className="text-gray-400 hover:text-white transition-colors"
+              >
+                <PaslaugosIcon />
+              </a>
+            </div>
           </div>
           
           <div>
@@ -58,6 +104,9 @@ const Footer = () => {
 
         <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
           <p>&copy; {new Date().getFullYear()} Transportuok.lt. Visos teisės saugomos.</p>
+          <small className="block mt-2 text-gray-500">
+            Mūsų komandą aprengia <a href="https://siemka.lt" target="_blank" rel="noopener noreferrer" aria-label="Siemka.lt - marškinėliai ir džemperiai su spauda" className="text-green-500 hover:text-white transition-colors">Siemka.lt</a> – marškinėliai ir džemperiai su spauda
+          </small>
         </div>
       </div>
     </footer>

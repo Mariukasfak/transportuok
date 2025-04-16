@@ -2,8 +2,14 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import heroBackground from '../assets/hero-bg-appliances.webp';
+import { trackCTAClick } from '../utils/analytics';
 
 const Home = () => {
+  // Add a handler for CTA clicks
+  const handleCTAClick = (ctaId: string, ctaText: string) => {
+    trackCTAClick(ctaId, ctaText);
+  };
+
   return (
     <>
       <Helmet>
@@ -32,6 +38,7 @@ const Home = () => {
             <Link
               to="/kontaktai#contact-form"
               className="inline-block bg-[#167d36] hover:bg-[#0f5a26] text-white font-bold text-base px-6 py-3 rounded-lg shadow-md transition-colors"
+              onClick={() => handleCTAClick('hero_cta', 'Pateikti užklausą')}
             >
               Pateikti užklausą
             </Link>
@@ -49,7 +56,7 @@ const Home = () => {
                 <picture>
                   <source srcSet="/images/buitine-technika.webp" type="image/webp" />
                   <img
-                    src="/images/buitine-technika.png"
+                    src="/images/buitine-technika.webp"
                     alt="Nemokamas šaldytuvų ir skalbimo mašinų išvežimas Kaune"
                     className="w-full h-48 object-cover rounded-lg mb-4"
                     width="600"
@@ -68,6 +75,7 @@ const Home = () => {
                 <Link 
                   to="/kontaktai#contact-form" 
                   className="inline-block bg-[#167d36] hover:bg-[#0f5a26] text-white font-bold px-6 py-3 rounded-lg transition-colors"
+                  onClick={() => handleCTAClick('service_cta_appliances', 'Gauti nemokamą išvežimą')}
                 >
                   Gauti nemokamą išvežimą
                 </Link>
@@ -77,7 +85,7 @@ const Home = () => {
                 <picture>
                   <source srcSet="/images/elektronika.webp" type="image/webp" />
                   <img
-                    src="/images/elektronika.png"
+                    src="/images/elektronika.webp"
                     alt="Elektronikos atliekų surinkimas ir perdirbimas Kaune"
                     className="w-full h-48 object-cover rounded-lg mb-4"
                     width="600"
@@ -96,6 +104,7 @@ const Home = () => {
                 <Link 
                   to="/kontaktai#contact-form" 
                   className="inline-block bg-[#167d36] hover:bg-[#0f5a26] text-white font-bold px-6 py-3 rounded-lg transition-colors"
+                  onClick={() => handleCTAClick('service_cta_electronics', 'Susisiekti dėl išvežimo')}
                 >
                   Susisiekti dėl išvežimo
                 </Link>
@@ -105,7 +114,7 @@ const Home = () => {
                 <picture>
                   <source srcSet="/images/baldai.webp" type="image/webp" />
                   <img
-                    src="/images/baldai.png"
+                    src="/images/baldai.webp"
                     alt="Senų baldų išvežimas Kaune"
                     className="w-full h-48 object-cover rounded-lg mb-4"
                     width="600"
@@ -124,6 +133,7 @@ const Home = () => {
                 <Link 
                   to="/kontaktai#contact-form" 
                   className="inline-block bg-[#167d36] hover:bg-[#0f5a26] text-white font-bold px-6 py-3 rounded-lg transition-colors"
+                  onClick={() => handleCTAClick('service_cta_furniture', 'Užsakyti išvežimą')}
                 >
                   Užsakyti išvežimą
                 </Link>
@@ -133,7 +143,7 @@ const Home = () => {
                 <picture>
                   <source srcSet="/images/metalo-lauzas.webp" type="image/webp" />
                   <img
-                    src="/images/metalo-lauzas.png"
+                    src="/images/metalo-lauzas.webp"
                     alt="Metalo laužo surinkimas ir išvežimas Kaune"
                     className="w-full h-48 object-cover rounded-lg mb-4"
                     width="600"
@@ -152,8 +162,9 @@ const Home = () => {
                 <Link 
                   to="/kontaktai#contact-form" 
                   className="inline-block bg-[#167d36] hover:bg-[#0f5a26] text-white font-bold px-6 py-3 rounded-lg transition-colors"
+                  onClick={() => handleCTAClick('service_cta_metal', 'Užsakyti išvežimą')}
                 >
-                  Gauti pasiūlymą
+                  Užsakyti išvežimą
                 </Link>
               </div>
             </div>
@@ -168,10 +179,12 @@ const Home = () => {
             </h2>
             <p className="text-base sm:text-xl text-white mb-8">
               Užpildykite užklausą dabar ir gaukite nemokamą išvežimą!
+            
             </p>
             <Link
               to="/kontaktai#contact-form"
               className="inline-block bg-white text-[#167d36] px-6 sm:px-8 py-3 sm:py-4 rounded-lg text-base sm:text-lg font-bold hover:bg-gray-100 transition-colors transform hover:scale-105 shadow-lg"
+              onClick={() => handleCTAClick('cta_section', 'Gauti nemokamą išvežimą')}
             >
               Gauti nemokamą išvežimą
             </Link>
@@ -240,6 +253,7 @@ const Home = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block bg-white text-[#167d36] px-6 py-3 rounded-lg font-bold border-2 border-[#167d36] hover:bg-[#167d36] hover:text-white transition-colors"
+                onClick={() => handleCTAClick('review_cta', 'Palikite atsiliepimą')}
               >
                 Palikite atsiliepimą
               </a>

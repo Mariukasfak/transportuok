@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Truck, Clock, CheckCircle, Phone } from 'lucide-react';
+import FAQ from '../../components/FAQ';
+import { balduFAQ } from '../../data/faqData';
 
 const Baldai = () => {
   useEffect(() => {
@@ -11,6 +13,8 @@ const Baldai = () => {
     if (metaDescription) {
       metaDescription.setAttribute('content', 'Profesionalus senų baldų išvežimas Kaune. Sofų, spintų, lovų ir kitų baldų išvežimas. Greitas aptarnavimas ir prieinamos kainos.');
     }
+
+    
 
     // Open Graph tags
     const ogTitle = document.querySelector('meta[property="og:title"]');
@@ -207,6 +211,13 @@ const Baldai = () => {
             </div>
           </div>
         </div>
+
+        {/* FAQ Section */}
+        <FAQ 
+          items={balduFAQ}
+          title="Dažniausiai užduodami klausimai apie baldų išvežimą"
+          category="Baldų išvežimas"
+        />
       </div>
     </div>
   );
