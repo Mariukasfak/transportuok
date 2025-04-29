@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import heroBackground from '../assets/hero-bg-appliances.webp';
 import { trackCTAClick } from '../utils/analytics';
+import OptimizedImage from '../components/OptimizedImage';
 
 const Home = () => {
   // Add a handler for CTA clicks
@@ -21,18 +21,15 @@ const Home = () => {
       <div className="min-h-screen">
         {/* Hero Section */}
         <section
-          className="relative min-h-[80vh] sm:h-[600px] pt-[96px] flex items-center justify-center bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url(${heroBackground})` }}
+          className="hero-section"
+          style={{ backgroundImage: `url('/images/optimized/hero-bg-appliances.webp')` }}
         >
-          {/* Overlay */}
-          <div className="absolute inset-0 bg-black/40 z-0" />
-
-          {/* Content */}
-          <div className="relative z-10 max-w-3xl text-center px-4">
-            <h1 className="text-4xl sm:text-5xl font-extrabold leading-tight mb-4 text-white">
+          <div className="hero-overlay" />
+          <div className="hero-content">
+            <h1 className="hero-title">
               Nemokamas buitinės technikos išvežimas Kaune
             </h1>
-            <p className="text-lg sm:text-xl text-gray-100 mb-6">
+            <p className="hero-description">
               Užpildykite užklausą bet kuriuo metu – susisieksime per 24 val.
             </p>
             <Link
@@ -53,17 +50,14 @@ const Home = () => {
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="bg-white p-6 rounded-lg shadow-lg">
-                <picture>
-                  <source srcSet="/images/buitine-technika.webp" type="image/webp" />
-                  <img
-                    src="/images/buitine-technika.webp"
-                    alt="Nemokamas šaldytuvų ir skalbimo mašinų išvežimas Kaune"
-                    className="w-full h-48 object-cover rounded-lg mb-4"
-                    width="600"
-                    height="192"
-                    loading="lazy"
-                  />
-                </picture>
+                <OptimizedImage
+                  src="/images/optimized/buitine-technika"
+                  alt="Nemokamas šaldytuvų ir skalbimo mašinų išvežimas Kaune"
+                  className="w-full h-48 object-cover rounded-lg mb-4"
+                  width={600}
+                  height={192}
+                  loading="lazy"
+                />
                 <Link to="/paslaugos/buitines-technikos-isvezimas">
                   <h3 className="text-xl font-semibold mb-4 hover:text-green-600 transition-colors">
                     Buitinės technikos išvežimas
@@ -82,17 +76,14 @@ const Home = () => {
               </div>
               
               <div className="bg-white p-6 rounded-lg shadow-lg">
-                <picture>
-                  <source srcSet="/images/elektronika.webp" type="image/webp" />
-                  <img
-                    src="/images/elektronika.webp"
-                    alt="Elektronikos atliekų surinkimas ir perdirbimas Kaune"
-                    className="w-full h-48 object-cover rounded-lg mb-4"
-                    width="600"
-                    height="192"
-                    loading="lazy"
-                  />
-                </picture>
+                <OptimizedImage
+                  src="/images/optimized/elektronika"
+                  alt="Elektronikos atliekų surinkimas ir perdirbimas Kaune"
+                  className="w-full h-48 object-cover rounded-lg mb-4"
+                  width={600}
+                  height={192}
+                  loading="lazy"
+                />
                 <Link to="/paslaugos/elektronikos-atlieku-isvezimas">
                   <h3 className="text-xl font-semibold mb-4 hover:text-green-600 transition-colors">
                     Elektronikos išvežimas
@@ -111,17 +102,14 @@ const Home = () => {
               </div>
 
               <div className="bg-white p-6 rounded-lg shadow-lg">
-                <picture>
-                  <source srcSet="/images/baldai.webp" type="image/webp" />
-                  <img
-                    src="/images/baldai.webp"
-                    alt="Senų baldų išvežimas Kaune"
-                    className="w-full h-48 object-cover rounded-lg mb-4"
-                    width="600"
-                    height="192"
-                    loading="lazy"
-                  />
-                </picture>
+                <OptimizedImage
+                  src="/images/optimized/baldai"
+                  alt="Senų baldų išvežimas Kaune"
+                  className="w-full h-48 object-cover rounded-lg mb-4"
+                  width={600}
+                  height={192}
+                  loading="lazy"
+                />
                 <Link to="/paslaugos/baldu-isvezimas">
                   <h3 className="text-xl font-semibold mb-4 hover:text-green-600 transition-colors">
                     Baldų išvežimas
@@ -140,17 +128,14 @@ const Home = () => {
               </div>
 
               <div className="bg-white p-6 rounded-lg shadow-lg">
-                <picture>
-                  <source srcSet="/images/metalo-lauzas.webp" type="image/webp" />
-                  <img
-                    src="/images/metalo-lauzas.webp"
-                    alt="Metalo laužo surinkimas ir išvežimas Kaune"
-                    className="w-full h-48 object-cover rounded-lg mb-4"
-                    width="600"
-                    height="192"
-                    loading="lazy"
-                  />
-                </picture>
+                <OptimizedImage
+                  src="/images/optimized/metalo-lauzas"
+                  alt="Metalo laužo surinkimas ir išvežimas Kaune"
+                  className="w-full h-48 object-cover rounded-lg mb-4"
+                  width={600}
+                  height={192}
+                  loading="lazy"
+                />
                 <Link to="/paslaugos/metalo-lauzo-isvezimas">
                   <h3 className="text-xl font-semibold mb-4 hover:text-green-600 transition-colors">
                     Metalo laužo išvežimas
@@ -179,7 +164,6 @@ const Home = () => {
             </h2>
             <p className="text-base sm:text-xl text-white mb-8">
               Užpildykite užklausą dabar ir gaukite nemokamą išvežimą!
-            
             </p>
             <Link
               to="/kontaktai#contact-form"

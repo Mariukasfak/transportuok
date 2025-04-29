@@ -10,13 +10,13 @@ const STATIC_CACHE_URLS = [
   '/assets/index.js',
   '/assets/react-vendor.js',
   '/assets/icons.js',
-  '/images/hero-bg-appliances-small.webp',
-  '/images/hero-bg-appliances-medium.webp',
-  '/images/hero-bg-appliances-large.webp',
-  '/images/buitine-technika.webp',
-  '/images/elektronika.webp',
-  '/images/baldai.webp',
-  '/images/metalo-lauzas.webp',
+  '/images/optimized/hero-bg-appliances.webp',
+  '/images/optimized/hero-bg-appliances-small.webp',
+  '/images/optimized/hero-bg-appliances-medium.webp',
+  '/images/optimized/buitine-technika.webp',
+  '/images/optimized/elektronika.webp',
+  '/images/optimized/baldai.webp',
+  '/images/optimized/metalo-lauzas.webp',
   '/ikona_spalvotas.svg'
 ];
 
@@ -25,7 +25,9 @@ const shouldHandleRequest = (url) => {
   return url.startsWith('https://') && 
          !url.startsWith('chrome-extension://') &&
          !url.includes('google-analytics.com') &&
-         !url.includes('googletagmanager.com');
+         !url.includes('googletagmanager.com') &&
+         !url.includes('maps.googleapis.com') &&
+         !url.includes('fonts.googleapis.com');
 };
 
 // Install event - precache static assets
@@ -54,8 +56,27 @@ self.addEventListener('activate', event => {
 
 // Fetch event - serve from cache or network
 self.addEventListener('fetch', event => {
-  // Skip non-GET requests and non-https URLs
-  if (event.request.method !== 'GET' || !shouldHandleRequest(event.request.url)) {
+  // Skip non-GET requests
+  if (event.request.method !== 'GET') {
+    return;
+  }
+
+  // Prioritize LCP image
+  if (event.request.url.includes('hero-bg-appliances.webp')) {
+    event.respondWith(
+      caches.match(event.request)
+        .then(cachedResponse => {
+          if (cachedResponse) {
+            return cachedResponse;
+          }
+          return fetch(event.request);
+        })
+    );
+    return;
+  }
+
+  // Skip if URL shouldn't be handled
+  if (!shouldHandleRequest(event.request.url)) {
     return;
   }
 
@@ -68,7 +89,7 @@ self.addEventListener('fetch', event => {
 
         return fetch(event.request)
           .then(response => {
-            // Don't cache non-successful responses or non-asset responses
+            // Don't cache non-successful responses
             if (!response || response.status !== 200 || !response.url.match(/\.(js|css|webp|svg|png|jpg|jpeg|gif|woff2?)$/)) {
               return response;
             }
