@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { trackCTAClick } from '../utils/analytics';
 import OptimizedImage from '../components/OptimizedImage';
+import LazyGoogleReviews from '../components/LazyGoogleReviews';
 
 const Home = () => {
   // Add a handler for CTA clicks
@@ -176,74 +177,18 @@ const Home = () => {
         </section>
 
         {/* Reviews Section */}
-        <section className="py-16 bg-gray-50">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12">
-              Klientų atsiliepimai
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="bg-white p-6 rounded-lg shadow-lg">
-                <div className="flex items-center mb-4">
-                  <div className="flex-shrink-0">
-                    <div className="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center">
-                      <span className="text-xl font-semibold text-[#167d36]">T</span>
-                    </div>
-                  </div>
-                  <div className="ml-4">
-                    <h3 className="text-lg font-semibold">Tomas Petrauskas</h3>
-                    <p className="text-gray-500">Kaunas</p>
-                  </div>
-                </div>
-                <p className="text-gray-600">
-                  "Labai operatyvus ir profesionalus aptarnavimas. Atvyko laiku ir greitai išnešė seną šaldytuvą."
-                </p>
-              </div>
-              <div className="bg-white p-6 rounded-lg shadow-lg">
-                <div className="flex items-center mb-4">
-                  <div className="flex-shrink-0">
-                    <div className="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center">
-                      <span className="text-xl font-semibold text-[#167d36]">L</span>
-                    </div>
-                  </div>
-                  <div className="ml-4">
-                    <h3 className="text-lg font-semibold">Laura Kazlauskienė</h3>
-                    <p className="text-gray-500">Kaunas</p>
-                  </div>
-                </div>
-                <p className="text-gray-600">
-                  "Puiki paslauga! Išvežė seną skalbimo mašiną ir indaplovę. Rekomenduoju visiems."
-                </p>
-              </div>
-              <div className="bg-white p-6 rounded-lg shadow-lg">
-                <div className="flex items-center mb-4">
-                  <div className="flex-shrink-0">
-                    <div className="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center">
-                      <span className="text-xl font-semibold text-[#167d36]">M</span>
-                    </div>
-                  </div>
-                  <div className="ml-4">
-                    <h3 className="text-lg font-semibold">Marius Jonaitis</h3>
-                    <p className="text-gray-500">Kaunas</p>
-                  </div>
-                </div>
-                <p className="text-gray-600">
-                  "Greitai ir kokybiškai išvežė senus baldus. Labai patenkinti paslaugomis."
-                </p>
+        <React.Suspense fallback={
+          <section className="py-16 bg-gray-50">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+              <h2 className="text-3xl sm:text-4xl font-bold mb-4">Klientų atsiliepimai</h2>
+              <div className="flex justify-center items-center py-8">
+                <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#167d36]"></div>
               </div>
             </div>
-            <div className="flex justify-center mt-8">
-              <a 
-                href="https://g.page/r/CX7p6Kq_HZ-pEB0/review"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block bg-white text-[#167d36] px-6 py-3 rounded-lg font-bold border-2 border-[#167d36] hover:bg-[#167d36] hover:text-white transition-colors"
-                onClick={() => handleCTAClick('review_cta', 'Palikite atsiliepimą')}
-              >
-                Palikite atsiliepimą
-              </a>
-            </div>
-          </div>
-        </section>
+          </section>
+        }>
+          <LazyGoogleReviews />
+        </React.Suspense>
       </div>
     </>
   );

@@ -3,8 +3,8 @@ import { Star } from 'lucide-react';
 
 // Global variable to track script loading
 const GOOGLE_MAPS_SCRIPT_ID = 'google-maps-script';
-const API_KEY = 'AIzaSyCqDMeJYhYRQylvB9I6artLkAo_EuK4gKc';
-const PLACE_ID = 'ChIJ7c7B8XnZ50YRu13wXwVdK4U';
+const API_KEY = 'AIzaSyANfuPj8nnzPV9Lf_2gLUFSVXKEFu_bybw';
+const PLACE_ID = 'ChIJUQehZpUZ50YRMFClZ11adkM';
 
 interface Review {
   author_name: string;
@@ -15,12 +15,43 @@ interface Review {
   time: number;
 }
 
+interface PlaceResult {
+  reviews?: Review[];
+  rating?: number;
+  user_ratings_total?: number;
+}
+
+// Define interfaces for Google Maps API
+declare global {
+  interface Window {
+    google: {
+      maps: {
+        places: {
+          PlacesServiceStatus: {
+            OK: string;
+            [key: string]: string;
+          };
+          PlacesService: new (attrContainer: Element) => {
+            getDetails: (
+              request: { placeId: string; fields: string[] },
+              callback: (result: PlaceResult | null, status: string) => void
+            ) => void;
+          };
+        };
+      };
+    };
+  }
+}
+
 const GoogleReviews: React.FC = () => {
   const [reviews, setReviews] = useState<Review[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<string | null>(null);
+  const [, setError] = useState<string | null>(null);
   const [averageRating, setAverageRating] = useState<number>(0);
-
+  const [currentReviewIndex, setCurrentReviewIndex] = useState(0);
+  const [totalReviews, setTotalReviews] = useState(0);
+  const [autoRotate, setAutoRotate] = useState(true);
+  
   useEffect(() => {
     // Load Google Maps script only when component is visible
     const observer = new IntersectionObserver((entries) => {
@@ -34,6 +65,19 @@ const GoogleReviews: React.FC = () => {
 
     return () => observer.disconnect();
   }, []);
+  
+  // Auto-rotate reviews every 5 seconds
+  useEffect(() => {
+    let interval: ReturnType<typeof setInterval>;
+    
+    if (autoRotate && reviews.length > 3) {
+      interval = setInterval(() => {
+        setCurrentReviewIndex((prevIndex) => (prevIndex + 1) % reviews.length);
+      }, 5000);
+    }
+    
+    return () => clearInterval(interval);
+  }, [autoRotate, reviews.length]);
 
   const loadGoogleMapsScript = () => {
     // Check if script is already loaded
@@ -67,16 +111,23 @@ const GoogleReviews: React.FC = () => {
       service.getDetails(
         {
           placeId: PLACE_ID,
-          fields: ['reviews', 'rating'],
+          fields: ['reviews', 'rating', 'user_ratings_total'],
         },
         (place, status) => {
           if (
             status === window.google.maps.places.PlacesServiceStatus.OK &&
             place?.reviews
           ) {
-            setReviews(place.reviews);
+            // Sort reviews by date (most recent first)
+            const sortedReviews = [...place.reviews].sort((a, b) => b.time - a.time);
+            setReviews(sortedReviews);
             if (place.rating) {
               setAverageRating(place.rating);
+            }
+            if (place.user_ratings_total) {
+              setTotalReviews(place.user_ratings_total);
+            } else {
+              setTotalReviews(sortedReviews.length);
             }
           } else {
             setError('Nepavyko gauti atsiliepimų');
@@ -122,6 +173,7 @@ const GoogleReviews: React.FC = () => {
     ];
     setReviews(fallbackReviews);
     setAverageRating(4.7);
+    setTotalReviews(fallbackReviews.length);
     setLoading(false);
     setError(null);
   };
@@ -142,10 +194,45 @@ const GoogleReviews: React.FC = () => {
     return stars;
   };
 
+  const visibleReviews = () => {
+    if (reviews.length === 0) return [];
+    
+    // For desktop view, show 3 reviews at a time
+    const result = [];
+    const maxDisplay = Math.min(3, reviews.length);
+    
+    for (let i = 0; i < maxDisplay; i++) {
+      const index = (currentReviewIndex + i) % reviews.length;
+      result.push(reviews[index]);
+    }
+    
+    return result;
+  };
+
+  const goToPrevReview = () => {
+    setAutoRotate(false); // Pause auto-rotation when manually navigating
+    setCurrentReviewIndex((prevIndex) => 
+      (prevIndex - 1 + reviews.length) % reviews.length
+    );
+    
+    // Resume auto-rotation after 10 seconds of inactivity
+    setTimeout(() => setAutoRotate(true), 10000);
+  };
+
+  const goToNextReview = () => {
+    setAutoRotate(false); // Pause auto-rotation when manually navigating
+    setCurrentReviewIndex((prevIndex) => 
+      (prevIndex + 1) % reviews.length
+    );
+    
+    // Resume auto-rotation after 10 seconds of inactivity
+    setTimeout(() => setAutoRotate(true), 10000);
+  };
+
   if (loading) {
     return (
-      <div className="flex justify-center items-center py-8">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-green-500"></div>
+      <div id="reviews-section" className="flex justify-center items-center py-16 bg-gray-50">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#167d36]"></div>
       </div>
     );
   }
@@ -161,58 +248,119 @@ const GoogleReviews: React.FC = () => {
             {renderStars(averageRating)}
           </div>
           <p className="text-lg text-gray-600">
-            {averageRating.toFixed(1)} iš 5 ({reviews.length} atsiliepimai)
+            {averageRating.toFixed(1)} iš 5 ({totalReviews} atsiliepimai)
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {reviews.map((review, index) => (
-            <div
-              key={index}
-              className="bg-white p-6 rounded-lg shadow-lg"
-              itemScope
-              itemType="http://schema.org/Review"
+        <div 
+          className="relative" 
+          onMouseEnter={() => setAutoRotate(false)}
+          onMouseLeave={() => setAutoRotate(true)}
+        >
+          {reviews.length > 3 && (
+            <button 
+              onClick={goToPrevReview} 
+              className="absolute left-0 top-1/2 transform -translate-y-1/2 z-10 bg-white rounded-full p-2 shadow-md text-[#167d36] hover:text-white hover:bg-[#167d36] transition-colors hidden md:block"
+              aria-label="Ankstesnis atsiliepimas"
             >
-              <div className="flex items-center mb-4">
-                <div className="flex-shrink-0">
-                  {review.profile_photo_url ? (
-                    <img
-                      src={review.profile_photo_url}
-                      alt={`${review.author_name} nuotrauka`}
-                      className="w-12 h-12 rounded-full"
-                      loading="lazy"
-                      width="48"
-                      height="48"
-                    />
-                  ) : (
-                    <div className="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center">
-                      <span className="text-xl font-semibold text-green-600">
-                        {review.author_name.charAt(0)}
-                      </span>
-                    </div>
-                  )}
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+          )}
+          
+          <div 
+            className="grid grid-cols-1 md:grid-cols-3 gap-8"
+            role="region"
+            aria-label="Google atsiliepimai"
+            tabIndex={0}
+            onKeyDown={(e) => {
+              if (e.key === 'ArrowLeft') {
+                goToPrevReview();
+              } else if (e.key === 'ArrowRight') {
+                goToNextReview();
+              }
+            }}
+          >
+            {visibleReviews().map((review, index) => (
+              <div
+                key={index}
+                className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow"
+                itemScope
+                itemType="http://schema.org/Review"
+              >
+                <div className="flex items-center mb-4">
+                  <div className="flex-shrink-0">
+                    {review.profile_photo_url ? (
+                      <img
+                        src={review.profile_photo_url}
+                        alt={`${review.author_name} nuotrauka`}
+                        className="w-12 h-12 rounded-full border-2 border-[#167d36]"
+                        loading="lazy"
+                        width="48"
+                        height="48"
+                      />
+                    ) : (
+                      <div className="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center border-2 border-[#167d36]">
+                        <span className="text-xl font-semibold text-[#167d36]">
+                          {review.author_name.charAt(0)}
+                        </span>
+                      </div>
+                    )}
+                  </div>
+                  <div className="ml-4">
+                    <h3 className="text-lg font-semibold" itemProp="author">
+                      {review.author_name}
+                    </h3>
+                    <p className="text-gray-500">{review.relative_time_description}</p>
+                  </div>
                 </div>
-                <div className="ml-4">
-                  <h3 className="text-lg font-semibold" itemProp="author">
-                    {review.author_name}
-                  </h3>
-                  <p className="text-gray-500">{review.relative_time_description}</p>
-                </div>
+                <div className="flex mb-3">{renderStars(review.rating)}</div>
+                <p className="text-gray-600" itemProp="reviewBody">
+                  {review.text.length > 200 ? `${review.text.substring(0, 200)}...` : review.text}
+                </p>
               </div>
-              <div className="flex mb-3">{renderStars(review.rating)}</div>
-              <p className="text-gray-600" itemProp="reviewBody">
-                {review.text}
-              </p>
-            </div>
-          ))}
+            ))}
+          </div>
+          
+          {reviews.length > 3 && (
+            <button 
+              onClick={goToNextReview} 
+              className="absolute right-0 top-1/2 transform -translate-y-1/2 z-10 bg-white rounded-full p-2 shadow-md text-[#167d36] hover:text-white hover:bg-[#167d36] transition-colors hidden md:block"
+              aria-label="Kitas atsiliepimas"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          )}
         </div>
+
+        {reviews.length > 3 && (
+          <div className="flex justify-center space-x-2 mt-6">
+            {reviews.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => {
+                  setAutoRotate(false);
+                  setCurrentReviewIndex(index);
+                  setTimeout(() => setAutoRotate(true), 10000); // Resume after 10s
+                }}
+                className={`w-2 h-2 rounded-full transition-colors ${
+                  index === currentReviewIndex ? 'bg-[#167d36]' : 'bg-gray-300'
+                }`}
+                aria-label={`Peržiūrėti atsiliepimą ${index + 1}`}
+              />
+            ))}
+          </div>
+        )}
 
         <div className="mt-8 text-center">
           <a
-            href={`https://search.google.com/local/reviews?placeid=${PLACE_ID}`}
+            href={`https://g.page/r/CTBQpWddWnZDEBE/review`}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block bg-white text-green-700 px-6 py-3 rounded-lg font-semibold border-2 border-green-700 hover:bg-green-700 hover:text-white transition-colors"
+            className="inline-block bg-white text-[#167d36] px-6 py-3 rounded-lg font-semibold border-2 border-[#167d36] hover:bg-[#167d36] hover:text-white transition-colors"
           >
             Palikite atsiliepimą
           </a>
