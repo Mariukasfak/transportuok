@@ -318,22 +318,9 @@ const GoogleReviews: React.FC = () => {
               >
                 <div className="flex items-center mb-4">
                   <div className="flex-shrink-0">
-                    {review.profile_photo_url ? (
-                      <img
-                        src={review.profile_photo_url}
-                        alt={`${review.author_name} nuotrauka`}
-                        className="w-12 h-12 rounded-full border-2 border-[#167d36]"
-                        loading="lazy"
-                        width="48"
-                        height="48"
-                      />
-                    ) : (
-                      <div className="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center border-2 border-[#167d36]">
-                        <span className="text-xl font-semibold text-[#167d36]">
-                          {review.author_name.charAt(0)}
-                        </span>
-                      </div>
-                    )}
+                    <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center border-2 border-blue-500">
+                      <span className="text-xl font-bold text-blue-500">G</span>
+                    </div>
                   </div>
                   <div className="ml-4">
                     <h3 className="text-lg font-semibold" itemProp="author">

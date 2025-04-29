@@ -79,10 +79,8 @@ const LazyGoogleReviews = () => {
               {fallbackReviews.map((review, index) => (
                 <div key={index} className="bg-white p-6 rounded-lg shadow-lg">
                   <div className="flex items-center mb-4">
-                    <div className="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center">
-                      <span className="text-xl font-semibold text-[#167d36]">
-                        {review.name[0]}
-                      </span>
+                    <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center border-2 border-blue-500">
+                      <span className="text-xl font-bold text-blue-500">G</span>
                     </div>
                     <div className="ml-4">
                       <h3 className="text-lg font-semibold">{review.name}</h3>

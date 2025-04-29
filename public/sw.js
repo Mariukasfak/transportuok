@@ -27,7 +27,11 @@ const shouldHandleRequest = (url) => {
          !url.includes('google-analytics.com') &&
          !url.includes('googletagmanager.com') &&
          !url.includes('maps.googleapis.com') &&
-         !url.includes('fonts.googleapis.com');
+         !url.includes('fonts.googleapis.com') &&
+         !url.includes('googleapis.com') &&
+         !url.includes('gstatic.com') &&
+         !url.includes('googleusercontent.com') &&
+         !url.includes('google.com');
 };
 
 // Install event - precache static assets
