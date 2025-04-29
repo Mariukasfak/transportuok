@@ -3,8 +3,8 @@ import { Star } from 'lucide-react';
 
 // Global variable to track script loading
 const GOOGLE_MAPS_SCRIPT_ID = 'google-maps-script';
-const API_KEY = 'AIzaSyANfuPj8nnzPV9Lf_2gLUFSVXKEFu_bybw';
-const PLACE_ID = 'ChIJUQehZpUZ50YRMFClZ11adkM';
+const API_KEY = 'AIzaSyANfuPj8nnzPV9Lf_2gLUFSVXKEFu_bybw'; // Google Maps API key
+const PLACE_ID = 'ChIJUQehZpUZ50YRMFClZ11adkM'; // Google Business Place ID
 
 interface Review {
   author_name: string;
@@ -84,29 +84,53 @@ const GoogleReviews: React.FC = () => {
     if (document.getElementById(GOOGLE_MAPS_SCRIPT_ID)) {
       if (window.google && window.google.maps) {
         initMap();
+      } else {
+        // If script is present but not loaded properly, use fallback
+        console.warn('Google Maps script exists but API not loaded.');
+        loadFallbackReviews();
       }
       return;
     }
 
     // If script not loaded yet, load it
-    const script = document.createElement('script');
-    script.id = GOOGLE_MAPS_SCRIPT_ID;
-    script.src = `https://maps.googleapis.com/maps/api/js?key=${API_KEY}&libraries=places`;
-    script.async = true;
-    script.defer = true;
-    script.onload = initMap;
-    script.onerror = () => {
-      setError('Nepavyko įkelti Google Maps API');
+    try {
+      const script = document.createElement('script');
+      script.id = GOOGLE_MAPS_SCRIPT_ID;
+      script.src = `https://maps.googleapis.com/maps/api/js?key=${API_KEY}&libraries=places`;
+      script.async = true;
+      script.defer = true;
+      script.onload = initMap;
+      script.onerror = (e) => {
+        console.error('Error loading Google Maps API script:', e);
+        setError('Nepavyko įkelti Google Maps API');
+        loadFallbackReviews();
+      };
+      document.head.appendChild(script);
+      
+      // Fallback if script doesn't load in 5 seconds
+      setTimeout(() => {
+        if (!window.google?.maps?.places) {
+          console.warn('Google Maps API failed to load within timeout');
+          loadFallbackReviews();
+        }
+      }, 5000);
+    } catch (err) {
+      console.error('Error appending Google Maps script:', err);
       loadFallbackReviews();
-    };
-    document.head.appendChild(script);
+    }
   };
 
   function initMap() {
     try {
-      const service = new window.google.maps.places.PlacesService(
-        document.createElement('div')
-      );
+      if (!window.google || !window.google.maps || !window.google.maps.places) {
+        console.error('Google Maps API not available');
+        setError('Google Maps API neprieinama');
+        loadFallbackReviews();
+        return;
+      }
+      
+      const containerDiv = document.createElement('div');
+      const service = new window.google.maps.places.PlacesService(containerDiv);
 
       service.getDetails(
         {
@@ -116,7 +140,9 @@ const GoogleReviews: React.FC = () => {
         (place, status) => {
           if (
             status === window.google.maps.places.PlacesServiceStatus.OK &&
-            place?.reviews
+            place?.reviews && 
+            Array.isArray(place.reviews) &&
+            place.reviews.length > 0
           ) {
             // Sort reviews by date (most recent first)
             const sortedReviews = [...place.reviews].sort((a, b) => b.time - a.time);
@@ -130,6 +156,7 @@ const GoogleReviews: React.FC = () => {
               setTotalReviews(sortedReviews.length);
             }
           } else {
+            console.warn('Failed to get reviews or empty reviews array', { status, place });
             setError('Nepavyko gauti atsiliepimų');
             loadFallbackReviews();
           }
