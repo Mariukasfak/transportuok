@@ -5,7 +5,7 @@
     X-Content-Type-Options = "nosniff"
     X-Frame-Options = "DENY"
     X-XSS-Protection = "1; mode=block"
-    Content-Security-Policy = "default-src 'self'; script-src 'self' https://www.googletagmanager.com https://maps.googleapis.com 'unsafe-inline'; connect-src 'self' https://www.google-analytics.com https://maps.googleapis.com https://*.googleapis.com https://*.google.com https://*.gstatic.com; img-src 'self' https://www.google-analytics.com https://*.googleapis.com https://*.gstatic.com https://lh3.googleusercontent.com https://*.google.com data:; style-src 'self' 'unsafe-inline' data:;"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' https://www.googletagmanager.com https://maps.googleapis.com 'unsafe-inline' data:; connect-src 'self' https://www.google-analytics.com https://maps.googleapis.com https://*.googleapis.com https://*.google.com https://*.gstatic.com https://api.emailjs.com; img-src 'self' https://www.google-analytics.com https://*.googleapis.com https://*.gstatic.com https://lh3.googleusercontent.com https://*.google.com data:; style-src 'self' 'unsafe-inline' data:;"
 
 [[headers]]
   for = "/*.html"

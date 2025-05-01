@@ -38,11 +38,16 @@ window.addEventListener('load', () => {
   if ('requestIdleCallback' in window) {
     // @ts-ignore
     window.requestIdleCallback(() => {
-      // Load additional styles
-      const link = document.createElement('link');
-      link.rel = 'stylesheet';
-      link.href = '/assets/additional-styles.css';
-      document.head.appendChild(link);
+      // Load additional styles with error handling
+      try {
+        const link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = '/assets/additional-styles.css';
+        link.type = 'text/css';
+        document.head.appendChild(link);
+      } catch (error) {
+        console.warn('Failed to load additional styles:', error);
+      }
       
       // Preload images for later use
       const images = [

@@ -79,6 +79,9 @@ const Contact = () => {
 
   const onSubmit = async (data: ContactForm) => {
     try {
+      // Initialize EmailJS (this ensures proper configuration)
+      emailjs.init("F_bgx8N1D2rFvUIoM");
+      
       await emailjs.send(
         'service_transportuok',
         'template_uzklausa',
