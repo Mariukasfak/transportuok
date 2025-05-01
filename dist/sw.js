@@ -31,7 +31,8 @@ const shouldHandleRequest = (url) => {
          !url.includes('googleapis.com') &&
          !url.includes('gstatic.com') &&
          !url.includes('googleusercontent.com') &&
-         !url.includes('google.com');
+         !url.includes('google.com') &&
+         !url.includes('emailjs.com');
 };
 
 // Install event - precache static assets
