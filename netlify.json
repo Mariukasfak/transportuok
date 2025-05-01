@@ -1,0 +1,36 @@
+{
+  "headers": [
+    {
+      "for": "/assets/*.css",
+      "values": {
+        "Content-Type": "text/css"
+      }
+    },
+    {
+      "for": "/assets/*.js",
+      "values": {
+        "Content-Type": "application/javascript"
+      }
+    }
+  ],
+  "redirects": [
+    {
+      "from": "/assets/*.css",
+      "to": "/assets/:splat",
+      "status": 200,
+      "force": true,
+      "headers": {
+        "Content-Type": "text/css"
+      }
+    },
+    {
+      "from": "/assets/*.js",
+      "to": "/assets/:splat",
+      "status": 200,
+      "force": true,
+      "headers": {
+        "Content-Type": "application/javascript"
+      }
+    }
+  ]
+}

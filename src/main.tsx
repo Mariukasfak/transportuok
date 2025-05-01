@@ -38,13 +38,18 @@ window.addEventListener('load', () => {
   if ('requestIdleCallback' in window) {
     // @ts-ignore
     window.requestIdleCallback(() => {
-      // Load additional styles with error handling
+      // Load non-critical CSS via fetch to avoid MIME type issues
       try {
-        const link = document.createElement('link');
-        link.rel = 'stylesheet';
-        link.href = '/assets/additional-styles.css';
-        link.type = 'text/css';
-        document.head.appendChild(link);
+        fetch('/assets/additional-styles.css')
+          .then(response => response.text())
+          .then(css => {
+            const style = document.createElement('style');
+            style.textContent = css;
+            document.head.appendChild(style);
+          })
+          .catch(err => {
+            console.warn('Could not load additional styles:', err);
+          });
       } catch (error) {
         console.warn('Failed to load additional styles:', error);
       }

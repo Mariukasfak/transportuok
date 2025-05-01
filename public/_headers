@@ -1,9 +1,20 @@
-# MIME Types
+# Force correct MIME types for all assets
+/assets/additional-styles.css
+  Content-Type: text/css; charset=utf-8
+  X-Content-Type-Options: nosniff
+
 /assets/*.css
-  Content-Type: text/css
+  Content-Type: text/css; charset=utf-8
+  X-Content-Type-Options: nosniff
 
 /assets/*.js
-  Content-Type: application/javascript
+  Content-Type: application/javascript; charset=utf-8
+  X-Content-Type-Options: nosniff
+
+# Set specific type for index JS
+/assets/index-*.js
+  Content-Type: application/javascript; charset=utf-8
+  X-Content-Type-Options: nosniff
 
 # Cache settings
 /assets/*

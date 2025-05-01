@@ -35,6 +35,22 @@
   force = true
 
 [[redirects]]
+  from = "/assets/*.css"
+  to = "/assets/:splat"
+  status = 200
+  force = true
+  [redirects.headers]
+    Content-Type = "text/css"
+
+[[redirects]]
+  from = "/assets/*.js"
+  to = "/assets/:splat"
+  status = 200
+  force = true
+  [redirects.headers]
+    Content-Type = "application/javascript"
+
+[[redirects]]
   from = "/assets/*"
   to = "/assets/:splat"
   status = 200

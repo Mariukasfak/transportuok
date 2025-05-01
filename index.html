@@ -59,19 +59,10 @@
       type="image/webp" 
       fetchpriority="high" 
     />
-    <link 
-      rel="preload" 
-      href="/src/index.css" 
-      as="style" 
-    />
-    <link 
-      rel="preload" 
-      href="/src/main.tsx" 
-      as="script" 
-    />
+    <!-- Removed problematic preload links -->
     
     <!-- Styles -->
-    <link rel="stylesheet" href="/src/index.css" media="print" onload="this.media='all'" />
+    <link rel="stylesheet" href="/src/index.css" media="all" />
     <noscript><link rel="stylesheet" href="/src/index.css" /></noscript>
   </head>
   <body>
