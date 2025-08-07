@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="lt">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/ikona_spalvotas.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Critical CSS -->
+    <style>
+      .hero-section { position: relative; min-height: 80vh; padding-top: 96px; display: flex; align-items: center; justify-content: center; background-size: cover; background-position: center; background-repeat: no-repeat; }
+      .hero-overlay { position: absolute; inset: 0; background-color: rgba(0, 0, 0, 0.4); z-index: 0; }
+      .hero-content { position: relative; z-index: 10; max-width: 48rem; text-align: center; padding: 0 1rem; }
+      .hero-title { font-size: 2.25rem; font-weight: 800; line-height: 1.25; margin-bottom: 1rem; color: white; }
+      @media (min-width: 640px) { .hero-title { font-size: 3rem; } }
+      .hero-description { font-size: 1.125rem; color: rgb(243, 244, 246); margin-bottom: 1.5rem; }
+      @media (min-width: 640px) { .hero-description { font-size: 1.25rem; } }
+    </style>
+    
+    <!-- Initialize dataLayer -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      
+      // Set default consent state
+      gtag('consent', 'default', {
+        'analytics_storage': 'denied',
+        'ad_storage': 'denied',
+        'ad_user_data': 'denied',
+        'ad_personalization': 'denied'
+      });
+    </script>
+    
+    <!-- Primary Meta Tags -->
+    <title>Nemokamas buitinės technikos išvežimas Kaune | Transportuok.lt</title>
+    <meta name="description" content="Nemokamas šaldytuvų, skalbimo mašinų ir kitos buitinės technikos išvežimas Kaune. Atliekų surinkimas greitai ir patikimai. Užsakykite išvežimą dabar - atvykstame per 24 val." />
+    <meta name="keywords" content="buitinės technikos išvežimas, elektronikos išvežimas, baldų išvežimas, metalo laužo išvežimas, atliekų išvežimas Kaune" />
+    <link rel="canonical" href="https://transportuok.lt/" />
+    
+    <!-- Open Graph tags -->
+    <meta property="og:title" content="Nemokamas buitinės technikos išvežimas Kaune | Transportuok.lt" />
+    <meta property="og:description" content="Greitas ir nemokamas buitinės technikos, elektronikos ir metalo laužo išvežimas Kaune. Užsakykite paslaugą internetu!" />
+    <meta property="og:image" content="/images/optimized/hero-bg-appliances.webp" />
+    <meta property="og:url" content="https://transportuok.lt" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="lt_LT" />
+    
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://maps.googleapis.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
+    <link rel="preconnect" href="https://www.google-analytics.com" crossorigin />
+    
+    <!-- Critical resources preload -->
+    <link 
+      rel="preload" 
+      href="/images/optimized/hero-bg-appliances.webp" 
+      as="image" 
+      type="image/webp" 
+      fetchpriority="high" 
+    />
+    <!-- Removed problematic preload links -->
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="data:text/css;base64,QHRhaWx3aW5kIGJhc2U7CkB0YWlsd2luZCBjb21wb25lbnRzOwpAdGFpbHdpbmQgdXRpbGl0aWVzOwoKLyogRm9udCBvcHRpbWl6YXRpb24gKi8KQGxheWVyIGJhc2UgewogIEBmb250LWZhY2UgewogICAgZm9udC1mYW1pbHk6ICdTeXN0ZW0nOwogICAgZm9udC1zdHlsZTogbm9ybWFsOwogICAgZm9udC13ZWlnaHQ6IDQwMDsKICAgIGZvbnQtZGlzcGxheTogc3dhcDsKICAgIHNyYzogbG9jYWwoIi5TRk5TLVJlZ3VsYXIiKSwgbG9jYWwoIi5TRk5TVGV4dC1SZWd1bGFyIiksIGxvY2FsKCIuSGVsdmV0aWNhTmV1ZURlc2tJbnRlcmZhY2UtUmVndWxhciIpLCBsb2NhbCgiLkx1Y2lkYUdyYW5kZVVJIiksIGxvY2FsKCJTZWdvZSBVSSIpLCBsb2NhbCgiVWJ1bnR1IiksIGxvY2FsKCJSb2JvdG8tUmVndWxhciIpLCBsb2NhbCgiRHJvaWRTYW5zIiksIGxvY2FsKCJUYWhvbWEiKTsKICB9CgogIEBmb250LWZhY2UgewogICAgZm9udC1mYW1pbHk6ICdTeXN0ZW0nOwogICAgZm9udC1zdHlsZTogbm9ybWFsOwogICAgZm9udC13ZWlnaHQ6IDcwMDsKICAgIGZvbnQtZGlzcGxheTogc3dhcDsKICAgIHNyYzogbG9jYWwoIi5TRk5TLUJvbGQiKSwgbG9jYWwoIi5TRk5TVGV4dC1Cb2xkIiksIGxvY2FsKCIuSGVsdmV0aWNhTmV1ZURlc2tJbnRlcmZhY2UtQm9sZCIpLCBsb2NhbCgiLkx1Y2lkYUdyYW5kZVVJIiksIGxvY2FsKCJTZWdvZSBVSSBCb2xkIiksIGxvY2FsKCJVYnVudHUgQm9sZCIpLCBsb2NhbCgiUm9ib3RvLUJvbGQiKSwgbG9jYWwoIkRyb2lkU2Fucy1Cb2xkIiksIGxvY2FsKCJUYWhvbWEgQm9sZCIpOwogIH0KfQoKLyogQmFzZSBzdHlsZXMgd2l0aCBzeXN0ZW0gZm9udCAqLwpAbGF5ZXIgYmFzZSB7CiAgaHRtbCB7CiAgICBmb250LWZhbWlseTogJ1N5c3RlbScsIHN5c3RlbS11aSwgLWFwcGxlLXN5c3RlbSwgQmxpbmtNYWNTeXN0ZW1Gb250LCAnU2Vnb2UgVUknLCBSb2JvdG8sIE94eWdlbiwgVWJ1bnR1LCBDYW50YXJlbGwsICdPcGVuIFNhbnMnLCAnSGVsdmV0aWNhIE5ldWUnLCBzYW5zLXNlcmlmOwogICAgdGV4dC1yZW5kZXJpbmc6IG9wdGltaXplTGVnaWJpbGl0eTsKICAgIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGFudGlhbGlhc2VkOwogICAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGdyYXlzY2FsZTsKICB9Cn0KCi8qIENyaXRpY2FsIENTUyBmb3IgYWJvdmUtdGhlLWZvbGQgY29udGVudCAqLwpAbGF5ZXIgY29tcG9uZW50cyB7CiAgLmhlcm8tc2VjdGlvbiB7CiAgICBAYXBwbHkgcmVsYXRpdmUgbWluLWgtWzgwdmhdIHNtOmgtWzYwMHB4XSBwdC1bOTZweF0gZmxleCBpdGVtcy1jZW50ZXIganVzdGlmeS1jZW50ZXIgYmctY292ZXIgYmctY2VudGVyIGJnLW5vLXJlcGVhdDsKICB9CgogIC5oZXJvLW92ZXJsYXkgewogICAgQGFwcGx5IGFic29sdXRlIGluc2V0LTAgYmctYmxhY2svNDAgei0wOwogIH0KCiAgLmhlcm8tY29udGVudCB7CiAgICBAYXBwbHkgcmVsYXRpdmUgei0xMCBtYXgtdy0zeGwgdGV4dC1jZW50ZXIgcHgtNDsKICB9CgogIC5oZXJvLXRpdGxlIHsKICAgIEBhcHBseSB0ZXh0LTR4bCBzbTp0ZXh0LTV4bCBmb250LWV4dHJhYm9sZCBsZWFkaW5nLXRpZ2h0IG1iLTQgdGV4dC13aGl0ZTsKICB9CgogIC5oZXJvLWRlc2NyaXB0aW9uIHsKICAgIEBhcHBseSB0ZXh0LWxnIHNtOnRleHQteGwgdGV4dC1ncmF5LTEwMCBtYi02OwogIH0KCiAgLnByaW1hcnktYnV0dG9uIHsKICAgIEBhcHBseSBpbmxpbmUtYmxvY2sgYmctWyMxNjdkMzZdIGhvdmVyOmJnLVsjMGY1YTI2XSB0ZXh0LXdoaXRlIGZvbnQtYm9sZCB0ZXh0LWJhc2UgcHgtNiBweS0zIHJvdW5kZWQtbGcgc2hhZG93LW1kIHRyYW5zaXRpb24tY29sb3JzOwogIH0KfQ==" media="all" />
+    <noscript></noscript>
+    <script type="module" crossorigin src="/assets/index-2_kK_mgA.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/react-vendor-DytVbpi8.js">
+    <link rel="modulepreload" crossorigin href="/assets/icons-BGZ2f8W9.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-DkYuOaSR.css">
+  </head>
+  <body>
+    <div id="root"></div>
+    
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PZ7CJ6M4" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+  </body>
+</html>
