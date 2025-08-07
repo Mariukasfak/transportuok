@@ -4,6 +4,10 @@ import { Helmet } from 'react-helmet-async';
 import { trackCTAClick } from '../utils/analytics';
 import OptimizedImage from '../components/OptimizedImage';
 import LazyGoogleReviews from '../components/LazyGoogleReviews';
+import CitySelector from '../components/CitySelector';
+import BlogSection from '../components/BlogSection';
+import ContactInfo from '../components/ContactInfo';
+import CertificatesSection from '../components/CertificatesSection';
 
 const Home = () => {
   // Add a handler for CTA clicks
@@ -14,8 +18,8 @@ const Home = () => {
   return (
     <>
       <Helmet>
-        <title>Nemokamas buitinės technikos išvežimas Kaune | Transportuok.lt</title>
-        <meta name="description" content="Nemokamas šaldytuvų, skalbimo mašinų ir kitos buitinės technikos išvežimas Kaune. Atliekų surinkimas greitai ir patikimai. Užsakykite išvežimą dabar - atvykstame per 24 val." />
+        <title>Elektronikos ir buitinės technikos išvežimas Lietuvoje | Transportuok.lt</title>
+        <meta name="description" content="Nemokamas elektronikos, buitinės technikos išvežimas Kaune, Vilniuje ir visoje Lietuvoje. Baldų išvežimas Kaune. Greitas surinkimas per 24 val. Transportuok.lt ir Karavanas.lt partnerystė." />
         <link rel="canonical" href="https://transportuok.lt" />
       </Helmet>
 
@@ -28,10 +32,10 @@ const Home = () => {
           <div className="hero-overlay" />
           <div className="hero-content">
             <h1 className="hero-title">
-              Nemokamas buitinės technikos išvežimas Kaune
+              Elektronikos ir buitinės technikos išvežimas Lietuvoje
             </h1>
             <p className="hero-description">
-              Užpildykite užklausą bet kuriuo metu – susisieksime per 24 val.
+              Kaunas, Vilnius ir visa Lietuva. Partnerių tinklas užtikrina greitą ir profesionalų aptarnavimą.
             </p>
             <Link
               to="/kontaktai#contact-form"
@@ -175,6 +179,22 @@ const Home = () => {
             </Link>
           </div>
         </section>
+
+        {/* City Selector */}
+        <section className="py-16 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <CitySelector />
+          </div>
+        </section>
+
+        {/* Blog Section */}
+        <BlogSection />
+
+        {/* Contact Information */}
+        <ContactInfo />
+
+        {/* Certificates */}
+        <CertificatesSection />
 
         {/* Reviews Section */}
         <React.Suspense fallback={
