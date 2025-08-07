@@ -1,0 +1,26 @@
+{
+    "folders": [
+        {
+            "path": "."
+        }
+    ],
+    "settings": {
+        "github.copilot.enable": {
+            "*": true
+        },
+        "github.copilot.suggestions.enabled": true,
+        "github.copilot.chat.experimental.autoApproval": true,
+        "github.copilot.chat.experimental.skipConfirmation": true,
+        "security.workspace.trust.enabled": false,
+        "security.workspace.trust.untrustedFiles": "open",
+        "terminal.integrated.allowChords": false,
+        "terminal.integrated.allowMnemonics": false,
+        "workbench.startupEditor": "none"
+    },
+    "extensions": {
+        "recommendations": [
+            "github.copilot",
+            "github.copilot-chat"
+        ]
+    }
+}

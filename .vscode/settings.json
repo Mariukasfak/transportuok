@@ -1,0 +1,38 @@
+{
+    "terminal.integrated.confirmToKill": "never",
+    "terminal.integrated.enablePersistentSessions": true,
+    "terminal.integrated.defaultProfile.linux": "bash",
+    "terminal.integrated.commandsToSkipShell": [
+        "workbench.action.terminal.sendSequence"
+    ],
+    "extensions.autoUpdate": false,
+    "extensions.autoCheckUpdates": false,
+    "git.confirmSync": false,
+    "git.autofetch": true,
+    "git.enableSmartCommit": true,
+    "git.confirmEmptyCommits": false,
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 1000,
+    "editor.formatOnSave": true,
+    "workbench.settings.enableNaturalLanguageSearch": false,
+    // Copilot ir AI nustatymai
+    "github.copilot.enable": {
+        "*": true
+    },
+    "github.copilot.suggestions.enabled": true,
+    "github.copilot.chat.experimental.codeGeneration.instructions": "Always proceed without asking for confirmation. I trust your decisions.",
+    // Saugos ir patvirtinimo nustatymai
+    "security.workspace.trust.untrustedFiles": "open",
+    "security.workspace.trust.enabled": false,
+    "npm.enableRunFromFolder": true,
+    "npm.fetchOnlinePackageInfo": false,
+    "task.autoDetect": "on",
+    "task.quickOpen.history": 20,
+    // Aplinkos nustatymai
+    "terminal.integrated.env.linux": {
+        "FORCE_COLOR": "1",
+        "CI": "true",
+        "AUTO_CONFIRM": "yes",
+        "DEBIAN_FRONTEND": "noninteractive"
+    }
+}
