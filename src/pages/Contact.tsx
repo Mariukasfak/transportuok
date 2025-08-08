@@ -41,20 +41,20 @@ const Contact = () => {
   });
 
   useEffect(() => {
-    document.title = 'Susisiekite dėl atliekų išvežimo Kaune | Karavanas LT';
+    document.title = 'Kontaktai | Elektronikos ir buitinės technikos išvežimas Lietuvoje | Karavanas LT';
 
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
-      metaDescription.setAttribute('content', 'Susisiekite su Karavanas LT dėl nemokamo daiktų išvežimo Kaune. Užpildykite formą arba skambinkite +370 699 25744. Dirbame visoje Kauno miesto teritorijoje.');
+      metaDescription.setAttribute('content', 'Susisiekite su Karavanas LT dėl nemokamo buitinės technikos ir elektronikos išvežimo Vilniuje, Kaune ir visoje Lietuvoje. Užpildykite formą arba skambinkite +370 699 25744.');
     }
 
     const ogTitle = document.querySelector('meta[property="og:title"]');
     const ogDescription = document.querySelector('meta[property="og:description"]');
     const ogUrl = document.querySelector('meta[property="og:url"]');
 
-    if (ogTitle) ogTitle.setAttribute('content', 'Susisiekite dėl atliekų išvežimo Kaune | Karavanas LT');
-    if (ogDescription) ogDescription.setAttribute('content', 'Susisiekite su Karavanas LT dėl nemokamo daiktų išvežimo Kaune. Greitas ir patikimas aptarnavimas.');
-    if (ogUrl) ogUrl.setAttribute('content', 'https://transportuok.lt/contact');
+    if (ogTitle) ogTitle.setAttribute('content', 'Kontaktai | Atliekų išvežimas Vilniuje, Kaune ir Lietuvoje | Karavanas LT');
+    if (ogDescription) ogDescription.setAttribute('content', 'Greitas ir patikimas buitinės technikos bei elektronikos išvežimas Vilniuje, Kaune ir visoje Lietuvoje. Susisiekite – atsakome greitai.');
+    if (ogUrl) ogUrl.setAttribute('content', 'https://transportuok.lt/kontaktai');
 
     let canonical = document.querySelector('link[rel="canonical"]');
     if (!canonical) {
@@ -62,7 +62,7 @@ const Contact = () => {
       canonical.setAttribute('rel', 'canonical');
       document.head.appendChild(canonical);
     }
-    canonical.setAttribute('href', 'https://transportuok.lt/contact');
+    canonical.setAttribute('href', 'https://transportuok.lt/kontaktai');
   }, []);
 
   React.useEffect(() => {
@@ -117,7 +117,7 @@ const Contact = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">Susisiekite su mumis</h1>
-          <p className="text-xl text-gray-600">Esame pasiruošę padėti jums išvežti nereikalingus daiktus</p>
+          <p className="text-xl text-gray-600">Dirbame Vilniuje, Kaune ir visoje Lietuvoje – pasiruošę padėti jums išvežti nereikalingus daiktus</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
@@ -348,7 +348,7 @@ const Contact = () => {
                   <MapPin className="w-6 h-6 sm:w-6 sm:h-6 text-green-500 mr-4 flex-shrink-0" />
                   <div>
                     <h3 className="font-semibold">Aptarnaujama teritorija</h3>
-                    <p className="text-gray-600">Kaunas ir apylinkės</p>
+                    <p className="text-gray-600">Vilnius, Kaunas ir visa Lietuva</p>
                   </div>
                 </div>
 
@@ -392,9 +392,7 @@ const Contact = () => {
                   >
                     <div className="text-center text-white p-4">
                       <h3 className="text-xl font-bold mb-2" itemProp="name">Karavanas LT</h3>
-                      <p className="text-lg" itemProp="description">
-                        Aptarnaujame visą Kauno miestą ir rajoną
-                      </p>
+                      <p className="text-lg" itemProp="description">Aptarnaujame Vilnių, Kauną ir visą Lietuvą</p>
                       <meta itemProp="latitude" content="54.8985" />
                       <meta itemProp="longitude" content="23.9036" />
                     </div>

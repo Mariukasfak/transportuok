@@ -65,7 +65,7 @@ const Services = () => {
               </p>
             </div>
             <Link
-              to="/contact"
+              to="/kontaktai#contact-form"
               className="inline-block bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors"
             >
               Gauti nemokamą išvežimą
@@ -97,7 +97,7 @@ const Services = () => {
               </p>
             </div>
             <Link
-              to="/contact"
+              to="/kontaktai#contact-form"
               className="inline-block bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors"
             >
               Pateikti užklausą
@@ -129,7 +129,7 @@ const Services = () => {
               </p>
             </div>
             <Link
-              to="/contact"
+              to="/kontaktai#contact-form"
               className="inline-block bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors"
             >
               Gauti pasiūlymą
@@ -161,7 +161,7 @@ const Services = () => {
               </p>
             </div>
             <Link
-              to="/contact"
+              to="/kontaktai#contact-form"
               className="inline-block bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors"
             >
               Gauti nemokamą išvežimą

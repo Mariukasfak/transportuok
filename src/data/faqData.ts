@@ -1,21 +1,21 @@
 export const buitinesTechnikosFAQ = [
   {
-    question: "Kaip išmesti seną šaldytuvą Kaune nemokamai?",
+    question: "Kaip išmesti seną šaldytuvą nemokamai?",
     answer: `
-      <p>Seną šaldytuvą Kaune galite išmesti nemokamai keliais paprastais žingsniais:</p>
+      <p>Seną šaldytuvą galite išmesti nemokamai Vilniuje, Kaune ir visoje Lietuvoje keliais paprastais žingsniais:</p>
       <ol>
         <li>Užpildykite užklausos formą mūsų svetainėje arba paskambinkite telefonu</li>
         <li>Sutarsime jums patogų išvežimo laiką</li>
         <li>Mūsų specialistai atvyks ir profesionaliai išneš šaldytuvą</li>
         <li>Pasirūpinsime ekologišku šaldytuvo perdirbimu</li>
       </ol>
-      <p>Paslauga teikiama <strong>nemokamai</strong> visame Kauno mieste ir rajone.</p>
+      <p>Paslauga teikiama <strong>nemokamai</strong> didžiuosiuose miestuose ir daugelyje rajonų. Dėl konkrečios vietovės – susisiekite.</p>
     `
   },
   {
-    question: "Kur atiduoti neveikiančią skalbimo mašiną Kaune?",
+    question: "Kur atiduoti neveikiančią skalbimo mašiną?",
     answer: `
-      <p>Neveikiančią skalbimo mašiną Kaune galite atiduoti mums - mes pasirūpinsime viskuo nuo A iki Z:</p>
+      <p>Neveikiančią skalbimo mašiną galite atiduoti mums – Vilniuje, Kaune ir visoje Lietuvoje pasirūpinsime viskuo nuo A iki Z:</p>
       <ul>
         <li>Nemokamas išvežimas iš bet kurio aukšto</li>
         <li>Profesionalus atjungimas nuo komunikacijų</li>
@@ -106,9 +106,9 @@ export const buitinesTechnikosFAQ = [
 
 export const elektronikosFAQ = [
   {
-    question: "Kaip saugiai atsikratyti senos elektronikos Kaune?",
+    question: "Kaip saugiai atsikratyti senos elektronikos?",
     answer: `
-      <p>Saugus elektronikos utilizavimas yra svarbus aplinkosaugai. Mes siūlome:</p>
+      <p>Saugus elektronikos utilizavimas yra svarbus aplinkosaugai. Vilniuje, Kaune ir visoje Lietuvoje mes siūlome:</p>
       <ul>
         <li>Nemokamą išvežimą iš jūsų namų</li>
         <li>Saugų duomenų sunaikinimą</li>
@@ -248,9 +248,9 @@ export const metaloFAQ = [
     answer: `
       <p>Taip, metalo laužo išvežimas yra nemokamas, kai:</p>
       <ul>
-        <li>Metalo kiekis viršija 100 kg</li>
-        <li>Metalas yra lengvai prieinamas</li>
-        <li>Lokacija yra Kauno mieste ar rajone</li>
+  <li>Metalo kiekis viršija 100 kg</li>
+  <li>Metalas yra lengvai prieinamas</li>
+  <li>Lokacija – didesniuose miestuose (Vilnius/Kaunas) ar pagal maršrutą kitur Lietuvoje</li>
       </ul>
       <p>Dėl tikslių sąlygų susisiekite su mumis.</p>
     `

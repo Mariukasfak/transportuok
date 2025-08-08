@@ -39,6 +39,20 @@ function ScrollToTop() {
 }
 
 function App() {
+  const location = useLocation();
+
+  React.useEffect(() => {
+    // Push page_view for GA4 via GTM on SPA route changes
+    if (window.dataLayer) {
+      window.dataLayer.push({
+        event: 'page_view',
+        page_path: location.pathname + window.location.search,
+        page_location: window.location.href,
+        page_title: document.title,
+      });
+    }
+  }, [location.pathname, location.search]);
+
   return (
     <ErrorBoundary>
       <div className="min-h-screen flex flex-col">

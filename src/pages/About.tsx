@@ -106,8 +106,6 @@ const About = () => {
               <p>Įmonės kodas: {company.rekvizitai.imonesKodas}</p>
               <p>PVM kodas: {company.rekvizitai.pvmKodas}</p>
               <p>Adresas: {company.contacts.vilnius.address}</p>
-              <p>Bankas: {company.rekvizitai.bankas}</p>
-              <p>IBAN: {company.rekvizitai.iban}</p>
             </div>
           </div>
         </div>
