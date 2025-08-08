@@ -22,17 +22,19 @@ const STATIC_CACHE_URLS = [
 
 // Check if the current request is for a chrome extension or non-https URL
 const shouldHandleRequest = (url) => {
-  return url.startsWith('https://') && 
-         !url.startsWith('chrome-extension://') &&
-         !url.includes('google-analytics.com') &&
-         !url.includes('googletagmanager.com') &&
-         !url.includes('maps.googleapis.com') &&
-         !url.includes('fonts.googleapis.com') &&
-         !url.includes('googleapis.com') &&
-         !url.includes('gstatic.com') &&
-         !url.includes('googleusercontent.com') &&
-         !url.includes('google.com') &&
-         !url.includes('emailjs.com');
+  return url.startsWith('https://') &&
+    !url.startsWith('chrome-extension://') &&
+    !url.includes('google-analytics.com') &&
+    !url.includes('googletagmanager.com') &&
+    !url.includes('doubleclick.net') &&
+    !url.includes('clarity.ms') &&
+    !url.includes('maps.googleapis.com') &&
+    !url.includes('fonts.googleapis.com') &&
+    !url.includes('googleapis.com') &&
+    !url.includes('gstatic.com') &&
+    !url.includes('googleusercontent.com') &&
+    !url.includes('google.com') &&
+    !url.includes('emailjs.com');
 };
 
 // Install event - precache static assets
