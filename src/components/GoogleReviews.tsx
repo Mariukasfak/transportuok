@@ -80,7 +80,30 @@ const GoogleReviews: React.FC = () => {
     return () => clearInterval(interval);
   }, [autoRotate, reviews.length]);
 
-  const loadGoogleMapsScript = () => {
+  const loadGoogleMapsScript = async () => {
+    // Try server-side reviews first to avoid CSP/eval issues
+    try {
+      const resp = await fetch('/.netlify/functions/google-reviews', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ placeId: PLACE_ID })
+      });
+      if (resp.ok) {
+        const data = await resp.json();
+        if (Array.isArray(data.reviews) && data.reviews.length > 0) {
+          const sortedReviews = [...data.reviews].sort((a: Review, b: Review) => b.time - a.time);
+          setReviews(sortedReviews);
+          setAverageRating(data.rating || 0);
+          setTotalReviews(data.user_ratings_total || sortedReviews.length);
+          setLoading(false);
+          return; // Done via serverless path
+        }
+      }
+    } catch (e) {
+      // Ignore and fallback to client API
+    }
+
+    // Fallback to client Places API
     // Check if script is already loaded
     if (document.getElementById(GOOGLE_MAPS_SCRIPT_ID)) {
       if (window.google && window.google.maps) {

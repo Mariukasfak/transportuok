@@ -97,14 +97,8 @@ src/
 ## 📈 SEO strategija
 
 ### Meta duomenys:
-- **Pagrindinis title:** "Elektronikos ir buitinės technikos išvežimas Lietuvoje"
-- **Geografinis targeting:** Kaunas, Vilnius, visa Lietuva
-- **Keywords:** miestu specifiniai raktažodžiai
 
 ### Content strategy:
-- Lokalus turinys kiekvienam regionui
-- Praktiniai patarimai blog straipsniuose
-- Profesionalūs įmonės duomenys
 
 ## 🚀 Deployment
 
@@ -119,6 +113,10 @@ Node version: 18
 ```
 REACT_APP_GOOGLE_ANALYTICS_ID=G-XXXXXXXXXX
 REACT_APP_GOOGLE_TAG_MANAGER_ID=GTM-XXXXXXX
+
+## Serverless
+
+- Netlify Function `/.netlify/functions/google-reviews` proxies Google Places Details (reviews) server-side. Set `GOOGLE_MAPS_API_KEY` in Netlify env. Frontend prefers this endpoint to avoid CSP eval restrictions.
 ```
 
 ## 📞 Kontaktų logika
