@@ -1,53 +1,146 @@
-import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { Truck, Clock, CheckCircle, Phone } from 'lucide-react';
 import FAQ from '../../components/FAQ';
 import { buitinesTechnikosFAQ } from '../../data/faqData';
 import ServiceSchema from '../../components/ServiceSchema';
 import SEO from '../../components/SEO';
+import CityTabs from '../../components/CityTabs';
+
+const btCityConfigs = {
+  kaunas: {
+    name: 'Kaunas',
+    locative: 'Kaune',
+    phone: '+370 699 25 744',
+    telHref: 'tel:+37069925744',
+    email: 'info@transportuok.lt',
+    chips: ['Centras', 'Žaliakalnis', 'Dainava', 'Kalniečiai', 'Šilainiai', 'Aleksotas', 'Vilijampolė', 'Šančiai', 'Petrašiūnai', 'Panemunė', 'Rokai', 'Lampėdžiai', 'Eiguliai', 'Gričiupis', 'Kleboniškis'],
+    coverageText: 'Aptarnaujame visą Kauną'
+  },
+  vilnius: {
+    name: 'Vilnius',
+    locative: 'Vilniuje',
+    phone: '+370 664 24 024',
+    telHref: 'tel:+37066424024',
+    email: 'karavanaslt@gmail.com',
+    chips: ['Senamiestis', 'Naujamiestis', 'Šnipiškės', 'Antakalnis', 'Fabijoniškės', 'Justiniškės', 'Pašilaičiai', 'Pilaitė', 'Naujininkai', 'Lazdynai', 'Karoliniškės', 'Baltupiai', 'Viršuliškės', 'Žirmūnai', 'Naujoji Vilnia'],
+    coverageText: 'Aptarnaujame visą Vilnių'
+  },
+  lietuva: {
+    name: 'Visa Lietuva',
+    locative: 'Lietuvoje',
+    phone: '+370 664 24 024',
+    telHref: 'tel:+37066424024',
+    email: 'karavanaslt@gmail.com',
+    chips: ['Vilnius', 'Kaunas', 'Klaipėda', 'Šiauliai', 'Panevėžys', 'Alytus', 'Marijampolė', 'Mažeikiai', 'Jonava', 'Utena', 'Telšiai'],
+    coverageText: 'Aptarnaujame visą Lietuvą'
+  }
+} as const;
 
 const BuitineTechnika = () => {
-  const canonicalUrl = 'https://transportuok.lt/paslaugos/buitines-technikos-isvezimas';
-  
+  const params = useParams();
+  const cityKey = (params.city as keyof typeof btCityConfigs) || 'kaunas';
+  const city = btCityConfigs[cityKey] || btCityConfigs.kaunas;
+
+  const basePath = '/paslaugos/buitines-technikos-isvezimas';
+  const canonicalUrl = `${'https://transportuok.lt'}${params.city ? `${basePath}/${params.city}` : basePath}`;
+
   const serviceProvider = {
-    name: "Transportuok.lt",
-    url: "https://transportuok.lt",
-    logo: "/ikona_spalvotas.svg",
-    telephone: "+37069925744",
+    name: 'UAB "Karavanas LT"',
+    url: 'https://transportuok.lt',
+    logo: '/ikona_spalvotas.svg',
+    telephone: city.telHref.replace('tel:', ''),
     address: {
-      streetAddress: "Kauno g.",
-      addressLocality: "Kaunas",
-      postalCode: "44000",
-      addressCountry: "LT"
+      streetAddress: cityKey === 'vilnius' || cityKey === 'lietuva' ? 'M. K. Čiurlionio g. 1-47' : 'Kauno g.',
+      addressLocality: cityKey === 'vilnius' || cityKey === 'lietuva' ? 'Vilnius' : 'Kaunas',
+      postalCode: cityKey === 'vilnius' || cityKey === 'lietuva' ? '01100' : '44000',
+      addressCountry: 'LT'
     }
   };
 
+  // Build BreadcrumbList JSON-LD and FAQPage JSON-LD
+  const breadcrumbLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Pradžia', item: 'https://transportuok.lt/' },
+      { '@type': 'ListItem', position: 2, name: 'Paslaugos', item: 'https://transportuok.lt/paslaugos' },
+      { '@type': 'ListItem', position: 3, name: `Buitinės technikos išvežimas ${city.locative}`, item: canonicalUrl }
+    ]
+  };
+
+  const stripTags = (html: string) => html.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim();
+  const faqLd = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: buitinesTechnikosFAQ.map((q) => ({
+      '@type': 'Question',
+      name: stripTags(q.question),
+      acceptedAnswer: { '@type': 'Answer', text: stripTags(q.answer) }
+    }))
+  };
+
+  const howToLd = {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    name: `Kaip vyksta buitinės technikos išvežimas ${city.locative}`,
+    totalTime: 'P1D',
+    supply: ['Buitinės technikos prietaisas', 'Priėjimas iki objekto'],
+    tool: ['Specializuotas transportas', 'Apsauginės priemonės'],
+    step: [
+      { '@type': 'HowToStep', name: 'Užklausos pateikimas', text: 'Užpildykite formą arba paskambinkite nurodytu telefonu.' },
+      { '@type': 'HowToStep', name: 'Laiko suderinimas', text: 'Per 24 val. suderiname patogų išvežimo laiką.' },
+      { '@type': 'HowToStep', name: 'Išvežimas', text: 'Atvykstame, išnešame ir išvežame prietaisą į perdirbimą.' }
+    ]
+  };
+
+  const title = `Nemokamas buitinės technikos išvežimas ${city.locative} | Karavanas LT`;
+  const description = `Nemokamas šaldytuvų, skalbimo mašinų ir kitos buitinės technikos išvežimas ${city.locative}. Greitas atvykimas, saugus išnešimas, ekologiškas utilizavimas.`;
+
   return (
     <>
-      <SEO
-        title="Nemokamas buitinės technikos išvežimas Kaune | Transportuok.lt"
-        description="Nemokamas šaldytuvų, skalbimo mašinų, viryklių išvežimas Kaune. Profesionalus ir greitas aptarnavimas, ekologiškas utilizavimas. Užsakykite išvežimą dabar!"
-        canonicalUrl={canonicalUrl}
-      />
-      
+      <SEO title={title} description={description} canonicalUrl={canonicalUrl} />
+
       <ServiceSchema
-        name="Buitinės technikos išvežimas"
-        description="Nemokamas šaldytuvų, skalbimo mašinų ir kitų buitinių prietaisų išvežimas Kaune. Greitas ir patikimas aptarnavimas."
+        name={`Buitinės technikos išvežimas ${city.locative}`}
+        description={`Nemokamas šaldytuvų, skalbimo mašinų ir kitų buitinių prietaisų išvežimas ${city.locative}. Greitas ir patikimas aptarnavimas.`}
         provider={serviceProvider}
-        areaServed="Kaunas"
+        areaServed={cityKey === 'lietuva' ? 'Visa Lietuva' : city.name}
       />
+
+      {/* Structured data */}
+      <script type="application/ld+json">{JSON.stringify(breadcrumbLd)}</script>
+      <script type="application/ld+json">{JSON.stringify(faqLd)}</script>
+      <script type="application/ld+json">{JSON.stringify(howToLd)}</script>
 
       <div className="py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Hero Section */}
-          <div className="text-center mb-16">
+          <div className="text-center mb-10">
             <h1 className="text-4xl font-bold text-gray-900 mb-4">
-              Nemokamas buitinės technikos išvežimas Kaune
+              Nemokamas buitinės technikos išvežimas {city.locative}
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Profesionalus ir greitas buitinės technikos išvežimas visame Kauno mieste. 
+              Profesionalus ir greitas buitinės technikos išvežimas visame mieste.
               Išvežame šaldytuvus, skalbimo mašinas, virykles ir kitą buitinę techniką nemokamai.
             </p>
+            <div className="mt-5 flex items-center justify-center">
+              <CityTabs basePath={basePath} current={cityKey as any} />
+            </div>
+            {/* CTAs */}
+            <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3">
+              <a href={city.telHref} className="inline-flex items-center px-5 py-3 border-2 border-green-600 text-green-700 rounded-lg hover:bg-green-50 font-semibold">
+                <Phone className="w-5 h-5 mr-2" /> Skambinti: {city.phone}
+              </a>
+              <Link to="/kontaktai#contact-form" className="inline-flex items-center px-5 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 font-semibold">
+                Užsakyti internetu
+              </Link>
+            </div>
+            {/* Service area chips */}
+            <div className="mt-6 flex flex-wrap justify-center gap-2 text-sm text-gray-700">
+              {city.chips.map((loc) => (
+                <span key={loc} className="px-3 py-1 bg-gray-100 rounded-full border border-gray-200">{loc}</span>
+              ))}
+            </div>
           </div>
 
           {/* Main Content */}
@@ -93,7 +186,7 @@ const BuitineTechnika = () => {
                         <CheckCircle className="w-5 h-5 text-green-600 mr-2" />
                         <span>Skalbimo-džiovinimo mašinos</span>
                       </li>
-                                            <li className="flex items-center">
+                      <li className="flex items-center">
                         <CheckCircle className="w-5 h-5 text-green-600 mr-2" />
                         <span>Ir kiti elektronikos prietaisai</span>
                       </li>
@@ -110,7 +203,7 @@ const BuitineTechnika = () => {
                     <div>
                       <h3 className="font-semibold mb-2">Užklausos pateikimas</h3>
                       <p className="text-gray-600">
-                        Užpildykite užklausos formą arba paskambinkite mums. 
+                        Užpildykite užklausos formą arba paskambinkite mums.
                         Nurodykite, kokią techniką reikia išvežti ir savo kontaktinius duomenis.
                       </p>
                     </div>
@@ -167,6 +260,11 @@ const BuitineTechnika = () => {
                     </p>
                   </div>
                 </div>
+
+                {/* Sąlygos ir skaidrumas */}
+                <div className="mt-6 bg-yellow-50 border border-yellow-200 rounded-lg p-4 text-sm text-yellow-900">
+                  Dauguma išvežimų – nemokami. Galimos išlaidos priklauso nuo specifinių atvejų (pvz., nestandartinis privažiavimas, ypatingai sudėtingas išnešimas). Visada informuojame iš anksto.
+                </div>
               </section>
             </div>
 
@@ -176,12 +274,9 @@ const BuitineTechnika = () => {
               <div className="bg-white rounded-lg shadow-lg p-6 mb-8">
                 <h2 className="text-xl font-bold mb-4">Susisiekite</h2>
                 <div className="space-y-4">
-                  <a 
-                    href="tel:+37069925744"
-                    className="flex items-center text-gray-600 hover:text-green-600"
-                  >
+                  <a href={city.telHref} className="flex items-center text-gray-600 hover:text-green-600">
                     <Phone className="w-5 h-5 mr-2" />
-                    +370 699 25744
+                    {city.phone}
                   </a>
                   <div className="flex items-center text-gray-600">
                     <Clock className="w-5 h-5 mr-2" />
@@ -189,9 +284,10 @@ const BuitineTechnika = () => {
                     <br />
                     VI: 9:00 - 15:00
                   </div>
+                  <p className="text-xs text-gray-500">Atsakome darbo dienomis</p>
                   <div className="flex items-center text-gray-600">
                     <Truck className="w-5 h-5 mr-2" />
-                    Aptarnaujame visą Kauną
+                    {city.coverageText}
                   </div>
                 </div>
               </div>
@@ -212,12 +308,25 @@ const BuitineTechnika = () => {
             </div>
           </div>
         </div>
-        
-        <FAQ 
+
+        <FAQ
           items={buitinesTechnikosFAQ}
-          title="Dažniausiai užduodami klausimai apie buitinės technikos išvežimą"
+          title={`Dažniausiai užduodami klausimai apie buitinės technikos išvežimą ${city.locative}`}
           category="Buitinės technikos išvežimas"
         />
+
+        {/* Susijusios paslaugos ir straipsniai */}
+        <div className="mt-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-white rounded-lg shadow p-6">
+            <h2 className="text-2xl font-bold mb-4">Susijusios paslaugos ir straipsniai</h2>
+            <div className="flex flex-wrap gap-3">
+              <Link to="/paslaugos/elektronikos-atlieku-isvezimas" className="px-4 py-2 bg-gray-100 rounded-lg hover:bg-gray-200">Elektronikos atliekų išvežimas</Link>
+              <Link to="/paslaugos/baldu-isvezimas" className="px-4 py-2 bg-gray-100 rounded-lg hover:bg-gray-200">Baldų išvežimas</Link>
+              <Link to="/paslaugos/metalo-lauzo-isvezimas" className="px-4 py-2 bg-gray-100 rounded-lg hover:bg-gray-200">Metalo laužo išvežimas</Link>
+              <Link to="/naujienos" className="px-4 py-2 bg-green-50 text-green-700 border border-green-200 rounded-lg hover:bg-green-100">Naujienos ir patarimai</Link>
+            </div>
+          </div>
+        </div>
       </div>
     </>
   );

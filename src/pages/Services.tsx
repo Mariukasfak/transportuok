@@ -1,12 +1,12 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Truck, Monitor, Touchpad as Couch, Recycle } from 'lucide-react';
 
 const Services = () => {
   useEffect(() => {
     // Update meta tags
-    document.title = 'Buitinės technikos, baldų ir elektronikos išvežimas Kaune | Transportuok.lt';
-    
+    document.title = 'Buitinės technikos, baldų ir elektronikos išvežimas Kaune | Karavanas LT';
+
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
       metaDescription.setAttribute('content', 'Profesionalus buitinės technikos, baldų, elektronikos ir metalo laužo išvežimas Kaune. Nemokamas išvežimas, greitas aptarnavimas ir ekologiškas utilizavimas.');
@@ -16,8 +16,8 @@ const Services = () => {
     const ogTitle = document.querySelector('meta[property="og:title"]');
     const ogDescription = document.querySelector('meta[property="og:description"]');
     const ogUrl = document.querySelector('meta[property="og:url"]');
-    
-    if (ogTitle) ogTitle.setAttribute('content', 'Buitinės technikos, baldų ir elektronikos išvežimas Kaune | Transportuok.lt');
+
+    if (ogTitle) ogTitle.setAttribute('content', 'Buitinės technikos, baldų ir elektronikos išvežimas Kaune | Karavanas LT');
     if (ogDescription) ogDescription.setAttribute('content', 'Profesionalus buitinės technikos, baldų, elektronikos ir metalo laužo išvežimas Kaune. Nemokamas išvežimas ir ekologiškas utilizavimas.');
     if (ogUrl) ogUrl.setAttribute('content', 'https://transportuok.lt/services');
 

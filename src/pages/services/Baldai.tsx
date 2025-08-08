@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Truck, Clock, CheckCircle, Phone } from 'lucide-react';
 import FAQ from '../../components/FAQ';
@@ -7,21 +7,21 @@ import { balduFAQ } from '../../data/faqData';
 const Baldai = () => {
   useEffect(() => {
     // Meta tags
-    document.title = 'Baldų išvežimas Kaune | Transportuok.lt';
-    
+    document.title = 'Baldų išvežimas Kaune | Karavanas LT';
+
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
       metaDescription.setAttribute('content', 'Profesionalus senų baldų išvežimas Kaune. Sofų, spintų, lovų ir kitų baldų išvežimas. Greitas aptarnavimas ir prieinamos kainos.');
     }
 
-    
+
 
     // Open Graph tags
     const ogTitle = document.querySelector('meta[property="og:title"]');
     const ogDescription = document.querySelector('meta[property="og:description"]');
     const ogUrl = document.querySelector('meta[property="og:url"]');
-    
-    if (ogTitle) ogTitle.setAttribute('content', 'Baldų išvežimas Kaune | Transportuok.lt');
+
+    if (ogTitle) ogTitle.setAttribute('content', 'Baldų išvežimas Kaune | Karavanas LT');
     if (ogDescription) ogDescription.setAttribute('content', 'Profesionalus senų baldų išvežimas Kaune. Išvežame sofas, spintas, lovas. Greitas aptarnavimas ir prieinamos kainos.');
     if (ogUrl) ogUrl.setAttribute('content', 'https://transportuok.lt/paslaugos/baldu-isvezimas');
 
@@ -44,7 +44,7 @@ const Baldai = () => {
             Baldų išvežimas Kaune
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Profesionalus ir patogus senų baldų išvežimas visame Kauno mieste. 
+            Profesionalus ir patogus senų baldų išvežimas visame Kauno mieste.
             Išvežame visų tipų baldus už prieinamą kainą.
           </p>
         </div>
@@ -109,7 +109,7 @@ const Baldai = () => {
                   <div>
                     <h3 className="font-semibold mb-2">Užklausos pateikimas</h3>
                     <p className="text-gray-600">
-                      Užpildykite užklausos formą arba paskambinkite mums. 
+                      Užpildykite užklausos formą arba paskambinkite mums.
                       Nurodykite, kokius baldus reikia išvežti ir savo kontaktinius duomenis.
                     </p>
                   </div>
@@ -176,7 +176,7 @@ const Baldai = () => {
             <div className="bg-white rounded-lg shadow-lg p-6 mb-8">
               <h2 className="text-xl font-bold mb-4">Susisiekite</h2>
               <div className="space-y-4">
-                <a 
+                <a
                   href="tel:+37069925744"
                   className="flex items-center text-gray-600 hover:text-green-600"
                 >
@@ -213,7 +213,7 @@ const Baldai = () => {
         </div>
 
         {/* FAQ Section */}
-        <FAQ 
+        <FAQ
           items={balduFAQ}
           title="Dažniausiai užduodami klausimai apie baldų išvežimą"
           category="Baldų išvežimas"

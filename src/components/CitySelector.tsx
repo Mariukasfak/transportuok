@@ -19,20 +19,20 @@ const cityData: Record<string, CityData> = {
     region: 'Kauno region',
     services: [
       'Baldų išvežimas',
-      'Buitinės technikos išvežimas', 
+      'Buitinės technikos išvežimas',
       'Elektronikos išvežimas',
       'Metalo laužo išvežimas'
     ],
     contacts: {
       phone: '+370 699 25 744',
       email: 'info@transportuok.lt',
-      company: 'Transportuok.lt'
+      company: 'UAB "Karavanas LT"'
     },
     coverage: 'Kaunas ir Kauno rajonas'
   },
   vilnius: {
     name: 'Vilnius',
-    region: 'Vilniaus region', 
+    region: 'Vilniaus region',
     services: [
       'Elektronikos surinkimas ir išvežimas',
       'Buitinės technikos išvežimas',
@@ -53,14 +53,14 @@ const cityData: Record<string, CityData> = {
       'Elektronikos surinkimas visoje Lietuvoje',
       'Buitinės technikos išvežimas',
       'Transporto paslaugos',
-      'Tarpmiestinio transporto organizavimas'
+      'Elektronikos atliekų surinkimas ir utilizavimas'
     ],
     contacts: {
-      phone: '+370 664 24 024', 
+      phone: '+370 664 24 024',
       email: 'karavanaslt@gmail.com',
       company: 'UAB "Karavanas LT"'
     },
-    coverage: 'Visos Lietuvos Respublikos teritorija'
+    coverage: 'Visa Lietuva'
   }
 };
 
@@ -82,7 +82,7 @@ const CitySelector: React.FC = () => {
           Pasirinkite savo miestą arba regioną
         </h2>
         <p className="text-lg text-gray-600">
-          Teikiame paslaugas visoje Lietuvoje per du patikimus partnerius
+          Teikiame paslaugas visoje Lietuvoje
         </p>
       </div>
 
@@ -92,19 +92,18 @@ const CitySelector: React.FC = () => {
           <div
             key={key}
             onClick={() => handleCitySelect(key)}
-            className={`cursor-pointer p-6 rounded-lg border-2 transition-all duration-300 hover:shadow-lg ${
-              selectedCity === key
-                ? 'border-green-500 bg-green-50'
-                : 'border-gray-200 hover:border-green-300'
-            }`}
+            className={`cursor-pointer p-6 rounded-lg border-2 transition-all duration-300 hover:shadow-lg ${selectedCity === key
+              ? 'border-green-500 bg-green-50'
+              : 'border-gray-200 hover:border-green-300'
+              }`}
           >
             <div className="flex items-center mb-4">
               <MapPin className="h-6 w-6 text-green-600 mr-3" />
               <h3 className="text-xl font-bold text-gray-900">{data.name}</h3>
             </div>
-            
+
             <p className="text-gray-600 mb-4">{data.coverage}</p>
-            
+
             <div className="space-y-2">
               {data.services.slice(0, 2).map((service, index) => (
                 <div key={index} className="flex items-center">
@@ -138,29 +137,28 @@ const CitySelector: React.FC = () => {
               <h4 className="text-lg font-semibold text-gray-900 mb-4">
                 Susisiekite su mumis
               </h4>
-              
+
               <div className="space-y-4">
                 <div className="flex items-center">
                   <Phone className="h-5 w-5 text-green-600 mr-3" />
                   <div>
                     <p className="font-medium text-gray-900">{selectedData.contacts.phone}</p>
-                    <p className="text-sm text-gray-600">Skambinkite 24/7</p>
+                    <p className="text-sm text-gray-600">Atsakome darbo dienomis</p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-center">
                   <Mail className="h-5 w-5 text-green-600 mr-3" />
                   <div>
                     <p className="font-medium text-gray-900">{selectedData.contacts.email}</p>
-                    <p className="text-sm text-gray-600">Atsakysime per 2 val.</p>
+                    <p className="text-sm text-gray-600">Atsakome darbo dienomis</p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-center">
                   <Building className="h-5 w-5 text-green-600 mr-3" />
                   <div>
                     <p className="font-medium text-gray-900">{selectedData.contacts.company}</p>
-                    <p className="text-sm text-gray-600">Oficialus partneris</p>
                   </div>
                 </div>
               </div>
@@ -171,7 +169,7 @@ const CitySelector: React.FC = () => {
               <h4 className="text-lg font-semibold text-gray-900 mb-4">
                 Teikiamos paslaugos
               </h4>
-              
+
               <div className="space-y-3">
                 {selectedData.services.map((service, index) => (
                   <div key={index} className="flex items-center">
@@ -198,7 +196,7 @@ const CitySelector: React.FC = () => {
               Skambinti dabar
             </a>
             <a
-              href={`mailto:${selectedData.contacts.email}?subject=Užklausa iš ${selectedData.name}&body=Sveiki, norėčiau gauti informacijos apie jūsų teikiamas paslaugas ${selectedData.name} mieste.`}
+              href={`mailto:${selectedData.contacts.email}?subject=${encodeURIComponent(`Užklausa iš ${selectedData.name}`)}&body=${encodeURIComponent(`Sveiki, norėčiau gauti informacijos apie jūsų teikiamas paslaugas ${selectedData.name} mieste.`)}`}
               className="flex-1 bg-white text-green-600 text-center py-3 px-6 rounded-lg font-semibold border-2 border-green-600 hover:bg-green-50 transition-colors"
             >
               Rašyti el. laišką

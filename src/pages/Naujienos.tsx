@@ -1,16 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Calendar, Share2, ExternalLink, ArrowLeft } from 'lucide-react';
+import { Calendar, Share2, ArrowLeft } from 'lucide-react';
 
 const blogPosts = [
   {
-      id: 1,
-  slug: 'kaip-teisingai-utilizuoti-saldytuva-kaunieciai',
-  title: 'Kaip teisingai utilizuoti šaldytuvą – išsamus vadovas kauniečiams',
-  excerpt: 'Kaip tinkamai paruošti seną šaldytuvą išvežimui ir saugiam perdirbimui Kaune. Aiškūs žingsniai, ekologinė atsakomybė ir DUK atsakymai vienoje vietoje.',
-  date: '2025-01-15',
-  imageUrl: '/images/straipsnis5.webp',
-  content: `
+    id: 1,
+    slug: 'kaip-teisingai-utilizuoti-saldytuva-kaunieciai',
+    title: 'Kaip teisingai utilizuoti šaldytuvą – išsamus vadovas kauniečiams',
+    excerpt: 'Kaip tinkamai paruošti seną šaldytuvą išvežimui ir saugiam perdirbimui Kaune. Aiškūs žingsniai, ekologinė atsakomybė ir DUK atsakymai vienoje vietoje.',
+    date: '2025-01-15',
+    imageUrl: '/images/straipsnis5.webp',
+    content: `
   <h1 class="text-3xl font-bold mb-6">Kaip teisingai utilizuoti šaldytuvą – vadovas Kaune gyvenantiems</h1>
 
   <h2 class="text-2xl font-semibold mt-8 mb-4 text-green-700">Įžanga</h2>
@@ -166,7 +166,7 @@ const blogPosts = [
 
   <h2 class="text-2xl font-semibold mt-8 mb-4 text-green-700">Išvada</h2>
   <p class="mb-4">
-    Tvarkingas šaldytuvo utilizavimas – tai žingsnis į švaresnę aplinką. Kreipdamiesi į Transportuok.lt, jūs pasirenkate patikimą, 
+  Tvarkingas šaldytuvo utilizavimas – tai žingsnis į švaresnę aplinką. Kreipdamiesi į UAB "Karavanas LT", jūs pasirenkate patikimą, 
     greitą ir atsakingą paslaugą Kauno mieste. Mūsų komanda pasirūpins, kad jūsų šaldytuvas būtų išvežtas ir perdirbtas 
     laikantis visų aplinkosaugos reikalavimų.
   </p>
@@ -174,18 +174,18 @@ const blogPosts = [
     Nepalikite seno šaldytuvo tiesiog prie konteinerių – pasirinkite atsakingą sprendimą ir prisidėkite prie ekologiškesnės ateities!
   </p>
   `,
-  metaTitle: 'Kaip teisingai utilizuoti šaldytuvą Kaune | Transportuok.lt',
-  metaDescription: 'Išsamus vadovas apie teisingą šaldytuvo utilizavimą Kaune. Sužinokite, kaip saugiai ir ekologiškai atsikratyti seno šaldytuvo.',
-  ogImage: '/images/straipsnis1.webp',
+    metaTitle: 'Kaip teisingai utilizuoti šaldytuvą Kaune | Karavanas LT',
+    metaDescription: 'Išsamus vadovas apie teisingą šaldytuvo utilizavimą Kaune. Sužinokite, kaip saugiai ir ekologiškai atsikratyti seno šaldytuvo.',
+    ogImage: '/images/straipsnis1.webp',
   },
   {
     id: 2,
-  slug: 'kodel-svarbu-tinkamai-ismesti-elektronikos-atliekas',
-  title: 'Kodėl svarbu tinkamai išmesti elektronikos atliekas ir kaip tai padaryti Kaune',
-  excerpt: 'Elektronikos atliekų tvarkymas – vienas didžiausių iššūkių šiuolaikinėje visuomenėje. Sužinokite, kodėl svarbu tinkamai utilizuoti elektroniką ir kaip tai paprastai padaryti Kaune.',
-  date: '2024-12-18',
-  imageUrl: '/images/straipsnis2.webp',
-  content: `
+    slug: 'kodel-svarbu-tinkamai-ismesti-elektronikos-atliekas',
+    title: 'Kodėl svarbu tinkamai išmesti elektronikos atliekas ir kaip tai padaryti Kaune',
+    excerpt: 'Elektronikos atliekų tvarkymas – vienas didžiausių iššūkių šiuolaikinėje visuomenėje. Sužinokite, kodėl svarbu tinkamai utilizuoti elektroniką ir kaip tai paprastai padaryti Kaune.',
+    date: '2024-12-18',
+    imageUrl: '/images/straipsnis2.webp',
+    content: `
   <h1 class="text-3xl font-bold mb-6">Kodėl svarbu tinkamai išmesti elektronikos atliekas ir kaip tai padaryti Kaune</h1>
 
   <h2 class="text-2xl font-semibold mt-8 mb-4 text-green-700">Įžanga</h2>
@@ -463,7 +463,7 @@ const blogPosts = [
     prietaisas – žingsnis link švaresnės aplinkos, sveikesnio gyvenimo ir tvaresnės ateities.
   </p>
   <p class="mb-4">
-    Rinkdamiesi Transportuok.lt nemokamą elektronikos išvežimo paslaugą Kaune, jūs ne tik atsikratote 
+  Rinkdamiesi Karavanas LT nemokamą elektronikos išvežimo paslaugą Kaune, jūs ne tik atsikratote 
     nenaudojamų prietaisų, bet ir prisidedate prie aplinkos išsaugojimo. Užpildykite užklausos formą 
     arba susisiekite telefonu – mes pasirūpinsime, kad jūsų elektronikos atliekos būtų sutvarkytos tinkamai.
   </p>
@@ -475,18 +475,18 @@ const blogPosts = [
     </a>
   </div>
   `,
-  metaTitle: 'Elektronikos atliekų tvarkymas Kaune | Transportuok.lt',
-  metaDescription: 'Sužinokite, kodėl svarbu tinkamai tvarkyti elektronikos atliekas ir kaip tai padaryti Kaune. Profesionalus ir nemokamas išvežimas.',
-  ogImage: '/images/straipsnis2.webp',
+    metaTitle: 'Elektronikos atliekų tvarkymas Kaune | Karavanas LT',
+    metaDescription: 'Sužinokite, kodėl svarbu tinkamai tvarkyti elektronikos atliekas ir kaip tai padaryti Kaune. Profesionalus ir nemokamas išvežimas.',
+    ogImage: '/images/straipsnis2.webp',
   },
   {
     id: 3,
-  slug: 'kaip-teisingai-utilizuoti-buitine-technika-kaune',
-  title: 'Kaip teisingai utilizuoti buitinę techniką Kaune – nemokamo išvežimo galimybės',
-  excerpt: 'Sužinokite, kaip saugiai ir legaliai utilizuoti buitinę techniką Kaune. Naudinga informacija apie nemokamą išvežimą ir teisingą atliekų tvarkymą.',
-  date: '2024-11-15',
-  imageUrl: '/images/straipsnis1.webp',
-  content: `
+    slug: 'kaip-teisingai-utilizuoti-buitine-technika-kaune',
+    title: 'Kaip teisingai utilizuoti buitinę techniką Kaune – nemokamo išvežimo galimybės',
+    excerpt: 'Sužinokite, kaip saugiai ir legaliai utilizuoti buitinę techniką Kaune. Naudinga informacija apie nemokamą išvežimą ir teisingą atliekų tvarkymą.',
+    date: '2024-11-15',
+    imageUrl: '/images/straipsnis1.webp',
+    content: `
   <h1 class="text-3xl font-bold mb-6">Kaip teisingai utilizuoti buitinę techniką Kaune – nemokamo išvežimo galimybės</h1>
 
   <h2 class="text-2xl font-semibold mt-8 mb-4 text-green-700">Įžanga</h2>
@@ -777,7 +777,7 @@ const blogPosts = [
   <h2 class="text-2xl font-semibold mt-8 mb-4 text-green-700">Išvada</h2>
   <p class="mb-4">
     Teisingas buitinės technikos utilizavimas yra svarbus žingsnis saugant aplinką ir laikantis įstatymų. 
-    Pasirinkdami Transportuok.lt, jūs pasirenkate patikimą, greitą ir aplinkai draugišką sprendimą.
+  Pasirinkdami Karavanas LT, jūs pasirenkate patikimą, greitą ir aplinkai draugišką sprendimą.
   </p>
   <p class="mb-4">
     Mūsų nemokama išvežimo paslauga ne tik palengvina jūsų gyvenimą, bet ir užtikrina, kad seni 
@@ -792,18 +792,18 @@ const blogPosts = [
     </a>
   </div>
   `,
-  metaTitle: 'Kaip utilizuoti buitinę techniką Kaune | Transportuok.lt',
-  metaDescription: 'Sužinokite, kaip teisingai ir nemokamai utilizuoti buitinę techniką Kaune. Transportuok.lt pasirūpins išvežimu nuo A iki Z.',
-  ogImage: '/images/straipsnis1.webp',
+    metaTitle: 'Kaip utilizuoti buitinę techniką Kaune | Karavanas LT',
+    metaDescription: 'Sužinokite, kaip teisingai ir nemokamai utilizuoti buitinę techniką Kaune. Karavanas LT pasirūpins išvežimu nuo A iki Z.',
+    ogImage: '/images/straipsnis1.webp',
   },
   {
     id: 4,
-  slug: '5-dalykai-pries-ismetant-skalbimo-masina',
-  title: '5 dalykai, į kuriuos reikia atkreipti dėmesį prieš išmetant seną skalbimo mašiną',
-  excerpt: 'Ruošiatės atsikratyti senos skalbimo mašinos? Štai 5 svarbūs dalykai, kuriuos turite žinoti prieš jos išmetimą, kad procesas būtų saugus ir ekologiškas.',
-  date: '2024-10-20',
-  imageUrl: '/images/straipsnis4.webp',
-  content: `
+    slug: '5-dalykai-pries-ismetant-skalbimo-masina',
+    title: '5 dalykai, į kuriuos reikia atkreipti dėmesį prieš išmetant seną skalbimo mašiną',
+    excerpt: 'Ruošiatės atsikratyti senos skalbimo mašinos? Štai 5 svarbūs dalykai, kuriuos turite žinoti prieš jos išmetimą, kad procesas būtų saugus ir ekologiškas.',
+    date: '2024-10-20',
+    imageUrl: '/images/straipsnis4.webp',
+    content: `
   <h1 class="text-3xl font-bold mb-6">5 dalykai, į kuriuos reikia atkreipti dėmesį prieš išmetant seną skalbimo mašiną</h1>
 
   <h2 class="text-2xl font-semibold mt-8 mb-4 text-green-700">Įžanga</h2>
@@ -1028,18 +1028,18 @@ const blogPosts = [
     </a>
   </div>
   `,
-  metaTitle: 'Kaip teisingai išmesti skalbimo mašiną | Transportuok.lt',
-  metaDescription: '5 svarbūs dalykai, kuriuos reikia žinoti prieš išmetant seną skalbimo mašiną. Profesionalus išvežimas ir utilizavimas Kaune.',
-  ogImage: '/images/straipsnis3.webp',
+    metaTitle: 'Kaip teisingai išmesti skalbimo mašiną | Karavanas LT',
+    metaDescription: '5 svarbūs dalykai, kuriuos reikia žinoti prieš išmetant seną skalbimo mašiną. Profesionalus išvežimas ir utilizavimas Kaune.',
+    ogImage: '/images/straipsnis3.webp',
   },
   {
-  id: 5,
-  slug: 'elektronikos-atlieku-perdirbimo-procesas',
-  title: 'Elektronikos atliekų perdirbimas Kaune – kaip prisidėti prie švarios aplinkos',
-  excerpt: 'Susipažinkite su elektronikos atliekų perdirbimo procesu ir sužinokite, kaip jūsų sena technika gauna antrą gyvenimą vietoj to, kad kenkia aplinkai.',
-  date: '2024-09-10',
-  imageUrl: '/images/straipsnis2.webp',
-  content: `
+    id: 5,
+    slug: 'elektronikos-atlieku-perdirbimo-procesas',
+    title: 'Elektronikos atliekų perdirbimas Kaune – kaip prisidėti prie švarios aplinkos',
+    excerpt: 'Susipažinkite su elektronikos atliekų perdirbimo procesu ir sužinokite, kaip jūsų sena technika gauna antrą gyvenimą vietoj to, kad kenkia aplinkai.',
+    date: '2024-09-10',
+    imageUrl: '/images/straipsnis2.webp',
+    content: `
   <h1 class="text-3xl font-bold mb-6">Elektronikos atliekų perdirbimas Kaune – kaip prisidėti prie švarios aplinkos</h1>
 
   <h2 class="text-2xl font-semibold mt-8 mb-4 text-green-700">Įžanga</h2>
@@ -1411,7 +1411,7 @@ const blogPosts = [
     bet ir prisidėsite prie vertingų išteklių išsaugojimo ir pakartotinio panaudojimo.
   </p>
   <p class="mb-4">
-    Transportuok.lt siūlo patogų ir nemokamą elektronikos atliekų išvežimą Kauno mieste ir apylinkėse. 
+  Karavanas LT siūlo patogų ir nemokamą elektronikos atliekų išvežimą Kauno mieste ir apylinkėse. 
     Mūsų komanda pasirūpins, kad jūsų sena elektronika būtų išvežta operatyviai ir perdirbta laikantis 
     visų aplinkosaugos reikalavimų. Tai jūsų galimybė lengvai prisidėti prie švaresnės aplinkos kūrimo.
   </p>
@@ -1423,18 +1423,18 @@ const blogPosts = [
     </a>
   </div>
   `,
-  metaTitle: 'Elektronikos atliekų perdirbimas Kaune | Transportuok.lt',
-  metaDescription: 'Sužinokite apie elektronikos atliekų perdirbimo procesą Kaune. Nemokamas išvežimas ir atsakingas perdirbimas su Transportuok.lt.',
-  ogImage: '/images/straipsnis2.webp',
+    metaTitle: 'Elektronikos atliekų perdirbimas Kaune | Karavanas LT',
+    metaDescription: 'Sužinokite apie elektronikos atliekų perdirbimo procesą Kaune. Nemokamas išvežimas ir atsakingas perdirbimas su Karavanas LT.',
+    ogImage: '/images/straipsnis2.webp',
   },
   {
     id: 6,
-  slug: 'kaip-lengvai-ir-atsakingai-isvezti-senus-baldus-kaune',
-  title: 'Kaip lengvai ir atsakingai išvežti senus baldus Kaune',
-  excerpt: 'Sužinokite, kaip greitai ir patogiai atsikratyti senų baldų Kaune. Profesionalus išvežimas, saugi baldų utilizacija ir patarimai, kaip pasiruošti.',
-  date: '2024-08-15',
-  imageUrl: '/images/straipsnis3.webp',
-  content: `
+    slug: 'kaip-lengvai-ir-atsakingai-isvezti-senus-baldus-kaune',
+    title: 'Kaip lengvai ir atsakingai išvežti senus baldus Kaune',
+    excerpt: 'Sužinokite, kaip greitai ir patogiai atsikratyti senų baldų Kaune. Profesionalus išvežimas, saugi baldų utilizacija ir patarimai, kaip pasiruošti.',
+    date: '2024-08-15',
+    imageUrl: '/images/straipsnis3.webp',
+    content: `
   <h1 class="text-3xl font-bold mb-6">Kaip lengvai ir atsakingai išvežti senus baldus Kaune</h1>
 
   <h2 class="text-2xl font-semibold mt-8 mb-4 text-green-700">Įžanga</h2>
@@ -1798,7 +1798,7 @@ const blogPosts = [
     prie atsakingo vartojimo bei aplinkos tausojimo.
   </p>
   <p class="mb-4">
-    Transportuok.lt siūlo patogų, greitą ir atsakingą baldų išvežimą Kauno mieste ir apylinkėse. 
+  Karavanas LT siūlo patogų, greitą ir atsakingą baldų išvežimą Kauno mieste ir apylinkėse. 
     Mūsų profesionali komanda pasirūpins visu procesu nuo A iki Z, o jūs galėsite mėgautis 
     atnaujinta erdve be nereikalingų rūpesčių ir žinodami, kad jūsų baldai buvo sutvarkyti 
     aplinkosaugiškai atsakingu būdu.
@@ -1811,18 +1811,18 @@ const blogPosts = [
     </a>
   </div>
   `,
-  metaTitle: 'Senų baldų išvežimas Kaune | Transportuok.lt',
-  metaDescription: 'Profesionalus senų baldų išvežimas Kaune. Greitas aptarnavimas, konkurencingos kainos ir atsakingas utilizavimas su Transportuok.lt.',
-  ogImage: '/images/straipsnis3.webp',
+    metaTitle: 'Senų baldų išvežimas Kaune | Karavanas LT',
+    metaDescription: 'Profesionalus senų baldų išvežimas Kaune. Greitas aptarnavimas, konkurencingos kainos ir atsakingas utilizavimas su Karavanas LT.',
+    ogImage: '/images/straipsnis3.webp',
   },
   {
-  id: 7,
-  slug: 'praktiskas-namietis-kasdieniai-sprendimai',
-  title: 'Praktiškas namietis: efektyvūs kasdieniai sprendimai moderniame gyvenime',
-  excerpt: 'Atraskite, kaip praktiškas požiūris į daiktus ir aplinką gali pagerinti jūsų gyvenimo kokybę – nuo išmintingos atliekų tvarkymo strategijos iki funkcionalios kasdienės aprangos pasirinkimo.',
-  date: '2024-06-22',
-  imageUrl: '/images/straipsnis7.webp',
-  content: `
+    id: 7,
+    slug: 'praktiskas-namietis-kasdieniai-sprendimai',
+    title: 'Praktiškas namietis: efektyvūs kasdieniai sprendimai moderniame gyvenime',
+    excerpt: 'Atraskite, kaip praktiškas požiūris į daiktus ir aplinką gali pagerinti jūsų gyvenimo kokybę – nuo išmintingos atliekų tvarkymo strategijos iki funkcionalios kasdienės aprangos pasirinkimo.',
+    date: '2024-06-22',
+    imageUrl: '/images/straipsnis7.webp',
+    content: `
   <h1 class="text-3xl font-bold mb-6">Praktiškas namietis: efektyvūs kasdieniai sprendimai moderniame gyvenime</h1>
 
   <h2 class="text-2xl font-semibold mt-8 mb-4 text-green-700">Įžanga</h2>
@@ -2051,7 +2051,7 @@ const blogPosts = [
           reikalauja drabužių, kurie būtų ir funkcionalūs, ir atspindėtų asmeninį stilių.
         </p>
         <p class="mb-4">
-          Mūsų komanda, dirbdama atliekų tvarkymo srityje, ypač vertina praktiškus sprendimus. Transportuok.lt 
+          Mūsų komanda, dirbdama atliekų tvarkymo srityje, ypač vertina praktiškus sprendimus. Karavanas LT 
           specialistai kasdien dėvi patogius ir funkcionalius drabužius nuo <a href="https://siemka.lt" target="_blank" rel="noopener noreferrer" class="text-green-700 font-semibold">siemka.lt</a> – 
           lietuviškos elektroninės parduotuvės, kuriančios unikalaus dizaino džemperius bei marškinėlius su originaliais 
           užrašais ir piešiniais.
@@ -2185,7 +2185,7 @@ const blogPosts = [
           <li>Lankstus darbo grafikas (galimybė pasirinkti jums patogų laiką)</li>
           <li>Teigiami atsiliepimai ir rekomendacijos</li>
         </ul>
-        <p class="mt-2">Profesionalų atliekų išvežimo paslaugas Kaune teikia Transportuok.lt, užtikrinanti sklandų ir ekologišką procesą.</p>
+  <p class="mt-2">Profesionalų atliekų išvežimo paslaugas Kaune teikia Karavanas LT, užtikrinanti sklandų ir ekologišką procesą.</p>
       </div>
     </div>
   </div>
@@ -2253,9 +2253,9 @@ const blogPosts = [
     </div>
   </div>
   `,
-  metaTitle: 'Praktiškas namietis: efektyvūs kasdieniai sprendimai | Transportuok.lt',
-  metaDescription: 'Atraskite, kaip praktiškas požiūris į daiktus, jų tvarkymą ir funkcionalią aprangą gali pagerinti jūsų gyvenimo kokybę. Patarimai ir sprendimai moderniam žmogui.',
-  ogImage: '/images/straipsnis7.webp',
+    metaTitle: 'Praktiškas namietis: efektyvūs kasdieniai sprendimai | Karavanas LT',
+    metaDescription: 'Atraskite, kaip praktiškas požiūris į daiktus, jų tvarkymą ir funkcionalią aprangą gali pagerinti jūsų gyvenimo kokybę. Patarimai ir sprendimai moderniam žmogui.',
+    ogImage: '/images/straipsnis7.webp',
   }
 ];
 
@@ -2314,7 +2314,7 @@ const BlogPost = () => {
           loading="lazy"
           itemProp="image"
         />
-        
+
         <div className="flex items-center text-gray-500 text-sm mb-4">
           <Calendar className="w-4 h-4 mr-2" />
           <time itemProp="datePublished" dateTime={post.date}>
@@ -2322,7 +2322,7 @@ const BlogPost = () => {
           </time>
         </div>
 
-        <div 
+        <div
           className="prose prose-lg max-w-none"
           itemProp="articleBody"
           dangerouslySetInnerHTML={{ __html: post.content }}
@@ -2332,16 +2332,16 @@ const BlogPost = () => {
           <h3 className="text-lg font-semibold mb-4">Dalintis straipsniu:</h3>
           <div className="flex space-x-4">
             {Object.entries(shareLinks).map(([platform, url]) => (
-<a
-  key={platform}
-  href={url}
-  target="_blank"
-  rel="noopener noreferrer"
-  className="flex items-center text-gray-600 hover:text-green-600"
->
-  <Share2 className="w-5 h-5 mr-2" />
-  {platform.charAt(0).toUpperCase() + platform.slice(1)}
-</a>
+              <a
+                key={platform}
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center text-gray-600 hover:text-green-600"
+              >
+                <Share2 className="w-5 h-5 mr-2" />
+                {platform.charAt(0).toUpperCase() + platform.slice(1)}
+              </a>
 
             ))}
           </div>
@@ -2353,7 +2353,7 @@ const BlogPost = () => {
 
 const BlogList = () => {
   React.useEffect(() => {
-    document.title = 'Naujienos ir patarimai | Transportuok.lt';
+    document.title = 'Naujienos ir patarimai | Karavanas LT';
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
       metaDescription.setAttribute('content', 'Naujausia informacija apie atliekų tvarkymą ir perdirbimą Kaune. Naudingos žinios apie buitinės technikos ir elektronikos utilizavimą.');
@@ -2370,10 +2370,10 @@ const BlogList = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {blogPosts.map((post) => (
-            <article 
-              key={post.id} 
+            <article
+              key={post.id}
               className="bg-white rounded-lg shadow-lg overflow-hidden"
-              itemScope 
+              itemScope
               itemType="http://schema.org/BlogPosting"
             >
               <img
@@ -2392,7 +2392,7 @@ const BlogList = () => {
                 </div>
                 <h2 className="text-xl font-bold mb-3" itemProp="headline">{post.title}</h2>
                 <p className="text-gray-600 mb-4" itemProp="description">{post.excerpt}</p>
-                <Link 
+                <Link
                   to={`/naujienos/${post.slug}`}
                   className="text-green-600 font-semibold hover:text-green-700"
                 >

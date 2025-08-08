@@ -90,21 +90,21 @@ Teikiame paslaugas:
     city: "Vilnius",
     image: "/images/optimized/elektronika.webp"
   },
-  
+
   {
     id: 2,
     title: "Buitinės technikos išvežimas visoje Lietuvoje: patikimas partneris",
     slug: "buitines-technikos-isvezimas-lietuvoje",
-    excerpt: "Plataus masto buitinės technikos išvežimo paslaugos visoje Lietuvoje. Transportuok.lt ir Karavanas.lt partnerystė užtikrina kokybišką aptarnavimą bet kuriame mieste.",
+    excerpt: "Plataus masto buitinės technikos išvežimo paslaugos visoje Lietuvoje. UAB Karavanas LT užtikrina kokybišką aptarnavimą bet kuriame mieste.",
     content: `
-# Buitinės technikos išvežimas visoje Lietuvoje: patikimas partneris
+# Buitinės technikos išvežimas visoje Lietuvoje: patikimas sprendimas
 
-Lietuvoje vis daugiau žmonių susiduria su senosios buitinės technikos utilizavimo problema. **Transportuok.lt ir UAB "Karavanas LT" partnerystė** siūlo išsamų sprendimą visoje šalies teritorijoje.
+Lietuvoje vis daugiau žmonių susiduria su senosios buitinės technikos utilizavimo problema. **UAB "Karavanas LT"** siūlo išsamų sprendimą visoje šalies teritorijoje.
 
-## Partnerių tinklas visoje Lietuvoje
+## Aptarnavimas visoje Lietuvoje
 
 ### Kaunas ir Kauno regionas
-**Transportuok.lt** specializuojasi:
+**Karavanas LT** specializuojasi:
 - 🪑 **Baldų išvežimas** (tik Kauno regione)
 - 🔌 **Buitinės technikos išvežimas**
 - 💻 **Elektronikos išvežimas**
@@ -226,15 +226,15 @@ Mūsų partneriai užtikrina:
 ## Užsakymo procesas
 
 1. **Pasirinkite miestą/regioną**
-2. **Susisiekite su atitinkamu partneriu**
+2. **Susisiekite su mūsų komanda**
 3. **Aprašykite išvežamą techniką**
 4. **Suderinkite laiką**
 5. **Mes atvyksime ir viską paruošsime**
 
-*Pasitikėkite patirtimi ir profesionalumu! Transportuok.lt ir Karavanas.lt - jūsų patikimi partneriai buitinės technikos išvežimo srityje visoje Lietuvoje.*
+*Pasitikėkite patirtimi ir profesionalumu! Karavanas LT - jūsų patikimas pasirinkimas buitinės technikos išvežimo srityje visoje Lietuvoje.*
     `,
     date: "2025-08-07",
-    author: "Transportuok.lt",
+    author: "Karavanas LT",
     category: "Buitinės technikos išvežimas",
     city: "Visa Lietuva",
     image: "/images/optimized/buitine-technika.webp"
@@ -244,11 +244,11 @@ Mūsų partneriai užtikrina:
     id: 3,
     title: "Kaip tinkamai paruošti baldus išvežimui Kaune: praktiniai patarimai",
     slug: "baldu-isvezimas-kaune-pasiruosimas",
-    excerpt: "Detalūs patarimai, kaip efektyviai paruošti baldus išvežimui Kaune. Transportuok.lt ekspertų rekomendacijos saugiam ir greitam baldų perkėlimui.",
+    excerpt: "Detalūs patarimai, kaip efektyviai paruošti baldus išvežimui Kaune. Karavanas LT komandos rekomendacijos saugiam ir greitam baldų perkėlimui.",
     content: `
 # Kaip tinkamai paruošti baldus išvežimui Kaune: praktiniai patarimai
 
-Baldų išvežimas - tai procesą, reikalaujantis kruopščiu pasiruošimo. **Transportuok.lt komanda Kaune** dalijasi praktiniais patarimais, kaip efektyviai ir saugiai organizuoti baldų išvežimą.
+Baldų išvežimas - tai procesas, reikalaujantis kruopštaus pasiruošimo. **Karavanas LT komanda Kaune** dalijasi praktiniais patarimais, kaip efektyviai ir saugiai organizuoti baldų išvežimą.
 
 ## Kodėl baldų išvežimas reikalauja specialios patirios?
 
@@ -259,9 +259,9 @@ Baldai skiriasi nuo kitų atliekų:
 - 🔧 **Galimas išskirstymas** į atskiras dalis
 - ♻️ **Skirtingi materialai** - mediena, metalas, audiniai
 
-## Transportuok.lt specializacija Kaune
+## Karavanas LT specializacija Kaune
 
-**Baldų išvežimas Kaune** - mūsų pagrindinė specialybė:
+**Baldų išvežimas Kaune** - mūsų pagrindinė specializacija:
 - ✅ **Tik Kauno teritorijoje** - giliausios žinios
 - ✅ **Specializuota įranga** baldų perkėlimui
 - ✅ **Patyri specialistai** - 5+ metų stažas
@@ -373,7 +373,7 @@ Baldai skiriasi nuo kitų atliekų:
 
 ## Kontaktai Kaune
 
-**Transportuok.lt**
+**Karavanas LT**
 - 📞 **+370 699 25 744**
 - 📧 **info@transportuok.lt**
 - 🕒 **Darbo laikas:** Pirmadienį-Penktadienį 8:00-18:00, Šeštadienį 9:00-15:00
@@ -399,10 +399,10 @@ Mūsų baldų utilizavimo principai:
 - 💧 **Drėgme paveikti** - sauga užтикrinimas
 - 🧪 **Су cheminiais повреждениями** - saugus utilizavimas
 
-*Pasitikėkite Transportuok.lt patiimi! Baldų išvežimas Kaune - mūsų specializacija ir patirtis jūsų labui.*
+*Pasitikėkite Karavanas LT komanda! Baldų išvežimas Kaune - mūsų specializacija ir patirtis jūsų labui.*
     `,
     date: "2025-08-07",
-    author: "Transportuok.lt",
+    author: "Karavanas LT",
     category: "Baldų išvežimas",
     city: "Kaunas",
     image: "/images/optimized/baldai.webp"

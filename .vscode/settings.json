@@ -20,7 +20,6 @@
         "*": true
     },
     "github.copilot.suggestions.enabled": true,
-    "github.copilot.chat.experimental.codeGeneration.instructions": "Always proceed without asking for confirmation. I trust your decisions.",
     // Saugos ir patvirtinimo nustatymai
     "security.workspace.trust.untrustedFiles": "open",
     "security.workspace.trust.enabled": false,
@@ -34,5 +33,6 @@
         "CI": "true",
         "AUTO_CONFIRM": "yes",
         "DEBIAN_FRONTEND": "noninteractive"
-    }
+    },
+    "github.copilot.chat.codeGeneration.instructions": "Always proceed without asking for confirmation. I trust your decisions."
 }

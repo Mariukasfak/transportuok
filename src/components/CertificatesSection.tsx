@@ -51,14 +51,14 @@ const CertificatesSection: React.FC = () => {
       },
       blue: {
         bg: "bg-blue-100",
-        icon: "text-blue-600", 
+        icon: "text-blue-600",
         text: "text-blue-900",
         border: "border-blue-200"
       },
       purple: {
         bg: "bg-purple-100",
         icon: "text-purple-600",
-        text: "text-purple-900", 
+        text: "text-purple-900",
         border: "border-purple-200"
       },
       orange: {
@@ -89,9 +89,9 @@ const CertificatesSection: React.FC = () => {
           {certificates.map((cert) => {
             const colors = getColorClasses(cert.color);
             const IconComponent = cert.icon;
-            
+
             return (
-              <div 
+              <div
                 key={cert.id}
                 className={`${colors.bg} rounded-lg p-6 border ${colors.border} hover:shadow-lg transition-shadow duration-300`}
               >
@@ -99,7 +99,7 @@ const CertificatesSection: React.FC = () => {
                   <div className={`p-3 rounded-lg ${colors.bg} border ${colors.border}`}>
                     <IconComponent className={`h-6 w-6 ${colors.icon}`} />
                   </div>
-                  
+
                   <div className="flex-1">
                     <h3 className={`text-xl font-bold ${colors.text} mb-2`}>
                       {cert.title}
@@ -107,14 +107,14 @@ const CertificatesSection: React.FC = () => {
                     <p className="text-gray-700 mb-3">
                       {cert.description}
                     </p>
-                    
+
                     <div className="space-y-2">
                       <div className="flex items-center text-sm text-gray-600">
                         <FileText className="h-4 w-4 mr-2" />
                         <span className="font-medium">Išdavė:</span>
                         <span className="ml-1">{cert.authority}</span>
                       </div>
-                      
+
                       <div className="flex items-center text-sm text-gray-600">
                         <CheckCircle className="h-4 w-4 mr-2" />
                         <span className="font-medium">Galioja iki:</span>
@@ -136,7 +136,7 @@ const CertificatesSection: React.FC = () => {
               Kokybės užtikrinimas
             </h3>
             <p className="text-gray-600 max-w-3xl mx-auto">
-              Mūsų veikla atitinka visus nacionalinius ir tarptautinius reikalavimus, 
+              Mūsų veikla atitinka visus nacionalinius ir tarptautinius reikalavimus,
               užtikrinant aukščiausią paslaugų kokybę ir aplinkos apsaugą.
             </p>
           </div>
@@ -181,10 +181,10 @@ const CertificatesSection: React.FC = () => {
             <h4 className="font-semibold text-gray-900 mb-4 text-center">
               Reguliacinė informacija
             </h4>
-            
+
             <div className="grid md:grid-cols-2 gap-6 text-sm text-gray-600">
               <div>
-                <h5 className="font-medium text-gray-900 mb-2">Transportuok.lt</h5>
+                <h5 className="font-medium text-gray-900 mb-2">Karavanas LT</h5>
                 <ul className="space-y-1">
                   <li>• Registruota veikla Kauno mieste</li>
                   <li>• Atliekų surinkimo licencija Nr. KN-2024-001</li>
@@ -192,7 +192,7 @@ const CertificatesSection: React.FC = () => {
                   <li>• Atitinka GPSA (Gamintojų produkcijos atsakomybės) reikalavimus</li>
                 </ul>
               </div>
-              
+
               <div>
                 <h5 className="font-medium text-gray-900 mb-2">UAB "Karavanas LT"</h5>
                 <ul className="space-y-1">
@@ -208,7 +208,7 @@ const CertificatesSection: React.FC = () => {
           {/* Contact for Verification */}
           <div className="mt-6 text-center">
             <p className="text-sm text-gray-600">
-              Norite patikrinti mūsų sertifikatų galiojimą? 
+              Norite patikrinti mūsų sertifikatų galiojimą?
               <a href="mailto:info@transportuok.lt" className="text-green-600 hover:text-green-700 ml-1">
                 Susisiekite su mumis
               </a>

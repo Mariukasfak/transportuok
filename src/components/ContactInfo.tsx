@@ -17,14 +17,14 @@ const ContactInfo: React.FC = () => {
 
         {/* Contact Cards */}
         <div className="grid lg:grid-cols-2 gap-8 mb-12">
-          {/* Transportuok.lt - Kaunas */}
+          {/* Karavanas LT - Kaunas */}
           <div className="bg-green-50 rounded-lg p-8 border border-green-200">
             <div className="flex items-center mb-6">
               <div className="bg-green-600 p-3 rounded-lg mr-4">
                 <Building className="h-6 w-6 text-white" />
               </div>
               <div>
-                <h3 className="text-2xl font-bold text-green-900">Transportuok.lt</h3>
+                <h3 className="text-2xl font-bold text-green-900">Karavanas LT</h3>
                 <p className="text-green-700">Kaunas ir Kauno regionas</p>
               </div>
             </div>
@@ -63,7 +63,7 @@ const ContactInfo: React.FC = () => {
                   <p className="text-sm text-green-600">Skambinkite 24/7</p>
                 </div>
               </div>
-              
+
               <div className="flex items-center text-green-800">
                 <Mail className="h-5 w-5 mr-3" />
                 <div>
@@ -73,7 +73,7 @@ const ContactInfo: React.FC = () => {
                   <p className="text-sm text-green-600">Atsakysime per 2 valandas</p>
                 </div>
               </div>
-              
+
               <div className="flex items-center text-green-800">
                 <MapPin className="h-5 w-5 mr-3" />
                 <div>
@@ -130,7 +130,7 @@ const ContactInfo: React.FC = () => {
                   <p className="text-sm text-blue-600">Darbo laikas: 8:00-20:00</p>
                 </div>
               </div>
-              
+
               <div className="flex items-center text-blue-800">
                 <Mail className="h-5 w-5 mr-3" />
                 <div>
@@ -140,7 +140,7 @@ const ContactInfo: React.FC = () => {
                   <p className="text-sm text-blue-600">Oficialus el. paštas</p>
                 </div>
               </div>
-              
+
               <div className="flex items-center text-blue-800">
                 <MapPin className="h-5 w-5 mr-3" />
                 <div>
@@ -157,7 +157,7 @@ const ContactInfo: React.FC = () => {
           <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">
             UAB "Karavanas LT" oficialūs rekvizitai
           </h3>
-          
+
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {/* Company Code */}
             <div className="text-center">
@@ -207,7 +207,7 @@ const ContactInfo: React.FC = () => {
                 <p><strong>Transporto priemonės:</strong> 11 automobilių</p>
               </div>
             </div>
-            
+
             <div>
               <h4 className="font-semibold text-gray-900 mb-3">Finansiniai rodikliai (2024 m.)</h4>
               <div className="space-y-2 text-gray-600">
@@ -222,7 +222,7 @@ const ContactInfo: React.FC = () => {
           {/* Legal Notice */}
           <div className="mt-8 p-4 bg-white rounded-lg border border-gray-200">
             <p className="text-sm text-gray-600 text-center">
-              <strong>Veiklos sritys:</strong> Transporto paslaugos, automobilių prekyba, 
+              <strong>Veiklos sritys:</strong> Transporto paslaugos, automobilių prekyba,
               elektronikos ir buitinės technikos išvežimas, atliekų tvarkymas.
               Visi duomenys paimti iš oficialių šaltinių ir atitinka LR įstatymų reikalavimus.
             </p>

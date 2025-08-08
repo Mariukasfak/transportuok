@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Calendar, Share2, ExternalLink, ArrowLeft } from 'lucide-react';
+import { Calendar, Share2, ArrowLeft } from 'lucide-react';
 
 const blogPosts = [
   {
@@ -61,12 +61,12 @@ const blogPosts = [
       
       <h2>Išvada</h2>
       <p>
-        Atliekų tvarkymas prasideda nuo jūsų sprendimo. Pasirinkdami Transportuok.lt, jūs pasirenkate 
+        Atliekų tvarkymas prasideda nuo jūsų sprendimo. Pasirinkdami UAB "Karavanas LT", jūs pasirenkate 
         greitą, patogų ir aplinkai draugišką sprendimą.
       </p>
     `,
-    metaTitle: 'Kaip utilizuoti buitinę techniką Kaune | Transportuok.lt',
-    metaDescription: 'Sužinokite, kaip teisingai ir nemokamai utilizuoti buitinę techniką Kaune. Transportuok.lt pasirūpins išvežimu nuo A iki Z.',
+    metaTitle: 'Kaip utilizuoti buitinę techniką Kaune | Karavanas LT',
+    metaDescription: 'Sužinokite, kaip teisingai ir nemokamai utilizuoti buitinę techniką Kaune. Karavanas LT pasirūpins išvežimu nuo A iki Z.',
     ogImage: '/images/straipsnis1.webp',
   },
   {
@@ -95,7 +95,7 @@ const blogPosts = [
           <li>4. Mes susisieksime per 24 valandas</li>
         </ol>
         <div class="mt-6">
-          <a href="/contact#contact-form" class="bg-green-600 text-white px-6 py-3 rounded-lg inline-flex items-center">
+          <a href="/kontaktai#contact-form" class="bg-green-600 text-white px-6 py-3 rounded-lg inline-flex items-center">
             <span>Užsakyti išvežimą</span>
             <ExternalLink className="w-4 h-4 ml-2" />
           </a>
@@ -129,8 +129,8 @@ const blogPosts = [
         <li>Taurieji metalai (auksas, sidabras)</li>
       </ul>
     `,
-    metaTitle: 'Elektronikos atliekų perdirbimas Kaune | Transportuok.lt',
-    metaDescription: 'Sužinokite apie elektronikos atliekų perdirbimo procesą Kaune. Nemokamas išvežimas ir atsakingas perdirbimas su Transportuok.lt.',
+    metaTitle: 'Elektronikos atliekų perdirbimas Kaune | Karavanas LT',
+    metaDescription: 'Sužinokite apie elektronikos atliekų perdirbimo procesą Kaune. Nemokamas išvežimas ir atsakingas perdirbimas su Karavanas LT.',
     ogImage: '/images/straipsnis2.webp',
   },
   {
@@ -211,13 +211,13 @@ const blogPosts = [
 
       <h2>Išvada</h2>
       <p>
-        Senų baldų išvežimas su Transportuok.lt – tai patogus ir atsakingas sprendimas. 
+  Senų baldų išvežimas su Karavanas LT – tai patogus ir atsakingas sprendimas. 
         Mūsų profesionali komanda pasirūpins visu procesu nuo A iki Z, o jūs galėsite 
         mėgautis atnaujinta erdve be nereikalingų rūpesčių.
       </p>
     `,
-    metaTitle: 'Senų baldų išvežimas Kaune | Transportuok.lt',
-    metaDescription: 'Profesionalus senų baldų išvežimas Kaune. Greitas aptarnavimas, konkurencingos kainos ir atsakingas utilizavimas su Transportuok.lt.',
+    metaTitle: 'Senų baldų išvežimas Kaune | Karavanas LT',
+    metaDescription: 'Profesionalus senų baldų išvežimas Kaune. Greitas aptarnavimas, konkurencingos kainos ir atsakingas utilizavimas su Karavanas LT.',
     ogImage: '/images/straipsnis3.webp',
   }
 ];
@@ -277,7 +277,7 @@ const BlogPost = () => {
           loading="lazy"
           itemProp="image"
         />
-        
+
         <div className="flex items-center text-gray-500 text-sm mb-4">
           <Calendar className="w-4 h-4 mr-2" />
           <time itemProp="datePublished" dateTime={post.date}>
@@ -285,7 +285,7 @@ const BlogPost = () => {
           </time>
         </div>
 
-        <div 
+        <div
           className="prose prose-lg max-w-none"
           itemProp="articleBody"
           dangerouslySetInnerHTML={{ __html: post.content }}
@@ -315,7 +315,7 @@ const BlogPost = () => {
 
 const BlogList = () => {
   React.useEffect(() => {
-    document.title = 'Naujienos ir patarimai | Transportuok.lt';
+    document.title = 'Naujienos ir patarimai | Karavanas LT';
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
       metaDescription.setAttribute('content', 'Naujausia informacija apie atliekų tvarkymą ir perdirbimą Kaune. Naudingos žinios apie buitinės technikos ir elektronikos utilizavimą.');
@@ -332,10 +332,10 @@ const BlogList = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {blogPosts.map((post) => (
-            <article 
-              key={post.id} 
+            <article
+              key={post.id}
               className="bg-white rounded-lg shadow-lg overflow-hidden"
-              itemScope 
+              itemScope
               itemType="http://schema.org/BlogPosting"
             >
               <img
@@ -354,7 +354,7 @@ const BlogList = () => {
                 </div>
                 <h2 className="text-xl font-bold mb-3" itemProp="headline">{post.title}</h2>
                 <p className="text-gray-600 mb-4" itemProp="description">{post.excerpt}</p>
-                <Link 
+                <Link
                   to={`/blog/${post.slug}`}
                   className="text-green-600 font-semibold hover:text-green-700"
                 >

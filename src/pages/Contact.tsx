@@ -41,19 +41,19 @@ const Contact = () => {
   });
 
   useEffect(() => {
-    document.title = 'Susisiekite dėl atliekų išvežimo Kaune | Transportuok.lt';
-    
+    document.title = 'Susisiekite dėl atliekų išvežimo Kaune | Karavanas LT';
+
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
-      metaDescription.setAttribute('content', 'Susisiekite su Transportuok.lt dėl nemokamo daiktų išvežimo Kaune. Užpildykite formą arba skambinkite +370 699 25744. Dirbame visoje Kauno miesto teritorijoje.');
+      metaDescription.setAttribute('content', 'Susisiekite su Karavanas LT dėl nemokamo daiktų išvežimo Kaune. Užpildykite formą arba skambinkite +370 699 25744. Dirbame visoje Kauno miesto teritorijoje.');
     }
 
     const ogTitle = document.querySelector('meta[property="og:title"]');
     const ogDescription = document.querySelector('meta[property="og:description"]');
     const ogUrl = document.querySelector('meta[property="og:url"]');
-    
-    if (ogTitle) ogTitle.setAttribute('content', 'Susisiekite dėl atliekų išvežimo Kaune | Transportuok.lt');
-    if (ogDescription) ogDescription.setAttribute('content', 'Susisiekite su Transportuok.lt dėl nemokamo daiktų išvežimo Kaune. Greitas ir patikimas aptarnavimas.');
+
+    if (ogTitle) ogTitle.setAttribute('content', 'Susisiekite dėl atliekų išvežimo Kaune | Karavanas LT');
+    if (ogDescription) ogDescription.setAttribute('content', 'Susisiekite su Karavanas LT dėl nemokamo daiktų išvežimo Kaune. Greitas ir patikimas aptarnavimas.');
     if (ogUrl) ogUrl.setAttribute('content', 'https://transportuok.lt/contact');
 
     let canonical = document.querySelector('link[rel="canonical"]');
@@ -81,7 +81,7 @@ const Contact = () => {
     try {
       // Initialize EmailJS (this ensures proper configuration)
       emailjs.init("F_bgx8N1D2rFvUIoM");
-      
+
       await emailjs.send(
         'service_transportuok',
         'template_uzklausa',
@@ -99,15 +99,15 @@ const Contact = () => {
 
       // Track successful form submission
       trackFormSubmission('contact_form', true);
-      
+
       setStatus('success');
       reset();
     } catch (error) {
       console.error('EmailJS error:', error);
-      
+
       // Track form submission error
       trackFormSubmission('contact_form', false);
-      
+
       setStatus('error');
     }
   };
@@ -130,12 +130,12 @@ const Contact = () => {
                   <h2 className="text-2xl font-bold text-green-800 mb-2">Ačiū! Jūsų užklausa gauta.</h2>
                   <p className="text-green-700 mb-6">Susisieksime su jumis per 24 valandas.</p>
                 </div>
-                
+
                 <div className="bg-white rounded-lg p-6 shadow-sm">
                   <p className="text-gray-700 mb-4">
                     Norite greičiau? Skambinkite mums tiesiogiai:
                   </p>
-                  <a 
+                  <a
                     href="tel:+37069925744"
                     className="flex items-center justify-center bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors"
                   >
@@ -148,13 +148,13 @@ const Contact = () => {
                 </div>
               </div>
             ) : (
-              <form 
+              <form
                 id="contact-form"
-                onSubmit={handleSubmit(onSubmit)} 
+                onSubmit={handleSubmit(onSubmit)}
                 className="bg-white rounded-lg shadow-lg p-8"
               >
                 <h2 className="text-2xl font-bold mb-6">Užklausos forma</h2>
-                
+
                 <div className="space-y-6">
                   <div>
                     <label htmlFor="address" className="block text-sm font-medium text-gray-700 mb-1">
@@ -164,9 +164,8 @@ const Contact = () => {
                       type="text"
                       id="address"
                       {...register('address')}
-                      className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent ${
-                        errors.address ? 'border-red-500' : 'border-gray-300'
-                      }`}
+                      className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent ${errors.address ? 'border-red-500' : 'border-gray-300'
+                        }`}
                       placeholder="Pvz.: Laisvės al. 1, Kaunas"
                     />
                     {errors.address && (
@@ -182,9 +181,8 @@ const Contact = () => {
                       type="text"
                       id="doorCode"
                       {...register('doorCode')}
-                      className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent ${
-                        errors.doorCode ? 'border-red-500' : 'border-gray-300'
-                      }`}
+                      className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent ${errors.doorCode ? 'border-red-500' : 'border-gray-300'
+                        }`}
                     />
                     {errors.doorCode && (
                       <p className="mt-1 text-sm text-red-600">{errors.doorCode.message}</p>
@@ -199,9 +197,8 @@ const Contact = () => {
                       type="tel"
                       id="phone"
                       {...register('phone')}
-                      className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent ${
-                        errors.phone ? 'border-red-500' : 'border-gray-300'
-                      }`}
+                      className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent ${errors.phone ? 'border-red-500' : 'border-gray-300'
+                        }`}
                       placeholder="+37000000000"
                     />
                     {errors.phone && (
@@ -217,9 +214,8 @@ const Contact = () => {
                       id="items"
                       {...register('items')}
                       rows={2}
-                      className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent ${
-                        errors.items ? 'border-red-500' : 'border-gray-300'
-                      }`}
+                      className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent ${errors.items ? 'border-red-500' : 'border-gray-300'
+                        }`}
                       placeholder="Pvz.: šaldytuvas, skalbimo mašina"
                     />
                     {errors.items && (
@@ -295,9 +291,8 @@ const Contact = () => {
                       id="additionalInfo"
                       {...register('additionalInfo')}
                       rows={3}
-                      className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent ${
-                        errors.additionalInfo ? 'border-red-500' : 'border-gray-300'
-                      }`}
+                      className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent ${errors.additionalInfo ? 'border-red-500' : 'border-gray-300'
+                        }`}
                     />
                     {errors.additionalInfo && (
                       <p className="mt-1 text-sm text-red-600">{errors.additionalInfo.message}</p>
@@ -307,9 +302,8 @@ const Contact = () => {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className={`w-full bg-green-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-600 transition-colors ${
-                      isSubmitting ? 'opacity-75 cursor-not-allowed' : ''
-                    }`}
+                    className={`w-full bg-green-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-600 transition-colors ${isSubmitting ? 'opacity-75 cursor-not-allowed' : ''
+                      }`}
                   >
                     {isSubmitting ? 'Siunčiama...' : 'Siųsti užklausą'}
                   </button>
@@ -328,7 +322,7 @@ const Contact = () => {
           <div>
             <div className="bg-white rounded-lg shadow-lg p-8 mb-8">
               <h2 className="text-xl font-bold mb-4">Kontaktinė informacija</h2>
-              
+
               <div className="space-y-6">
                 <div className="flex items-center">
                   <Phone className="w-6 h-6 sm:w-6 sm:h-6 text-green-500 mr-4 flex-shrink-0" />
@@ -370,9 +364,9 @@ const Contact = () => {
             </div>
 
             {status !== 'success' && (
-              <div 
+              <div
                 className="rounded-lg overflow-hidden shadow-lg"
-                itemScope 
+                itemScope
                 itemType="http://schema.org/Place"
               >
                 <div className="relative">
@@ -383,7 +377,7 @@ const Contact = () => {
                     />
                     <img
                       src="/images/map_output.webp"
-                      alt="Transportuok.lt aptarnaujama teritorija Kauno mieste ir rajone"
+                      alt="Karavanas LT aptarnaujama teritorija Kauno mieste ir rajone"
                       width="800"
                       height="400"
                       className="w-full h-[400px] object-cover"
@@ -392,12 +386,12 @@ const Contact = () => {
                       itemProp="image"
                     />
                   </picture>
-                  <div 
+                  <div
                     className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center"
                     aria-hidden="true"
                   >
                     <div className="text-center text-white p-4">
-                      <h3 className="text-xl font-bold mb-2" itemProp="name">Transportuok.lt</h3>
+                      <h3 className="text-xl font-bold mb-2" itemProp="name">Karavanas LT</h3>
                       <p className="text-lg" itemProp="description">
                         Aptarnaujame visą Kauno miestą ir rajoną
                       </p>

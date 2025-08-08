@@ -26,6 +26,7 @@ const ServiceSchema: React.FC<ServiceSchemaProps> = ({
   areaServed,
   price = "0"
 }) => {
+  const isCountry = /Lietuva/i.test(areaServed);
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -42,10 +43,9 @@ const ServiceSchema: React.FC<ServiceSchemaProps> = ({
         ...provider.address
       }
     },
-    "areaServed": {
-      "@type": "City",
-      "name": areaServed
-    },
+    "areaServed": isCountry
+      ? { "@type": "Country", "name": areaServed }
+      : { "@type": "City", "name": areaServed },
     "offers": {
       "@type": "Offer",
       "price": price,

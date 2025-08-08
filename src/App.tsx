@@ -53,9 +53,13 @@ function App() {
 
                 {/* Service pages */}
                 <Route path="/paslaugos/buitines-technikos-isvezimas" element={<BuitineTechnika />} />
+                <Route path="/paslaugos/buitines-technikos-isvezimas/:city" element={<BuitineTechnika />} />
                 <Route path="/paslaugos/elektronikos-atlieku-isvezimas" element={<Elektronika />} />
+                <Route path="/paslaugos/elektronikos-atlieku-isvezimas/:city" element={<Elektronika />} />
                 <Route path="/paslaugos/baldu-isvezimas" element={<Baldai />} />
+                <Route path="/paslaugos/baldu-isvezimas/:city" element={<Baldai />} />
                 <Route path="/paslaugos/metalo-lauzo-isvezimas" element={<MetaloLauzas />} />
+                <Route path="/paslaugos/metalo-lauzo-isvezimas/:city" element={<MetaloLauzas />} />
 
                 {/* Other pages */}
                 <Route path="/apie-mus" element={<About />} />

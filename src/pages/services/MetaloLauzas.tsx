@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Truck, Clock, CheckCircle, Phone } from 'lucide-react';
 import FAQ from '../../components/FAQ';
@@ -7,8 +7,8 @@ import { metaloFAQ } from '../../data/faqData';
 const MetaloLauzas = () => {
   useEffect(() => {
     // Meta tags
-    document.title = 'Metalo laužo išvežimas Kaune | Transportuok.lt';
-    
+    document.title = 'Metalo laužo išvežimas Kaune | Karavanas LT';
+
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
       metaDescription.setAttribute('content', 'Nemokamas metalo laužo išvežimas Kaune. Išvežame metalo atliekas iš namų, garažų ir įmonių. Greitas ir patikimas aptarnavimas.');
@@ -18,8 +18,8 @@ const MetaloLauzas = () => {
     const ogTitle = document.querySelector('meta[property="og:title"]');
     const ogDescription = document.querySelector('meta[property="og:description"]');
     const ogUrl = document.querySelector('meta[property="og:url"]');
-    
-    if (ogTitle) ogTitle.setAttribute('content', 'Metalo laužo išvežimas Kaune | Transportuok.lt');
+
+    if (ogTitle) ogTitle.setAttribute('content', 'Metalo laužo išvežimas Kaune | Karavanas LT');
     if (ogDescription) ogDescription.setAttribute('content', 'Nemokamas metalo laužo išvežimas Kaune. Išvežame metalo atliekas iš namų, garažų ir įmonių. Greitas ir patikimas aptarnavimas.');
     if (ogUrl) ogUrl.setAttribute('content', 'https://transportuok.lt/paslaugos/metalo-lauzo-isvezimas');
 
@@ -42,7 +42,7 @@ const MetaloLauzas = () => {
             Metalo laužo išvežimas Kaune
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Profesionalus ir nemokamas metalo laužo išvežimas visame Kauno mieste. 
+            Profesionalus ir nemokamas metalo laužo išvežimas visame Kauno mieste.
             Išvežame visų rūšių metalo atliekas iš namų, garažų ir įmonių.
           </p>
         </div>
@@ -90,7 +90,7 @@ const MetaloLauzas = () => {
                       <CheckCircle className="w-5 h-5 text-green-600 mr-2" />
                       <span>Nerūdijantis plienas</span>
                     </li>
-                                        <li className="flex items-center">
+                    <li className="flex items-center">
                       <CheckCircle className="w-5 h-5 text-green-600 mr-2" />
                       <span>Špižines ir skardines vonias</span>
                     </li>
@@ -107,7 +107,7 @@ const MetaloLauzas = () => {
                   <div>
                     <h3 className="font-semibold mb-2">Užklausos pateikimas</h3>
                     <p className="text-gray-600">
-                      Užpildykite užklausos formą arba paskambinkite mums. 
+                      Užpildykite užklausos formą arba paskambinkite mums.
                       Nurodykite, kokį metalo laužą reikia išvežti ir savo kontaktinius duomenis.
                     </p>
                   </div>
@@ -173,7 +173,7 @@ const MetaloLauzas = () => {
             <div className="bg-white rounded-lg shadow-lg p-6 mb-8">
               <h2 className="text-xl font-bold mb-4">Susisiekite</h2>
               <div className="space-y-4">
-                <a 
+                <a
                   href="tel:+37069925744"
                   className="flex items-center text-gray-600 hover:text-green-600"
                 >
@@ -210,7 +210,7 @@ const MetaloLauzas = () => {
         </div>
 
         {/* FAQ Section */}
-        <FAQ 
+        <FAQ
           items={metaloFAQ}
           title="Dažniausiai užduodami klausimai apie metalo laužo išvežimą"
           category="Metalo laužo išvežimas"

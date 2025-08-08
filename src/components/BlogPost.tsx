@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { Calendar, Share2 } from 'lucide-react';
 import SEO from './SEO';
 
@@ -18,7 +17,7 @@ interface BlogPostProps {
 
 const BlogPost: React.FC<BlogPostProps> = ({ post }) => {
   const canonicalUrl = `https://transportuok.lt/naujienos/${post.slug}`;
-  
+
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
@@ -32,12 +31,12 @@ const BlogPost: React.FC<BlogPostProps> = ({ post }) => {
     "dateModified": post.date,
     "author": {
       "@type": "Organization",
-      "name": "Transportuok.lt",
+      "name": "Karavanas LT",
       "url": "https://transportuok.lt"
     },
     "publisher": {
       "@type": "Organization",
-      "name": "Transportuok.lt",
+      "name": "Karavanas LT",
       "logo": {
         "@type": "ImageObject",
         "url": "https://transportuok.lt/ikona_spalvotas.svg"
@@ -55,7 +54,7 @@ const BlogPost: React.FC<BlogPostProps> = ({ post }) => {
   return (
     <>
       <SEO
-        title={`${post.title} | Transportuok.lt`}
+        title={`${post.title} | Karavanas LT`}
         description={post.excerpt}
         canonicalUrl={canonicalUrl}
         ogImage={post.imageUrl}
@@ -74,7 +73,7 @@ const BlogPost: React.FC<BlogPostProps> = ({ post }) => {
             height="400"
             itemProp="image"
           />
-          
+
           <div className="flex items-center text-gray-500 text-sm mb-4">
             <Calendar className="w-4 h-4 mr-2" />
             <time itemProp="datePublished" dateTime={post.date}>
@@ -86,7 +85,7 @@ const BlogPost: React.FC<BlogPostProps> = ({ post }) => {
             {post.title}
           </h1>
 
-          <div 
+          <div
             className="prose prose-lg max-w-none"
             itemProp="articleBody"
             dangerouslySetInnerHTML={{ __html: post.content }}

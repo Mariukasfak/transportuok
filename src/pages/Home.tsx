@@ -6,8 +6,6 @@ import OptimizedImage from '../components/OptimizedImage';
 import LazyGoogleReviews from '../components/LazyGoogleReviews';
 import CitySelector from '../components/CitySelector';
 import BlogSection from '../components/BlogSection';
-import ContactInfo from '../components/ContactInfo';
-import CertificatesSection from '../components/CertificatesSection';
 
 const Home = () => {
   // Add a handler for CTA clicks
@@ -18,8 +16,11 @@ const Home = () => {
   return (
     <>
       <Helmet>
-        <title>Elektronikos ir buitinės technikos išvežimas Lietuvoje | Transportuok.lt</title>
-        <meta name="description" content="Nemokamas elektronikos, buitinės technikos išvežimas Kaune, Vilniuje ir visoje Lietuvoje. Baldų išvežimas Kaune. Greitas surinkimas per 24 val. Transportuok.lt ir Karavanas.lt partnerystė." />
+        <title>Nemokamas elektronikos ir buitinės technikos išvežimas | Karavanas LT</title>
+        <meta
+          name="description"
+          content="Nemokamas elektronikos ir buitinės technikos išvežimas Kaune, Vilniuje ir visoje Lietuvoje. Išvežame šaldytuvus, skalbimo mašinas, televizorius ir kitą elektroniką. Taip pat baldų ir metalo laužo išvežimas."
+        />
         <link rel="canonical" href="https://transportuok.lt" />
       </Helmet>
 
@@ -32,10 +33,10 @@ const Home = () => {
           <div className="hero-overlay" />
           <div className="hero-content">
             <h1 className="hero-title">
-              Elektronikos ir buitinės technikos išvežimas Lietuvoje
+              Nemokamas elektronikos ir buitinės technikos išvežimas Lietuvoje
             </h1>
             <p className="hero-description">
-              Kaunas, Vilnius ir visa Lietuva. Partnerių tinklas užtikrina greitą ir profesionalų aptarnavimą.
+              Kaunas, Vilnius ir visa Lietuva. Nemokamai išvežame buitinę techniką ir elektroniką – greitai ir patikimai.
             </p>
             <Link
               to="/kontaktai#contact-form"
@@ -71,15 +72,15 @@ const Home = () => {
                 <p className="text-gray-600 mb-4">
                   Išvežame <Link to="/paslaugos/buitines-technikos-isvezimas" className="text-green-600 hover:text-green-700">šaldytuvus, skalbimo mašinas, virykles</Link> ir kitus buities prietaisus – nemokamai.
                 </p>
-                <Link 
-                  to="/kontaktai#contact-form" 
+                <Link
+                  to="/kontaktai#contact-form"
                   className="inline-block bg-[#167d36] hover:bg-[#0f5a26] text-white font-bold px-6 py-3 rounded-lg transition-colors"
                   onClick={() => handleCTAClick('service_cta_appliances', 'Gauti nemokamą išvežimą')}
                 >
                   Gauti nemokamą išvežimą
                 </Link>
               </div>
-              
+
               <div className="bg-white p-6 rounded-lg shadow-lg">
                 <OptimizedImage
                   src="/images/optimized/elektronika"
@@ -97,8 +98,8 @@ const Home = () => {
                 <p className="text-gray-600 mb-4">
                   <Link to="/paslaugos/elektronikos-atlieku-isvezimas" className="text-green-600 hover:text-green-700">Kompiuterių, monitorių, televizorių</Link> ir kitos elektronikos išvežimas bei utilizavimas.
                 </p>
-                <Link 
-                  to="/kontaktai#contact-form" 
+                <Link
+                  to="/kontaktai#contact-form"
                   className="inline-block bg-[#167d36] hover:bg-[#0f5a26] text-white font-bold px-6 py-3 rounded-lg transition-colors"
                   onClick={() => handleCTAClick('service_cta_electronics', 'Susisiekti dėl išvežimo')}
                 >
@@ -123,8 +124,8 @@ const Home = () => {
                 <p className="text-gray-600 mb-4">
                   <Link to="/paslaugos/baldu-isvezimas" className="text-green-600 hover:text-green-700">Lovų, spintų, sofų, čiužinių</Link> ir kitų didelių daiktų išvežimas už simbolinį mokestį.
                 </p>
-                <Link 
-                  to="/kontaktai#contact-form" 
+                <Link
+                  to="/kontaktai#contact-form"
                   className="inline-block bg-[#167d36] hover:bg-[#0f5a26] text-white font-bold px-6 py-3 rounded-lg transition-colors"
                   onClick={() => handleCTAClick('service_cta_furniture', 'Užsakyti išvežimą')}
                 >
@@ -149,8 +150,8 @@ const Home = () => {
                 <p className="text-gray-600 mb-4">
                   Surenkame ir nemokamai išvežame <Link to="/paslaugos/metalo-lauzo-isvezimas" className="text-green-600 hover:text-green-700">metalo atliekas</Link> iš namų, garažų, sandėlių.
                 </p>
-                <Link 
-                  to="/kontaktai#contact-form" 
+                <Link
+                  to="/kontaktai#contact-form"
                   className="inline-block bg-[#167d36] hover:bg-[#0f5a26] text-white font-bold px-6 py-3 rounded-lg transition-colors"
                   onClick={() => handleCTAClick('service_cta_metal', 'Užsakyti išvežimą')}
                 >
@@ -189,12 +190,6 @@ const Home = () => {
 
         {/* Blog Section */}
         <BlogSection />
-
-        {/* Contact Information */}
-        <ContactInfo />
-
-        {/* Certificates */}
-        <CertificatesSection />
 
         {/* Reviews Section */}
         <React.Suspense fallback={

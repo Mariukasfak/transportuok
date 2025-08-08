@@ -1,17 +1,16 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { Phone, Mail, MapPin, Facebook, Instagram } from 'lucide-react';
 
 const PaslaugosIcon = () => (
-  <svg 
-    xmlns="images\paslaugos.svg" 
-    width="24" 
-    height="24" 
-    viewBox="0 0 24 24" 
-    fill="none" 
-    stroke="currentColor" 
-    strokeWidth="2" 
-    strokeLinecap="round" 
+  <svg
+    xmlns="images\paslaugos.svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
     strokeLinejoin="round"
     className="lucide lucide-icon"
   >
@@ -25,33 +24,33 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
-            <h3 className="text-xl font-bold mb-4">Transportuok.lt</h3>
+            <h3 className="text-xl font-bold mb-4">Karavanas LT</h3>
             <p className="text-gray-400">
               Profesionalus buitinės technikos ir elektronikos atliekų išvežimas Kaune ir apylinkėse.
             </p>
             <div className="flex space-x-4 mt-4">
-              <a 
-                href="https://facebook.com/transportuok.lt" 
-                target="_blank" 
-                rel="noopener noreferrer" 
+              <a
+                href="https://facebook.com/karavanaslt"
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label="Sekite mus Facebook"
                 className="text-gray-400 hover:text-white transition-colors"
               >
                 <Facebook className="w-6 h-6" />
               </a>
-              <a 
-                href="https://instagram.com/transportuok.lt" 
-                target="_blank" 
-                rel="noopener noreferrer" 
+              <a
+                href="https://instagram.com/karavanaslt"
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label="Sekite mus Instagram"
                 className="text-gray-400 hover:text-white transition-colors"
               >
                 <Instagram className="w-6 h-6" />
               </a>
-              <a 
-                href="https://paslaugos.lt/transportuoklt-ti412" 
-                target="_blank" 
-                rel="noopener noreferrer" 
+              <a
+                href="https://paslaugos.lt/transportuoklt-ti412"
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label="Mūsų profilis Paslaugos.lt"
                 className="text-gray-400 hover:text-white transition-colors"
               >
@@ -59,7 +58,7 @@ const Footer = () => {
               </a>
             </div>
           </div>
-          
+
           <div>
             <h4 className="text-lg font-semibold mb-4">Kontaktai</h4>
             <div className="space-y-2">
@@ -103,7 +102,7 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-          <p>&copy; {new Date().getFullYear()} Transportuok.lt. Visos teisės saugomos.</p>
+          <p>&copy; {new Date().getFullYear()} Karavanas LT. Visos teisės saugomos.</p>
           <small className="block mt-2 text-gray-500">
             Mūsų komandą aprengia <a href="https://siemka.lt" target="_blank" rel="noopener noreferrer" aria-label="Siemka.lt - marškinėliai ir džemperiai su spauda" className="text-green-500 hover:text-white transition-colors">Siemka.lt</a> – marškinėliai ir džemperiai su spauda
           </small>
