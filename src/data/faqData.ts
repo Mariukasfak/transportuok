@@ -28,12 +28,11 @@ export const buitinesTechnikosFAQ = [
   {
     question: "Ar išvežate buitinę techniką savaitgaliais?",
     answer: `
-      <p>Taip, dirbame ir savaitgaliais:</p>
+      <p>Šiuo metu dirbame darbo dienomis:</p>
       <ul>
-        <li>Darbo dienomis: 8:00 - 18:00</li>
-        <li>Šeštadieniais: 9:00 - 15:00</li>
+        <li>I–V: 8:00 - 18:00</li>
       </ul>
-      <p>Sekmadieniais nedirbame, bet galite palikti užklausą - susisieksime pirmą darbo dieną.</p>
+      <p>Savaitgaliais galite palikti užklausą – susisieksime pirmą darbo dieną.</p>
     `
   },
   {

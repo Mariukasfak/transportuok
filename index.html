@@ -77,6 +77,13 @@
     });
   </script>
 
+  <!-- Google tag (gtag.js) for GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-320YE0N58G"></script>
+  <script>
+    // Configure GA4 but don't auto-send page_view (SPA will handle)
+    gtag('config', 'G-320YE0N58G', { send_page_view: false });
+  </script>
+
   <!-- Primary Meta Tags -->
   <title>Elektronikos ir buitinės technikos išvežimas Lietuvoje | Transportuok.lt</title>
   <meta name="description"
@@ -117,11 +124,7 @@
   <div id="root"></div>
   <script type="module" src="/src/main.tsx"></script>
 
-  <!-- Google Tag Manager (noscript) -->
-  <noscript>
-    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PZ7CJ6M4" height="0" width="0"
-      style="display:none;visibility:hidden"></iframe>
-  </noscript>
+  <!-- GTM noscript is injected after consent in-app -->
 </body>
 
 </html>

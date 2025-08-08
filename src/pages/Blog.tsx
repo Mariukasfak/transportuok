@@ -36,7 +36,7 @@ const blogPosts = [
           <li>4. Mes susisieksime per 24 valandas</li>
         </ol>
         <div class="mt-6">
-          <a href="/contact#contact-form" class="bg-green-600 text-white px-6 py-3 rounded-lg inline-flex items-center">
+          <a href="/kontaktai#contact-form" class="bg-green-600 text-white px-6 py-3 rounded-lg inline-flex items-center">
             <span>Užsakyti išvežimą</span>
             <ExternalLink className="w-4 h-4 ml-2" />
           </a>
@@ -159,7 +159,7 @@ const blogPosts = [
           <li>4. Mes susisieksime per 24 valandas</li>
         </ol>
         <div class="mt-6">
-          <a href="/contact#contact-form" class="bg-green-600 text-white px-6 py-3 rounded-lg inline-flex items-center">
+          <a href="/kontaktai#contact-form" class="bg-green-600 text-white px-6 py-3 rounded-lg inline-flex items-center">
             <span>Užsakyti išvežimą</span>
             <ExternalLink className="w-4 h-4 ml-2" />
           </a>

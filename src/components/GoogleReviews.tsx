@@ -99,7 +99,7 @@ const GoogleReviews: React.FC = () => {
       script.id = GOOGLE_MAPS_SCRIPT_ID;
       // Recommended: include loading=async and version pin for better performance
       // Using modern importLibrary in initMap; no libraries param needed
-      script.src = `https://maps.googleapis.com/maps/api/js?key=${API_KEY}&v=weekly&loading=async`;
+      script.src = `https://maps.googleapis.com/maps/api/js?key=${API_KEY}&v=weekly&loading=async&libraries=places&language=lt&region=LT`;
       script.async = true;
       script.defer = true;
       script.onload = initMap;
@@ -109,14 +109,6 @@ const GoogleReviews: React.FC = () => {
         loadFallbackReviews();
       };
       document.head.appendChild(script);
-
-      // Fallback if script doesn't load in 5 seconds
-      setTimeout(() => {
-        if (!window.google?.maps?.places) {
-          console.warn('Google Maps API failed to load within timeout');
-          loadFallbackReviews();
-        }
-      }, 5000);
     } catch (err) {
       console.error('Error appending Google Maps script:', err);
       loadFallbackReviews();
@@ -137,9 +129,10 @@ const GoogleReviews: React.FC = () => {
       let PlacesServiceStatusEnum: any;
 
       if (typeof window.google.maps.importLibrary === 'function') {
-        const placesLib: any = await window.google.maps.importLibrary('places');
-        PlacesServiceCtor = placesLib.PlacesService;
-        PlacesServiceStatusEnum = placesLib.PlacesServiceStatus;
+        await window.google.maps.importLibrary('places');
+        // After importLibrary, the global namespace is populated
+        PlacesServiceCtor = (window.google.maps as any).places?.PlacesService;
+        PlacesServiceStatusEnum = (window.google.maps as any).places?.PlacesServiceStatus;
       } else if ((window.google.maps as any).places) {
         // Legacy fallback
         PlacesServiceCtor = (window.google.maps as any).places.PlacesService;
@@ -154,37 +147,39 @@ const GoogleReviews: React.FC = () => {
       const containerDiv = document.createElement('div');
       const service = new PlacesServiceCtor(containerDiv);
 
-      service.getDetails(
-        {
-          placeId: PLACE_ID,
-          fields: ['reviews', 'rating', 'user_ratings_total'],
-        },
-        (place: PlaceResult | null, status: string) => {
-          if (
-            status === PlacesServiceStatusEnum.OK &&
-            place?.reviews &&
-            Array.isArray(place.reviews) &&
-            place.reviews.length > 0
-          ) {
-            // Sort reviews by date (most recent first)
-            const sortedReviews = [...place.reviews].sort((a, b) => b.time - a.time);
-            setReviews(sortedReviews);
-            if (place.rating) {
-              setAverageRating(place.rating);
-            }
-            if (place.user_ratings_total) {
-              setTotalReviews(place.user_ratings_total);
+      const fetchDetails = (attempt = 1) => {
+        service.getDetails(
+          {
+            placeId: PLACE_ID,
+            fields: ['reviews', 'rating', 'user_ratings_total'],
+          },
+          (place: PlaceResult | null, status: string) => {
+            if (
+              status === PlacesServiceStatusEnum.OK &&
+              place?.reviews &&
+              Array.isArray(place.reviews) &&
+              place.reviews.length > 0
+            ) {
+              const sortedReviews = [...place.reviews].sort((a, b) => b.time - a.time);
+              setReviews(sortedReviews);
+              if (place.rating) setAverageRating(place.rating);
+              setTotalReviews(place.user_ratings_total || sortedReviews.length);
+              setLoading(false);
+            } else if (attempt < 2) {
+              // Retry once with a minimal fields set in case of quota/fields issue
+              console.warn('Retrying getDetails due to status:', status);
+              setTimeout(() => fetchDetails(attempt + 1), 800);
             } else {
-              setTotalReviews(sortedReviews.length);
+              console.warn('Failed to get reviews or empty response', { status, place });
+              setError('Nepavyko gauti atsiliepimų');
+              loadFallbackReviews();
+              setLoading(false);
             }
-          } else {
-            console.warn('Failed to get reviews or empty reviews array', { status, place });
-            setError('Nepavyko gauti atsiliepimų');
-            loadFallbackReviews();
           }
-          setLoading(false);
-        }
-      );
+        );
+      };
+
+      fetchDetails();
     } catch (err) {
       console.error('Error initializing Google Maps:', err);
       setError('Įvyko klaida inicijuojant Google Maps');

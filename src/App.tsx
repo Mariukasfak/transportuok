@@ -51,6 +51,18 @@ function App() {
         page_title: document.title,
       });
     }
+    // Also send GA4 page_view directly via gtag if available
+    // This ensures GA4 receives hits even if GTM tags are blocked or misconfigured
+    // Consent mode will govern storage automatically
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const anyWin = window as any;
+    if (typeof anyWin.gtag === 'function' && !anyWin.google_tag_manager) {
+      anyWin.gtag('event', 'page_view', {
+        page_title: document.title,
+        page_location: window.location.href,
+        page_path: location.pathname + window.location.search,
+      });
+    }
   }, [location.pathname, location.search]);
 
   return (

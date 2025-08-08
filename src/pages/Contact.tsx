@@ -2,11 +2,28 @@ import React, { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
-import { Phone, Mail, MapPin, Clock, CheckCircle, Home, Trash2, Loader2, HelpCircle } from 'lucide-react';
+import { Mail, MapPin, Clock, CheckCircle, Home, Trash2, Loader2, HelpCircle } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 import { trackFormSubmission } from '../utils/analytics';
 
+const TOP_CITIES = [
+  'Vilnius',
+  'Kaunas',
+  'Klaipėda',
+  'Šiauliai',
+  'Panevėžys',
+  'Alytus',
+  'Marijampolė',
+  'Mažeikiai',
+  'Jonava',
+  'Utena',
+  'Likusi Lietuva'
+] as const;
+
 const contactSchema = z.object({
+  city: z.enum(TOP_CITIES, {
+    errorMap: () => ({ message: 'Pasirinkite miestą' })
+  }),
   address: z.string()
     .min(5, 'Adresas turi būti bent 5 simbolių ilgio')
     .max(200, 'Adresas negali būti ilgesnis nei 200 simbolių'),
@@ -35,7 +52,8 @@ const Contact = () => {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
-    reset
+    reset,
+    setValue
   } = useForm<ContactForm>({
     resolver: zodResolver(contactSchema)
   });
@@ -45,7 +63,7 @@ const Contact = () => {
 
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
-      metaDescription.setAttribute('content', 'Susisiekite su Karavanas LT dėl nemokamo buitinės technikos ir elektronikos išvežimo Vilniuje, Kaune ir visoje Lietuvoje. Užpildykite formą arba skambinkite +370 699 25744.');
+      metaDescription.setAttribute('content', 'Susisiekite dėl nemokamo buitinės technikos ir elektronikos išvežimo Vilniuje, Kaune ir visoje Lietuvoje. Užpildykite formą arba rašykite el. paštu info@transportuok.lt.');
     }
 
     const ogTitle = document.querySelector('meta[property="og:title"]');
@@ -77,6 +95,24 @@ const Contact = () => {
     }
   }, []);
 
+  // Prefill city from query string if provided
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const cityParam = params.get('city');
+    if (cityParam) {
+      const normalized = cityParam
+        .toLowerCase()
+        .replace('kita lietuva', 'Likusi Lietuva')
+        .replace('likusi lietuva', 'Likusi Lietuva')
+        .replace(/\s+/g, ' ')
+        .trim();
+      const found = (TOP_CITIES as readonly string[]).find(
+        c => c.toLowerCase() === normalized
+      );
+      if (found) setValue('city', found as any, { shouldValidate: true });
+    }
+  }, [setValue]);
+
   const onSubmit = async (data: ContactForm) => {
     try {
       // Initialize EmailJS (this ensures proper configuration)
@@ -86,7 +122,8 @@ const Contact = () => {
         'service_transportuok',
         'template_uzklausa',
         {
-          subject: `Užklausa iš ${data.address}`,
+          subject: `Užklausa (${data.city}) iš ${data.address}`,
+          city: data.city,
           address: data.address,
           doorCode: data.doorCode ?? '',
           phone: data.phone,
@@ -132,18 +169,17 @@ const Contact = () => {
                 </div>
 
                 <div className="bg-white rounded-lg p-6 shadow-sm">
-                  <p className="text-gray-700 mb-4">
-                    Norite greičiau? Skambinkite mums tiesiogiai:
+                  <p className="text-gray-700 mb-4 text-center">
+                    Turite papildomų klausimų? Parašykite mums el. paštu:
                   </p>
                   <a
-                    href="tel:+37069925744"
-                    className="flex items-center justify-center bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors"
+                    href="mailto:info@transportuok.lt"
+                    className="block text-center bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors"
                   >
-                    <Phone className="w-5 h-5 mr-2" />
-                    +370 699 25744
+                    info@transportuok.lt
                   </a>
                   <p className="text-sm text-gray-500 text-center mt-3">
-                    Darbo dienomis: 8:00 - 18:00
+                    Atsakome darbo dienomis: 8:00 - 18:00
                   </p>
                 </div>
               </div>
@@ -155,7 +191,53 @@ const Contact = () => {
               >
                 <h2 className="text-2xl font-bold mb-6">Užklausos forma</h2>
 
+                {/* Quick category selectors */}
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-6">
+                  <button
+                    type="button"
+                    onClick={() => setValue('city', 'Vilnius', { shouldValidate: true })}
+                    className="w-full px-4 py-2 rounded-lg border border-green-200 text-green-700 hover:bg-green-50 transition-colors"
+                  >
+                    Vilniaus užsakymai
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setValue('city', 'Kaunas', { shouldValidate: true })}
+                    className="w-full px-4 py-2 rounded-lg border border-green-200 text-green-700 hover:bg-green-50 transition-colors"
+                  >
+                    Kauno užsakymai
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setValue('city', 'Likusi Lietuva', { shouldValidate: true })}
+                    className="w-full px-4 py-2 rounded-lg border border-green-200 text-green-700 hover:bg-green-50 transition-colors"
+                  >
+                    Likusi Lietuva
+                  </button>
+                </div>
+
                 <div className="space-y-6">
+                  <div>
+                    <label htmlFor="city" className="block text-sm font-medium text-gray-700 mb-1">
+                      Miestas *
+                    </label>
+                    <select
+                      id="city"
+                      {...register('city')}
+                      className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent ${errors.city ? 'border-red-500' : 'border-gray-300'}`}
+                      defaultValue=""
+                    >
+                      <option value="" disabled>
+                        Pasirinkite miestą
+                      </option>
+                      {TOP_CITIES.map((c) => (
+                        <option key={c} value={c}>{c}</option>
+                      ))}
+                    </select>
+                    {errors.city && (
+                      <p className="mt-1 text-sm text-red-600">{errors.city.message as string}</p>
+                    )}
+                  </div>
                   <div>
                     <label htmlFor="address" className="block text-sm font-medium text-gray-700 mb-1">
                       Adresas *
@@ -325,22 +407,30 @@ const Contact = () => {
 
               <div className="space-y-6">
                 <div className="flex items-center">
-                  <Phone className="w-6 h-6 sm:w-6 sm:h-6 text-green-500 mr-4 flex-shrink-0" />
-                  <div>
-                    <h3 className="font-semibold">Telefonas</h3>
-                    <a href="tel:+37069925744" className="text-gray-600 hover:text-green-500">
-                      +370 699 25744
-                    </a>
-                  </div>
-                </div>
-
-                <div className="flex items-center">
                   <Mail className="w-6 h-6 sm:w-6 sm:h-6 text-green-500 mr-4 flex-shrink-0" />
                   <div>
                     <h3 className="font-semibold">El. paštas</h3>
                     <a href="mailto:info@transportuok.lt" className="text-gray-600 hover:text-green-500 break-words">
                       info@transportuok.lt
                     </a>
+                  </div>
+                </div>
+
+                {/* City phones (secondary) */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-green-500 mr-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h2.28a2 2 0 011.789 1.106l1.2 2.4a2 2 0 01-.45 2.31l-1.2 1.2a16 16 0 006.36 6.36l1.2-1.2a2 2 0 012.31-.45l2.4 1.2A2 2 0 0121 18.72V21a2 2 0 01-2 2h-1C9.163 23 1 14.837 1 5V4a2 2 0 012-2h0z" /></svg>
+                    <div>
+                      <h3 className="font-semibold">Kaunas</h3>
+                      <a href="tel:+37069925744" className="text-gray-600 hover:text-green-500">+370 699 25744</a>
+                    </div>
+                  </div>
+                  <div className="flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-green-500 mr-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h2.28a2 2 0 011.789 1.106l1.2 2.4a2 2 0 01-.45 2.31l-1.2 1.2a16 16 0 006.36 6.36l1.2-1.2a2 2 0 012.31-.45l2.4 1.2A2 2 0 0121 18.72V21a2 2 0 01-2 2h-1C9.163 23 1 14.837 1 5V4a2 2 0 012-2h0z" /></svg>
+                    <div>
+                      <h3 className="font-semibold">Vilnius</h3>
+                      <a href="tel:+37066424024" className="text-gray-600 hover:text-green-500">+370 664 24024</a>
+                    </div>
                   </div>
                 </div>
 
@@ -356,8 +446,7 @@ const Contact = () => {
                   <Clock className="w-6 h-6 sm:w-6 sm:h-6 text-green-500 mr-4 flex-shrink-0" />
                   <div>
                     <h3 className="font-semibold">Darbo laikas</h3>
-                    <p className="text-gray-600">I-V: 8:00 - 18:00</p>
-                    <p className="text-gray-600">VI: 9:00 - 15:00</p>
+                    <p className="text-gray-600">I–V: 8:00 - 18:00</p>
                   </div>
                 </div>
               </div>
