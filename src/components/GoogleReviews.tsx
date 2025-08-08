@@ -26,7 +26,7 @@ declare global {
   interface Window {
     google: {
       maps: {
-  importLibrary?: (name: 'core' | 'maps' | 'marker' | 'places' | string) => Promise<Record<string, any>>;
+        importLibrary?: (name: 'core' | 'maps' | 'marker' | 'places' | string) => Promise<Record<string, any>>;
         places: {
           PlacesServiceStatus: {
             OK: string;
@@ -52,7 +52,7 @@ const GoogleReviews: React.FC = () => {
   const [currentReviewIndex, setCurrentReviewIndex] = useState(0);
   const [totalReviews, setTotalReviews] = useState(0);
   const [autoRotate, setAutoRotate] = useState(true);
-  
+
   useEffect(() => {
     // Load Google Maps script only when component is visible
     const observer = new IntersectionObserver((entries) => {
@@ -66,17 +66,17 @@ const GoogleReviews: React.FC = () => {
 
     return () => observer.disconnect();
   }, []);
-  
+
   // Auto-rotate reviews every 5 seconds
   useEffect(() => {
     let interval: ReturnType<typeof setInterval>;
-    
+
     if (autoRotate && reviews.length > 3) {
       interval = setInterval(() => {
         setCurrentReviewIndex((prevIndex) => (prevIndex + 1) % reviews.length);
       }, 5000);
     }
-    
+
     return () => clearInterval(interval);
   }, [autoRotate, reviews.length]);
 
@@ -97,8 +97,8 @@ const GoogleReviews: React.FC = () => {
     try {
       const script = document.createElement('script');
       script.id = GOOGLE_MAPS_SCRIPT_ID;
-  // Recommended: include loading=async and version pin for better performance
-  // Using modern importLibrary in initMap; no libraries param needed
+      // Recommended: include loading=async and version pin for better performance
+      // Using modern importLibrary in initMap; no libraries param needed
       script.src = `https://maps.googleapis.com/maps/api/js?key=${API_KEY}&v=weekly&loading=async`;
       script.async = true;
       script.defer = true;
@@ -109,7 +109,7 @@ const GoogleReviews: React.FC = () => {
         loadFallbackReviews();
       };
       document.head.appendChild(script);
-      
+
       // Fallback if script doesn't load in 5 seconds
       setTimeout(() => {
         if (!window.google?.maps?.places) {
@@ -234,9 +234,8 @@ const GoogleReviews: React.FC = () => {
       stars.push(
         <Star
           key={i}
-          className={`w-5 h-5 ${
-            i <= rating ? 'text-yellow-400 fill-yellow-400' : 'text-gray-300'
-          }`}
+          className={`w-5 h-5 ${i <= rating ? 'text-yellow-400 fill-yellow-400' : 'text-gray-300'
+            }`}
         />
       );
     }
@@ -245,35 +244,35 @@ const GoogleReviews: React.FC = () => {
 
   const visibleReviews = () => {
     if (reviews.length === 0) return [];
-    
+
     // For desktop view, show 3 reviews at a time
     const result = [];
     const maxDisplay = Math.min(3, reviews.length);
-    
+
     for (let i = 0; i < maxDisplay; i++) {
       const index = (currentReviewIndex + i) % reviews.length;
       result.push(reviews[index]);
     }
-    
+
     return result;
   };
 
   const goToPrevReview = () => {
     setAutoRotate(false); // Pause auto-rotation when manually navigating
-    setCurrentReviewIndex((prevIndex) => 
+    setCurrentReviewIndex((prevIndex) =>
       (prevIndex - 1 + reviews.length) % reviews.length
     );
-    
+
     // Resume auto-rotation after 10 seconds of inactivity
     setTimeout(() => setAutoRotate(true), 10000);
   };
 
   const goToNextReview = () => {
     setAutoRotate(false); // Pause auto-rotation when manually navigating
-    setCurrentReviewIndex((prevIndex) => 
+    setCurrentReviewIndex((prevIndex) =>
       (prevIndex + 1) % reviews.length
     );
-    
+
     // Resume auto-rotation after 10 seconds of inactivity
     setTimeout(() => setAutoRotate(true), 10000);
   };
@@ -301,14 +300,14 @@ const GoogleReviews: React.FC = () => {
           </p>
         </div>
 
-        <div 
-          className="relative" 
+        <div
+          className="relative"
           onMouseEnter={() => setAutoRotate(false)}
           onMouseLeave={() => setAutoRotate(true)}
         >
           {reviews.length > 3 && (
-            <button 
-              onClick={goToPrevReview} 
+            <button
+              onClick={goToPrevReview}
               className="absolute left-0 top-1/2 transform -translate-y-1/2 z-10 bg-white rounded-full p-2 shadow-md text-[#167d36] hover:text-white hover:bg-[#167d36] transition-colors hidden md:block"
               aria-label="Ankstesnis atsiliepimas"
             >
@@ -317,8 +316,8 @@ const GoogleReviews: React.FC = () => {
               </svg>
             </button>
           )}
-          
-          <div 
+
+          <div
             className="grid grid-cols-1 md:grid-cols-3 gap-8"
             role="region"
             aria-label="Google atsiliepimai"
@@ -358,10 +357,10 @@ const GoogleReviews: React.FC = () => {
               </div>
             ))}
           </div>
-          
+
           {reviews.length > 3 && (
-            <button 
-              onClick={goToNextReview} 
+            <button
+              onClick={goToNextReview}
               className="absolute right-0 top-1/2 transform -translate-y-1/2 z-10 bg-white rounded-full p-2 shadow-md text-[#167d36] hover:text-white hover:bg-[#167d36] transition-colors hidden md:block"
               aria-label="Kitas atsiliepimas"
             >
@@ -382,9 +381,8 @@ const GoogleReviews: React.FC = () => {
                   setCurrentReviewIndex(index);
                   setTimeout(() => setAutoRotate(true), 10000); // Resume after 10s
                 }}
-                className={`w-2 h-2 rounded-full transition-colors ${
-                  index === currentReviewIndex ? 'bg-[#167d36]' : 'bg-gray-300'
-                }`}
+                className={`w-2 h-2 rounded-full transition-colors ${index === currentReviewIndex ? 'bg-[#167d36]' : 'bg-gray-300'
+                  }`}
                 aria-label={`Peržiūrėti atsiliepimą ${index + 1}`}
               />
             ))}
