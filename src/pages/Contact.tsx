@@ -5,6 +5,7 @@ import { z } from 'zod';
 import { Mail, MapPin, Clock, CheckCircle, Home, Trash2, Loader2, HelpCircle } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 import { trackFormSubmission } from '../utils/analytics';
+import company from '../data/company';
 
 const TOP_CITIES = [
   'Vilnius',
@@ -489,6 +490,14 @@ const Contact = () => {
                 </div>
               </div>
             )}
+            {/* NAP + Directions (outside of map image) */}
+            <div className="bg-white rounded-lg p-6 shadow-sm mt-8">
+              <h3 className="text-lg font-semibold mb-4">Atvykimas ir kontaktai</h3>
+              <div className="space-y-2 text-gray-700">
+                <p><strong>Vilnius:</strong> {`+370 664 24 024`} · <a href="tel:+37066424024" className="text-green-700">Skambinti</a> · <a className="text-green-700" target="_blank" rel="noopener" href={company.contacts.vilnius.directionsUrl}>Directions</a></p>
+                <p><strong>Kaunas:</strong> {`+370 699 25 744`} · <a href="tel:+37069925744" className="text-green-700">Skambinti</a> · <a className="text-green-700" target="_blank" rel="noopener" href={company.contacts.kaunas.directionsUrl}>Directions</a></p>
+              </div>
+            </div>
           </div>
         </div>
       </div>

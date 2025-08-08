@@ -87,6 +87,18 @@ const Navbar = () => {
               Naujienos
             </Link>
             <Link
+              to="/kaunas"
+              className={`${isActive('/kaunas') ? 'text-green-700 font-semibold' : 'text-gray-800'} hover:text-green-700 transition-colors`}
+            >
+              Kaunas
+            </Link>
+            <Link
+              to="/vilnius"
+              className={`${isActive('/vilnius') ? 'text-green-700 font-semibold' : 'text-gray-800'} hover:text-green-700 transition-colors`}
+            >
+              Vilnius
+            </Link>
+            <Link
               to="/kontaktai"
               className={`${isActive('/kontaktai') ? 'text-green-700 font-semibold' : 'text-gray-800'} hover:text-green-700 transition-colors`}
             >

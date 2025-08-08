@@ -8,6 +8,9 @@ This PR introduces:
 - Lighthouse CI GitHub Action
 
 Next steps (need input):
-- Configure GOOGLE_MAPS_API_KEY in Netlify
-- Provide <kaunas_phone>, <vilnius_phone>, <brand_name>, <primary_domain>, <gbp_url>, <gsc_property>
-- Create city landing pages: /kaunas and /vilnius (unique content) – TODO
+- Verify GOOGLE_MAPS_API_KEY in Netlify (set)
+- Provide <gsc_property> (Domain or URL prefix)
+
+Done in this PR iteration:
+- City landing pages: /kaunas and /vilnius (unique content)
+- GBP URL wired: https://share.google/9WVQWATF9SIcSLDEb

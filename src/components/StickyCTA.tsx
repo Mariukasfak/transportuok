@@ -33,7 +33,7 @@ const StickyCTA: React.FC<Props> = ({ kaunasPhone = '+370 699 25 744', vilniusPh
                         Skambinti
                     </a>
                     <a
-                        href="https://wa.me/TODO:<whatsapp_number>"
+                        href="https://wa.me/qr/MWZP5P2S3SBKI1"
                         target="_blank"
                         rel="noopener noreferrer"
                         data-analytics="whatsapp_click"

@@ -4,6 +4,7 @@ import { useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import ConsentBanner from './components/ConsentBanner';
+import GlobalSchema from './components/GlobalSchema';
 import ErrorBoundary from './components/ErrorBoundary';
 import StickyCTA from './components/StickyCTA';
 
@@ -20,6 +21,8 @@ const MetaloLauzas = lazy(() => import('./pages/services/MetaloLauzas'));
 const About = lazy(() => import('./pages/About'));
 const Contact = lazy(() => import('./pages/Contact'));
 const Naujienos = lazy(() => import('./pages/Naujienos'));
+const Kaunas = lazy(() => import('./pages/city/Kaunas'));
+const Vilnius = lazy(() => import('./pages/city/Vilnius'));
 
 const LoadingFallback = () => (
   <div className="min-h-screen flex items-center justify-center">
@@ -71,6 +74,7 @@ function App() {
       <div className="min-h-screen flex flex-col">
         <ScrollToTop />
         <Navbar />
+        <GlobalSchema />
         <main className="flex-grow">
           <ErrorBoundary>
             <Suspense fallback={<LoadingFallback />}>
@@ -93,6 +97,9 @@ function App() {
                 <Route path="/kontaktai" element={<Contact />} />
                 <Route path="/naujienos" element={<Naujienos />} />
                 <Route path="/naujienos/:slug" element={<Naujienos />} />
+                {/* City landing pages */}
+                <Route path="/kaunas" element={<Kaunas />} />
+                <Route path="/vilnius" element={<Vilnius />} />
               </Routes>
             </Suspense>
           </ErrorBoundary>
