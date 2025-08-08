@@ -26,6 +26,7 @@ declare global {
   interface Window {
     google: {
       maps: {
+  importLibrary?: (name: 'core' | 'maps' | 'marker' | 'places' | string) => Promise<Record<string, any>>;
         places: {
           PlacesServiceStatus: {
             OK: string;
@@ -96,7 +97,9 @@ const GoogleReviews: React.FC = () => {
     try {
       const script = document.createElement('script');
       script.id = GOOGLE_MAPS_SCRIPT_ID;
-      script.src = `https://maps.googleapis.com/maps/api/js?key=${API_KEY}&libraries=places`;
+  // Recommended: include loading=async and version pin for better performance
+  // Using modern importLibrary in initMap; no libraries param needed
+      script.src = `https://maps.googleapis.com/maps/api/js?key=${API_KEY}&v=weekly&loading=async`;
       script.async = true;
       script.defer = true;
       script.onload = initMap;
@@ -120,27 +123,46 @@ const GoogleReviews: React.FC = () => {
     }
   };
 
-  function initMap() {
+  async function initMap() {
     try {
-      if (!window.google || !window.google.maps || !window.google.maps.places) {
+      if (!window.google || !window.google.maps) {
         console.error('Google Maps API not available');
         setError('Google Maps API neprieinama');
         loadFallbackReviews();
         return;
       }
-      
+
+      // Prefer the modern importLibrary API when available
+      let PlacesServiceCtor: any;
+      let PlacesServiceStatusEnum: any;
+
+      if (typeof window.google.maps.importLibrary === 'function') {
+        const placesLib: any = await window.google.maps.importLibrary('places');
+        PlacesServiceCtor = placesLib.PlacesService;
+        PlacesServiceStatusEnum = placesLib.PlacesServiceStatus;
+      } else if ((window.google.maps as any).places) {
+        // Legacy fallback
+        PlacesServiceCtor = (window.google.maps as any).places.PlacesService;
+        PlacesServiceStatusEnum = (window.google.maps as any).places.PlacesServiceStatus;
+      } else {
+        console.error('Google Maps Places library not available');
+        setError('Google Maps API neprieinama');
+        loadFallbackReviews();
+        return;
+      }
+
       const containerDiv = document.createElement('div');
-      const service = new window.google.maps.places.PlacesService(containerDiv);
+      const service = new PlacesServiceCtor(containerDiv);
 
       service.getDetails(
         {
           placeId: PLACE_ID,
           fields: ['reviews', 'rating', 'user_ratings_total'],
         },
-        (place, status) => {
+        (place: PlaceResult | null, status: string) => {
           if (
-            status === window.google.maps.places.PlacesServiceStatus.OK &&
-            place?.reviews && 
+            status === PlacesServiceStatusEnum.OK &&
+            place?.reviews &&
             Array.isArray(place.reviews) &&
             place.reviews.length > 0
           ) {
