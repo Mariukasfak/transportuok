@@ -1,0 +1,26 @@
+name: Lighthouse CI
+
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  lhci:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Use Node.js 18
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+      - name: Install deps
+        run: npm ci
+      - name: Build
+        run: npm run build
+      - name: Install Lighthouse CI
+        run: npm i -g @lhci/cli
+      - name: Run Lighthouse CI (dist)
+        run: |
+          npx http-server dist -p 4173 &
+          sleep 2
+          lhci autorun --collect.url=http://localhost:4173 --collect.url=http://localhost:4173/kontaktai --upload.target=temporary-public-storage

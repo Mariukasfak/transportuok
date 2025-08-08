@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Star } from 'lucide-react';
 
-// Global variable to track script loading
-const GOOGLE_MAPS_SCRIPT_ID = 'google-maps-script';
-const API_KEY = 'AIzaSyANfuPj8nnzPV9Lf_2gLUFSVXKEFu_bybw'; // Google Maps API key
+// Removed hardcoded client API key; serverless path is used instead to avoid exposing keys
 const PLACE_ID = 'ChIJUQehZpUZ50YRMFClZ11adkM'; // Google Business Place ID
 
 interface Review {
@@ -54,16 +52,15 @@ const GoogleReviews: React.FC = () => {
   const [autoRotate, setAutoRotate] = useState(true);
 
   useEffect(() => {
-    // Load Google Maps script only when component is visible
+    // Trigger serverless fetch when section becomes visible
+    const target = document.getElementById('reviews-section') || document.body;
     const observer = new IntersectionObserver((entries) => {
       if (entries[0].isIntersecting) {
-        loadGoogleMapsScript();
+        fetchServerlessReviews();
         observer.disconnect();
       }
     });
-
-    observer.observe(document.getElementById('reviews-section') || document.body);
-
+    observer.observe(target);
     return () => observer.disconnect();
   }, []);
 
@@ -80,135 +77,38 @@ const GoogleReviews: React.FC = () => {
     return () => clearInterval(interval);
   }, [autoRotate, reviews.length]);
 
-  const loadGoogleMapsScript = async () => {
-    // Try server-side reviews first to avoid CSP/eval issues
+  const fetchServerlessReviews = async () => {
     try {
-      const resp = await fetch('/.netlify/functions/google-reviews', {
+      // Prefer POST, fall back to GET if needed
+      let resp = await fetch('/.netlify/functions/google-reviews', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ placeId: PLACE_ID })
       });
+      if (!resp.ok) {
+        // fallback to GET style query
+        resp = await fetch(`/.netlify/functions/google-reviews?placeId=${encodeURIComponent(PLACE_ID)}`);
+      }
       if (resp.ok) {
         const data = await resp.json();
-        if (Array.isArray(data.reviews) && data.reviews.length > 0) {
-          const sortedReviews = [...data.reviews].sort((a: Review, b: Review) => b.time - a.time);
+        const list = Array.isArray(data.reviews) ? data.reviews : [];
+        if (list.length > 0) {
+          const sortedReviews = [...list].sort((a: Review, b: Review) => b.time - a.time);
           setReviews(sortedReviews);
           setAverageRating(data.rating || 0);
           setTotalReviews(data.user_ratings_total || sortedReviews.length);
           setLoading(false);
-          return; // Done via serverless path
+          return;
         }
       }
     } catch (e) {
-      // Ignore and fallback to client API
+      // ignore
     }
-
-    // Fallback to client Places API
-    // Check if script is already loaded
-    if (document.getElementById(GOOGLE_MAPS_SCRIPT_ID)) {
-      if (window.google && window.google.maps) {
-        initMap();
-      } else {
-        // If script is present but not loaded properly, use fallback
-        console.warn('Google Maps script exists but API not loaded.');
-        loadFallbackReviews();
-      }
-      return;
-    }
-
-    // If script not loaded yet, load it
-    try {
-      const script = document.createElement('script');
-      script.id = GOOGLE_MAPS_SCRIPT_ID;
-      // Recommended: include loading=async and version pin for better performance
-      // Using modern importLibrary in initMap; no libraries param needed
-      script.src = `https://maps.googleapis.com/maps/api/js?key=${API_KEY}&v=weekly&loading=async&libraries=places&language=lt&region=LT`;
-      script.async = true;
-      script.defer = true;
-      script.onload = initMap;
-      script.onerror = (e) => {
-        console.error('Error loading Google Maps API script:', e);
-        setError('Nepavyko įkelti Google Maps API');
-        loadFallbackReviews();
-      };
-      document.head.appendChild(script);
-    } catch (err) {
-      console.error('Error appending Google Maps script:', err);
-      loadFallbackReviews();
-    }
+    // As last resort, fallback to static testimonials (no client API key exposure)
+    loadFallbackReviews();
   };
 
-  async function initMap() {
-    try {
-      if (!window.google || !window.google.maps) {
-        console.error('Google Maps API not available');
-        setError('Google Maps API neprieinama');
-        loadFallbackReviews();
-        return;
-      }
-
-      // Prefer the modern importLibrary API when available
-      let PlacesServiceCtor: any;
-      let PlacesServiceStatusEnum: any;
-
-      if (typeof window.google.maps.importLibrary === 'function') {
-        await window.google.maps.importLibrary('places');
-        // After importLibrary, the global namespace is populated
-        PlacesServiceCtor = (window.google.maps as any).places?.PlacesService;
-        PlacesServiceStatusEnum = (window.google.maps as any).places?.PlacesServiceStatus;
-      } else if ((window.google.maps as any).places) {
-        // Legacy fallback
-        PlacesServiceCtor = (window.google.maps as any).places.PlacesService;
-        PlacesServiceStatusEnum = (window.google.maps as any).places.PlacesServiceStatus;
-      } else {
-        console.error('Google Maps Places library not available');
-        setError('Google Maps API neprieinama');
-        loadFallbackReviews();
-        return;
-      }
-
-      const containerDiv = document.createElement('div');
-      const service = new PlacesServiceCtor(containerDiv);
-
-      const fetchDetails = (attempt = 1) => {
-        service.getDetails(
-          {
-            placeId: PLACE_ID,
-            fields: ['reviews', 'rating', 'user_ratings_total'],
-          },
-          (place: PlaceResult | null, status: string) => {
-            if (
-              status === PlacesServiceStatusEnum.OK &&
-              place?.reviews &&
-              Array.isArray(place.reviews) &&
-              place.reviews.length > 0
-            ) {
-              const sortedReviews = [...place.reviews].sort((a, b) => b.time - a.time);
-              setReviews(sortedReviews);
-              if (place.rating) setAverageRating(place.rating);
-              setTotalReviews(place.user_ratings_total || sortedReviews.length);
-              setLoading(false);
-            } else if (attempt < 2) {
-              // Retry once with a minimal fields set in case of quota/fields issue
-              console.warn('Retrying getDetails due to status:', status);
-              setTimeout(() => fetchDetails(attempt + 1), 800);
-            } else {
-              console.warn('Failed to get reviews or empty response', { status, place });
-              setError('Nepavyko gauti atsiliepimų');
-              loadFallbackReviews();
-              setLoading(false);
-            }
-          }
-        );
-      };
-
-      fetchDetails();
-    } catch (err) {
-      console.error('Error initializing Google Maps:', err);
-      setError('Įvyko klaida inicijuojant Google Maps');
-      loadFallbackReviews();
-    }
-  }
+  // Removed client-side Places API usage to avoid exposing API keys and CSP eval issues
 
   // Fallback reviews if API fails
   const loadFallbackReviews = () => {
