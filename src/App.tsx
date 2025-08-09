@@ -60,12 +60,14 @@ function App() {
     // Consent mode will govern storage automatically
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const anyWin = window as any;
-    if (typeof anyWin.gtag === 'function' && !anyWin.google_tag_manager) {
+    if (typeof anyWin.gtag === 'function') {
       anyWin.gtag('event', 'page_view', {
         page_title: document.title,
         page_location: window.location.href,
         page_path: location.pathname + window.location.search,
       });
+      // Optional debug flag (uncomment to verify hits in GA4 DebugView)
+      // anyWin.gtag('event','page_view',{debug_mode:true});
     }
   }, [location.pathname, location.search]);
 
