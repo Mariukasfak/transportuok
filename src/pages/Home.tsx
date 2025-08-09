@@ -4,8 +4,9 @@ import { Helmet } from 'react-helmet-async';
 import { trackCTAClick } from '../utils/analytics';
 import OptimizedImage from '../components/OptimizedImage';
 import LazyGoogleReviews from '../components/LazyGoogleReviews';
-import CitySelector from '../components/CitySelector';
-import BlogSection from '../components/BlogSection';
+// Below-the-fold bundles split to reduce initial JS and speed LCP
+const CitySelector = React.lazy(() => import('../components/CitySelector'));
+const BlogSection = React.lazy(() => import('../components/BlogSection'));
 
 const Home = () => {
   // Add a handler for CTA clicks
@@ -25,19 +26,30 @@ const Home = () => {
       </Helmet>
 
       <div className="min-h-screen">
-        {/* Hero Section */}
-        <section
-          className="hero-section"
-          style={{ backgroundImage: `url('/images/optimized/hero-bg-appliances.webp')` }}
-        >
+        {/* Hero Section (explicit <img> for clearer LCP targeting & priority loading) */}
+        <section className="hero-section" style={{ position: 'relative', overflow: 'hidden' }}>
+          <picture>
+            {/* Responsive hero sources */}
+            <source
+              type="image/webp"
+              srcSet="/images/optimized/hero-bg-appliances-small.webp 640w, /images/optimized/hero-bg-appliances-medium.webp 1280w, /images/optimized/hero-bg-appliances-large.webp 1600w, /images/optimized/hero-bg-appliances.webp 1920w"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 100vw"
+            />
+            <img
+              src="/images/optimized/hero-bg-appliances-medium.webp"
+              alt="Nemokamas buitinės technikos išvežimas Lietuvoje"
+              fetchPriority="high"
+              decoding="async"
+              loading="eager"
+              width={1920}
+              height={1080}
+              style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }}
+            />
+          </picture>
           <div className="hero-overlay" />
           <div className="hero-content">
-            <h1 className="hero-title">
-              Nemokamas elektronikos ir buitinės technikos išvežimas Lietuvoje
-            </h1>
-            <p className="hero-description">
-              Kaunas, Vilnius ir visa Lietuva. Nemokamai išvežame buitinę techniką ir elektroniką – greitai ir patikimai.
-            </p>
+            <h1 className="hero-title">Nemokamas elektronikos ir buitinės technikos išvežimas Lietuvoje</h1>
+            <p className="hero-description">Kaunas, Vilnius ir visa Lietuva. Nemokamai išvežame buitinę techniką ir elektroniką – greitai ir patikimai.</p>
             <Link
               to="/kontaktai#contact-form"
               className="inline-block bg-[#167d36] hover:bg-[#0f5a26] text-white font-bold text-base px-6 py-3 rounded-lg shadow-md transition-colors"
@@ -181,15 +193,19 @@ const Home = () => {
           </div>
         </section>
 
-        {/* City Selector */}
-        <section className="py-16 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <CitySelector />
-          </div>
-        </section>
+        {/* City Selector (lazy) */}
+        <React.Suspense fallback={<div className="py-20 text-center text-gray-500">Įkeliami miestai...</div>}>
+          <section className="py-16 bg-white">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <CitySelector />
+            </div>
+          </section>
+        </React.Suspense>
 
-        {/* Blog Section */}
-        <BlogSection />
+        {/* Blog Section (lazy) */}
+        <React.Suspense fallback={<div className="py-20 text-center text-gray-500">Įkeliami straipsniai...</div>}>
+          <BlogSection />
+        </React.Suspense>
 
         {/* Reviews Section */}
         <React.Suspense fallback={

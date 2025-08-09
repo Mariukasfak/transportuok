@@ -126,7 +126,7 @@
       ad_personalization: 'denied'
     });
     // GA4 config inicijuojama ir esant denied – veikia tik kaip cookieless ping (pagerina žymos aprėpties aptikimą)
-    gtag('config','G-320YE0N58G',{ send_page_view: false, allow_ad_personalization_signals: false });
+    gtag('config', 'G-320YE0N58G', { send_page_view: false, allow_ad_personalization_signals: false });
   </script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-320YE0N58G"></script>
 
@@ -151,6 +151,7 @@
   <link rel="preconnect" href="https://maps.googleapis.com" crossorigin />
   <link rel="preconnect" href="https://maps.gstatic.com" crossorigin />
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <!-- Analytics preconnect pašalintas iki sutikimo -->
 
   <!-- Critical resources preload -->
@@ -158,7 +159,7 @@
     fetchpriority="high" />
   <!-- Removed problematic preload links -->
 
-  <!-- Styles: make main CSS async (FOUC guarded by inlined critical CSS) -->
+  <!-- Styles: make main CSS async (FOUC guarded by inlined critical CSS). During dev uses /src/index.css; in production Vite builds hashed asset (kept runtime fallback). -->
   <link rel="preload" href="/src/index.css" as="style" />
   <link rel="stylesheet" href="/src/index.css" media="print" onload="this.media='all'" />
   <noscript>
