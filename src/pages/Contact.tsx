@@ -18,7 +18,6 @@ const TOP_CITIES = [
   'Mažeikiai',
   'Jonava',
   'Utena',
-  'Likusi Lietuva'
 ] as const;
 
 const contactSchema = z.object({
@@ -191,31 +190,6 @@ const Contact = () => {
                 className="bg-white rounded-lg shadow-lg p-8"
               >
                 <h2 className="text-2xl font-bold mb-6">Užklausos forma</h2>
-
-                {/* Quick category selectors */}
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-6">
-                  <button
-                    type="button"
-                    onClick={() => setValue('city', 'Vilnius', { shouldValidate: true })}
-                    className="w-full px-4 py-2 rounded-lg border border-green-200 text-green-700 hover:bg-green-50 transition-colors"
-                  >
-                    Vilniaus užsakymai
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => setValue('city', 'Kaunas', { shouldValidate: true })}
-                    className="w-full px-4 py-2 rounded-lg border border-green-200 text-green-700 hover:bg-green-50 transition-colors"
-                  >
-                    Kauno užsakymai
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => setValue('city', 'Likusi Lietuva', { shouldValidate: true })}
-                    className="w-full px-4 py-2 rounded-lg border border-green-200 text-green-700 hover:bg-green-50 transition-colors"
-                  >
-                    Likusi Lietuva
-                  </button>
-                </div>
 
                 <div className="space-y-6">
                   <div>
@@ -439,7 +413,7 @@ const Contact = () => {
                   <MapPin className="w-6 h-6 sm:w-6 sm:h-6 text-green-500 mr-4 flex-shrink-0" />
                   <div>
                     <h3 className="font-semibold">Aptarnaujama teritorija</h3>
-                    <p className="text-gray-600">Vilnius, Kaunas ir visa Lietuva</p>
+                    <p className="text-gray-600">Lietuva</p>
                   </div>
                 </div>
 
@@ -490,14 +464,6 @@ const Contact = () => {
                 </div>
               </div>
             )}
-            {/* NAP + Directions (outside of map image) */}
-            <div className="bg-white rounded-lg p-6 shadow-sm mt-8">
-              <h3 className="text-lg font-semibold mb-4">Atvykimas ir kontaktai</h3>
-              <div className="space-y-2 text-gray-700">
-                <p><strong>Vilnius:</strong> {`+370 664 24 024`} · <a href="tel:+37066424024" className="text-green-700">Skambinti</a> · <a className="text-green-700" target="_blank" rel="noopener" href={company.contacts.vilnius.directionsUrl}>Directions</a></p>
-                <p><strong>Kaunas:</strong> {`+370 699 25 744`} · <a href="tel:+37069925744" className="text-green-700">Skambinti</a> · <a className="text-green-700" target="_blank" rel="noopener" href={company.contacts.kaunas.directionsUrl}>Directions</a></p>
-              </div>
-            </div>
           </div>
         </div>
       </div>
