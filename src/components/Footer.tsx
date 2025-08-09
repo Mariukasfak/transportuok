@@ -24,13 +24,13 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
-            <h3 className="text-xl font-bold mb-4">Karavanas LT</h3>
+            <h3 className="text-xl font-bold mb-4">Transportuok.LT</h3>
             <p className="text-gray-400">
-              Profesionalus buitinės technikos ir elektronikos atliekų išvežimas Kaune ir apylinkėse.
+              Profesionalus buitinės technikos ir elektronikos atliekų išvežimas Lietuvoje.
             </p>
             <div className="flex space-x-4 mt-4">
               <a
-                href="https://facebook.com/karavanaslt"
+                href="https://facebook.com/transportuoklt"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Sekite mus Facebook"
@@ -39,7 +39,7 @@ const Footer = () => {
                 <Facebook className="w-6 h-6" />
               </a>
               <a
-                href="https://instagram.com/karavanaslt"
+                href="https://instagram.com/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Sekite mus Instagram"
