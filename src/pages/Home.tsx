@@ -71,10 +71,11 @@ const Home = () => {
                 <OptimizedImage
                   src="/images/optimized/buitine-technika"
                   alt="Nemokamas šaldytuvų ir skalbimo mašinų išvežimas Kaune"
-                  className="w-full h-48 object-cover rounded-lg mb-4"
+                  className="w-full h-48 rounded-lg mb-4"
                   width={600}
                   height={192}
                   loading="lazy"
+                  sizes="(max-width:768px) 100vw, 50vw"
                 />
                 <Link to="/paslaugos/buitines-technikos-isvezimas">
                   <h3 className="text-xl font-semibold mb-4 hover:text-green-600 transition-colors">
@@ -97,10 +98,11 @@ const Home = () => {
                 <OptimizedImage
                   src="/images/optimized/elektronika"
                   alt="Elektronikos atliekų surinkimas ir perdirbimas Kaune"
-                  className="w-full h-48 object-cover rounded-lg mb-4"
+                  className="w-full h-48 rounded-lg mb-4"
                   width={600}
                   height={192}
                   loading="lazy"
+                  sizes="(max-width:768px) 100vw, 50vw"
                 />
                 <Link to="/paslaugos/elektronikos-atlieku-isvezimas">
                   <h3 className="text-xl font-semibold mb-4 hover:text-green-600 transition-colors">
@@ -123,10 +125,11 @@ const Home = () => {
                 <OptimizedImage
                   src="/images/optimized/baldai"
                   alt="Senų baldų išvežimas Kaune"
-                  className="w-full h-48 object-cover rounded-lg mb-4"
+                  className="w-full h-48 rounded-lg mb-4"
                   width={600}
                   height={192}
                   loading="lazy"
+                  sizes="(max-width:768px) 100vw, 50vw"
                 />
                 <Link to="/paslaugos/baldu-isvezimas">
                   <h3 className="text-xl font-semibold mb-4 hover:text-green-600 transition-colors">
@@ -149,10 +152,11 @@ const Home = () => {
                 <OptimizedImage
                   src="/images/optimized/metalo-lauzas"
                   alt="Metalo laužo surinkimas ir išvežimas Kaune"
-                  className="w-full h-48 object-cover rounded-lg mb-4"
+                  className="w-full h-48 rounded-lg mb-4"
                   width={600}
                   height={192}
                   loading="lazy"
+                  sizes="(max-width:768px) 100vw, 50vw"
                 />
                 <Link to="/paslaugos/metalo-lauzo-isvezimas">
                   <h3 className="text-xl font-semibold mb-4 hover:text-green-600 transition-colors">
