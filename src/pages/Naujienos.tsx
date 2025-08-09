@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Calendar, Share2, ArrowLeft } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 
 const blogPosts = [
   {
@@ -1838,6 +1839,7 @@ const blogPosts = [
     <p class="font-semibold mb-2">Verta apmąstyti:</p>
     <p>Vidutinis europietis per metus išmeta apie 11 kg tekstilės gaminių ir sukaupia apie 30 kg nenaudojamų daiktų namuose. Praktiškas požiūris į daiktų įsigijimą ir atliekų tvarkymą gali sumažinti šiuos skaičius ir padėti sukurti tvaresnę aplinką.</p>
   </div>
+  
 
   <h2 class="text-2xl font-semibold mt-8 mb-4 text-green-700">Efektyvaus namų tvarkymo principai</h2>
   
@@ -2256,6 +2258,119 @@ const blogPosts = [
     metaTitle: 'Praktiškas namietis: efektyvūs kasdieniai sprendimai | Karavanas LT',
     metaDescription: 'Atraskite, kaip praktiškas požiūris į daiktus, jų tvarkymą ir funkcionalią aprangą gali pagerinti jūsų gyvenimo kokybę. Patarimai ir sprendimai moderniam žmogui.',
     ogImage: '/images/straipsnis7.webp',
+  },
+  {
+    id: 8,
+    slug: 'buitines-technikos-isvezimas-lietuvoje-pilnas-gidas-2025',
+    title: 'Buitinės technikos išvežimas visoje Lietuvoje 2025: pilnas gidas (nemokama paslauga, tvarūs sprendimai, AI tendencijos)',
+    excerpt: 'Išsamus 2025 m. buitinės technikos išvežimo Lietuvoje gidas: nemokamos galimybės, ekologija, miestų specifika, pasiruošimas ir dirbtinio intelekto vaidmuo.',
+    date: '2025-08-09',
+    imageUrl: '/images/straipsnis2.webp',
+    content: `
+  <h1 class="text-3xl font-bold mb-6">Buitinės technikos išvežimas visoje Lietuvoje 2025: pilnas gidas</h1>
+  <p class="text-lg mb-6">Tikslas – padėti gyventojams ir smulkioms įmonėms greitai, nemokamai ir atsakingai atsikratyti senos buitinės technikos.</p>
+
+  <div class="bg-green-50 border border-green-200 p-5 rounded-lg mb-8">
+    <h2 class="text-2xl font-semibold mb-3 text-green-700">Trumpai: ką rasite šiame straipsnyje</h2>
+    <ul class="list-disc pl-6 space-y-1 text-gray-700">
+      <li>Kur ir kada <strong>nemokamai</strong> išvežame buitinę techniką</li>
+      <li>Skirtumai tarp Vilniaus, Kauno ir mažesnių miestų</li>
+      <li>Kaip pasiruošti išvežimui (5 žingsniai)</li>
+      <li>Dažniausios klaidos ir kaip jų išvengti</li>
+      <li>AI ir žaliųjų iniciatyvų tendencijos atliekų tvarkyme</li>
+      <li>DUK + realūs scenarijai</li>
+    </ul>
+  </div>
+
+  <h2 class="text-2xl font-semibold mb-4 text-green-700">1. Kodėl svarbus teisingas buitinės technikos išvežimas?</h2>
+  <p class="mb-4">Sena buitinė technika (šaldytuvai, skalbimo mašinos, viryklės, džiovyklės, indaplovės) turi medžiagų, kurios gali būti <strong>perdirbamos</strong> arba <strong>pavojingos aplinkai</strong> (freonas, alyvos, sunkieji metalai). Teisingas išvežimas:</p>
+  <ul class="list-disc pl-6 mb-6 space-y-1">
+    <li>Mažina atliekų kiekį sąvartynuose</li>
+    <li>Grąžina žaliavas (metalą, plastiką, elektroniką) į ekonomikos ciklą</li>
+    <li>Taupo energiją ir išteklius</li>
+    <li>Atitinka ES WEEE (Atliekų elektros ir elektroninės įrangos) direktyvos nuostatas</li>
+  </ul>
+
+  <h2 class="text-2xl font-semibold mb-4 text-green-700">2. Nemokamo išvežimo sąlygos 2025</h2>
+  <p class="mb-4">Karavanas LT daugumoje atvejų išveža stambią buitinę techniką nemokamai. Pagrindiniai veiksniai:</p>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+    <div class="bg-gray-50 p-4 rounded-lg">
+      <h3 class="font-semibold mb-2">Didieji miestai</h3>
+      <p class="text-gray-600 text-sm">Vilnius ir Kaunas – išvežimas beveik visada nemokamas, jei prietaisas paruoštas paėmimui.</p>
+    </div>
+    <div class="bg-gray-50 p-4 rounded-lg">
+      <h3 class="font-semibold mb-2">Regionai</h3>
+      <p class="text-gray-600 text-sm">Mažesniuose miestuose – priklauso nuo maršruto ir kiekio. Dažnai sugrupuojame kelis užsakymus.</p>
+    </div>
+    <div class="bg-gray-50 p-4 rounded-lg">
+      <h3 class="font-semibold mb-2">Svoris / kiekis</h3>
+      <p class="text-gray-600 text-sm">Keli prietaisai vienu adresu = efektyviau logistiškai, todėl prioritetas.</p>
+    </div>
+    <div class="bg-gray-50 p-4 rounded-lg">
+      <h3 class="font-semibold mb-2">Prieinamumas</h3>
+      <p class="text-gray-600 text-sm">Lauke / laiptinėje palikti prietaisai pagreitina tvarkymą – dažnai suteikia prioritetą.</p>
+    </div>
+  </div>
+
+  <h2 class="text-2xl font-semibold mb-4 text-green-700">3. Kaip pasiruošti? 5 žingsnių kontrolinis sąrašas</h2>
+  <ol class="list-decimal pl-6 mb-6 space-y-2">
+    <li><strong>Išjunkite</strong> prietaisą (šaldytuvui – 12–24 h prieš)</li>
+    <li><strong>Ištuštinkite ir išvalykite</strong> vidų (be maisto / vandens)</li>
+    <li><strong>Atlaisvinkite prieigą</strong> – pašalinkite kliūtis, nuimkite kilimėlius</li>
+    <li><strong>Jei reikia – užfiksuokite dureles</strong></li>
+    <li><strong>Įrašykite papildomą info</strong> užklausoje (aukštas, durų kodas, ar bus žmonių vietoje)</li>
+  </ol>
+
+  <h2 class="text-2xl font-semibold mb-4 text-green-700">4. Skirtumai tarp miestų</h2>
+  <table class="w-full text-sm mb-6 border border-gray-200">
+    <thead>
+      <tr class="bg-gray-50">
+        <th class="p-2 text-left">Miestas</th>
+        <th class="p-2 text-left">Dažniausias užsakymo tipas</th>
+        <th class="p-2 text-left">Vid. reakcija</th>
+        <th class="p-2 text-left">Pastabos</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="border-t"><td class="p-2">Vilnius</td><td class="p-2">Šaldytuvas + skalbimo mašina</td><td class="p-2">24 h</td><td class="p-2">Didelė paklausa – rezervuokite iš anksto</td></tr>
+      <tr class="border-t"><td class="p-2">Kaunas</td><td class="p-2">Skalbimo mašina / viryklė</td><td class="p-2">24–48 h</td><td class="p-2">Dažni kombinuoti užsakymai</td></tr>
+      <tr class="border-t"><td class="p-2">Kiti miestai</td><td class="p-2">Šaldytuvas</td><td class="p-2">2–5 d.</td><td class="p-2">Maršrutai derinami grupuojant</td></tr>
+    </tbody>
+  </table>
+
+  <h2 class="text-2xl font-semibold mb-4 text-green-700">5. Dirbtinis intelektas (AI) ir atliekų tvarkymas</h2>
+  <p class="mb-4">2025 m. AI technologijos padeda optimizuoti surinkimo maršrutus (mažina CO₂), prognozuoja paklausą pagal sezoniškumą ir padeda identifikuoti neteisingai išmestą įrangą viešose vietose. Karavanas LT seka tendencijas – ateityje planuojame automatizuotą maršrutų siūlymą klientui realiu laiku.</p>
+
+  <div class="bg-green-100 p-4 rounded mb-6 text-sm">
+    <strong>Įžvalga:</strong> AI paieškos (Google SGE, Perplexity, ChatGPT) prioritetą teikia struktūruotiems, semantiškai aiškiems, aktualiems ir patikimumą patvirtinantiems šaltiniams (E-E-A-T). Šis straipsnis optimizuotas atsižvelgiant į tai.</div>
+
+  <h2 class="text-2xl font-semibold mb-4 text-green-700">6. Dažniausios klaidos</h2>
+  <ul class="list-disc pl-6 mb-6 space-y-1">
+    <li>Paliekamas neprieinamas praėjimas (užstatytas koridorius)</li>
+    <li>Nenurodomas aukštas arba nėra durų kodo</li>
+    <li>Prietaisas dar įjungtas / šiltas</li>
+    <li>Nenurodoma ar reikalinga išnešimo pagalba</li>
+  </ul>
+
+  <h2 class="text-2xl font-semibold mb-4 text-green-700">7. DUK</h2>
+  <div class="space-y-4 mb-8">
+    <div class="bg-gray-50 p-4 rounded"><h3 class="font-semibold mb-2">Ar paslauga tikrai nemokama?</h3><p>Taip – Vilniuje ir Kaune standartiniai atvejai. Regionuose – derinama individualiai.</p></div>
+    <div class="bg-gray-50 p-4 rounded"><h3 class="font-semibold mb-2">Ar išnešate iš 5 aukšto be lifto?</h3><p>Taip, bet prašome iš anksto informuoti – prireiks papildomo žmogaus.</p></div>
+    <div class="bg-gray-50 p-4 rounded"><h3 class="font-semibold mb-2">Ar priimate neveikiančius prietaisus?</h3><p>Taip, būklė neturi reikšmės – svarbu, kad saugiai pasiektume.</p></div>
+    <div class="bg-gray-50 p-4 rounded"><h3 class="font-semibold mb-2">Ar išrašote perdavimo dokumentą?</h3><p>Taip, jei reikia – pateikiame patvirtinimą el. paštu.</p></div>
+  </div>
+
+  <h2 class="text-2xl font-semibold mb-4 text-green-700">8. Greita užklausa</h2>
+  <p class="mb-4">Jei jau pasiruošę – spauskite žemiau ir pateikite užklausą dabar:</p>
+  <a href="/kontaktai#contact-form" class="inline-block bg-green-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-green-700 transition">Užpildyti formą</a>
+
+  <h2 class="text-2xl font-semibold mt-10 mb-4 text-green-700">9. Santrauka</h2>
+  <p class="mb-4">Tinkamas buitinės technikos išvežimas – tai greitis + ekologija + atsakomybė. Pasiruoškite pagal kontrolinį sąrašą, rezervuokite, o likusiu pasirūpinsime mes. Jei turite klausimų – rašykite el. paštu arba pateikite formą.</p>
+  <p class="text-sm text-gray-500">Atnaujinta: 2025-08-09</p>
+    `,
+    metaTitle: 'Buitinės technikos išvežimas visoje Lietuvoje 2025 | Pilnas gidas',
+    metaDescription: 'Pilnas 2025 m. gidas: nemokamas buitinės technikos išvežimas, paruošimas, regionų skirtumai, AI tendencijos, DUK. Karavanas LT – greita pagalba.',
+    ogImage: '/images/straipsnis2.webp',
   }
 ];
 
@@ -2294,9 +2409,47 @@ const BlogPost = () => {
     linkedin: `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(shareUrl)}&title=${encodeURIComponent(shareText)}`,
   };
 
+  // Article structured data (simplified)
+  const articleSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: post.title,
+    datePublished: post.date,
+    dateModified: post.date,
+    image: `${window.location.origin}${post.ogImage || post.imageUrl}`,
+    mainEntityOfPage: `${window.location.origin}/naujienos/${post.slug}`,
+    author: {
+      '@type': 'Organization',
+      name: 'Karavanas LT'
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'Karavanas LT',
+      logo: {
+        '@type': 'ImageObject',
+        url: `${window.location.origin}/ikona_spalvotas.svg`
+      }
+    },
+    description: post.metaDescription
+  };
+
   return (
     <article className="py-12" itemScope itemType="http://schema.org/BlogPosting">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <Helmet>
+          <script type="application/ld+json">{JSON.stringify(articleSchema)}</script>
+          {post.id === 8 && (
+            <script type="application/ld+json">{JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'FAQPage',
+              mainEntity: [
+                { '@type': 'Question', name: 'Ar paslauga tikrai nemokama?', acceptedAnswer: { '@type': 'Answer', text: 'Vilniuje ir Kaune standartiniai atvejai nemokami; regionuose derinama individualiai.' } },
+                { '@type': 'Question', name: 'Kaip pasiruošti išvežimui?', acceptedAnswer: { '@type': 'Answer', text: 'Išjunkite, ištuštinkite, išvalykite, atlaisvinkite praėjimą, pateikite papildomą informaciją užklausoje.' } },
+                { '@type': 'Question', name: 'Ar priimate neveikiančius prietaisus?', acceptedAnswer: { '@type': 'Answer', text: 'Taip, prietaiso būklė neturi reikšmės – svarbu saugus paėmimas.' } }
+              ]
+            })}</script>
+          )}
+        </Helmet>
         <div className="mb-8">
           <button
             onClick={() => navigate('/naujienos')}
@@ -2315,6 +2468,17 @@ const BlogPost = () => {
           itemProp="image"
         />
 
+        {post.id === 8 && (
+          <div className="bg-amber-50 border border-amber-200 rounded-lg p-5 mb-8">
+            <h2 className="text-xl font-semibold text-amber-800 mb-2">TL;DR – santrauka</h2>
+            <p className="text-amber-900 text-sm leading-relaxed">
+              2025 m. buitinės technikos išvežimas Lietuvoje: Vilnius / Kaunas – beveik visada nemokamai, regionuose maršrutų grupavimas.
+              Pasiruošimas: išjungti, ištuštinti, atlaisvinti priėjimą, nurodyti aukštą / kodą. AI tendencijos optimizuoja maršrutus ir prioritetus.
+              Dažniausios klaidos – neprieinamas praėjimas ir neparuošti prietaisai. Užklausa: forma arba skambutis, atsakymas per 24 h.
+            </p>
+          </div>
+        )}
+
         <div className="flex items-center text-gray-500 text-sm mb-4">
           <Calendar className="w-4 h-4 mr-2" />
           <time itemProp="datePublished" dateTime={post.date}>
@@ -2327,6 +2491,25 @@ const BlogPost = () => {
           itemProp="articleBody"
           dangerouslySetInnerHTML={{ __html: post.content }}
         />
+
+        {post.id === 8 && (
+          <div className="mt-12 space-y-8">
+            <div className="bg-green-50 border border-green-200 p-6 rounded-lg">
+              <h3 className="text-lg font-semibold text-green-800 mb-3">Šaltiniai ir atitiktis</h3>
+              <ul className="list-disc pl-5 text-sm text-green-900 space-y-1">
+                <li>ES WEEE direktyva (Atliekų elektros ir elektroninės įrangos direktyva)</li>
+                <li>Lietuvos aplinkos apsaugos agentūros gairės dėl EEĮ atliekų</li>
+                <li>Karavanas LT vidiniai logistikos ir maršrutų optimizavimo principai</li>
+              </ul>
+              <p className="text-xs text-green-700 mt-3">Santrauka: laikomasi atsakingo išardymo, perdirbamų frakcijų išskyrimo ir pavojingų medžiagų saugaus perdavimo sertifikuotiems tvarkytojams.</p>
+            </div>
+            <div className="bg-white border border-gray-200 p-6 rounded-lg shadow-sm">
+              <h3 className="text-lg font-semibold mb-2">Greita užklausa</h3>
+              <p className="text-sm text-gray-600 mb-4">Užpildykite formą – atsakysime per 24 valandas (darbo dienomis).</p>
+              <a href="/kontaktai#contact-form" className="inline-block bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition">Pateikti užklausą dabar</a>
+            </div>
+          </div>
+        )}
 
         <div className="mt-8 pt-8 border-t border-gray-200">
           <h3 className="text-lg font-semibold mb-4">Dalintis straipsniu:</h3>

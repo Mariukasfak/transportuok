@@ -122,6 +122,7 @@ const BuitineTechnika = () => {
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Profesionalus ir greitas buitinės technikos išvežimas visame mieste.
               Išvežame šaldytuvus, skalbimo mašinas, virykles ir kitą buitinę techniką nemokamai.
+              {' '}Norite nacionalinio vaizdo? Perskaitykite mūsų <Link to="/naujienos/buitines-technikos-isvezimas-lietuvoje-pilnas-gidas-2025" className="text-green-600 hover:text-green-700 font-semibold">2025 pilną išvežimo gidą</Link>.
             </p>
             <div className="mt-5 flex items-center justify-center">
               <CityTabs basePath={basePath} current={cityKey as any} />

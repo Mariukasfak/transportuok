@@ -1,20 +1,45 @@
-User-agent: *
-Allow: /
+################################################################################
+# robots.txt – transportuok.lt (Last updated: 2025-08-09)
+# Tikslas: leisti indeksuoti viešą turinį, blokuoti vidaus / sistemos kelius
+# Pastaba: SPA turinys sugeneruojamas client-side; svarbiausi URL yra išvardinti sitemap'e.
+################################################################################
 
-# Disallow admin and private paths
+User-agent: *
+# Aiškiai leidžiam pagrindinis turinys
+Allow: /
+Allow: /paslaugos/
+Allow: /naujienos/
+Allow: /kaunas
+Allow: /vilnius
+Allow: /kontaktai/
+Allow: /apie-mus/
+
+# Blokuojami vidaus / sistemos failai ir nereikalingi keliai
 Disallow: /admin/
 Disallow: /private/
 Disallow: /api/
-
-# Disallow Netlify special system files
 Disallow: /_redirects
 Disallow: /_headers
+Disallow: /logs/
+Disallow: /test_logs/
 
-# Allow all bots to all public content
-Allow: /paslaugos/
-Allow: /naujienos/
-Allow: /apie-mus/
-Allow: /kontaktai/
+# Parametrų normalizacija (Google ignoruos; informacinis komentaras)
+# Clean-param: utm_source&utm_medium&utm_campaign&utm_term&utm_content / 
 
-# Sitemap location
+# Lėto indeksavimo atveju (nenaudojama dabar) galima aktyvuoti:
+# Crawl-delay: 5
+
+# Specialūs botai (galima išplėsti jei bus agresyvių scraperių)
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /private/
+
+# Sitemap'ai
 Sitemap: https://transportuok.lt/sitemap.xml
+
+# Užtikriname kad pagrindinis domenas be www; jei būtų www – 301 per ._redirects
+# Jei pridėsite papildomą sitemap (vaizdams / naujienoms) – deklaruokite čia.
+
+# END
