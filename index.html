@@ -60,6 +60,58 @@
         font-size: 1.25rem;
       }
     }
+
+    /* Minimal fold-critical utility subset (extracted manually) */
+    .flex {
+      display: flex
+    }
+
+    .items-center {
+      align-items: center
+    }
+
+    .justify-center {
+      justify-content: center
+    }
+
+    .text-center {
+      text-align: center
+    }
+
+    .font-bold {
+      font-weight: 700
+    }
+
+    .w-full {
+      width: 100%
+    }
+
+    .h-64 {
+      height: 16rem
+    }
+
+    .rounded-lg {
+      border-radius: 0.5rem
+    }
+
+    .mb-8 {
+      margin-bottom: 2rem
+    }
+
+    .mt-8 {
+      margin-top: 2rem
+    }
+
+    .pt-8 {
+      padding-top: 2rem
+    }
+
+    .px-4 {
+      padding-left: 1rem;
+      padding-right: 1rem
+    }
+
+    /* End critical subset */
   </style>
 
   <!-- Minimal dataLayer stub (actual GA / GTM loaded tik po sutikimo) -->
@@ -112,8 +164,14 @@
 
 <body>
   <div id="root"></div>
-  <link rel="modulepreload" href="/src/main.tsx" />
+  <!-- Vite dev entry (processed when using Vite dev server). If serving raw files (python http.server) .tsx will not compile. Use 'npm run dev' or built /dist for production. -->
   <script type="module" src="/src/main.tsx" defer></script>
+  <!-- Preload & async apply secondary styles (was late in LCP chain) -->
+  <link rel="preload" href="/assets/additional-styles.css" as="style" />
+  <link rel="stylesheet" href="/assets/additional-styles.css" media="print" onload="this.media='all'" />
+  <noscript>
+    <link rel="stylesheet" href="/assets/additional-styles.css" />
+  </noscript>
   <script>
     // Opt-in passive listeners for scroll/touch to reduce TBT
     (function () {
