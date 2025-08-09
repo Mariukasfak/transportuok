@@ -62,26 +62,16 @@
     }
   </style>
 
-  <!-- Initialize dataLayer -->
+  <!-- Minimal dataLayer stub (actual GA / GTM loaded tik po sutikimo) -->
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-
-    // Set default consent state
+    function gtag() { window.dataLayer.push(arguments); }
     gtag('consent', 'default', {
-      'analytics_storage': 'denied',
-      'ad_storage': 'denied',
-      'ad_user_data': 'denied',
-      'ad_personalization': 'denied'
+      analytics_storage: 'denied',
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied'
     });
-  </script>
-
-  <!-- Google tag (gtag.js) for GA4 -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-320YE0N58G"></script>
-  <script>
-    // Configure GA4 but don't auto-send page_view (SPA will handle)
-    gtag('config', 'G-320YE0N58G', { send_page_view: false });
   </script>
 
   <!-- Primary Meta Tags -->
@@ -105,16 +95,16 @@
   <link rel="preconnect" href="https://maps.googleapis.com" crossorigin />
   <link rel="preconnect" href="https://maps.gstatic.com" crossorigin />
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
-  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
-  <link rel="preconnect" href="https://www.google-analytics.com" crossorigin />
+  <!-- Analytics preconnect pašalintas iki sutikimo -->
 
   <!-- Critical resources preload -->
   <link rel="preload" href="/images/optimized/hero-bg-appliances.webp" as="image" type="image/webp"
     fetchpriority="high" />
   <!-- Removed problematic preload links -->
 
-  <!-- Styles -->
-  <link rel="stylesheet" href="/src/index.css" media="all" />
+  <!-- Styles: make main CSS async (FOUC guarded by inlined critical CSS) -->
+  <link rel="preload" href="/src/index.css" as="style" />
+  <link rel="stylesheet" href="/src/index.css" media="print" onload="this.media='all'" />
   <noscript>
     <link rel="stylesheet" href="/src/index.css" />
   </noscript>
@@ -122,7 +112,24 @@
 
 <body>
   <div id="root"></div>
-  <script type="module" src="/src/main.tsx"></script>
+  <link rel="modulepreload" href="/src/main.tsx" />
+  <script type="module" src="/src/main.tsx" defer></script>
+  <script>
+    // Opt-in passive listeners for scroll/touch to reduce TBT
+    (function () {
+      const add = EventTarget.prototype.addEventListener;
+      EventTarget.prototype.addEventListener = function (t, l, o) {
+        if (o === undefined || o === false) {
+          if (t === 'touchstart' || t === 'touchmove' || t === 'wheel') {
+            o = { passive: true };
+          }
+        } else if (typeof o === 'object' && (t === 'touchstart' || t === 'touchmove' || t === 'wheel') && o.passive === undefined) {
+          o.passive = true;
+        }
+        return add.call(this, t, l, o);
+      };
+    })();
+  </script>
 
   <!-- GTM noscript is injected after consent in-app -->
 </body>
