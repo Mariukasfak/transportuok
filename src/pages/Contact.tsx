@@ -115,26 +115,30 @@ const Contact = () => {
 
   const onSubmit = async (data: ContactForm) => {
     try {
-      // Build Google Calendar quick-add link (start in 2h, 30m duration)
-      const buildCalendarLink = () => {
-        const start = new Date(Date.now() + 2 * 3600_000);
-        const end = new Date(start.getTime() + 30 * 60_000);
+      // Build Google Calendar quick-add link with all form fields neatly formatted
+      const calendarLink = (() => {
+        const start = new Date(Date.now() + 2 * 3600_000); // +2h buffer
+        const end = new Date(start.getTime() + 30 * 60_000); // 30m duration
         const fmt = (d: Date) => d.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}Z$/, 'Z');
-        const details = [
-          `Miestas: ${data.city}`,
-          `Adresas: ${data.address}`,
-          `Durų kodas: ${data.doorCode || '-'}`,
-          `Telefonas: ${data.phone}`,
-          `Daiktai: ${data.items || '-'}`,
-          `Palikimo vieta: ${data.pickupLocation?.join(', ') || '-'}`,
-          `Papildoma informacija: ${data.additionalInfo || '-'}`
-        ].join('\n');
-        return `https://www.google.com/calendar/render?action=TEMPLATE` +
-          `&text=${encodeURIComponent('Užklausa – ' + data.city)}` +
-          `&details=${encodeURIComponent(details)}` +
-          `&dates=${fmt(start)}/${fmt(end)}`;
-      };
-      const calendarLink = buildCalendarLink();
+        const lines: string[] = [];
+        lines.push(`Miestas: ${data.city}`);
+        lines.push(`Adresas: ${data.address}`);
+        if (data.doorCode) lines.push(`Durų kodas: ${data.doorCode}`); else lines.push('Durų kodas: -');
+        lines.push(`Telefonas: ${data.phone}`);
+        lines.push(`Daiktai: ${data.items || '-'}`);
+        lines.push(`Kur paliksite daiktą: ${data.pickupLocation?.join(', ') || '-'}`);
+        lines.push(`Papildoma informacija: ${data.additionalInfo || '-'}`);
+        const details = lines.join('\n');
+        const base = 'https://www.google.com/calendar/render?action=TEMPLATE';
+        const params = [
+          ['text', `Užklausa – ${data.city}`],
+          ['details', details],
+          ['location', `${data.city}, ${data.address}`],
+          ['dates', `${fmt(start)}/${fmt(end)}`],
+          ['ctz', 'Europe/Vilnius']
+        ].map(([k,v]) => `${k}=${encodeURIComponent(v)}`).join('&');
+        return `${base}&${params}`;
+      })();
       // Initialize EmailJS (this ensures proper configuration)
       emailjs.init("F_bgx8N1D2rFvUIoM");
 
