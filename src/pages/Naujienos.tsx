@@ -2438,17 +2438,7 @@ const BlogPost = () => {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <Helmet>
           <script type="application/ld+json">{JSON.stringify(articleSchema)}</script>
-          {post.id === 8 && (
-            <script type="application/ld+json">{JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'FAQPage',
-              mainEntity: [
-                { '@type': 'Question', name: 'Ar paslauga tikrai nemokama?', acceptedAnswer: { '@type': 'Answer', text: 'Vilniuje ir Kaune standartiniai atvejai nemokami; regionuose derinama individualiai.' } },
-                { '@type': 'Question', name: 'Kaip pasiruošti išvežimui?', acceptedAnswer: { '@type': 'Answer', text: 'Išjunkite, ištuštinkite, išvalykite, atlaisvinkite praėjimą, pateikite papildomą informaciją užklausoje.' } },
-                { '@type': 'Question', name: 'Ar priimate neveikiančius prietaisus?', acceptedAnswer: { '@type': 'Answer', text: 'Taip, prietaiso būklė neturi reikšmės – svarbu saugus paėmimas.' } }
-              ]
-            })}</script>
-          )}
+          {/* Removed duplicate FAQPage JSON-LD for post id 8 to avoid multiple FAQ schemas on page */}
         </Helmet>
         <div className="mb-8">
           <button

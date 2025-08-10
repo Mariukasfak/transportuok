@@ -6,7 +6,6 @@ import Footer from './components/Footer';
 import ConsentBanner from './components/ConsentBanner';
 import GlobalSchema from './components/GlobalSchema';
 import ErrorBoundary from './components/ErrorBoundary';
-import StickyCTA from './components/StickyCTA';
 
 // Main page
 const Home = lazy(() => import('./pages/Home'));
@@ -106,9 +105,8 @@ function App() {
             </Suspense>
           </ErrorBoundary>
         </main>
-        <Footer />
-        <StickyCTA />
-        <ConsentBanner />
+  <Footer />
+  <ConsentBanner />
       </div>
     </ErrorBoundary>
   );

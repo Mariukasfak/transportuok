@@ -9,17 +9,21 @@ interface FAQItem {
 interface FAQProps {
   items: FAQItem[];
   title?: string;
-  category?: string;
+  /** If true, do not emit FAQPage JSON-LD (useful when page already injects it) */
+  suppressSchema?: boolean;
+  /** Strip HTML tags from answers in structured data (keeps visual HTML). Default true. */
+  sanitizeAnswers?: boolean;
 }
 
 const FAQ: React.FC<FAQProps> = ({ 
   items, 
   title = "Dažniausiai užduodami klausimai",
-  category = "Buitinės technikos išvežimas"
+  suppressSchema = false,
+  sanitizeAnswers = true
 }) => {
   const [openIndex, setOpenIndex] = React.useState<number | null>(null);
-
-  const structuredData = {
+  const stripTags = (html: string) => html.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim();
+  const structuredData = !suppressSchema ? {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": items.map(item => ({
@@ -27,17 +31,20 @@ const FAQ: React.FC<FAQProps> = ({
       "name": item.question,
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": item.answer
+        // Use sanitized text for JSON-LD to avoid embedding raw HTML
+        "text": sanitizeAnswers ? stripTags(item.answer) : item.answer
       }
     }))
-  };
+  } : null;
 
   return (
     <section className="py-12 bg-gray-50">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-        <script type="application/ld+json">
-          {JSON.stringify(structuredData)}
-        </script>
+        {!suppressSchema && structuredData && (
+          <script type="application/ld+json">
+            {JSON.stringify(structuredData)}
+          </script>
+        )}
 
         <h2 className="text-3xl font-bold text-center mb-8">{title}</h2>
         

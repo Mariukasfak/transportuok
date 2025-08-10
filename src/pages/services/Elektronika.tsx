@@ -72,16 +72,7 @@ const Elektronika = () => {
     ]
   };
 
-  const stripTags = (html: string) => html.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim();
-  const faqLd = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: elektronikosFAQ.map((q) => ({
-      '@type': 'Question',
-      name: stripTags(q.question),
-      acceptedAnswer: { '@type': 'Answer', text: stripTags(q.answer) }
-    }))
-  };
+  // FAQ structured data now emitted by FAQ component; removed page-level duplicate
 
   const title = `Elektronikos atliekų išvežimas ${city.locative} | Nemokamas surinkimas | Karavanas LT`;
   const description = `Nemokamas elektronikos atliekų surinkimas ${city.locative}: kompiuteriai, TV, monitoriai, spausdintuvai ir kt. Duomenų sunaikinimas ir ekologiškas perdirbimas.`;
@@ -98,7 +89,6 @@ const Elektronika = () => {
       />
 
       <script type="application/ld+json">{JSON.stringify(breadcrumbLd)}</script>
-      <script type="application/ld+json">{JSON.stringify(faqLd)}</script>
 
       <div className="py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -298,7 +288,6 @@ const Elektronika = () => {
           <FAQ
             items={elektronikosFAQ}
             title="Dažniausiai užduodami klausimai apie elektronikos atliekų išvežimą"
-            category="Elektronikos atliekų išvežimas"
           />
         </div>
       </div>

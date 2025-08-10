@@ -68,16 +68,7 @@ const BuitineTechnika = () => {
     ]
   };
 
-  const stripTags = (html: string) => html.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim();
-  const faqLd = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: buitinesTechnikosFAQ.map((q) => ({
-      '@type': 'Question',
-      name: stripTags(q.question),
-      acceptedAnswer: { '@type': 'Answer', text: stripTags(q.answer) }
-    }))
-  };
+  // FAQ structured data now emitted by FAQ component; remove page-level duplicate
 
   const howToLd = {
     '@context': 'https://schema.org',
@@ -109,7 +100,6 @@ const BuitineTechnika = () => {
 
       {/* Structured data */}
       <script type="application/ld+json">{JSON.stringify(breadcrumbLd)}</script>
-      <script type="application/ld+json">{JSON.stringify(faqLd)}</script>
       <script type="application/ld+json">{JSON.stringify(howToLd)}</script>
 
       <div className="py-12">
@@ -311,7 +301,6 @@ const BuitineTechnika = () => {
         <FAQ
           items={buitinesTechnikosFAQ}
           title={`Dažniausiai užduodami klausimai apie buitinės technikos išvežimą ${city.locative}`}
-          category="Buitinės technikos išvežimas"
         />
 
         {/* Susijusios paslaugos ir straipsniai */}
