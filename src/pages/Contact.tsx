@@ -130,13 +130,15 @@ const Contact = () => {
         lines.push(`Papildoma informacija: ${data.additionalInfo || '-'}`);
         const details = lines.join('\n');
         const base = 'https://www.google.com/calendar/render?action=TEMPLATE';
+        // Put full info into title (Google Calendar will truncate if too long, but acceptable)
+        const title = details; // full multiline summary
         const params = [
-          ['text', `Užklausa – ${data.city}`],
+          ['text', title],
           ['details', details],
           ['location', `${data.city}, ${data.address}`],
           ['dates', `${fmt(start)}/${fmt(end)}`],
           ['ctz', 'Europe/Vilnius']
-        ].map(([k,v]) => `${k}=${encodeURIComponent(v)}`).join('&');
+        ].map(([k, v]) => `${k}=${encodeURIComponent(v)}`).join('&');
         return `${base}&${params}`;
       })();
       // Initialize EmailJS (this ensures proper configuration)
