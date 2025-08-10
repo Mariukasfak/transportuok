@@ -118,7 +118,7 @@ const Contact = () => {
       // Build Google Calendar quick-add link with all form fields neatly formatted
       const calendarLink = (() => {
         const start = new Date(Date.now() + 2 * 3600_000); // +2h buffer
-        const end = new Date(start.getTime() + 30 * 60_000); // 30m duration
+  const end = new Date(start.getTime() + 60 * 60_000); // 1h duration
         const fmt = (d: Date) => d.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}Z$/, 'Z');
         const lines: string[] = [];
         lines.push(`Miestas: ${data.city}`);
@@ -133,8 +133,7 @@ const Contact = () => {
         // Put full info into title (Google Calendar will truncate if too long, but acceptable)
         const title = details; // full multiline summary
         const params = [
-          ['text', title],
-          ['details', details],
+          ['text', title], // full info only in title to avoid duplication
           ['location', `${data.city}, ${data.address}`],
           ['dates', `${fmt(start)}/${fmt(end)}`],
           ['ctz', 'Europe/Vilnius']
