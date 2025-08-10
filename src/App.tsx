@@ -105,8 +105,8 @@ function App() {
             </Suspense>
           </ErrorBoundary>
         </main>
-  <Footer />
-  <ConsentBanner />
+        <Footer />
+        <ConsentBanner />
       </div>
     </ErrorBoundary>
   );

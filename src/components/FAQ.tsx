@@ -15,8 +15,8 @@ interface FAQProps {
   sanitizeAnswers?: boolean;
 }
 
-const FAQ: React.FC<FAQProps> = ({ 
-  items, 
+const FAQ: React.FC<FAQProps> = ({
+  items,
   title = "Dažniausiai užduodami klausimai",
   suppressSchema = false,
   sanitizeAnswers = true
@@ -47,7 +47,7 @@ const FAQ: React.FC<FAQProps> = ({
         )}
 
         <h2 className="text-3xl font-bold text-center mb-8">{title}</h2>
-        
+
         <div className="space-y-4">
           {items.map((item, index) => (
             <div
@@ -66,9 +66,9 @@ const FAQ: React.FC<FAQProps> = ({
                   <Plus className="w-5 h-5 text-green-600 flex-shrink-0" />
                 )}
               </button>
-              
+
               {openIndex === index && (
-                <div 
+                <div
                   className="px-6 pb-4 prose prose-green max-w-none"
                   dangerouslySetInnerHTML={{ __html: item.answer }}
                 />

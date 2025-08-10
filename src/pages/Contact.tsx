@@ -5,7 +5,6 @@ import { z } from 'zod';
 import { Mail, MapPin, Clock, CheckCircle, Home, Trash2, Loader2, HelpCircle } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 import { trackFormSubmission } from '../utils/analytics';
-import company from '../data/company';
 
 const TOP_CITIES = [
   'Vilnius',
@@ -55,7 +54,8 @@ const Contact = () => {
     reset,
     setValue
   } = useForm<ContactForm>({
-    resolver: zodResolver(contactSchema)
+    resolver: zodResolver(contactSchema),
+    defaultValues: { city: 'Kaunas' }
   });
 
   useEffect(() => {
@@ -115,6 +115,26 @@ const Contact = () => {
 
   const onSubmit = async (data: ContactForm) => {
     try {
+      // Build Google Calendar quick-add link (start in 2h, 30m duration)
+      const buildCalendarLink = () => {
+        const start = new Date(Date.now() + 2 * 3600_000);
+        const end = new Date(start.getTime() + 30 * 60_000);
+        const fmt = (d: Date) => d.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}Z$/, 'Z');
+        const details = [
+          `Miestas: ${data.city}`,
+          `Adresas: ${data.address}`,
+          `Durų kodas: ${data.doorCode || '-'}`,
+          `Telefonas: ${data.phone}`,
+          `Daiktai: ${data.items || '-'}`,
+          `Palikimo vieta: ${data.pickupLocation?.join(', ') || '-'}`,
+          `Papildoma informacija: ${data.additionalInfo || '-'}`
+        ].join('\n');
+        return `https://www.google.com/calendar/render?action=TEMPLATE` +
+          `&text=${encodeURIComponent('Užklausa – ' + data.city)}` +
+          `&details=${encodeURIComponent(details)}` +
+          `&dates=${fmt(start)}/${fmt(end)}`;
+      };
+      const calendarLink = buildCalendarLink();
       // Initialize EmailJS (this ensures proper configuration)
       emailjs.init("F_bgx8N1D2rFvUIoM");
 
@@ -122,14 +142,15 @@ const Contact = () => {
         'service_transportuok',
         'template_uzklausa',
         {
-          subject: `Užklausa (${data.city}) iš ${data.address}`,
+          subject: `Nauja užklausa – ${data.city} | Transportuok.lt`,
           city: data.city,
           address: data.address,
           doorCode: data.doorCode ?? '',
           phone: data.phone,
           items: data.items ?? '',
           additionalInfo: data.additionalInfo ?? '',
-          pickupLocation: data.pickupLocation?.join(', ') ?? ''
+          pickupLocation: data.pickupLocation?.join(', ') ?? '',
+          calendar_link: calendarLink
         },
         'F_bgx8N1D2rFvUIoM'
       );
@@ -200,11 +221,7 @@ const Contact = () => {
                       id="city"
                       {...register('city')}
                       className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent ${errors.city ? 'border-red-500' : 'border-gray-300'}`}
-                      defaultValue=""
                     >
-                      <option value="" disabled>
-                        Pasirinkite miestą
-                      </option>
                       {TOP_CITIES.map((c) => (
                         <option key={c} value={c}>{c}</option>
                       ))}
