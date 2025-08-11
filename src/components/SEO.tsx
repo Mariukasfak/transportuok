@@ -44,15 +44,15 @@ export const SEO: React.FC<SEOProps> = ({
       {structuredData && (
         Array.isArray(structuredData)
           ? structuredData.map((sd, i) => (
-              <script key={i} type="application/ld+json">
-                {JSON.stringify(sd)}
-              </script>
-            ))
+            <script key={i} type="application/ld+json">
+              {JSON.stringify(sd)}
+            </script>
+          ))
           : (
-              <script type="application/ld+json">
-                {JSON.stringify(structuredData)}
-              </script>
-            )
+            <script type="application/ld+json">
+              {JSON.stringify(structuredData)}
+            </script>
+          )
       )}
     </Helmet>
   );

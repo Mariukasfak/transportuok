@@ -93,27 +93,49 @@ const BuitineTechnika = () => {
     name: `Buitinės technikos išvežimas ${city.locative}`,
     url: canonicalUrl,
     description,
-     primaryImageOfPage: {
-       '@type': 'ImageObject',
-       url: 'https://transportuok.lt/images/buitine-technika.webp'
-     },
-     image: [
-       'https://transportuok.lt/images/buitine-technika-small.webp',
-       'https://transportuok.lt/images/buitine-technika-medium.webp',
-       'https://transportuok.lt/images/buitine-technika-large.webp'
-     ],
+    primaryImageOfPage: {
+      '@type': 'ImageObject',
+      url: 'https://transportuok.lt/images/buitine-technika.webp'
+    },
+    image: [
+      'https://transportuok.lt/images/buitine-technika-small.webp',
+      'https://transportuok.lt/images/buitine-technika-medium.webp',
+      'https://transportuok.lt/images/buitine-technika-large.webp'
+    ],
     about: { '@type': 'Service', name: `Buitinės technikos išvežimas ${city.locative}` }
+  } as const;
+
+  // FAQ elementai + JSON-LD viršuje (head) per SEO
+  const faqItems = buitinesTechnikosFAQ.map(i => {
+    const localizedQ = cityKey === 'kaunas' ? i.question : `${i.question.replace('?', '')} ${city.locative}?`;
+    const locationNote = `<p><strong>Regionas:</strong> Išvežame ${city.name}${cityKey === 'lietuva' ? ' ir visoje Lietuvoje' : ' ir aplinkiniuose rajonuose'}.</p>`;
+    const answerWithLoc = i.answer.includes('Regionas:') ? i.answer : i.answer + locationNote;
+    return { ...i, question: localizedQ, answer: answerWithLoc };
+  });
+  const stripTags = (html: string) => html.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
+  const slugify = (s: string) => s.toLowerCase().replace(/[^\p{L}0-9]+/gu, '-').replace(/^-|-$/g, '');
+  const faqStructuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    '@id': `${canonicalUrl}#faq`,
+    'inLanguage': 'lt',
+    mainEntity: faqItems.map(q => ({
+      '@type': 'Question',
+      '@id': `${canonicalUrl}#question-${slugify(q.question)}`,
+      name: q.question,
+      acceptedAnswer: { '@type': 'Answer', text: stripTags(q.answer) }
+    }))
   } as const;
 
   return (
     <>
-      <SEO title={title} description={description} canonicalUrl={canonicalUrl} />
+      <SEO title={title} description={description} canonicalUrl={canonicalUrl} structuredData={[faqStructuredData]} />
 
       <ServiceSchema
         name={`Buitinės technikos išvežimas ${city.locative}`}
         description={`Nemokamas šaldytuvų, skalbimo mašinų ir kitų buitinių prietaisų išvežimas ${city.locative}. Greitas ir patikimas aptarnavimas.`}
-  image="https://transportuok.lt/images/buitine-technika.webp"
-  serviceId="buitines-technikos-isvezimas"
+        image="https://transportuok.lt/images/buitine-technika.webp"
+        serviceId="buitines-technikos-isvezimas"
         provider={serviceProvider}
         areaServed={cityKey === 'lietuva' ? 'Visa Lietuva' : city.name}
       />
@@ -121,7 +143,7 @@ const BuitineTechnika = () => {
       {/* Structured data */}
       <script type="application/ld+json">{JSON.stringify(breadcrumbLd)}</script>
       <script type="application/ld+json">{JSON.stringify(howToLd)}</script>
-  <script type="application/ld+json">{JSON.stringify(webPageLd)}</script>
+      <script type="application/ld+json">{JSON.stringify(webPageLd)}</script>
 
       <div className="py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -320,13 +342,9 @@ const BuitineTechnika = () => {
         </div>
 
         <FAQ
-          items={buitinesTechnikosFAQ.map(i => {
-            const localizedQ = cityKey === 'kaunas' ? i.question : `${i.question.replace('?', '')} ${city.locative}?`;
-            const locationNote = `<p><strong>Regionas:</strong> Išvežame ${city.name}${cityKey === 'lietuva' ? ' ir visoje Lietuvoje' : ' ir aplinkiniuose rajonuose'}.</p>`;
-            const answerWithLoc = i.answer.includes('Regionas:') ? i.answer : i.answer + locationNote;
-            return { ...i, question: localizedQ, answer: answerWithLoc };
-          })}
+          items={faqItems}
           title={`Dažniausiai užduodami klausimai apie buitinės technikos išvežimą ${city.locative}`}
+          suppressSchema
         />
 
         {/* Susijusios paslaugos ir straipsniai */}

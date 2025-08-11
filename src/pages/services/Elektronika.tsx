@@ -115,22 +115,47 @@ const Elektronika = () => {
     }
   } as const;
 
+  // Paruošiame FAQ elementus (vieną kartą panaudojame tiek UI tiek JSON-LD)
+  const faqItems = elektronikosFAQ.map(i => {
+    const localizedQ = cityKey === 'kaunas' ? i.question : `${i.question.replace('?', '')} ${city.locative}?`;
+    const locationNote = `<p><strong>Regionas:</strong> Aptarnaujame ${city.name}${cityKey === 'lietuva' ? ' ir kitus Lietuvos miestus' : ' bei aplinkinius rajonus'}.</p>`;
+    const answerWithLoc = i.answer.includes('Regionas:') ? i.answer : i.answer + locationNote;
+    return { ...i, question: localizedQ, answer: answerWithLoc };
+  });
+  const stripTags = (html: string) => html.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
+  const slugify = (s: string) => s.toLowerCase().replace(/[^\p{L}0-9]+/gu, '-').replace(/^-|-$/g, '');
+  const faqStructuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    '@id': `${canonicalUrl}#faq`,
+    'inLanguage': 'lt',
+    mainEntity: faqItems.map(q => ({
+      '@type': 'Question',
+      '@id': `${canonicalUrl}#question-${slugify(q.question)}`,
+      name: q.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: stripTags(q.answer)
+      }
+    }))
+  } as const;
+
   return (
     <>
-      <SEO title={title} description={description} canonicalUrl={canonicalUrl} />
+      <SEO title={title} description={description} canonicalUrl={canonicalUrl} structuredData={[faqStructuredData]} />
 
       <ServiceSchema
         name={`Elektronikos atliekų išvežimas ${city.locative}`}
         description={`Profesionalus elektronikos atliekų surinkimas, saugus duomenų sunaikinimas ir ekologiškas perdirbimas ${city.locative}.`}
-  image="https://transportuok.lt/images/elektronika.webp"
-  serviceId="elektronikos-atlieku-isvezimas"
+        image="https://transportuok.lt/images/elektronika.webp"
+        serviceId="elektronikos-atlieku-isvezimas"
         provider={provider}
         areaServed={cityKey === 'lietuva' ? 'Visa Lietuva' : city.name}
       />
 
-  <script type="application/ld+json">{JSON.stringify(breadcrumbLd)}</script>
-  <script type="application/ld+json">{JSON.stringify(howToLd)}</script>
-  <script type="application/ld+json">{JSON.stringify(webPageLd)}</script>
+      <script type="application/ld+json">{JSON.stringify(breadcrumbLd)}</script>
+      <script type="application/ld+json">{JSON.stringify(howToLd)}</script>
+      <script type="application/ld+json">{JSON.stringify(webPageLd)}</script>
 
       <div className="py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -142,12 +167,9 @@ const Elektronika = () => {
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Nemokamas surinkimas iš namų ir įmonių. Saugus duomenų sunaikinimas, perdavimo aktai ir tvarkymas pagal ES reikalavimus.
             </p>
-
-            {/* City Tabs */}
             <div className="mt-5 flex items-center justify-center">
               <CityTabs basePath={basePath} current={cityKey as any} />
             </div>
-
             <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3">
               <a href={city.telHref} className="inline-flex items-center px-5 py-3 border-2 border-green-600 text-green-700 rounded-lg hover:bg-green-50 font-semibold">
                 <Phone className="w-5 h-5 mr-2" /> Skambinti: {city.phone}
@@ -328,13 +350,9 @@ const Elektronika = () => {
 
           {/* FAQ Section */}
           <FAQ
-            items={elektronikosFAQ.map(i => {
-              const localizedQ = cityKey === 'kaunas' ? i.question : `${i.question.replace('?', '')} ${city.locative}?`;
-              const locationNote = `<p><strong>Regionas:</strong> Aptarnaujame ${city.name}${cityKey === 'lietuva' ? ' ir kitus Lietuvos miestus' : ' bei aplinkinius rajonus'}.</p>`;
-              const answerWithLoc = i.answer.includes('Regionas:') ? i.answer : i.answer + locationNote;
-              return { ...i, question: localizedQ, answer: answerWithLoc };
-            })}
-            title="Dažniausiai užduodami klausimai apie elektronikos atliekų išvežimą"
+            items={faqItems}
+            title={`Dažniausiai užduodami klausimai apie elektronikos atliekų išvežimą ${city.locative}`}
+            suppressSchema
           />
           {/* Susijusios paslaugos */}
           <div className="mt-12 bg-white rounded-lg shadow p-6">

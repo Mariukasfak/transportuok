@@ -40,7 +40,7 @@ const ServiceSchema: React.FC<ServiceSchemaProps> = ({
     ...(id ? { "@id": id } : {}),
     "name": name,
     "description": description,
-  ...(image ? { "image": [{ "@type": "ImageObject", "url": image }] } : {}),
+    ...(image ? { "image": [{ "@type": "ImageObject", "url": image }] } : {}),
     "provider": {
       "@type": "LocalBusiness",
       "name": provider.name,

@@ -25,7 +25,7 @@ const KaunasPage: React.FC = () => {
         areaServed: 'Kaunas ir Kauno rajonas',
         openingHoursSpecification: [{
             '@type': 'OpeningHoursSpecification',
-            dayOfWeek: ['Monday','Tuesday','Wednesday','Thursday','Friday'],
+            dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
             opens: '08:00',
             closes: '18:00'
         }]

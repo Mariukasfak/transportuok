@@ -25,7 +25,7 @@ const VilniusPage: React.FC = () => {
         areaServed: 'Vilnius ir Vilniaus rajonas',
         openingHoursSpecification: [{
             '@type': 'OpeningHoursSpecification',
-            dayOfWeek: ['Monday','Tuesday','Wednesday','Thursday','Friday'],
+            dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
             opens: '08:00',
             closes: '18:00'
         }]
