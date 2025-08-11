@@ -100,6 +100,15 @@ const Elektronika = () => {
     name: `Elektronikos atliekų išvežimas ${city.locative}`,
     url: canonicalUrl,
     description: description,
+    primaryImageOfPage: {
+      '@type': 'ImageObject',
+      url: 'https://transportuok.lt/images/elektronika.webp'
+    },
+    image: [
+      'https://transportuok.lt/images/elektronika-small.webp',
+      'https://transportuok.lt/images/elektronika-medium.webp',
+      'https://transportuok.lt/images/elektronika-large.webp'
+    ],
     about: {
       '@type': 'Service',
       name: `Elektronikos atliekų išvežimas ${city.locative}`
@@ -113,6 +122,8 @@ const Elektronika = () => {
       <ServiceSchema
         name={`Elektronikos atliekų išvežimas ${city.locative}`}
         description={`Profesionalus elektronikos atliekų surinkimas, saugus duomenų sunaikinimas ir ekologiškas perdirbimas ${city.locative}.`}
+  image="https://transportuok.lt/images/elektronika.webp"
+  serviceId="elektronikos-atlieku-isvezimas"
         provider={provider}
         areaServed={cityKey === 'lietuva' ? 'Visa Lietuva' : city.name}
       />
@@ -317,13 +328,24 @@ const Elektronika = () => {
 
           {/* FAQ Section */}
           <FAQ
-            items={elektronikosFAQ.map(i => ({
-              ...i,
-              // Ensure question uniqueness includes kontekstas (miestas)
-              question: cityKey === 'kaunas' ? i.question : `${i.question} (${city.locative})`
-            }))}
+            items={elektronikosFAQ.map(i => {
+              const localizedQ = cityKey === 'kaunas' ? i.question : `${i.question.replace('?', '')} ${city.locative}?`;
+              const locationNote = `<p><strong>Regionas:</strong> Aptarnaujame ${city.name}${cityKey === 'lietuva' ? ' ir kitus Lietuvos miestus' : ' bei aplinkinius rajonus'}.</p>`;
+              const answerWithLoc = i.answer.includes('Regionas:') ? i.answer : i.answer + locationNote;
+              return { ...i, question: localizedQ, answer: answerWithLoc };
+            })}
             title="Dažniausiai užduodami klausimai apie elektronikos atliekų išvežimą"
           />
+          {/* Susijusios paslaugos */}
+          <div className="mt-12 bg-white rounded-lg shadow p-6">
+            <h2 className="text-2xl font-bold mb-4">Susijusios paslaugos</h2>
+            <div className="flex flex-wrap gap-3">
+              <Link to="/paslaugos/buitines-technikos-isvezimas" className="px-4 py-2 bg-gray-100 rounded-lg hover:bg-gray-200">Buitinės technikos išvežimas</Link>
+              <Link to="/paslaugos/baldu-isvezimas" className="px-4 py-2 bg-gray-100 rounded-lg hover:bg-gray-200">Baldų išvežimas</Link>
+              <Link to="/paslaugos/metalo-lauzo-isvezimas" className="px-4 py-2 bg-gray-100 rounded-lg hover:bg-gray-200">Metalo laužo išvežimas</Link>
+              <Link to="/naujienos" className="px-4 py-2 bg-green-50 text-green-700 border border-green-200 rounded-lg hover:bg-green-100">Straipsniai ir patarimai</Link>
+            </div>
+          </div>
         </div>
       </div>
     </>

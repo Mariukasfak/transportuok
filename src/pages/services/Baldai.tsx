@@ -17,6 +17,15 @@ const Baldai = () => {
     name: 'Baldų išvežimas Kaune',
     url: canonicalUrl,
     description,
+    primaryImageOfPage: {
+      '@type': 'ImageObject',
+      url: 'https://transportuok.lt/images/baldai.webp'
+    },
+    image: [
+      'https://transportuok.lt/images/baldai-small.webp',
+      'https://transportuok.lt/images/baldai-medium.webp',
+      'https://transportuok.lt/images/baldai-large.webp'
+    ],
     about: { '@type': 'Service', name: 'Baldų išvežimas Kaune' }
   } as const;
 
@@ -64,6 +73,8 @@ const Baldai = () => {
       <ServiceSchema
         name="Baldų išvežimas Kaune"
         description={description}
+  image="https://transportuok.lt/images/baldai.webp"
+  serviceId="baldu-isvezimas"
         provider={provider}
         areaServed="Kaunas"
       />
@@ -246,12 +257,24 @@ const Baldai = () => {
 
         {/* FAQ Section */}
         <FAQ
-          items={balduFAQ.map(q => ({
-            ...q,
-            question: q.question.includes('Kaune') ? q.question : q.question.replace('?', ' Kaune?')
-          }))}
+          items={balduFAQ.map(q => {
+            const question = q.question.includes('Kaune') ? q.question : q.question.replace('?', ' Kaune?');
+            const extra = q.answer.includes('Regionas:') ? '' : `<p><strong>Regionas:</strong> Aptarnaujame Kauną ir priemiesčius (Garliava, Domeikava ir kt.).</p>`;
+            return { ...q, question, answer: q.answer + extra };
+          })}
           title="Dažniausiai užduodami klausimai apie baldų išvežimą Kaune"
         />
+
+          {/* Susijusios paslaugos */}
+          <div className="mt-12 bg-white rounded-lg shadow p-6">
+            <h2 className="text-2xl font-bold mb-4">Susijusios paslaugos</h2>
+            <div className="flex flex-wrap gap-3">
+              <Link to="/paslaugos/buitines-technikos-isvezimas" className="px-4 py-2 bg-gray-100 rounded-lg hover:bg-gray-200">Buitinės technikos išvežimas</Link>
+              <Link to="/paslaugos/elektronikos-atlieku-isvezimas" className="px-4 py-2 bg-gray-100 rounded-lg hover:bg-gray-200">Elektronikos atliekų išvežimas</Link>
+              <Link to="/paslaugos/metalo-lauzo-isvezimas" className="px-4 py-2 bg-gray-100 rounded-lg hover:bg-gray-200">Metalo laužo išvežimas</Link>
+              <Link to="/naujienos" className="px-4 py-2 bg-green-50 text-green-700 border border-green-200 rounded-lg hover:bg-green-100">Straipsniai ir patarimai</Link>
+            </div>
+          </div>
       </div>
       </div>
     </>

@@ -6,6 +6,7 @@ const GlobalSchema: React.FC = () => {
     const org = {
         '@context': 'https://schema.org',
         '@type': 'Organization',
+        '@id': `${company.domain}/#organization`,
         name: company.brandName,
         legalName: company.legalName,
         url: company.domain,
@@ -14,6 +15,34 @@ const GlobalSchema: React.FC = () => {
             'https://facebook.com/karavanaslt',
             'https://instagram.com/karavanaslt',
             company.gbpUrl,
+        ],
+        hasOfferCatalog: {
+            '@type': 'OfferCatalog',
+            name: 'Išvežimo paslaugų katalogas',
+            itemListElement: [
+                {
+                    '@type': 'Offer',
+                    itemOffered: { '@type': 'Service', '@id': `${company.domain}/#service-buitines-technikos-isvezimas`, name: 'Buitinės technikos išvežimas', url: `${company.domain}/paslaugos/buitines-technikos-isvezimas` }
+                },
+                {
+                    '@type': 'Offer',
+                    itemOffered: { '@type': 'Service', '@id': `${company.domain}/#service-elektronikos-atlieku-isvezimas`, name: 'Elektronikos atliekų išvežimas', url: `${company.domain}/paslaugos/elektronikos-atlieku-isvezimas` }
+                },
+                {
+                    '@type': 'Offer',
+                    itemOffered: { '@type': 'Service', '@id': `${company.domain}/#service-baldu-isvezimas`, name: 'Baldų išvežimas', url: `${company.domain}/paslaugos/baldu-isvezimas` }
+                },
+                {
+                    '@type': 'Offer',
+                    itemOffered: { '@type': 'Service', '@id': `${company.domain}/#service-metalo-lauzo-isvezimas`, name: 'Metalo laužo išvežimas', url: `${company.domain}/paslaugos/metalo-lauzo-isvezimas` }
+                }
+            ]
+        },
+        makesOffer: [
+            { '@type': 'Offer', itemOffered: { '@id': `${company.domain}/#service-buitines-technikos-isvezimas` } },
+            { '@type': 'Offer', itemOffered: { '@id': `${company.domain}/#service-elektronikos-atlieku-isvezimas` } },
+            { '@type': 'Offer', itemOffered: { '@id': `${company.domain}/#service-baldu-isvezimas` } },
+            { '@type': 'Offer', itemOffered: { '@id': `${company.domain}/#service-metalo-lauzo-isvezimas` } }
         ],
         contactPoint: [
             {

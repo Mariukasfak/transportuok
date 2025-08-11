@@ -93,6 +93,15 @@ const BuitineTechnika = () => {
     name: `Buitinės technikos išvežimas ${city.locative}`,
     url: canonicalUrl,
     description,
+     primaryImageOfPage: {
+       '@type': 'ImageObject',
+       url: 'https://transportuok.lt/images/buitine-technika.webp'
+     },
+     image: [
+       'https://transportuok.lt/images/buitine-technika-small.webp',
+       'https://transportuok.lt/images/buitine-technika-medium.webp',
+       'https://transportuok.lt/images/buitine-technika-large.webp'
+     ],
     about: { '@type': 'Service', name: `Buitinės technikos išvežimas ${city.locative}` }
   } as const;
 
@@ -103,6 +112,8 @@ const BuitineTechnika = () => {
       <ServiceSchema
         name={`Buitinės technikos išvežimas ${city.locative}`}
         description={`Nemokamas šaldytuvų, skalbimo mašinų ir kitų buitinių prietaisų išvežimas ${city.locative}. Greitas ir patikimas aptarnavimas.`}
+  image="https://transportuok.lt/images/buitine-technika.webp"
+  serviceId="buitines-technikos-isvezimas"
         provider={serviceProvider}
         areaServed={cityKey === 'lietuva' ? 'Visa Lietuva' : city.name}
       />
@@ -309,7 +320,12 @@ const BuitineTechnika = () => {
         </div>
 
         <FAQ
-          items={buitinesTechnikosFAQ}
+          items={buitinesTechnikosFAQ.map(i => {
+            const localizedQ = cityKey === 'kaunas' ? i.question : `${i.question.replace('?', '')} ${city.locative}?`;
+            const locationNote = `<p><strong>Regionas:</strong> Išvežame ${city.name}${cityKey === 'lietuva' ? ' ir visoje Lietuvoje' : ' ir aplinkiniuose rajonuose'}.</p>`;
+            const answerWithLoc = i.answer.includes('Regionas:') ? i.answer : i.answer + locationNote;
+            return { ...i, question: localizedQ, answer: answerWithLoc };
+          })}
           title={`Dažniausiai užduodami klausimai apie buitinės technikos išvežimą ${city.locative}`}
         />
 

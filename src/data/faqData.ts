@@ -188,6 +188,18 @@ export const balduFAQ = [
     `
   },
   {
+    question: "Ar galite surinkti ir išvežti baldus tą pačią dieną Kaune?",
+    answer: `
+      <p>Dažnai galime organizuoti skubų išvežimą tą pačią dieną, jei baldai yra lengvai pasiekiami ir turime vietą maršrute:</p>
+      <ul>
+        <li>Skambinkite kuo anksčiau ryte</li>
+        <li>Pateikite nuotraukas (jei įmanoma) – tai paspartina įvertinimą</li>
+        <li>Patvirtinkite privažiavimo sąlygas</li>
+      </ul>
+      <p>Jei nepavyks tą pačią dieną – suderinsime artimiausią laiką per 24 val.</p>
+    `
+  },
+  {
     question: "Ar reikia išardyti baldus prieš išvežimą?",
     answer: `
       <p>Ne, jums nereikia rūpintis baldų išardymu:</p>
@@ -252,6 +264,18 @@ export const metaloFAQ = [
   <li>Lokacija – didesniuose miestuose (Vilnius/Kaunas) ar pagal maršrutą kitur Lietuvoje</li>
       </ul>
       <p>Dėl tikslių sąlygų susisiekite su mumis.</p>
+    `
+  },
+  {
+    question: "Koks minimalus metalo laužo kiekis nemokamam išvežimui Kaune?",
+    answer: `
+      <p>Rekomenduojamas minimalus kiekis – apie 100 kg, tačiau jei turite mažiau:</p>
+      <ul>
+        <li>Galime sujungti su kitu užsakymu tą pačią dieną</li>
+        <li>Pasiūlysime alternatyvą (pvz., atvežimą į surinkimo tašką)</li>
+        <li>Įvertinsime pagal metalo tipą (spalvotasis metalas vertingesnis)</li>
+      </ul>
+      <p>Trumpai aprašykite situaciją – pateiksime greitą atsakymą.</p>
     `
   },
   {

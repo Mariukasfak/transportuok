@@ -16,9 +16,37 @@ const Services = () => {
     ]
   } as const;
 
+  const itemListLd = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Paslaugų sąrašas',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        item: { '@type': 'Service', '@id': `${company.domain}/#service-buitines-technikos-isvezimas`, url: `${company.domain}/paslaugos/buitines-technikos-isvezimas`, name: 'Buitinės technikos išvežimas' }
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        item: { '@type': 'Service', '@id': `${company.domain}/#service-elektronikos-atlieku-isvezimas`, url: `${company.domain}/paslaugos/elektronikos-atlieku-isvezimas`, name: 'Elektronikos atliekų išvežimas' }
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        item: { '@type': 'Service', '@id': `${company.domain}/#service-baldu-isvezimas`, url: `${company.domain}/paslaugos/baldu-isvezimas`, name: 'Baldų išvežimas' }
+      },
+      {
+        '@type': 'ListItem',
+        position: 4,
+        item: { '@type': 'Service', '@id': `${company.domain}/#service-metalo-lauzo-isvezimas`, url: `${company.domain}/paslaugos/metalo-lauzo-isvezimas`, name: 'Metalo laužo išvežimas' }
+      }
+    ]
+  } as const;
+
   return (
     <>
-      <SEO title={title} description={description} canonicalUrl={canonicalUrl} structuredData={breadcrumbLd} />
+      <SEO title={title} description={description} canonicalUrl={canonicalUrl} structuredData={[breadcrumbLd, itemListLd]} />
       <div className="py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">

@@ -26,7 +26,14 @@ const Home = () => {
             '@type': 'WebPage',
             name: 'Nemokamas elektronikos ir buitinės technikos išvežimas',
             url: 'https://transportuok.lt/',
-            description: 'Nemokamas elektronikos ir buitinės technikos išvežimas Kaune, Vilniuje ir visoje Lietuvoje.'
+            description: 'Nemokamas elektronikos ir buitinės technikos išvežimas Kaune, Vilniuje ir visoje Lietuvoje.',
+            primaryImageOfPage: {
+              '@type': 'ImageObject',
+              url: 'https://transportuok.lt/images/hero-bg-appliances.webp'
+            },
+            image: [
+              'https://transportuok.lt/images/hero-bg-appliances.webp'
+            ]
           },
           {
             '@context': 'https://schema.org',

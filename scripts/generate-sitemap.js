@@ -33,19 +33,36 @@ const generateSitemap = () => {
   const today = new Date();
   const isoDate = today.toISOString().split('T')[0];
 
-  // Core pages
+  // Pagrindiniai puslapiai (įskaitant paslaugų katalogą)
   const staticPages = [
-    { loc: `${baseUrl}/`, priority: 1.0, changefreq: 'daily' },
-    { loc: `${baseUrl}/paslaugos/buitines-technikos-isvezimas`, priority: 0.9, changefreq: 'weekly' },
-    { loc: `${baseUrl}/paslaugos/elektronikos-atlieku-isvezimas`, priority: 0.9, changefreq: 'weekly' },
-    { loc: `${baseUrl}/paslaugos/baldu-isvezimas`, priority: 0.9, changefreq: 'weekly' },
-    { loc: `${baseUrl}/paslaugos/metalo-lauzo-isvezimas`, priority: 0.9, changefreq: 'weekly' },
+    { loc: `${baseUrl}/`, priority: 1.0, changefreq: 'daily', images: [`${baseUrl}/images/hero-bg-appliances.webp`] },
+    { loc: `${baseUrl}/paslaugos`, priority: 0.9, changefreq: 'weekly' },
+    { loc: `${baseUrl}/paslaugos/buitines-technikos-isvezimas`, priority: 0.9, changefreq: 'weekly', images: [`${baseUrl}/images/buitine-technika.webp`] },
+    { loc: `${baseUrl}/paslaugos/elektronikos-atlieku-isvezimas`, priority: 0.9, changefreq: 'weekly', images: [`${baseUrl}/images/elektronika.webp`] },
+    { loc: `${baseUrl}/paslaugos/baldu-isvezimas`, priority: 0.9, changefreq: 'weekly', images: [`${baseUrl}/images/baldai.webp`] },
+    { loc: `${baseUrl}/paslaugos/metalo-lauzo-isvezimas`, priority: 0.9, changefreq: 'weekly', images: [`${baseUrl}/images/metalo-lauzas.webp`] },
     { loc: `${baseUrl}/naujienos`, priority: 0.8, changefreq: 'daily' },
     { loc: `${baseUrl}/apie-mus`, priority: 0.6, changefreq: 'monthly' },
     { loc: `${baseUrl}/kontaktai`, priority: 0.8, changefreq: 'monthly' },
     { loc: `${baseUrl}/kaunas`, priority: 0.8, changefreq: 'monthly' },
     { loc: `${baseUrl}/vilnius`, priority: 0.8, changefreq: 'monthly' }
   ];
+
+  // Miestų variantai paslaugoms (lokalizuotas turinys). Jei ateityje pridėsite daugiau miestų – plėskite masyvą.
+  const cities = ['kaunas', 'vilnius'];
+  const cityServiceBase = [
+    'buitines-technikos-isvezimas',
+    'elektronikos-atlieku-isvezimas',
+    'baldu-isvezimas',
+    'metalo-lauzo-isvezimas'
+  ];
+  const cityServiceUrls = cityServiceBase.flatMap(slug =>
+    cities.map(city => ({
+      loc: `${baseUrl}/paslaugos/${slug}/${city}`,
+      priority: 0.7,
+      changefreq: 'weekly'
+    }))
+  );
 
   // Blog/news posts (from code) – include individual lastmod + image
   const posts = extractPosts();
@@ -57,7 +74,7 @@ const generateSitemap = () => {
     images: p.image ? [`${baseUrl}${p.image.startsWith('/') ? p.image : `/${p.image}`}`] : []
   }));
 
-  const urls = [...staticPages, ...postEntries]
+  const urls = [...staticPages, ...cityServiceUrls, ...postEntries]
     .map(u => formatUrl({ ...u, lastmod: u.lastmod || isoDate, images: u.images }));
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
