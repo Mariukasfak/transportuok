@@ -1,42 +1,66 @@
-import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Truck, Clock, CheckCircle, Phone } from 'lucide-react';
 import FAQ from '../../components/FAQ';
 import { balduFAQ } from '../../data/faqData';
+import SEO from '../../components/SEO';
+import ServiceSchema from '../../components/ServiceSchema';
+import company from '../../data/company';
 
 const Baldai = () => {
-  useEffect(() => {
-    // Meta tags
-    document.title = 'Baldų išvežimas Kaune | Karavanas LT';
+  const canonicalUrl = 'https://transportuok.lt/paslaugos/baldu-isvezimas';
+  const title = 'Baldų išvežimas Kaune | Baldų utilizavimas | Karavanas LT';
+  const description = 'Profesionalus senų baldų išvežimas Kaune: sofų, spintų, lovų, virtuvės baldų išmontavimas ir utilizavimas. Greitas aptarnavimas.';
 
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute('content', 'Profesionalus senų baldų išvežimas Kaune. Sofų, spintų, lovų ir kitų baldų išvežimas. Greitas aptarnavimas ir prieinamos kainos.');
+  const breadcrumbLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Pradžia', item: 'https://transportuok.lt/' },
+      { '@type': 'ListItem', position: 2, name: 'Paslaugos', item: 'https://transportuok.lt/paslaugos' },
+      { '@type': 'ListItem', position: 3, name: 'Baldų išvežimas Kaune', item: canonicalUrl }
+    ]
+  } as const;
+
+  const howToLd = {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    name: 'Kaip vyksta baldų išvežimas Kaune',
+    totalTime: 'PT1H',
+    supply: ['Baldai išvežimui'],
+    tool: ['Transportas', 'Išmontavimo įrankiai'],
+    step: [
+      { '@type': 'HowToStep', name: 'Užklausa', text: 'Pateikite internetu arba telefonu kokius baldus reikia išvežti.' },
+      { '@type': 'HowToStep', name: 'Laiko suderinimas', text: 'Suderiname patogų atvykimo laiką per 24 val.' },
+      { '@type': 'HowToStep', name: 'Išmontavimas ir išnešimas', text: 'Komanda išardo (jei reikia) ir saugiai išneša.' },
+      { '@type': 'HowToStep', name: 'Pakrovimas ir utilizavimas', text: 'Baldai pakraunami ir išvežami perdirbimui / utilizavimui.' }
+    ]
+  } as const;
+
+  const provider = {
+    name: company.legalName,
+    url: company.domain,
+    logo: '/ikona_spalvotas.svg',
+    telephone: company.contacts.kaunas.phone,
+    address: {
+      streetAddress: 'Kauno g.',
+      addressLocality: 'Kaunas',
+      postalCode: company.contacts.kaunas.postalCode,
+      addressCountry: 'LT'
     }
-
-
-
-    // Open Graph tags
-    const ogTitle = document.querySelector('meta[property="og:title"]');
-    const ogDescription = document.querySelector('meta[property="og:description"]');
-    const ogUrl = document.querySelector('meta[property="og:url"]');
-
-    if (ogTitle) ogTitle.setAttribute('content', 'Baldų išvežimas Kaune | Karavanas LT');
-    if (ogDescription) ogDescription.setAttribute('content', 'Profesionalus senų baldų išvežimas Kaune. Išvežame sofas, spintas, lovas. Greitas aptarnavimas ir prieinamos kainos.');
-    if (ogUrl) ogUrl.setAttribute('content', 'https://transportuok.lt/paslaugos/baldu-isvezimas');
-
-    // Canonical URL
-    let canonical = document.querySelector('link[rel="canonical"]');
-    if (!canonical) {
-      canonical = document.createElement('link');
-      canonical.setAttribute('rel', 'canonical');
-      document.head.appendChild(canonical);
-    }
-    canonical.setAttribute('href', 'https://transportuok.lt/paslaugos/baldu-isvezimas');
-  }, []);
+  };
 
   return (
-    <div className="py-12">
+    <>
+      <SEO title={title} description={description} canonicalUrl={canonicalUrl} />
+      <ServiceSchema
+        name="Baldų išvežimas Kaune"
+        description={description}
+        provider={provider}
+        areaServed="Kaunas"
+      />
+      <script type="application/ld+json">{JSON.stringify(breadcrumbLd)}</script>
+      <script type="application/ld+json">{JSON.stringify(howToLd)}</script>
+      <div className="py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Hero Section */}
         <div className="text-center mb-16">
@@ -214,10 +238,11 @@ const Baldai = () => {
         <FAQ
           items={balduFAQ}
           title="Dažniausiai užduodami klausimai apie baldų išvežimą"
-          category="Baldų išvežimas"
+          suppressSchema
         />
       </div>
-    </div>
+      </div>
+    </>
   );
 };
 

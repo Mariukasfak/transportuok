@@ -288,6 +288,7 @@ const Elektronika = () => {
           <FAQ
             items={elektronikosFAQ}
             title="Dažniausiai užduodami klausimai apie elektronikos atliekų išvežimą"
+            suppressSchema
           />
         </div>
       </div>

@@ -13,8 +13,23 @@ const GlobalSchema: React.FC = () => {
         sameAs: [
             'https://facebook.com/karavanaslt',
             'https://instagram.com/karavanaslt',
-            'https://share.google/9WVQWATF9SIcSLDEb',
-            // Pridėk daugiau jei turite (LinkedIn/YouTube/TikTok)
+            company.gbpUrl,
+        ],
+        contactPoint: [
+            {
+                '@type': 'ContactPoint',
+                telephone: company.contacts.vilnius.phone,
+                contactType: 'customer service',
+                areaServed: 'LT-Vilnius',
+                availableLanguage: ['lt'],
+            },
+            {
+                '@type': 'ContactPoint',
+                telephone: company.contacts.kaunas.phone,
+                contactType: 'customer service',
+                areaServed: 'LT-Kaunas',
+                availableLanguage: ['lt'],
+            }
         ]
     } as const;
 

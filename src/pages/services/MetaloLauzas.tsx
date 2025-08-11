@@ -1,40 +1,66 @@
-import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Truck, Clock, CheckCircle, Phone } from 'lucide-react';
 import FAQ from '../../components/FAQ';
 import { metaloFAQ } from '../../data/faqData';
+import SEO from '../../components/SEO';
+import ServiceSchema from '../../components/ServiceSchema';
+import company from '../../data/company';
 
 const MetaloLauzas = () => {
-  useEffect(() => {
-    // Meta tags
-    document.title = 'Metalo laužo išvežimas Kaune | Karavanas LT';
+  const canonicalUrl = 'https://transportuok.lt/paslaugos/metalo-lauzo-isvezimas';
+  const title = 'Metalo laužo išvežimas Kaune | Nemokamas surinkimas | Karavanas LT';
+  const description = 'Nemokamas metalo laužo išvežimas Kaune. Juodojo ir spalvotojo metalo surinkimas iš namų, garažų, įmonių. Greitas atvykimas.';
 
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute('content', 'Nemokamas metalo laužo išvežimas Kaune. Išvežame metalo atliekas iš namų, garažų ir įmonių. Greitas ir patikimas aptarnavimas.');
+  const breadcrumbLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Pradžia', item: 'https://transportuok.lt/' },
+      { '@type': 'ListItem', position: 2, name: 'Paslaugos', item: 'https://transportuok.lt/paslaugos' },
+      { '@type': 'ListItem', position: 3, name: 'Metalo laužo išvežimas Kaune', item: canonicalUrl }
+    ]
+  } as const;
+
+  const howToLd = {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    name: 'Kaip vyksta metalo laužo išvežimas Kaune',
+    totalTime: 'PT1H',
+    supply: ['Metalo laužas'],
+    tool: ['Transportas', 'Pakrovimo įranga'],
+    step: [
+      { '@type': 'HowToStep', name: 'Užklausa', text: 'Pateikite internetu arba telefonu kokį metalo laužą reikia išvežti.' },
+      { '@type': 'HowToStep', name: 'Laiko suderinimas', text: 'Suderiname patogų atvykimo laiką per 24 val.' },
+      { '@type': 'HowToStep', name: 'Pakrovimas', text: 'Komanda pakrauna į transportą ir sutvarko vietą.' },
+      { '@type': 'HowToStep', name: 'Utilizavimas', text: 'Metalas pristatomas į perdirbimo punktą.' }
+    ]
+  } as const;
+
+  const provider = {
+    name: company.legalName,
+    url: company.domain,
+    logo: '/ikona_spalvotas.svg',
+    telephone: company.contacts.kaunas.phone,
+    address: {
+      streetAddress: 'Kauno g.',
+      addressLocality: 'Kaunas',
+      postalCode: company.contacts.kaunas.postalCode,
+      addressCountry: 'LT'
     }
-
-    // Open Graph tags
-    const ogTitle = document.querySelector('meta[property="og:title"]');
-    const ogDescription = document.querySelector('meta[property="og:description"]');
-    const ogUrl = document.querySelector('meta[property="og:url"]');
-
-    if (ogTitle) ogTitle.setAttribute('content', 'Metalo laužo išvežimas Kaune | Karavanas LT');
-    if (ogDescription) ogDescription.setAttribute('content', 'Nemokamas metalo laužo išvežimas Kaune. Išvežame metalo atliekas iš namų, garažų ir įmonių. Greitas ir patikimas aptarnavimas.');
-    if (ogUrl) ogUrl.setAttribute('content', 'https://transportuok.lt/paslaugos/metalo-lauzo-isvezimas');
-
-    // Canonical URL
-    let canonical = document.querySelector('link[rel="canonical"]');
-    if (!canonical) {
-      canonical = document.createElement('link');
-      canonical.setAttribute('rel', 'canonical');
-      document.head.appendChild(canonical);
-    }
-    canonical.setAttribute('href', 'https://transportuok.lt/paslaugos/metalo-lauzo-isvezimas');
-  }, []);
+  };
 
   return (
-    <div className="py-12">
+    <>
+      <SEO title={title} description={description} canonicalUrl={canonicalUrl} />
+      <ServiceSchema
+        name="Metalo laužo išvežimas Kaune"
+        description={description}
+        provider={provider}
+        areaServed="Kaunas"
+      />
+      <script type="application/ld+json">{JSON.stringify(breadcrumbLd)}</script>
+      <script type="application/ld+json">{JSON.stringify(howToLd)}</script>
+      <div className="py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Hero Section */}
         <div className="text-center mb-16">
@@ -211,10 +237,11 @@ const MetaloLauzas = () => {
         <FAQ
           items={metaloFAQ}
           title="Dažniausiai užduodami klausimai apie metalo laužo išvežimą"
-          category="Metalo laužo išvežimas"
+          suppressSchema
         />
       </div>
-    </div>
+      </div>
+    </>
   );
 };
 
