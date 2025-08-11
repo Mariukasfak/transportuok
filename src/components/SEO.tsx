@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Helmet } from 'react-helmet-async';
 
 interface SEOProps {
@@ -7,7 +7,8 @@ interface SEOProps {
   canonicalUrl: string;
   ogImage?: string;
   ogType?: string;
-  structuredData?: object;
+  /** Single JSON-LD object or array of objects */
+  structuredData?: object | object[];
 }
 
 export const SEO: React.FC<SEOProps> = ({
@@ -41,9 +42,17 @@ export const SEO: React.FC<SEOProps> = ({
 
       {/* Structured Data */}
       {structuredData && (
-        <script type="application/ld+json">
-          {JSON.stringify(structuredData)}
-        </script>
+        Array.isArray(structuredData)
+          ? structuredData.map((sd, i) => (
+              <script key={i} type="application/ld+json">
+                {JSON.stringify(sd)}
+              </script>
+            ))
+          : (
+              <script type="application/ld+json">
+                {JSON.stringify(structuredData)}
+              </script>
+            )
       )}
     </Helmet>
   );

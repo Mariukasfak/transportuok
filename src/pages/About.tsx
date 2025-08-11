@@ -1,40 +1,26 @@
-import { useEffect } from 'react';
 import { Shield, Users, BadgeCheck, Building2, MapPin, Phone, Mail, Calendar } from 'lucide-react';
 import company from '../data/company';
+import SEO from '../components/SEO';
 
 const About = () => {
-  useEffect(() => {
-    // Update meta tags
-    document.title = `Apie ${company.legalName} | Nemokamas elektronikos ir buitinės technikos išvežimas`;
-
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute('content', 'UAB "Karavanas LT" – profesionalus elektronikos ir buitinės technikos išvežimas Lietuvoje. Patirtis, patikimumas, rekvizitai ir kontaktai vienoje vietoje.');
-    }
-
-    // Open Graph tags
-    const ogTitle = document.querySelector('meta[property="og:title"]');
-    const ogDescription = document.querySelector('meta[property="og:description"]');
-    const ogUrl = document.querySelector('meta[property="og:url"]');
-
-    if (ogTitle) ogTitle.setAttribute('content', `Apie ${company.legalName} | Nemokamas elektronikos ir buitinės technikos išvežimas`);
-    if (ogDescription) ogDescription.setAttribute('content', 'Pažinkite Karavanas LT: patirtis, vertybės, komanda, technika ir visos Lietuvos aptarnavimas.');
-    if (ogUrl) ogUrl.setAttribute('content', `${company.domain}/apie-mus`);
-
-    // Canonical
-    let canonical = document.querySelector('link[rel="canonical"]');
-    if (!canonical) {
-      canonical = document.createElement('link');
-      canonical.setAttribute('rel', 'canonical');
-      document.head.appendChild(canonical);
-    }
-    canonical.setAttribute('href', `${company.domain}/apie-mus`);
-  }, []);
-
   const years = new Date().getFullYear() - 2012; // pvz. start year 2012
+  const title = `Apie ${company.legalName} | Nemokamas elektronikos ir buitinės technikos išvežimas`;
+  const description = 'UAB "Karavanas LT" – profesionalus elektronikos ir buitinės technikos išvežimas Lietuvoje. Patirtis, patikimumas, rekvizitai ir kontaktai vienoje vietoje.';
+  const canonicalUrl = `${company.domain}/apie-mus`;
+
+  const breadcrumbLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Pradžia', item: `${company.domain}/` },
+      { '@type': 'ListItem', position: 2, name: 'Apie mus', item: canonicalUrl }
+    ]
+  } as const;
 
   return (
-    <div className="py-12">
+    <>
+      <SEO title={title} description={description} canonicalUrl={canonicalUrl} structuredData={breadcrumbLd} />
+      <div className="py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Hero */}
         <div className="text-center mb-10">
@@ -128,7 +114,8 @@ const About = () => {
           <p className="text-sm text-gray-500 mt-4 flex items-center"><Calendar className="w-4 h-4 mr-2" />Atsakome darbo dienomis</p>
         </div>
       </div>
-    </div>
+      </div>
+    </>
   );
 };
 

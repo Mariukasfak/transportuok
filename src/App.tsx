@@ -20,6 +20,7 @@ const MetaloLauzas = lazy(() => import('./pages/services/MetaloLauzas'));
 const About = lazy(() => import('./pages/About'));
 const Contact = lazy(() => import('./pages/Contact'));
 const Naujienos = lazy(() => import('./pages/Naujienos'));
+const Services = lazy(() => import('./pages/Services'));
 const Kaunas = lazy(() => import('./pages/city/Kaunas'));
 const Vilnius = lazy(() => import('./pages/city/Vilnius'));
 
@@ -92,6 +93,7 @@ function App() {
                 <Route path="/paslaugos/baldu-isvezimas/:city" element={<Baldai />} />
                 <Route path="/paslaugos/metalo-lauzo-isvezimas" element={<MetaloLauzas />} />
                 <Route path="/paslaugos/metalo-lauzo-isvezimas/:city" element={<MetaloLauzas />} />
+                <Route path="/paslaugos" element={<Services />} />
 
                 {/* Other pages */}
                 <Route path="/apie-mus" element={<About />} />

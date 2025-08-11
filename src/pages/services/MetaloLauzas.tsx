@@ -11,6 +11,15 @@ const MetaloLauzas = () => {
   const title = 'Metalo laužo išvežimas Kaune | Nemokamas surinkimas | Karavanas LT';
   const description = 'Nemokamas metalo laužo išvežimas Kaune. Juodojo ir spalvotojo metalo surinkimas iš namų, garažų, įmonių. Greitas atvykimas.';
 
+  const webPageLd = {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: 'Metalo laužo išvežimas Kaune',
+    url: canonicalUrl,
+    description,
+    about: { '@type': 'Service', name: 'Metalo laužo išvežimas Kaune' }
+  } as const;
+
   const breadcrumbLd = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
@@ -60,6 +69,7 @@ const MetaloLauzas = () => {
       />
       <script type="application/ld+json">{JSON.stringify(breadcrumbLd)}</script>
       <script type="application/ld+json">{JSON.stringify(howToLd)}</script>
+  <script type="application/ld+json">{JSON.stringify(webPageLd)}</script>
       <div className="py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Hero Section */}
@@ -235,9 +245,11 @@ const MetaloLauzas = () => {
 
         {/* FAQ Section */}
         <FAQ
-          items={metaloFAQ}
-          title="Dažniausiai užduodami klausimai apie metalo laužo išvežimą"
-          suppressSchema
+          items={metaloFAQ.map(q => ({
+            ...q,
+            question: q.question.endsWith('Kaune?') ? q.question : q.question.replace('?', ' Kaune?')
+          }))}
+          title="Dažniausiai užduodami klausimai apie metalo laužo išvežimą Kaune"
         />
       </div>
       </div>

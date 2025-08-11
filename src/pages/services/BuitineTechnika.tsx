@@ -87,6 +87,15 @@ const BuitineTechnika = () => {
   const title = `Nemokamas buitinės technikos išvežimas ${city.locative} | Karavanas LT`;
   const description = `Nemokamas šaldytuvų, skalbimo mašinų ir kitos buitinės technikos išvežimas ${city.locative}. Greitas atvykimas, saugus išnešimas, ekologiškas utilizavimas.`;
 
+  const webPageLd = {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: `Buitinės technikos išvežimas ${city.locative}`,
+    url: canonicalUrl,
+    description,
+    about: { '@type': 'Service', name: `Buitinės technikos išvežimas ${city.locative}` }
+  } as const;
+
   return (
     <>
       <SEO title={title} description={description} canonicalUrl={canonicalUrl} />
@@ -101,6 +110,7 @@ const BuitineTechnika = () => {
       {/* Structured data */}
       <script type="application/ld+json">{JSON.stringify(breadcrumbLd)}</script>
       <script type="application/ld+json">{JSON.stringify(howToLd)}</script>
+  <script type="application/ld+json">{JSON.stringify(webPageLd)}</script>
 
       <div className="py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

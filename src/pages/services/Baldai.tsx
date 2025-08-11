@@ -11,6 +11,15 @@ const Baldai = () => {
   const title = 'Baldų išvežimas Kaune | Baldų utilizavimas | Karavanas LT';
   const description = 'Profesionalus senų baldų išvežimas Kaune: sofų, spintų, lovų, virtuvės baldų išmontavimas ir utilizavimas. Greitas aptarnavimas.';
 
+  const webPageLd = {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: 'Baldų išvežimas Kaune',
+    url: canonicalUrl,
+    description,
+    about: { '@type': 'Service', name: 'Baldų išvežimas Kaune' }
+  } as const;
+
   const breadcrumbLd = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
@@ -60,6 +69,7 @@ const Baldai = () => {
       />
       <script type="application/ld+json">{JSON.stringify(breadcrumbLd)}</script>
       <script type="application/ld+json">{JSON.stringify(howToLd)}</script>
+  <script type="application/ld+json">{JSON.stringify(webPageLd)}</script>
       <div className="py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Hero Section */}
@@ -236,9 +246,11 @@ const Baldai = () => {
 
         {/* FAQ Section */}
         <FAQ
-          items={balduFAQ}
-          title="Dažniausiai užduodami klausimai apie baldų išvežimą"
-          suppressSchema
+          items={balduFAQ.map(q => ({
+            ...q,
+            question: q.question.includes('Kaune') ? q.question : q.question.replace('?', ' Kaune?')
+          }))}
+          title="Dažniausiai užduodami klausimai apie baldų išvežimą Kaune"
         />
       </div>
       </div>

@@ -1,39 +1,47 @@
-import React from 'react';
-import { Helmet } from 'react-helmet-async';
 import company from '../../data/company';
+import SEO from '../../components/SEO';
 
 const KaunasPage: React.FC = () => {
     const tel = company.contacts.kaunas.phone;
     const telHref = company.contacts.kaunas.telHref;
+    const title = `Buitinės technikos ir elektronikos išvežimas Kaune | ${company.brandName}`;
+    const description = 'Nemokamas buitinės technikos ir elektronikos išvežimas Kaune ir Kauno rajone. Greita rezervacija, aiškios kainos, patikimas aptarnavimas.';
+    const canonicalUrl = `${company.domain}/kaunas`;
+    const localBusinessLd = {
+        '@context': 'https://schema.org',
+        '@type': 'LocalBusiness',
+        name: `${company.brandName} – Kaunas`,
+        url: canonicalUrl,
+        telephone: company.contacts.kaunas.phone,
+        email: company.contacts.kaunas.email,
+        image: `${company.domain}/ikona_spalvotas.svg`,
+        address: {
+            '@type': 'PostalAddress',
+            streetAddress: company.contacts.kaunas.address,
+            addressLocality: 'Kaunas',
+            postalCode: company.contacts.kaunas.postalCode,
+            addressCountry: 'LT'
+        },
+        areaServed: 'Kaunas ir Kauno rajonas',
+        openingHoursSpecification: [{
+            '@type': 'OpeningHoursSpecification',
+            dayOfWeek: ['Monday','Tuesday','Wednesday','Thursday','Friday'],
+            opens: '08:00',
+            closes: '18:00'
+        }]
+    } as const;
+    const breadcrumbLd = {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'Pradžia', item: `${company.domain}/` },
+            { '@type': 'ListItem', position: 2, name: 'Kaunas', item: canonicalUrl }
+        ]
+    } as const;
+
     return (
         <div className="py-12">
-            <Helmet>
-                <title>Buitinės technikos ir elektronikos išvežimas Kaune | {company.brandName}</title>
-                <meta name="description" content="Nemokamas buitinės technikos ir elektronikos išvežimas Kaune ir Kauno rajone. Greita rezervacija, aiškios kainos, patikimas aptarnavimas." />
-                <link rel="canonical" href={`${company.domain}/kaunas`} />
-                <script type="application/ld+json">
-                    {JSON.stringify({
-                        '@context': 'https://schema.org',
-                        '@type': 'LocalBusiness',
-                        name: `${company.brandName} – Kaunas`,
-                        url: `${company.domain}/kaunas`,
-                        telephone: company.contacts.kaunas.phone,
-                        email: company.contacts.kaunas.email,
-                        address: {
-                            '@type': 'PostalAddress',
-                            streetAddress: company.contacts.kaunas.address,
-                            addressLocality: 'Kaunas',
-                            postalCode: company.contacts.kaunas.postalCode,
-                            addressCountry: 'LT'
-                        },
-                        areaServed: 'Kaunas ir Kauno rajonas',
-                        image: `${company.domain}/images/optimized/hero-bg-appliances.webp`,
-                        openingHours: [
-                            'Mo-Fr 08:00-18:00'
-                        ]
-                    })}
-                </script>
-            </Helmet>
+            <SEO title={title} description={description} canonicalUrl={canonicalUrl} structuredData={[localBusinessLd, breadcrumbLd]} />
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <header className="mb-8">

@@ -5,6 +5,8 @@ import { z } from 'zod';
 import { Mail, MapPin, Clock, CheckCircle, Home, Trash2, Loader2, HelpCircle } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 import { trackFormSubmission } from '../utils/analytics';
+import SEO from '../components/SEO';
+import company from '../data/company';
 
 const TOP_CITIES = [
   'Vilnius',
@@ -59,28 +61,7 @@ const Contact = () => {
   });
 
   useEffect(() => {
-    document.title = 'Kontaktai | Elektronikos ir buitinės technikos išvežimas Lietuvoje | Karavanas LT';
-
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute('content', 'Susisiekite dėl nemokamo buitinės technikos ir elektronikos išvežimo Vilniuje, Kaune ir visoje Lietuvoje. Užpildykite formą arba rašykite el. paštu info@transportuok.lt.');
-    }
-
-    const ogTitle = document.querySelector('meta[property="og:title"]');
-    const ogDescription = document.querySelector('meta[property="og:description"]');
-    const ogUrl = document.querySelector('meta[property="og:url"]');
-
-    if (ogTitle) ogTitle.setAttribute('content', 'Kontaktai | Atliekų išvežimas Vilniuje, Kaune ir Lietuvoje | Karavanas LT');
-    if (ogDescription) ogDescription.setAttribute('content', 'Greitas ir patikimas buitinės technikos bei elektronikos išvežimas Vilniuje, Kaune ir visoje Lietuvoje. Susisiekite – atsakome greitai.');
-    if (ogUrl) ogUrl.setAttribute('content', 'https://transportuok.lt/kontaktai');
-
-    let canonical = document.querySelector('link[rel="canonical"]');
-    if (!canonical) {
-      canonical = document.createElement('link');
-      canonical.setAttribute('rel', 'canonical');
-      document.head.appendChild(canonical);
-    }
-    canonical.setAttribute('href', 'https://transportuok.lt/kontaktai');
+    // still keep hash scroll logic below
   }, []);
 
   React.useEffect(() => {
@@ -175,8 +156,22 @@ const Contact = () => {
     }
   };
 
+  const title = 'Kontaktai | Elektronikos ir buitinės technikos išvežimas Lietuvoje | Karavanas LT';
+  const description = 'Susisiekite dėl nemokamo buitinės technikos ir elektronikos išvežimo Vilniuje, Kaune ir visoje Lietuvoje. Užpildykite formą arba rašykite el. paštu info@transportuok.lt.';
+  const canonicalUrl = 'https://transportuok.lt/kontaktai';
+  const breadcrumbLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Pradžia', item: `${company.domain}/` },
+      { '@type': 'ListItem', position: 2, name: 'Kontaktai', item: canonicalUrl }
+    ]
+  } as const;
+
   return (
-    <div className="py-12">
+    <>
+      <SEO title={title} description={description} canonicalUrl={canonicalUrl} structuredData={breadcrumbLd} />
+      <div className="py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">Susisiekite su mumis</h1>
@@ -489,7 +484,8 @@ const Contact = () => {
           </div>
         </div>
       </div>
-    </div>
+      </div>
+    </>
   );
 };
 

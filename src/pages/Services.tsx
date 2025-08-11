@@ -1,38 +1,25 @@
-import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Truck, Monitor, Touchpad as Couch, Recycle } from 'lucide-react';
+import SEO from '../components/SEO';
+import company from '../data/company';
 
 const Services = () => {
-  useEffect(() => {
-    // Update meta tags
-    document.title = 'Buitinės technikos, baldų ir elektronikos išvežimas Kaune | Karavanas LT';
-
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute('content', 'Profesionalus buitinės technikos, baldų, elektronikos ir metalo laužo išvežimas Kaune. Nemokamas išvežimas, greitas aptarnavimas ir ekologiškas utilizavimas.');
-    }
-
-    // Update Open Graph tags
-    const ogTitle = document.querySelector('meta[property="og:title"]');
-    const ogDescription = document.querySelector('meta[property="og:description"]');
-    const ogUrl = document.querySelector('meta[property="og:url"]');
-
-    if (ogTitle) ogTitle.setAttribute('content', 'Buitinės technikos, baldų ir elektronikos išvežimas Kaune | Karavanas LT');
-    if (ogDescription) ogDescription.setAttribute('content', 'Profesionalus buitinės technikos, baldų, elektronikos ir metalo laužo išvežimas Kaune. Nemokamas išvežimas ir ekologiškas utilizavimas.');
-    if (ogUrl) ogUrl.setAttribute('content', 'https://transportuok.lt/services');
-
-    // Update canonical URL
-    let canonical = document.querySelector('link[rel="canonical"]');
-    if (!canonical) {
-      canonical = document.createElement('link');
-      canonical.setAttribute('rel', 'canonical');
-      document.head.appendChild(canonical);
-    }
-    canonical.setAttribute('href', 'https://transportuok.lt/services');
-  }, []);
+  const title = 'Buitinės technikos, baldų ir elektronikos išvežimas Kaune | Karavanas LT';
+  const description = 'Profesionalus buitinės technikos, baldų, elektronikos ir metalo laužo išvežimas Kaune. Nemokamas išvežimas, greitas aptarnavimas ir ekologiškas utilizavimas.';
+  const canonicalUrl = `${company.domain}/paslaugos`;
+  const breadcrumbLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Pradžia', item: `${company.domain}/` },
+      { '@type': 'ListItem', position: 2, name: 'Paslaugos', item: canonicalUrl }
+    ]
+  } as const;
 
   return (
-    <div className="py-12">
+    <>
+      <SEO title={title} description={description} canonicalUrl={canonicalUrl} structuredData={breadcrumbLd} />
+      <div className="py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">Mūsų teikiamos paslaugos</h1>
@@ -169,7 +156,8 @@ const Services = () => {
           </div>
         </div>
       </div>
-    </div>
+      </div>
+    </>
   );
 };
 

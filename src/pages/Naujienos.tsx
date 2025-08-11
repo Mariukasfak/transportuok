@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Calendar, Share2, ArrowLeft } from 'lucide-react';
-import { Helmet } from 'react-helmet-async';
+// Helmet usage replaced by centralized SEO component
+import SEO from '../components/SEO';
+import company from '../data/company';
 
 const blogPosts = [
   {
@@ -2384,21 +2386,7 @@ const BlogPost = () => {
     return <div>Straipsnis nerastas</div>;
   }
 
-  React.useEffect(() => {
-    document.title = post.metaTitle;
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute('content', post.metaDescription);
-    }
-
-    const ogTitle = document.querySelector('meta[property="og:title"]');
-    const ogDescription = document.querySelector('meta[property="og:description"]');
-    const ogImage = document.querySelector('meta[property="og:image"]');
-
-    if (ogTitle) ogTitle.setAttribute('content', post.title);
-    if (ogDescription) ogDescription.setAttribute('content', post.metaDescription);
-    if (ogImage) ogImage.setAttribute('content', post.ogImage);
-  }, [post]);
+  const canonicalUrl = `${company.domain}/naujienos/${post.slug}`;
 
   const shareUrl = window.location.href;
   const shareText = post.title;
@@ -2416,30 +2404,38 @@ const BlogPost = () => {
     headline: post.title,
     datePublished: post.date,
     dateModified: post.date,
-    image: `${window.location.origin}${post.ogImage || post.imageUrl}`,
-    mainEntityOfPage: `${window.location.origin}/naujienos/${post.slug}`,
-    author: {
-      '@type': 'Organization',
-      name: 'Karavanas LT'
-    },
+    image: `${company.domain}${post.ogImage || post.imageUrl}`,
+    mainEntityOfPage: canonicalUrl,
+    author: { '@type': 'Organization', name: company.brandName },
     publisher: {
       '@type': 'Organization',
-      name: 'Karavanas LT',
-      logo: {
-        '@type': 'ImageObject',
-        url: `${window.location.origin}/ikona_spalvotas.svg`
-      }
+      name: company.brandName,
+      logo: { '@type': 'ImageObject', url: `${company.domain}/ikona_spalvotas.svg` }
     },
     description: post.metaDescription
-  };
+  } as const;
+
+  const breadcrumbLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Pradžia', item: `${company.domain}/` },
+      { '@type': 'ListItem', position: 2, name: 'Naujienos', item: `${company.domain}/naujienos` },
+      { '@type': 'ListItem', position: 3, name: post.title, item: canonicalUrl }
+    ]
+  } as const;
 
   return (
     <article className="py-12" itemScope itemType="http://schema.org/BlogPosting">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <Helmet>
-          <script type="application/ld+json">{JSON.stringify(articleSchema)}</script>
-          {/* Removed duplicate FAQPage JSON-LD for post id 8 to avoid multiple FAQ schemas on page */}
-        </Helmet>
+        <SEO
+          title={post.metaTitle}
+          description={post.metaDescription}
+          canonicalUrl={canonicalUrl}
+          ogImage={post.ogImage}
+          ogType="article"
+          structuredData={[articleSchema, breadcrumbLd]}
+        />
         <div className="mb-8">
           <button
             onClick={() => navigate('/naujienos')}
@@ -2525,17 +2521,34 @@ const BlogPost = () => {
 };
 
 const BlogList = () => {
-  React.useEffect(() => {
-    document.title = 'Naujienos ir patarimai | Karavanas LT';
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute('content', 'Naujausia informacija apie atliekų tvarkymą ir perdirbimą Kaune. Naudingos žinios apie buitinės technikos ir elektronikos utilizavimą.');
-    }
-  }, []);
+  const title = 'Naujienos ir patarimai | Karavanas LT';
+  const description = 'Naujausia informacija apie atliekų tvarkymą ir perdirbimą Kaune. Naudingos žinios apie buitinės technikos ir elektronikos utilizavimą.';
+  const canonicalUrl = `${company.domain}/naujienos`;
+  const blogLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Blog',
+    name: title,
+    url: canonicalUrl,
+    blogPost: blogPosts.slice(0, 10).map(p => ({
+      '@type': 'BlogPosting',
+      headline: p.title,
+      datePublished: p.date,
+      mainEntityOfPage: `${company.domain}/naujienos/${p.slug}`
+    }))
+  } as const;
+  const breadcrumbLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Pradžia', item: `${company.domain}/` },
+      { '@type': 'ListItem', position: 2, name: 'Naujienos', item: canonicalUrl }
+    ]
+  } as const;
 
   return (
     <div className="py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <SEO title={title} description={description} canonicalUrl={canonicalUrl} structuredData={[blogLd, breadcrumbLd]} />
         <div className="text-center mb-16">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">Naujienos ir patarimai</h1>
           <p className="text-xl text-gray-600">Naujausia informacija apie atliekų tvarkymą ir perdirbimą</p>

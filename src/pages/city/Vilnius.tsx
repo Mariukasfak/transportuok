@@ -1,39 +1,47 @@
-import React from 'react';
-import { Helmet } from 'react-helmet-async';
 import company from '../../data/company';
+import SEO from '../../components/SEO';
 
 const VilniusPage: React.FC = () => {
     const tel = company.contacts.vilnius.phone;
     const telHref = company.contacts.vilnius.telHref;
+    const title = `Buitinės technikos ir elektronikos išvežimas Vilniuje | ${company.brandName}`;
+    const description = 'Nemokamas buitinės technikos ir elektronikos išvežimas Vilniuje ir Vilniaus rajone. Greita rezervacija, patikimas aptarnavimas, aiškūs terminai.';
+    const canonicalUrl = `${company.domain}/vilnius`;
+    const localBusinessLd = {
+        '@context': 'https://schema.org',
+        '@type': 'LocalBusiness',
+        name: `${company.brandName} – Vilnius`,
+        url: canonicalUrl,
+        telephone: company.contacts.vilnius.phone,
+        email: company.contacts.vilnius.email,
+        image: `${company.domain}/ikona_spalvotas.svg`,
+        address: {
+            '@type': 'PostalAddress',
+            streetAddress: company.contacts.vilnius.address,
+            addressLocality: 'Vilnius',
+            postalCode: company.contacts.vilnius.postalCode,
+            addressCountry: 'LT'
+        },
+        areaServed: 'Vilnius ir Vilniaus rajonas',
+        openingHoursSpecification: [{
+            '@type': 'OpeningHoursSpecification',
+            dayOfWeek: ['Monday','Tuesday','Wednesday','Thursday','Friday'],
+            opens: '08:00',
+            closes: '18:00'
+        }]
+    } as const;
+    const breadcrumbLd = {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'Pradžia', item: `${company.domain}/` },
+            { '@type': 'ListItem', position: 2, name: 'Vilnius', item: canonicalUrl }
+        ]
+    } as const;
+
     return (
         <div className="py-12">
-            <Helmet>
-                <title>Buitinės technikos ir elektronikos išvežimas Vilniuje | {company.brandName}</title>
-                <meta name="description" content="Nemokamas buitinės technikos ir elektronikos išvežimas Vilniuje ir Vilniaus rajone. Greita rezervacija, patikimas aptarnavimas, aiškūs terminai." />
-                <link rel="canonical" href={`${company.domain}/vilnius`} />
-                <script type="application/ld+json">
-                    {JSON.stringify({
-                        '@context': 'https://schema.org',
-                        '@type': 'LocalBusiness',
-                        name: `${company.brandName} – Vilnius`,
-                        url: `${company.domain}/vilnius`,
-                        telephone: company.contacts.vilnius.phone,
-                        email: company.contacts.vilnius.email,
-                        address: {
-                            '@type': 'PostalAddress',
-                            streetAddress: company.contacts.vilnius.address,
-                            addressLocality: 'Vilnius',
-                            postalCode: company.contacts.vilnius.postalCode,
-                            addressCountry: 'LT'
-                        },
-                        areaServed: 'Vilnius ir Vilniaus rajonas',
-                        image: `${company.domain}/images/optimized/hero-bg-appliances.webp`,
-                        openingHours: [
-                            'Mo-Fr 08:00-18:00'
-                        ]
-                    })}
-                </script>
-            </Helmet>
+            <SEO title={title} description={description} canonicalUrl={canonicalUrl} structuredData={[localBusinessLd, breadcrumbLd]} />
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <header className="mb-8">

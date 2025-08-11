@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
+import SEO from '../components/SEO';
 import { trackCTAClick } from '../utils/analytics';
 import OptimizedImage from '../components/OptimizedImage';
 import LazyGoogleReviews from '../components/LazyGoogleReviews';
@@ -16,14 +16,27 @@ const Home = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Nemokamas elektronikos ir buitinės technikos išvežimas | Karavanas LT</title>
-        <meta
-          name="description"
-          content="Nemokamas elektronikos ir buitinės technikos išvežimas Kaune, Vilniuje ir visoje Lietuvoje. Išvežame šaldytuvus, skalbimo mašinas, televizorius ir kitą elektroniką. Taip pat baldų ir metalo laužo išvežimas."
-        />
-        <link rel="canonical" href="https://transportuok.lt" />
-      </Helmet>
+      <SEO
+        title="Nemokamas elektronikos ir buitinės technikos išvežimas | Karavanas LT"
+        description="Nemokamas elektronikos ir buitinės technikos išvežimas Kaune, Vilniuje ir visoje Lietuvoje. Išvežame šaldytuvus, skalbimo mašinas, televizorius ir kitą elektroniką. Taip pat baldų ir metalo laužo išvežimas."
+        canonicalUrl="https://transportuok.lt"
+        structuredData={[
+          {
+            '@context': 'https://schema.org',
+            '@type': 'WebPage',
+            name: 'Nemokamas elektronikos ir buitinės technikos išvežimas',
+            url: 'https://transportuok.lt/',
+            description: 'Nemokamas elektronikos ir buitinės technikos išvežimas Kaune, Vilniuje ir visoje Lietuvoje.'
+          },
+          {
+            '@context': 'https://schema.org',
+            '@type': 'BreadcrumbList',
+            itemListElement: [
+              { '@type': 'ListItem', position: 1, name: 'Pradžia', item: 'https://transportuok.lt/' }
+            ]
+          }
+        ]}
+      />
 
       <div className="min-h-screen">
         {/* Hero Section (explicit <img> for clearer LCP targeting & priority loading) */}

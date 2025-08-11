@@ -74,8 +74,37 @@ const Elektronika = () => {
 
   // FAQ structured data now emitted by FAQ component; removed page-level duplicate
 
+  // HowTo (adds eligibility for HowTo rich results)
+  const howToLd = {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    name: `Kaip užsakyti elektronikos atliekų išvežimą ${city.locative}`,
+    totalTime: 'PT30M',
+    supply: ['Elektronikos prietaisai', 'Priėjimas prie daiktų'],
+    tool: ['Transportas', 'Apsauginės priemonės'],
+    step: [
+      { '@type': 'HowToStep', name: 'Užklausa', text: 'Pateikite užklausą internetu arba telefonu nurodydami elektronikos tipą.' },
+      { '@type': 'HowToStep', name: 'Laiko suderinimas', text: 'Per 24 val. suderiname patogų atvykimo laiką.' },
+      { '@type': 'HowToStep', name: 'Surinkimas', text: 'Komanda atvyksta, saugiai išneša ir pakrauna elektroniką.' },
+      { '@type': 'HowToStep', name: 'Perdirbimas', text: 'Atliekos perduodamos licencijuotiems perdirbėjams ir sunaikinami duomenys.' }
+    ]
+  } as const;
+
+  // WebPage schema to strengthen context
   const title = `Elektronikos atliekų išvežimas ${city.locative} | Nemokamas surinkimas | Karavanas LT`;
   const description = `Nemokamas elektronikos atliekų surinkimas ${city.locative}: kompiuteriai, TV, monitoriai, spausdintuvai ir kt. Duomenų sunaikinimas ir ekologiškas perdirbimas.`;
+
+  const webPageLd = {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: `Elektronikos atliekų išvežimas ${city.locative}`,
+    url: canonicalUrl,
+    description: description,
+    about: {
+      '@type': 'Service',
+      name: `Elektronikos atliekų išvežimas ${city.locative}`
+    }
+  } as const;
 
   return (
     <>
@@ -88,7 +117,9 @@ const Elektronika = () => {
         areaServed={cityKey === 'lietuva' ? 'Visa Lietuva' : city.name}
       />
 
-      <script type="application/ld+json">{JSON.stringify(breadcrumbLd)}</script>
+  <script type="application/ld+json">{JSON.stringify(breadcrumbLd)}</script>
+  <script type="application/ld+json">{JSON.stringify(howToLd)}</script>
+  <script type="application/ld+json">{JSON.stringify(webPageLd)}</script>
 
       <div className="py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -286,9 +317,12 @@ const Elektronika = () => {
 
           {/* FAQ Section */}
           <FAQ
-            items={elektronikosFAQ}
+            items={elektronikosFAQ.map(i => ({
+              ...i,
+              // Ensure question uniqueness includes kontekstas (miestas)
+              question: cityKey === 'kaunas' ? i.question : `${i.question} (${city.locative})`
+            }))}
             title="Dažniausiai užduodami klausimai apie elektronikos atliekų išvežimą"
-            suppressSchema
           />
         </div>
       </div>
