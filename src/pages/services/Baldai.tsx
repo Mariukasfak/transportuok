@@ -276,11 +276,13 @@ const Baldai = () => {
           </div>
 
           {/* FAQ Section */}
-          <FAQ
-            items={faqItems}
-            title="Dažniausiai užduodami klausimai apie baldų išvežimą Kaune"
-            suppressSchema
-          />
+          <div id="faq">
+            <FAQ
+              items={faqItems}
+              title="Dažniausiai užduodami klausimai apie baldų išvežimą Kaune"
+              suppressSchema
+            />
+          </div>
 
           {/* Susijusios paslaugos */}
           <div className="mt-12 bg-white rounded-lg shadow p-6">

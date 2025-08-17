@@ -21,7 +21,7 @@ const ImageOptimizer: React.FC<ImageOptimizerProps> = ({
 }) => {
   // Extract file name without extension
   const baseName = src.split('.').slice(0, -1).join('.');
-  
+
   return (
     <picture>
       <source
@@ -45,7 +45,8 @@ const ImageOptimizer: React.FC<ImageOptimizerProps> = ({
         width={width}
         height={height}
         loading={loading}
-        fetchpriority={fetchPriority}
+        // Standard attribute name is fetchPriority (camelCase in JSX)
+        fetchPriority={fetchPriority}
       />
     </picture>
   );

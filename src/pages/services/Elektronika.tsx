@@ -349,11 +349,13 @@ const Elektronika = () => {
           </div>
 
           {/* FAQ Section */}
-          <FAQ
-            items={faqItems}
-            title={`Dažniausiai užduodami klausimai apie elektronikos atliekų išvežimą ${city.locative}`}
-            suppressSchema
-          />
+          <div id="faq">
+            <FAQ
+              items={faqItems}
+              title={`Dažniausiai užduodami klausimai apie elektronikos atliekų išvežimą ${city.locative}`}
+              suppressSchema
+            />
+          </div>
           {/* Susijusios paslaugos */}
           <div className="mt-12 bg-white rounded-lg shadow p-6">
             <h2 className="text-2xl font-bold mb-4">Susijusios paslaugos</h2>

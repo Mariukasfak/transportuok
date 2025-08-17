@@ -341,11 +341,13 @@ const BuitineTechnika = () => {
           </div>
         </div>
 
-        <FAQ
-          items={faqItems}
-          title={`Dažniausiai užduodami klausimai apie buitinės technikos išvežimą ${city.locative}`}
-          suppressSchema
-        />
+        <div id="faq">
+          <FAQ
+            items={faqItems}
+            title={`Dažniausiai užduodami klausimai apie buitinės technikos išvežimą ${city.locative}`}
+            suppressSchema
+          />
+        </div>
 
         {/* Susijusios paslaugos ir straipsniai */}
         <div className="mt-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
