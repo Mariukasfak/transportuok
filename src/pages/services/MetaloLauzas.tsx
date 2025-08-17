@@ -74,16 +74,20 @@ const MetaloLauzas = () => {
   });
   const stripTags = (html: string) => html.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
   const slugify = (s: string) => s.toLowerCase().replace(/[^\p{L}0-9]+/gu, '-').replace(/^-|-$/g, '');
+  const validFaqs = faqItems
+    .map(q => ({ question: q.question.trim(), answer: stripTags(q.answer) }))
+    .filter(q => q.question && q.answer)
+    .slice(0, 12);
   const faqStructuredData = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
     '@id': `${canonicalUrl}#faq`,
     'inLanguage': 'lt',
-    mainEntity: faqItems.map(q => ({
+    mainEntity: validFaqs.map(q => ({
       '@type': 'Question',
       '@id': `${canonicalUrl}#question-${slugify(q.question)}`,
       name: q.question,
-      acceptedAnswer: { '@type': 'Answer', text: stripTags(q.answer) }
+      acceptedAnswer: { '@type': 'Answer', text: q.answer }
     }))
   } as const;
 

@@ -18,15 +18,23 @@ interface FAQProps {
 const FAQ: React.FC<FAQProps> = ({
   items,
   title = "Dažniausiai užduodami klausimai",
-  suppressSchema = false,
+  suppressSchema = true,
   sanitizeAnswers = true
 }) => {
   const [openIndex, setOpenIndex] = React.useState<number | null>(null);
   const stripTags = (html: string) => html.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim();
-  const structuredData = !suppressSchema ? {
+  // Build JSON-LD only if we have at least 2 valid Q/A pairs; filter empties; keep at most 12
+  const validItems = items
+    .map(i => ({
+      question: (i.question || '').trim(),
+      answer: (i.answer || '').trim(),
+    }))
+    .filter(i => i.question.length > 0 && i.answer.length > 0)
+    .slice(0, 12);
+  const structuredData = !suppressSchema && validItems.length >= 2 ? {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    "mainEntity": items.map(item => ({
+    "mainEntity": validItems.map(item => ({
       "@type": "Question",
       "name": item.question,
       "acceptedAnswer": {

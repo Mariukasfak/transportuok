@@ -24,6 +24,14 @@ export const SEO: React.FC<SEOProps> = ({
       {/* Primary Meta Tags */}
       <title>{title}</title>
       <meta name="description" content={description} />
+      <meta
+        name="robots"
+        content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1"
+      />
+      <meta
+        name="googlebot"
+        content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1"
+      />
       <link rel="canonical" href={canonicalUrl} />
 
       {/* Open Graph */}

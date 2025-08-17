@@ -50,11 +50,10 @@ const generateSitemap = () => {
 
   // Miestų variantai paslaugoms (lokalizuotas turinys). Jei ateityje pridėsite daugiau miestų – plėskite masyvą.
   const cities = ['kaunas', 'vilnius'];
+  // City variants tik ten, kur yra lokalizuotas turinys (BT ir Elektronika)
   const cityServiceBase = [
     'buitines-technikos-isvezimas',
-    'elektronikos-atlieku-isvezimas',
-    'baldu-isvezimas',
-    'metalo-lauzo-isvezimas'
+    'elektronikos-atlieku-isvezimas'
   ];
   const cityServiceUrls = cityServiceBase.flatMap(slug =>
     cities.map(city => ({

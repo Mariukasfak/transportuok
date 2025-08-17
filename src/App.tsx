@@ -90,9 +90,7 @@ function App() {
                 <Route path="/paslaugos/elektronikos-atlieku-isvezimas" element={<Elektronika />} />
                 <Route path="/paslaugos/elektronikos-atlieku-isvezimas/:city" element={<Elektronika />} />
                 <Route path="/paslaugos/baldu-isvezimas" element={<Baldai />} />
-                <Route path="/paslaugos/baldu-isvezimas/:city" element={<Baldai />} />
                 <Route path="/paslaugos/metalo-lauzo-isvezimas" element={<MetaloLauzas />} />
-                <Route path="/paslaugos/metalo-lauzo-isvezimas/:city" element={<MetaloLauzas />} />
                 <Route path="/paslaugos" element={<Services />} />
 
                 {/* Other pages */}
