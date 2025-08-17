@@ -5,13 +5,37 @@ https://www.transportuok.lt/*  https://transportuok.lt/:splat  301!
 /assets/*.css   /assets/:splat  200!  Content-Type=text/css
 /assets/*.js    /assets/:splat  200!  Content-Type=application/javascript
 
-# Handle SPA routing
-/*  /index.html  200
-
 # Legacy redirects
+/contact                                         /kontaktai                 301
+/2015/*                                          /naujienos                 301
+/2016/*                                          /naujienos                 301
+/2017/*                                          /naujienos                 301
+/2019/*                                          /naujienos                 301
+/category/*                                      /naujienos                 301
+/standard-post/                                  /naujienos                 301
+/standard-post/*                                  /naujienos                301
+/another-post/*                                   /naujienos                301
+/blog/*                                           /naujienos                301
+/feed/                                            /naujienos                301
+/:splat/feed/                                     /naujienos                301
+/single-post/                                    /naujienos                 301
+/audio-post/                                     /naujienos                 301
+/video-post/                                     /naujienos                 301
+/gallery-post/*                                   /naujienos                301
+/tag/*                                           /naujienos                 301
+/tags/*                                          /naujienos                 301
+/portfolio-category/*                            /paslaugos                 301
+/portfolio/*                                     /paslaugos                 301
 /siemka-lt-drabuziai-internetu/                   /                          301
 /kroviniu-pervezimas/                             /                          301
 /atlieku-isvezimas/                               /paslaugos/baldu-isvezimas 301
 /elektronikos-isvezimas/                          /paslaugos/elektronikos-atlieku-isvezimas 301
 /buitines-technikos-isvezimas/                    /paslaugos/buitines-technikos-isvezimas 301
+/paslaugos/baldu-isvezimas/:city                  /paslaugos/baldu-isvezimas 301
+/paslaugos/metalo-lauzo-isvezimas/:city           /paslaugos/metalo-lauzo-isvezimas 301
+/buitinetechnika                                   /paslaugos/buitines-technikos-isvezimas 301
+/buitinetechnika/                                  /paslaugos/buitines-technikos-isvezimas 301
 /transporto-uzsakymas-2/                          /kontaktai                 301
+
+# Handle SPA routing (keep last)
+/*  /index.html  200

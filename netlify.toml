@@ -5,6 +5,7 @@
     X-Content-Type-Options = "nosniff"
     X-Frame-Options = "DENY"
     X-XSS-Protection = "1; mode=block"
+  Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
   Content-Security-Policy = "default-src 'self'; script-src 'self' https://www.googletagmanager.com https://maps.googleapis.com https://maps.gstatic.com https://www.clarity.ms https://*.clarity.ms 'unsafe-inline' data:; connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://www.googletagmanager.com https://*.googletagmanager.com https://www.clarity.ms https://*.clarity.ms wss://*.clarity.ms https://c.bing.com https://*.doubleclick.net https://maps.googleapis.com https://*.googleapis.com https://*.google.com https://*.gstatic.com https://api.emailjs.com https://pagead2.googlesyndication.com; img-src 'self' data: blob: https://www.googletagmanager.com https://*.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com https://*.doubleclick.net https://pagead2.googlesyndication.com https://www.clarity.ms https://*.clarity.ms https://c.bing.com https://*.googleapis.com https://*.gstatic.com https://lh3.googleusercontent.com https://*.google.com; frame-src 'self' https://www.googletagmanager.com https://*.google.com https://*.doubleclick.net; child-src 'self' https://www.googletagmanager.com https://*.google.com https://*.doubleclick.net; style-src 'self' 'unsafe-inline' data: https://fonts.googleapis.com https://www.googletagmanager.com; font-src 'self' data: https://fonts.gstatic.com;"
 
 [[headers]]
@@ -30,6 +31,18 @@
 
 [[redirects]]
   from = "https://www.transportuok.lt/*"
+  to = "https://transportuok.lt/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://www.transportuok.lt/*"
+  to = "https://transportuok.lt/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://transportuok.lt/*"
   to = "https://transportuok.lt/:splat"
   status = 301
   force = true
@@ -64,6 +77,135 @@
   from = "/*"
   to = "/index.html"
   status = 200
+
+[[redirects]]
+  from = "/standard-post/*"
+  to = "/naujienos"
+  status = 301
+
+[[redirects]]
+  from = "/another-post/*"
+  to = "/naujienos"
+  status = 301
+
+[[redirects]]
+  from = "/feed/"
+  to = "/naujienos"
+  status = 301
+
+[[redirects]]
+  from = "/:splat/feed/"
+  to = "/naujienos"
+  status = 301
+
+[[redirects]]
+  from = "/buitinetechnika"
+  to = "/paslaugos/buitines-technikos-isvezimas"
+  status = 301
+
+[[redirects]]
+  from = "/buitinetechnika/"
+  to = "/paslaugos/buitines-technikos-isvezimas"
+  status = 301
+
+# Legacy WP paths and archives -> new canonical locations
+[[redirects]]
+  from = "/contact"
+  to = "/kontaktai"
+  status = 301
+
+[[redirects]]
+  from = "/2015/*"
+  to = "/naujienos"
+  status = 301
+
+[[redirects]]
+  from = "/2016/*"
+  to = "/naujienos"
+  status = 301
+
+[[redirects]]
+  from = "/2017/*"
+  to = "/naujienos"
+  status = 301
+
+[[redirects]]
+  from = "/2019/*"
+  to = "/naujienos"
+  status = 301
+
+[[redirects]]
+  from = "/category/*"
+  to = "/naujienos"
+  status = 301
+
+[[redirects]]
+  from = "/standard-post/"
+  to = "/naujienos"
+  status = 301
+
+[[redirects]]
+  from = "/single-post/"
+  to = "/naujienos"
+  status = 301
+
+[[redirects]]
+  from = "/audio-post/"
+  to = "/naujienos"
+  status = 301
+
+[[redirects]]
+  from = "/video-post/"
+  to = "/naujienos"
+  status = 301
+
+[[redirects]]
+  from = "/tag/*"
+  to = "/naujienos"
+  status = 301
+
+[[redirects]]
+  from = "/tags/*"
+  to = "/naujienos"
+  status = 301
+
+[[redirects]]
+  from = "/gallery-post/*"
+  to = "/naujienos"
+  status = 301
+
+[[redirects]]
+  from = "/portfolio-category/*"
+  to = "/paslaugos"
+  status = 301
+
+[[redirects]]
+  from = "/portfolio/*"
+  to = "/paslaugos"
+  status = 301
+
+[[redirects]]
+  from = "/paslaugos/baldu-isvezimas/:city"
+  to = "/paslaugos/baldu-isvezimas"
+  status = 301
+
+[[redirects]]
+  from = "/paslaugos/metalo-lauzo-isvezimas/:city"
+  to = "/paslaugos/metalo-lauzo-isvezimas"
+  status = 301
+
+# Query param canonicalization: strip tracking params while preserving path
+[[redirects]]
+  from = "/:splat"
+  to = "/:splat"
+  status = 301
+  query = { utm_source = ":any", utm_medium = ":any", utm_campaign = ":any", utm_term = ":any", utm_content = ":any", gclid = ":any", fbclid = ":any" }
+
+[[redirects]]
+  from = "/:splat"
+  to = "/:splat"
+  status = 301
+  query = { replytocom = ":any" }
 
 [dev]
   functions = "netlify/functions"
