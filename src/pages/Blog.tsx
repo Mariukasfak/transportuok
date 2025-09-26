@@ -221,6 +221,15 @@ const blogPosts = [
     ogImage: '/images/straipsnis3.webp',
   }
 ];
+const imageDimensions: Record<string, { width: number; height: number }> = {
+  '/images/straipsnis1.webp': { width: 1024, height: 1024 },
+  '/images/straipsnis2.webp': { width: 1024, height: 1024 },
+  '/images/straipsnis3.webp': { width: 1536, height: 1024 }
+} as const;
+
+const getImageDimensions = (src: string) => imageDimensions[src] || { width: 1200, height: 800 };
+
+
 
 const BlogPost = () => {
   const navigate = useNavigate();
@@ -256,6 +265,7 @@ const BlogPost = () => {
     twitter: `https://twitter.com/intent/tweet?url=${encodeURIComponent(shareUrl)}&text=${encodeURIComponent(shareText)}`,
     linkedin: `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(shareUrl)}&title=${encodeURIComponent(shareText)}`,
   };
+  const { width: imageWidth, height: imageHeight } = getImageDimensions(post.imageUrl);
 
   return (
     <article className="py-12" itemScope itemType="http://schema.org/BlogPosting">
@@ -275,6 +285,9 @@ const BlogPost = () => {
           alt={post.title}
           className="w-full h-64 object-cover rounded-lg mb-8"
           loading="lazy"
+          decoding="async"
+          width={imageWidth}
+          height={imageHeight}
           itemProp="image"
         />
 
@@ -331,38 +344,44 @@ const BlogList = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {blogPosts.map((post) => (
-            <article
-              key={post.id}
-              className="bg-white rounded-lg shadow-lg overflow-hidden"
-              itemScope
-              itemType="http://schema.org/BlogPosting"
-            >
-              <img
-                src={post.imageUrl}
-                alt={post.title}
-                className="w-full h-48 object-cover"
-                loading="lazy"
-                itemProp="image"
-              />
-              <div className="p-6">
-                <div className="flex items-center text-gray-500 text-sm mb-4">
-                  <Calendar className="w-4 h-4 mr-2" />
-                  <time itemProp="datePublished" dateTime={post.date}>
-                    {new Date(post.date).toLocaleDateString('lt-LT')}
-                  </time>
+          {blogPosts.map((post) => {
+            const { width, height } = getImageDimensions(post.imageUrl);
+            return (
+              <article
+                key={post.id}
+                className="bg-white rounded-lg shadow-lg overflow-hidden"
+                itemScope
+                itemType="http://schema.org/BlogPosting"
+              >
+                <img
+                  src={post.imageUrl}
+                  alt={post.title}
+                  className="w-full h-48 object-cover"
+                  loading="lazy"
+                  decoding="async"
+                  width={width}
+                  height={height}
+                  itemProp="image"
+                />
+                <div className="p-6">
+                  <div className="flex items-center text-gray-500 text-sm mb-4">
+                    <Calendar className="w-4 h-4 mr-2" />
+                    <time itemProp="datePublished" dateTime={post.date}>
+                      {new Date(post.date).toLocaleDateString('lt-LT')}
+                    </time>
+                  </div>
+                  <h2 className="text-xl font-bold mb-3" itemProp="headline">{post.title}</h2>
+                  <p className="text-gray-600 mb-4" itemProp="description">{post.excerpt}</p>
+                  <Link
+                    to={`/blog/${post.slug}`}
+                    className="text-green-600 font-semibold hover:text-green-700"
+                  >
+                    Skaityti daugiau →
+                  </Link>
                 </div>
-                <h2 className="text-xl font-bold mb-3" itemProp="headline">{post.title}</h2>
-                <p className="text-gray-600 mb-4" itemProp="description">{post.excerpt}</p>
-                <Link
-                  to={`/blog/${post.slug}`}
-                  className="text-green-600 font-semibold hover:text-green-700"
-                >
-                  Skaityti daugiau →
-                </Link>
-              </div>
-            </article>
-          ))}
+              </article>
+            );
+          })}
         </div>
       </div>
     </div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
+import { buildAbsoluteUrl, buildCanonicalUrl } from '../lib/seo';
 
 interface SEOProps {
   title: string;
@@ -19,6 +20,9 @@ export const SEO: React.FC<SEOProps> = ({
   ogType = 'website',
   structuredData
 }) => {
+  const resolvedCanonical = buildCanonicalUrl(canonicalUrl);
+  const resolvedOgImage = buildAbsoluteUrl(ogImage);
+
   return (
     <Helmet>
       {/* Primary Meta Tags */}
@@ -32,21 +36,21 @@ export const SEO: React.FC<SEOProps> = ({
         name="googlebot"
         content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1"
       />
-      <link rel="canonical" href={canonicalUrl} />
+      <link rel="canonical" href={resolvedCanonical} />
 
       {/* Open Graph */}
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:type" content={ogType} />
-      <meta property="og:url" content={canonicalUrl} />
-      <meta property="og:image" content={ogImage} />
+      <meta property="og:url" content={resolvedCanonical} />
+      <meta property="og:image" content={resolvedOgImage} />
       <meta property="og:locale" content="lt_LT" />
 
       {/* Twitter Card */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={ogImage} />
+      <meta name="twitter:image" content={resolvedOgImage} />
 
       {/* Structured Data */}
       {structuredData && (

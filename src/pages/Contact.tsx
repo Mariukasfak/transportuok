@@ -7,6 +7,7 @@ import emailjs from '@emailjs/browser';
 import { trackFormSubmission } from '../utils/analytics';
 import SEO from '../components/SEO';
 import company from '../data/company';
+import { buildCanonicalUrl } from '../lib/seo';
 
 const TOP_CITIES = [
   'Vilnius',
@@ -158,12 +159,13 @@ const Contact = () => {
 
   const title = 'Kontaktai | Elektronikos ir buitinės technikos išvežimas Lietuvoje | Karavanas LT';
   const description = 'Susisiekite dėl nemokamo buitinės technikos ir elektronikos išvežimo Vilniuje, Kaune ir visoje Lietuvoje. Užpildykite formą arba rašykite el. paštu info@transportuok.lt.';
-  const canonicalUrl = 'https://transportuok.lt/kontaktai';
+  const canonicalUrl = buildCanonicalUrl('/kontaktai');
+  const homeCanonical = buildCanonicalUrl('/');
   const breadcrumbLd = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Pradžia', item: `${company.domain}/` },
+      { '@type': 'ListItem', position: 1, name: 'Pradžia', item: homeCanonical },
       { '@type': 'ListItem', position: 2, name: 'Kontaktai', item: canonicalUrl }
     ]
   } as const;

@@ -1,5 +1,89 @@
 export const blogPosts = [
   {
+    id: 4,
+    title: 'Nemokamas buitinės technikos išvežimas 2025 – Kaunas ir Vilnius',
+    slug: 'nemokamas-buitines-technikos-isvezimas-2025',
+    excerpt: 'Kaip 2025 m. pasinaudoti nemokamu buitinės technikos išvežimu Kaune ir Vilniuje – žingsniai, pasiruošimas ir papildomos Karavanas LT paslaugos.',
+    content: `
+# Nemokamas buitinės technikos išvežimas 2025 – Kaunas ir Vilnius
+
+Nemokamas išvežimas yra greičiausias būdas atsisveikinti su sena buitine technika, kai norisi sutaupyti laiko ir pinigų. **Karavanas LT** 2025 m. programoje apjungia du didžiausius miestus – Kauną ir Vilnių – bei suteikia papildomas galimybes regionams.
+
+## Kas įeina į nemokamą išvežimą?
+
+- Šaldytuvai, skalbimo mašinos, džiovyklės ir viryklės
+- Televizoriai, monitoriai ir kita elektronika
+- Neribotas kiekis metalo laužo (pagal išankstinį suderinimą)
+
+## Trys žingsniai iki sutvarkytų atliekų
+
+1. **Registruokite užsakymą** telefonu +370 699 25 744 arba internetu.
+2. **Paruoškite prietaisą**: atjunkite, ištuštinkite ir palikite laisvą priėjimą.
+3. **Sulaukite komandos** – išvežame, pakrauname ir perduodame atliekas licencijuotiems tvarkytojams.
+
+## Lokalus fokusas
+
+### Kaunas
+Nemokamas išvežimas taikomas visoms seniūnijoms, įskaitant Šilainius, Žaliakalnį ir Garliavą. Papildomai galime surinkti metalo laužą iš garažų ar sandėliukų.
+
+### Vilnius
+Sostinėje dirbame tiek daugiabučių, tiek verslo objektuose. Taip pat aptarnaujame Vilniaus rajoną – suderiname su klientu bendrą grafiką.
+
+## Papildomos paslaugos
+
+- Fotofiksacija prieš ir po išvežimo (NT valdytojams)
+- Laikinas prietaisų sandėliavimas ir pervežimas
+- Perdavimo aktų archyvas
+
+## CTA – pradėkime šiandien
+
+[Registruoti užklausą](https://transportuok.lt/kontaktai#contact-form) | [Peržiūrėti Kauno padalinį](https://transportuok.lt/kaunas)
+
+`,
+    date: '2025-02-05',
+    author: 'Karavanas LT',
+    category: 'Nemokamas išvežimas',
+    city: 'Kaunas ir Vilnius',
+    image: '/images/optimized/buitine-technika.webp',
+    imageWidth: 1536,
+    imageHeight: 1024
+  },
+  {
+    id: 5,
+    title: 'Partnerystė su Katalizatoriu-supirkimas.lt – SEO ir atliekų sinergija',
+    slug: 'partneryste-su-katalizatoriu-supirkimas-lt',
+    excerpt: 'Transportuok.lt ir Katalizatoriu-supirkimas.lt susitarė dėl bendros SEO strategijos – klientams pasiūlomas pilnas atliekų tvarkymo paketas vienu kontaktu.',
+    content: `
+# Partnerystė su Katalizatoriu-supirkimas.lt – SEO ir atliekų sinergija
+
+Transportuok.lt toliau plečia žiedinės ekonomikos sprendimus. Nauja partnerystė su [Katalizatoriu-supirkimas.lt](https://katalizatoriu-supirkimas.lt/) leidžia klientams vienu skambučiu sutvarkyti tiek buitinę techniką, tiek katalizatorius.
+
+## Kodėl ši partnerystė svarbi?
+
+- **Pilnas atliekų ciklas** – mes išvežame elektroniką ir buitinę techniką, partneriai superka katalizatorius ir pasirūpina brangiųjų metalų išgavimu.
+- **Aiški komunikacija** – suderinti laikai ir pasiūlymai pateikiami viename dokumente.
+- **SEO nauda** – abiejų įmonių turinys stiprina pozicijas „atliekų surinkimas“, „katalizatorių supirkimas“ ir „perdirbimas“ raktažodžiuose.
+
+## Ko gali tikėtis klientai?
+
+- Individualių pasiūlymų automobilių servisams ir gamybos įmonėms
+- Dokumentuotų katalizatorių supirkimo procedūrų
+- Greitų inline užsakymų per kontaktų formą
+
+## Kaip pasinaudoti sinergija?
+
+Registruokite užklausą +370 664 24 024 arba internetu – mes suplanavę maršrutą atvyksime kartu su partneriais, kad vienu metu sutvarkytume visą įrangą.
+
+`,
+    date: '2025-02-12',
+    author: 'Karavanas LT',
+    category: 'Partnerystės',
+    city: 'Visa Lietuva',
+    image: '/images/optimized/elektronika.webp',
+    imageWidth: 1024,
+    imageHeight: 1024
+  },
+  {
     id: 1,
     title: "Elektronikos išvežimas Vilniuje: greitas ir ekologiškas sprendimas",
     slug: "elektronikos-isvezimas-vilniuje",
@@ -88,7 +172,9 @@ Teikiame paslaugas:
     author: "UAB Karavanas LT",
     category: "Elektronikos išvežimas",
     city: "Vilnius",
-    image: "/images/optimized/elektronika.webp"
+    image: "/images/optimized/elektronika.webp",
+    imageWidth: 1024,
+    imageHeight: 1024
   },
 
   {
@@ -237,7 +323,9 @@ Mūsų partneriai užtikrina:
     author: "Karavanas LT",
     category: "Buitinės technikos išvežimas",
     city: "Visa Lietuva",
-    image: "/images/optimized/buitine-technika.webp"
+    image: "/images/optimized/buitine-technika.webp",
+    imageWidth: 1536,
+    imageHeight: 1024
   },
 
   {
@@ -405,7 +493,9 @@ Mūsų baldų utilizavimo principai:
     author: "Karavanas LT",
     category: "Baldų išvežimas",
     city: "Kaunas",
-    image: "/images/optimized/baldai.webp"
+    image: "/images/optimized/baldai.webp",
+    imageWidth: 1024,
+    imageHeight: 1024
   }
 ];
 

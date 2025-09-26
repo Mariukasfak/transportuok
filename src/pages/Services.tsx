@@ -2,16 +2,30 @@ import { Link } from 'react-router-dom';
 import { Truck, Monitor, Touchpad as Couch, Recycle } from 'lucide-react';
 import SEO from '../components/SEO';
 import company from '../data/company';
+import { buildCanonicalUrl, withSeoId } from '../lib/seo';
 
 const Services = () => {
   const title = 'Buitinės technikos, baldų ir elektronikos išvežimas Kaune | Karavanas LT';
   const description = 'Profesionalus buitinės technikos, baldų, elektronikos ir metalo laužo išvežimas Kaune. Nemokamas išvežimas, greitas aptarnavimas ir ekologiškas utilizavimas.';
-  const canonicalUrl = `${company.domain}/paslaugos`;
+  const canonicalUrl = buildCanonicalUrl('/paslaugos');
+  const homeCanonical = buildCanonicalUrl('/');
+  const serviceUrls = {
+    appliances: buildCanonicalUrl('/paslaugos/buitines-technikos-isvezimas'),
+    electronics: buildCanonicalUrl('/paslaugos/elektronikos-atlieku-isvezimas'),
+    furniture: buildCanonicalUrl('/paslaugos/baldu-isvezimas'),
+    metal: buildCanonicalUrl('/paslaugos/metalo-lauzo-isvezimas')
+  } as const;
+  const serviceIds = {
+    appliances: withSeoId(homeCanonical, 'service-buitines-technikos-isvezimas'),
+    electronics: withSeoId(homeCanonical, 'service-elektronikos-atlieku-isvezimas'),
+    furniture: withSeoId(homeCanonical, 'service-baldu-isvezimas'),
+    metal: withSeoId(homeCanonical, 'service-metalo-lauzo-isvezimas')
+  } as const;
   const breadcrumbLd = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Pradžia', item: `${company.domain}/` },
+      { '@type': 'ListItem', position: 1, name: 'Pradžia', item: homeCanonical },
       { '@type': 'ListItem', position: 2, name: 'Paslaugos', item: canonicalUrl }
     ]
   } as const;
@@ -24,22 +38,22 @@ const Services = () => {
       {
         '@type': 'ListItem',
         position: 1,
-        item: { '@type': 'Service', '@id': `${company.domain}/#service-buitines-technikos-isvezimas`, url: `${company.domain}/paslaugos/buitines-technikos-isvezimas`, name: 'Buitinės technikos išvežimas' }
+        item: { '@type': 'Service', '@id': serviceIds.appliances, url: serviceUrls.appliances, name: 'Buitinės technikos išvežimas' }
       },
       {
         '@type': 'ListItem',
         position: 2,
-        item: { '@type': 'Service', '@id': `${company.domain}/#service-elektronikos-atlieku-isvezimas`, url: `${company.domain}/paslaugos/elektronikos-atlieku-isvezimas`, name: 'Elektronikos atliekų išvežimas' }
+        item: { '@type': 'Service', '@id': serviceIds.electronics, url: serviceUrls.electronics, name: 'Elektronikos atliekų išvežimas' }
       },
       {
         '@type': 'ListItem',
         position: 3,
-        item: { '@type': 'Service', '@id': `${company.domain}/#service-baldu-isvezimas`, url: `${company.domain}/paslaugos/baldu-isvezimas`, name: 'Baldų išvežimas' }
+        item: { '@type': 'Service', '@id': serviceIds.furniture, url: serviceUrls.furniture, name: 'Baldų išvežimas' }
       },
       {
         '@type': 'ListItem',
         position: 4,
-        item: { '@type': 'Service', '@id': `${company.domain}/#service-metalo-lauzo-isvezimas`, url: `${company.domain}/paslaugos/metalo-lauzo-isvezimas`, name: 'Metalo laužo išvežimas' }
+        item: { '@type': 'Service', '@id': serviceIds.metal, url: serviceUrls.metal, name: 'Metalo laužo išvežimas' }
       }
     ]
   } as const;

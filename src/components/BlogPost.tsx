@@ -1,6 +1,7 @@
 import React from 'react';
 import { Calendar, Share2 } from 'lucide-react';
 import SEO from './SEO';
+import { buildAbsoluteUrl, buildCanonicalUrl } from '../lib/seo';
 
 interface BlogPostProps {
   post: {
@@ -16,7 +17,10 @@ interface BlogPostProps {
 }
 
 const BlogPost: React.FC<BlogPostProps> = ({ post }) => {
-  const canonicalUrl = `https://transportuok.lt/naujienos/${post.slug}`;
+  const canonicalUrl = buildCanonicalUrl(`/naujienos/${post.slug}`);
+  const ogImage = buildAbsoluteUrl(post.imageUrl);
+  const publisherLogo = buildAbsoluteUrl('/ikona_spalvotas.svg');
+  const organizationUrl = buildCanonicalUrl('/');
 
   const structuredData = {
     "@context": "https://schema.org",
@@ -26,20 +30,20 @@ const BlogPost: React.FC<BlogPostProps> = ({ post }) => {
       "@id": canonicalUrl
     },
     "headline": post.title,
-    "image": [post.imageUrl],
+    "image": [ogImage],
     "datePublished": post.date,
     "dateModified": post.date,
     "author": {
       "@type": "Organization",
       "name": "Karavanas LT",
-      "url": "https://transportuok.lt"
+      "url": organizationUrl
     },
     "publisher": {
       "@type": "Organization",
       "name": "Karavanas LT",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://transportuok.lt/ikona_spalvotas.svg"
+        "url": publisherLogo
       }
     },
     "description": post.excerpt
@@ -57,7 +61,7 @@ const BlogPost: React.FC<BlogPostProps> = ({ post }) => {
         title={`${post.title} | Karavanas LT`}
         description={post.excerpt}
         canonicalUrl={canonicalUrl}
-        ogImage={post.imageUrl}
+        ogImage={ogImage}
         ogType="article"
         structuredData={structuredData}
       />
@@ -65,7 +69,7 @@ const BlogPost: React.FC<BlogPostProps> = ({ post }) => {
       <article className="py-12" itemScope itemType="http://schema.org/BlogPosting">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <img
-            src={post.imageUrl}
+            src={ogImage}
             alt={post.title}
             className="w-full h-64 object-cover rounded-lg mb-8"
             loading="lazy"

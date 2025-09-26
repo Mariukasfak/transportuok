@@ -5,9 +5,18 @@ import { metaloFAQ } from '../../data/faqData';
 import SEO from '../../components/SEO';
 import ServiceSchema from '../../components/ServiceSchema';
 import company from '../../data/company';
+import { buildAbsoluteUrl, buildCanonicalUrl, withSeoId } from '../../lib/seo';
 
 const MetaloLauzas = () => {
-  const canonicalUrl = 'https://transportuok.lt/paslaugos/metalo-lauzo-isvezimas';
+  const canonicalUrl = buildCanonicalUrl('/paslaugos/metalo-lauzo-isvezimas');
+  const homeCanonical = buildCanonicalUrl('/');
+  const servicesCanonical = buildCanonicalUrl('/paslaugos');
+  const primaryImage = buildAbsoluteUrl('/images/metalo-lauzas.webp');
+  const imageVariants = [
+    buildAbsoluteUrl('/images/metalo-lauzas-small.webp'),
+    buildAbsoluteUrl('/images/metalo-lauzas-medium.webp'),
+    buildAbsoluteUrl('/images/metalo-lauzas-large.webp')
+  ];
   const title = 'Metalo laužo išvežimas Kaune | Nemokamas surinkimas | Karavanas LT';
   const description = 'Nemokamas metalo laužo išvežimas Kaune. Juodojo ir spalvotojo metalo surinkimas iš namų, garažų, įmonių. Greitas atvykimas.';
 
@@ -19,13 +28,9 @@ const MetaloLauzas = () => {
     description,
     primaryImageOfPage: {
       '@type': 'ImageObject',
-      url: 'https://transportuok.lt/images/metalo-lauzas.webp'
+      url: primaryImage
     },
-    image: [
-      'https://transportuok.lt/images/metalo-lauzas-small.webp',
-      'https://transportuok.lt/images/metalo-lauzas-medium.webp',
-      'https://transportuok.lt/images/metalo-lauzas-large.webp'
-    ],
+    image: imageVariants,
     about: { '@type': 'Service', name: 'Metalo laužo išvežimas Kaune' }
   } as const;
 
@@ -33,8 +38,8 @@ const MetaloLauzas = () => {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Pradžia', item: 'https://transportuok.lt/' },
-      { '@type': 'ListItem', position: 2, name: 'Paslaugos', item: 'https://transportuok.lt/paslaugos' },
+      { '@type': 'ListItem', position: 1, name: 'Pradžia', item: homeCanonical },
+      { '@type': 'ListItem', position: 2, name: 'Paslaugos', item: servicesCanonical },
       { '@type': 'ListItem', position: 3, name: 'Metalo laužo išvežimas Kaune', item: canonicalUrl }
     ]
   } as const;
@@ -56,8 +61,8 @@ const MetaloLauzas = () => {
 
   const provider = {
     name: company.legalName,
-    url: company.domain,
-    logo: '/ikona_spalvotas.svg',
+    url: homeCanonical,
+    logo: buildAbsoluteUrl('/ikona_spalvotas.svg'),
     telephone: company.contacts.kaunas.phone,
     address: {
       streetAddress: 'Kauno g.',
@@ -81,11 +86,11 @@ const MetaloLauzas = () => {
   const faqStructuredData = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
-    '@id': `${canonicalUrl}#faq`,
+    '@id': withSeoId(canonicalUrl, 'faq'),
     'inLanguage': 'lt',
     mainEntity: validFaqs.map(q => ({
       '@type': 'Question',
-      '@id': `${canonicalUrl}#question-${slugify(q.question)}`,
+      '@id': withSeoId(canonicalUrl, `question-${slugify(q.question)}`),
       name: q.question,
       acceptedAnswer: { '@type': 'Answer', text: q.answer }
     }))
@@ -97,7 +102,7 @@ const MetaloLauzas = () => {
       <ServiceSchema
         name="Metalo laužo išvežimas Kaune"
         description={description}
-        image="https://transportuok.lt/images/metalo-lauzas.webp"
+        image={primaryImage}
         serviceId="metalo-lauzo-isvezimas"
         provider={provider}
         areaServed="Kaunas"

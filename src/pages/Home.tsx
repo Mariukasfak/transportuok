@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import SEO from '../components/SEO';
+import { buildAbsoluteUrl, buildCanonicalUrl } from '../lib/seo';
 import { trackCTAClick } from '../utils/analytics';
 import OptimizedImage from '../components/OptimizedImage';
 import LazyGoogleReviews from '../components/LazyGoogleReviews';
@@ -9,6 +10,8 @@ const CitySelector = React.lazy(() => import('../components/CitySelector'));
 const BlogSection = React.lazy(() => import('../components/BlogSection'));
 
 const Home = () => {
+  const canonicalUrl = buildCanonicalUrl('/');
+  const heroImage = buildAbsoluteUrl('/images/hero-bg-appliances.webp');
   // Add a handler for CTA clicks
   const handleCTAClick = (ctaId: string, ctaText: string) => {
     trackCTAClick(ctaId, ctaText);
@@ -17,29 +20,29 @@ const Home = () => {
   return (
     <>
       <SEO
-        title="Nemokamas elektronikos ir buitinės technikos išvežimas | Karavanas LT"
-        description="Nemokamas elektronikos ir buitinės technikos išvežimas Kaune, Vilniuje ir visoje Lietuvoje. Išvežame šaldytuvus, skalbimo mašinas, televizorius ir kitą elektroniką. Taip pat baldų ir metalo laužo išvežimas."
-        canonicalUrl="https://transportuok.lt"
+        title="Nemokamas buitinės technikos išvežimas | Transportuok LT"
+        description="Nemokamas buitinės technikos ir elektronikos išvežimas Kaune, Vilniuje ir visoje Lietuvoje. Išvežame šaldytuvus, skalbimo mašinas, televizorius ir kitą elektroniką. Taip pat baldų ir metalo laužo išvežimas."
+        canonicalUrl={canonicalUrl}
         structuredData={[
           {
             '@context': 'https://schema.org',
             '@type': 'WebPage',
             name: 'Nemokamas elektronikos ir buitinės technikos išvežimas',
-            url: 'https://transportuok.lt/',
+            url: canonicalUrl,
             description: 'Nemokamas elektronikos ir buitinės technikos išvežimas Kaune, Vilniuje ir visoje Lietuvoje.',
             primaryImageOfPage: {
               '@type': 'ImageObject',
-              url: 'https://transportuok.lt/images/hero-bg-appliances.webp'
+              url: heroImage
             },
             image: [
-              'https://transportuok.lt/images/hero-bg-appliances.webp'
+              heroImage
             ]
           },
           {
             '@context': 'https://schema.org',
             '@type': 'BreadcrumbList',
             itemListElement: [
-              { '@type': 'ListItem', position: 1, name: 'Pradžia', item: 'https://transportuok.lt/' }
+              { '@type': 'ListItem', position: 1, name: 'Pradžia', item: canonicalUrl }
             ]
           }
         ]}
@@ -68,7 +71,7 @@ const Home = () => {
           </picture>
           <div className="hero-overlay" />
           <div className="hero-content">
-            <h1 className="hero-title">Nemokamas elektronikos ir buitinės technikos išvežimas Lietuvoje</h1>
+            <h1 className="hero-title">Nemokamas buitinės technikos išvežimas Lietuvoje</h1>
             <p className="hero-description">Kaunas, Vilnius ir visa Lietuva. Nemokamai išvežame buitinę techniką ir elektroniką – greitai ir patikimai.</p>
             <Link
               to="/kontaktai#contact-form"
@@ -103,7 +106,7 @@ const Home = () => {
                   </h3>
                 </Link>
                 <p className="text-gray-600 mb-4">
-                  Išvežame <Link to="/paslaugos/buitines-technikos-isvezimas" className="text-green-600 hover:text-green-700">šaldytuvus, skalbimo mašinas, virykles</Link> ir kitus buities prietaisus – nemokamai.
+                  Išvežame <Link to="/paslaugos/buitines-technikos-isvezimas" className="text-green-800 underline decoration-2 underline-offset-2 font-semibold hover:text-green-900">šaldytuvus, skalbimo mašinas, virykles</Link> ir kitus buities prietaisus – nemokamai.
                 </p>
                 <Link
                   to="/kontaktai#contact-form"
@@ -130,7 +133,7 @@ const Home = () => {
                   </h3>
                 </Link>
                 <p className="text-gray-600 mb-4">
-                  <Link to="/paslaugos/elektronikos-atlieku-isvezimas" className="text-green-600 hover:text-green-700">Kompiuterių, monitorių, televizorių</Link> ir kitos elektronikos išvežimas bei utilizavimas.
+                  <Link to="/paslaugos/elektronikos-atlieku-isvezimas" className="text-green-800 underline decoration-2 underline-offset-2 font-semibold hover:text-green-900">Kompiuterių, monitorių, televizorių</Link> ir kitos elektronikos išvežimas bei utilizavimas.
                 </p>
                 <Link
                   to="/kontaktai#contact-form"
@@ -157,7 +160,7 @@ const Home = () => {
                   </h3>
                 </Link>
                 <p className="text-gray-600 mb-4">
-                  <Link to="/paslaugos/baldu-isvezimas" className="text-green-600 hover:text-green-700">Lovų, spintų, sofų, čiužinių</Link> ir kitų didelių daiktų išvežimas už simbolinį mokestį.
+                  <Link to="/paslaugos/baldu-isvezimas" className="text-green-800 underline decoration-2 underline-offset-2 font-semibold hover:text-green-900">Lovų, spintų, sofų, čiužinių</Link> ir kitų didelių daiktų išvežimas už simbolinį mokestį.
                 </p>
                 <Link
                   to="/kontaktai#contact-form"
@@ -184,7 +187,7 @@ const Home = () => {
                   </h3>
                 </Link>
                 <p className="text-gray-600 mb-4">
-                  Surenkame ir nemokamai išvežame <Link to="/paslaugos/metalo-lauzo-isvezimas" className="text-green-600 hover:text-green-700">metalo atliekas</Link> iš namų, garažų, sandėlių.
+                  Surenkame ir nemokamai išvežame <Link to="/paslaugos/metalo-lauzo-isvezimas" className="text-green-800 underline decoration-2 underline-offset-2 font-semibold hover:text-green-900">metalo atliekas</Link> iš namų, garažų, sandėlių.
                 </p>
                 <Link
                   to="/kontaktai#contact-form"

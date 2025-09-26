@@ -5,9 +5,17 @@ import { balduFAQ } from '../../data/faqData';
 import SEO from '../../components/SEO';
 import ServiceSchema from '../../components/ServiceSchema';
 import company from '../../data/company';
+import { buildAbsoluteUrl, buildCanonicalUrl, withSeoId } from '../../lib/seo';
 
 const Baldai = () => {
-  const canonicalUrl = 'https://transportuok.lt/paslaugos/baldu-isvezimas';
+  const canonicalUrl = buildCanonicalUrl('/paslaugos/baldu-isvezimas');
+  const homeCanonical = buildCanonicalUrl('/');
+  const primaryImage = buildAbsoluteUrl('/images/baldai.webp');
+  const imageVariants = [
+    buildAbsoluteUrl('/images/baldai-small.webp'),
+    buildAbsoluteUrl('/images/baldai-medium.webp'),
+    buildAbsoluteUrl('/images/baldai-large.webp')
+  ];
   const title = 'Baldų išvežimas Kaune | Baldų utilizavimas | Karavanas LT';
   const description = 'Profesionalus senų baldų išvežimas Kaune: sofų, spintų, lovų, virtuvės baldų išmontavimas ir utilizavimas. Greitas aptarnavimas.';
 
@@ -19,13 +27,9 @@ const Baldai = () => {
     description,
     primaryImageOfPage: {
       '@type': 'ImageObject',
-      url: 'https://transportuok.lt/images/baldai.webp'
+      url: primaryImage
     },
-    image: [
-      'https://transportuok.lt/images/baldai-small.webp',
-      'https://transportuok.lt/images/baldai-medium.webp',
-      'https://transportuok.lt/images/baldai-large.webp'
-    ],
+    image: imageVariants,
     about: { '@type': 'Service', name: 'Baldų išvežimas Kaune' }
   } as const;
 
@@ -33,8 +37,8 @@ const Baldai = () => {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Pradžia', item: 'https://transportuok.lt/' },
-      { '@type': 'ListItem', position: 2, name: 'Paslaugos', item: 'https://transportuok.lt/paslaugos' },
+      { '@type': 'ListItem', position: 1, name: 'Pradžia', item: homeCanonical },
+      { '@type': 'ListItem', position: 2, name: 'Paslaugos', item: buildCanonicalUrl('/paslaugos') },
       { '@type': 'ListItem', position: 3, name: 'Baldų išvežimas Kaune', item: canonicalUrl }
     ]
   } as const;
@@ -56,8 +60,8 @@ const Baldai = () => {
 
   const provider = {
     name: company.legalName,
-    url: company.domain,
-    logo: '/ikona_spalvotas.svg',
+    url: buildCanonicalUrl('/'),
+    logo: buildAbsoluteUrl('/ikona_spalvotas.svg'),
     telephone: company.contacts.kaunas.phone,
     address: {
       streetAddress: 'Kauno g.',
@@ -81,11 +85,11 @@ const Baldai = () => {
   const faqStructuredData = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
-    '@id': `${canonicalUrl}#faq`,
+    '@id': withSeoId(canonicalUrl, 'faq'),
     'inLanguage': 'lt',
     mainEntity: validFaqs.map(q => ({
       '@type': 'Question',
-      '@id': `${canonicalUrl}#question-${slugify(q.question)}`,
+      '@id': withSeoId(canonicalUrl, `question-${slugify(q.question)}`),
       name: q.question,
       acceptedAnswer: { '@type': 'Answer', text: q.answer }
     }))
@@ -97,7 +101,7 @@ const Baldai = () => {
       <ServiceSchema
         name="Baldų išvežimas Kaune"
         description={description}
-        image="https://transportuok.lt/images/baldai.webp"
+        image={primaryImage}
         serviceId="baldu-isvezimas"
         provider={provider}
         areaServed="Kaunas"

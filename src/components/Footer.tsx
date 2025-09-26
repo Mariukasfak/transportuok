@@ -112,6 +112,9 @@ const Footer = () => {
           <small className="block mt-2 text-gray-400">
             Mūsų komandą aprengia <a href="https://siemka.lt" target="_blank" rel="noopener noreferrer" aria-label="Siemka.lt - marškinėliai ir džemperiai su spauda" className="text-green-400 font-semibold hover:text-white underline-offset-4 hover:underline focus-visible:underline focus-visible:outline-none transition-colors">Siemka.lt</a> – marškinėliai ir džemperiai su spauda
           </small>
+          <small className="block mt-1 text-gray-400">
+            Partneriai: <a href="https://katalizatoriu-supirkimas.lt/" target="_blank" rel="noopener noreferrer" className="text-green-400 font-semibold hover:text-white underline-offset-4 hover:underline focus-visible:underline focus-visible:outline-none transition-colors">Katalizatorių ir DPF filtrų supirkimas</a>
+          </small>
         </div>
       </div>
     </footer>

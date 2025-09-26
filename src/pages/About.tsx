@@ -1,18 +1,20 @@
 import { Shield, Users, BadgeCheck, Building2, MapPin, Phone, Mail, Calendar } from 'lucide-react';
 import company from '../data/company';
 import SEO from '../components/SEO';
+import { buildCanonicalUrl } from '../lib/seo';
 
 const About = () => {
   const years = new Date().getFullYear() - 2012; // pvz. start year 2012
   const title = `Apie ${company.legalName} | Nemokamas elektronikos ir buitinės technikos išvežimas`;
   const description = 'UAB "Karavanas LT" – profesionalus elektronikos ir buitinės technikos išvežimas Lietuvoje. Patirtis, patikimumas, rekvizitai ir kontaktai vienoje vietoje.';
-  const canonicalUrl = `${company.domain}/apie-mus`;
+  const canonicalUrl = buildCanonicalUrl('/apie-mus');
+  const homeCanonical = buildCanonicalUrl('/');
 
   const breadcrumbLd = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Pradžia', item: `${company.domain}/` },
+      { '@type': 'ListItem', position: 1, name: 'Pradžia', item: homeCanonical },
       { '@type': 'ListItem', position: 2, name: 'Apie mus', item: canonicalUrl }
     ]
   } as const;

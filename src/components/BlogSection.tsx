@@ -40,6 +40,9 @@ const BlogSection: React.FC = () => {
                   src={post.image}
                   alt={post.title}
                   loading="lazy"
+                  width={post.imageWidth}
+                  height={post.imageHeight}
+                  decoding="async"
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                 />
                 {post.category && (

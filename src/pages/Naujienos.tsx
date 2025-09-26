@@ -3,8 +3,132 @@ import { Calendar, Share2, ArrowLeft } from 'lucide-react';
 // Helmet usage replaced by centralized SEO component
 import SEO from '../components/SEO';
 import company from '../data/company';
+import { buildAbsoluteUrl, buildCanonicalUrl } from '../lib/seo';
 
 const blogPosts = [
+  {
+    id: 9,
+    slug: 'nemokamas-buitines-technikos-isvezimas-2025',
+    title: 'Nemokamas buitinės technikos išvežimas Kaune ir Vilniuje – 2025 strategija',
+    excerpt: 'Aktualus gidas gyventojams ir verslui: kaip 2025 m. nemokamai išvežti buitinę techniką Kaune ir Vilniuje, pasiruošti per 24 val. ir pasinaudoti papildomomis paslaugomis.',
+    date: '2025-02-05',
+    imageUrl: '/images/straipsnis3.webp',
+    content: `
+  <h1 class="text-3xl font-bold mb-6">Nemokamas buitinės technikos išvežimas Kaune ir Vilniuje – 2025 strategija</h1>
+  <p class="text-gray-700 mb-4">Augant elektronikos ir buitinės technikos keitimo tempui, <strong>nemokamas išvežimas</strong> tapo kritiška paslauga tiek daugiabučių gyventojams, tiek verslo klientams. Šiame 2025 m. vadove pasidalinsime, kaip pasiruošti surinkimui, kokius prietaisus priimame ir kaip išnaudoti papildomas Karavanas LT galimybes.</p>
+
+  <h2 class="text-2xl font-semibold mt-8 mb-4 text-green-700">Kodėl verta rinktis profesionalų nemokamą išvežimą?</h2>
+  <ul class="list-disc pl-6 space-y-2 mb-6 text-gray-700">
+    <li><span class="font-semibold">Licencijuota tvarkyba:</span> visos atliekos perduodamos perdirbimo partneriams ir įtraukiamos į <em>WEEE</em> apskaitą.</li>
+    <li><span class="font-semibold">Nulinės išlaidos:</span> Kaune ir Vilniuje šaldytuvai, skalbimo mašinos, viryklės ir televizoriai išvežami be papildomų mokesčių.</li>
+    <li><span class="font-semibold">Atsakomybė už visą procesą:</span> nuo išnešimo iš 5 aukšto iki dokumentų išrašo – viską atliekame mes.</li>
+  </ul>
+
+  <div class="bg-green-50 border border-green-200 rounded-lg p-6 mb-8">
+    <h3 class="font-semibold text-green-800 mb-3">Kaip veikia užsakymas?</h3>
+    <ol class="list-decimal pl-6 space-y-2 text-gray-700">
+      <li><strong>Registracija:</strong> užpildykite <a href="/kontaktai#contact-form" class="text-green-700 hover:text-green-800 font-semibold">užklausos formą</a> arba paskambinkite.</li>
+      <li><strong>Pasiruošimas:</strong> atjunkite prietaisus nuo elektros ir vandentiekio, ištuštinkite vidų, palikite atviras duris.</li>
+      <li><strong>Surinkimas:</strong> mūsų komanda atvyksta sutartu laiku, išneša ir pakrauna prietaisus, o jūs gaunate perdavimo patvirtinimą.</li>
+    </ol>
+  </div>
+
+  <h2 class="text-2xl font-semibold mt-8 mb-4 text-green-700">Miestų specifika 2025 metais</h2>
+  <div class="grid md:grid-cols-2 gap-4 mb-6">
+    <div class="bg-white border border-gray-200 rounded-lg p-4 shadow-sm">
+      <h3 class="font-semibold text-lg mb-2 text-gray-900">Kaunas</h3>
+      <p class="text-gray-700">Nemokamas išvežimas visiems dideliems prietaisams ir metalo laužui. Prioritetas teikiamas užsakymams centruose bei <a href="/kaunas" class="text-green-600 hover:text-green-700 font-semibold">Kauno padalinio puslapyje</a> nurodytose seniūnijose.</p>
+    </div>
+    <div class="bg-white border border-gray-200 rounded-lg p-4 shadow-sm">
+      <h3 class="font-semibold text-lg mb-2 text-gray-900">Vilnius</h3>
+      <p class="text-gray-700">Sostinėje nemokamas surinkimas apima daugiabučius, biurus ir gamybines patalpas. Suderinus grafiką, vykstame ir į Vilniaus rajoną – plačiau rasite <a href="/vilnius" class="text-green-600 hover:text-green-700 font-semibold">Vilniaus padalinio puslapyje</a>.</p>
+    </div>
+  </div>
+
+  <h2 class="text-2xl font-semibold mt-8 mb-4 text-green-700">Papildomos galimybės</h2>
+  <ul class="list-disc pl-6 space-y-2 mb-6 text-gray-700">
+    <li><strong>Fotofiksacija</strong> prieš ir po išvežimo – naudinga NT valdytojams.</li>
+    <li><strong>Pervežimas į laikiną saugojimą</strong> (renovuojant patalpas) už simbolinį mokestį.</li>
+    <li><strong>Dokumentų archyvas</strong> – per 10 min. atsiunčiame perdavimo aktą į el. paštą.</li>
+  </ul>
+
+  <div class="bg-green-600 text-white rounded-lg p-6 flex flex-col sm:flex-row sm:items-center sm:justify-between mb-8">
+    <div class="mb-4 sm:mb-0">
+      <h3 class="text-xl font-semibold">Paruošę prietaisus? Išsikvieskite komandą per 60 sekundžių.</h3>
+      <p class="text-sm opacity-90">Atsakome per 24 val. darbo dienomis ir suderiname patogiausią laiką.</p>
+    </div>
+    <div class="flex flex-wrap gap-3">
+      <a href="tel:+37069925744" class="px-4 py-2 bg-white text-green-700 font-semibold rounded-lg hover:bg-green-100">Skambinti +370 699 25 744</a>
+      <a href="/kontaktai#contact-form" class="px-4 py-2 border border-white font-semibold rounded-lg hover:bg-white hover:text-green-700">Pateikti užklausą</a>
+    </div>
+  </div>
+
+  <p class="text-sm text-gray-500">Atnaujinta: 2025-02-05</p>
+    `,
+    metaTitle: 'Nemokamas buitinės technikos išvežimas 2025 | Kaunas ir Vilnius',
+    metaDescription: 'Kaip 2025 m. nemokamai išvežti buitinę techniką Kaune ir Vilniuje. Pasiruošimo žingsniai, aptarnavimo teritorijos, papildomos Karavanas LT paslaugos.',
+    ogImage: '/images/straipsnis3.webp',
+  },
+  {
+    id: 10,
+    slug: 'partneryste-su-katalizatoriu-supirkimas-lt',
+    title: 'Partnerystė su Katalizatoriu-supirkimas.lt – SEO sinergija atliekų tvarkyme',
+    excerpt: 'Karavanas LT ir Katalizatoriu-supirkimas.lt jungia jėgas: vieninga SEO strategija, platesnis aptarnavimo spektras ir papildomos naudos klientams visoje Lietuvoje.',
+    date: '2025-02-12',
+    imageUrl: '/images/straipsnis4.webp',
+    content: `
+  <h1 class="text-3xl font-bold mb-6">Partnerystė su Katalizatoriu-supirkimas.lt – SEO sinergija atliekų tvarkyme</h1>
+  <p class="text-gray-700 mb-4"><strong>Karavanas LT</strong> pradeda strateginę partnerystę su <a href="https://katalizatoriu-supirkimas.lt/" target="_blank" rel="noopener noreferrer" class="text-green-700 hover:text-green-800 font-semibold">Katalizatoriu-supirkimas.lt</a>. Abi įmonės turi ilgametę patirtį atliekų surinkimo ir perdirbimo rinkoje, o bendras SEO planas leidžia klientams greičiau rasti reikiamas paslaugas ir gauti pilną sprendimą vienu vizitu.</p>
+
+  <h2 class="text-2xl font-semibold mt-8 mb-4 text-green-700">Į ką orientuojasi bendradarbiavimas?</h2>
+  <div class="grid md:grid-cols-2 gap-4 mb-6">
+    <div class="bg-white border border-gray-200 rounded-lg p-4 shadow-sm">
+      <h3 class="font-semibold text-lg mb-2 text-gray-900">Pilnas atliekų ciklas</h3>
+      <p class="text-gray-700">Karavanas LT pasirūpina buitinės technikos ir elektronikos surinkimu, o partneriai – katalizatorių supirkimu, brangiųjų metalų išgavimu bei sertifikuotu perdirbimu.</p>
+    </div>
+    <div class="bg-white border border-gray-200 rounded-lg p-4 shadow-sm">
+      <h3 class="font-semibold text-lg mb-2 text-gray-900">Šildančios SEO pozicijos</h3>
+      <p class="text-gray-700">Bendra turinio strategija užtikrina, kad paieškose dominuotų patikimi lietuviški atliekų tvarkytojai, o klientai pasirinktų paslaugas, atitinkančias ESG principus.</p>
+    </div>
+  </div>
+
+  <h2 class="text-2xl font-semibold mt-8 mb-4 text-green-700">Ką gauna klientai?</h2>
+  <ul class="list-disc pl-6 space-y-2 mb-6 text-gray-700">
+    <li><strong>Vienas kontaktas</strong> visam atliekų tvarkymo paketui – nuo buitinės technikos iki katalizatorių.</li>
+    <li><strong>Greitesnė paieška</strong> – SEO optimizuoti nusileidimo puslapiai plačiai aprėpia <em>atliekų surinkimas</em>, <em>katalizatorių supirkimas</em> ir <em>žiedinė ekonomika</em> užklausas.</li>
+    <li><strong>Patikimumo signalai</strong> – aiškiai pateikiami rekvizitai, sertifikatai ir realūs klientų atsiliepimai.</li>
+  </ul>
+
+  <div class="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-8">
+    <h3 class="font-semibold text-blue-900 mb-3">SEO veiksmų planas</h3>
+    <ol class="list-decimal pl-6 space-y-2 text-gray-700">
+      <li><strong>Turinio tinklaraštis:</strong> kuriame teminius straipsnius apie katalizatorių perdirbimą, eismo saugą ir atliekų prevenciją.</li>
+      <li><strong>Vidiniai ir išoriniai backlink'ai:</strong> cross-link'ai tarp Karavanas LT ir Katalizatoriu-supirkimas.lt sustiprina autoritetą.</li>
+      <li><strong>Lokalių puslapių optimizacija:</strong> kuriame <em>Vilniaus</em>, <em>Kauno</em>, <em>Klaipėdos</em> raktažodžiams pritaikytus skiltis.</li>
+    </ol>
+  </div>
+
+  <h2 class="text-2xl font-semibold mt-8 mb-4 text-green-700">Kaip pasinaudoti partneryste?</h2>
+  <p class="text-gray-700 mb-4">Jei renovuojate dirbtuves, servisą ar gamybinį cechą, galite sujungti paslaugas: Karavanas LT išvež buitinę techniką ir elektroniką, o <a href="https://katalizatoriu-supirkimas.lt/" target="_blank" rel="noopener noreferrer" class="text-green-700 hover:text-green-800 font-semibold">Katalizatoriu-supirkimas.lt</a> užtikrins katalizatorių supirkimą už konkurencingą kainą.</p>
+  <p class="text-gray-700 mb-6">Susiderinti vizitus galite paskambinę <a href="tel:+37066424024" class="text-green-700 hover:text-green-800 font-semibold">+370 664 24 024</a> arba užpildę <a href="/kontaktai#contact-form" class="text-green-700 hover:text-green-800 font-semibold">užklausą internete</a>. Mūsų komanda surezgins tvarkaraštį ir pateiks vieną bendrą pasiūlymą.</p>
+
+  <div class="bg-green-600 text-white rounded-lg p-6 flex flex-col sm:flex-row sm:items-center sm:justify-between mb-8">
+    <div class="mb-4 sm:mb-0">
+      <h3 class="text-xl font-semibold">Pasiruošę bendram projektui?</h3>
+      <p class="text-sm opacity-90">Susitarkite dėl išvežimo ir katalizatorių supirkimo vienu skambučiu.</p>
+    </div>
+    <div class="flex flex-wrap gap-3">
+      <a href="https://www.google.com/maps/dir/?api=1&destination=Karavanas+LT,+Vilnius" class="px-4 py-2 bg-white text-green-700 font-semibold rounded-lg hover:bg-green-100">Atvykti į biurą</a>
+      <a href="/kontaktai#contact-form" class="px-4 py-2 border border-white font-semibold rounded-lg hover:bg-white hover:text-green-700">Derinti projektą</a>
+    </div>
+  </div>
+
+  <p class="text-sm text-gray-500">Atnaujinta: 2025-02-12</p>
+    `,
+    metaTitle: 'Partnerystė su Katalizatoriu-supirkimas.lt | Atliekų ir SEO sinergija',
+    metaDescription: 'Karavanas LT ir Katalizatoriu-supirkimas.lt pristato bendrą SEO strategiją ir atliekų tvarkymo paketą. Vienas kontaktas, platesnis paslaugų spektras ir patikimumo garantijos.',
+    ogImage: '/images/straipsnis4.webp',
+  },
   {
     id: 1,
     slug: 'kaip-teisingai-utilizuoti-saldytuva-kaunieciai',
@@ -2374,6 +2498,18 @@ const blogPosts = [
     ogImage: '/images/straipsnis2.webp',
   }
 ];
+const imageDimensions: Record<string, { width: number; height: number }> = {
+  '/images/straipsnis1.webp': { width: 1024, height: 1024 },
+  '/images/straipsnis2.webp': { width: 1024, height: 1024 },
+  '/images/straipsnis3.webp': { width: 1536, height: 1024 },
+  '/images/straipsnis4.webp': { width: 1536, height: 1024 },
+  '/images/straipsnis5.webp': { width: 1024, height: 1024 },
+  '/images/straipsnis7.webp': { width: 1024, height: 1536 }
+} as const;
+
+
+
+const getImageDimensions = (src: string) => imageDimensions[src] || { width: 1200, height: 800 };
 
 const BlogPost = () => {
   const navigate = useNavigate();
@@ -2385,7 +2521,8 @@ const BlogPost = () => {
     return <div>Straipsnis nerastas</div>;
   }
 
-  const canonicalUrl = `${company.domain}/naujienos/${post.slug}`;
+  const canonicalUrl = buildCanonicalUrl(`/naujienos/${post.slug}`);
+  const { width: imageWidth, height: imageHeight } = getImageDimensions(post.imageUrl);
 
   const shareUrl = window.location.href;
   const shareText = post.title;
@@ -2403,13 +2540,13 @@ const BlogPost = () => {
     headline: post.title,
     datePublished: post.date,
     dateModified: post.date,
-    image: `${company.domain}${post.ogImage || post.imageUrl}`,
+    image: buildAbsoluteUrl(post.ogImage || post.imageUrl),
     mainEntityOfPage: canonicalUrl,
     author: { '@type': 'Organization', name: company.brandName },
     publisher: {
       '@type': 'Organization',
       name: company.brandName,
-      logo: { '@type': 'ImageObject', url: `${company.domain}/ikona_spalvotas.svg` }
+      logo: { '@type': 'ImageObject', url: buildAbsoluteUrl('/ikona_spalvotas.svg') }
     },
     description: post.metaDescription
   } as const;
@@ -2418,8 +2555,8 @@ const BlogPost = () => {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Pradžia', item: `${company.domain}/` },
-      { '@type': 'ListItem', position: 2, name: 'Naujienos', item: `${company.domain}/naujienos` },
+      { '@type': 'ListItem', position: 1, name: 'Pradžia', item: buildCanonicalUrl('/') },
+      { '@type': 'ListItem', position: 2, name: 'Naujienos', item: buildCanonicalUrl('/naujienos') },
       { '@type': 'ListItem', position: 3, name: post.title, item: canonicalUrl }
     ]
   } as const;
@@ -2431,7 +2568,7 @@ const BlogPost = () => {
           title={post.metaTitle}
           description={post.metaDescription}
           canonicalUrl={canonicalUrl}
-          ogImage={post.ogImage}
+          ogImage={post.ogImage || post.imageUrl}
           ogType="article"
           structuredData={[articleSchema, breadcrumbLd]}
         />
@@ -2450,6 +2587,9 @@ const BlogPost = () => {
           alt={post.title}
           className="w-full h-64 object-cover rounded-lg mb-8"
           loading="lazy"
+          decoding="async"
+          width={imageWidth}
+          height={imageHeight}
           itemProp="image"
         />
 
@@ -2505,7 +2645,7 @@ const BlogPost = () => {
                 href={url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center text-gray-600 hover:text-green-600"
+                  className="flex items-center text-gray-600 hover:text-green-600"
               >
                 <Share2 className="w-5 h-5 mr-2" />
                 {platform.charAt(0).toUpperCase() + platform.slice(1)}
@@ -2522,7 +2662,7 @@ const BlogPost = () => {
 const BlogList = () => {
   const title = 'Naujienos ir patarimai | Karavanas LT';
   const description = 'Naujausia informacija apie atliekų tvarkymą ir perdirbimą Kaune. Naudingos žinios apie buitinės technikos ir elektronikos utilizavimą.';
-  const canonicalUrl = `${company.domain}/naujienos`;
+  const canonicalUrl = buildCanonicalUrl('/naujienos');
   const blogLd = {
     '@context': 'https://schema.org',
     '@type': 'Blog',
@@ -2532,14 +2672,14 @@ const BlogList = () => {
       '@type': 'BlogPosting',
       headline: p.title,
       datePublished: p.date,
-      mainEntityOfPage: `${company.domain}/naujienos/${p.slug}`
+      mainEntityOfPage: buildCanonicalUrl(`/naujienos/${p.slug}`)
     }))
   } as const;
   const breadcrumbLd = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Pradžia', item: `${company.domain}/` },
+      { '@type': 'ListItem', position: 1, name: 'Pradžia', item: buildCanonicalUrl('/') },
       { '@type': 'ListItem', position: 2, name: 'Naujienos', item: canonicalUrl }
     ]
   } as const;
@@ -2554,38 +2694,44 @@ const BlogList = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {blogPosts.map((post) => (
-            <article
-              key={post.id}
-              className="bg-white rounded-lg shadow-lg overflow-hidden"
-              itemScope
-              itemType="http://schema.org/BlogPosting"
-            >
-              <img
-                src={post.imageUrl}
-                alt={post.title}
-                className="w-full h-48 object-cover"
-                loading="lazy"
-                itemProp="image"
-              />
-              <div className="p-6">
-                <div className="flex items-center text-gray-500 text-sm mb-4">
-                  <Calendar className="w-4 h-4 mr-2" />
-                  <time itemProp="datePublished" dateTime={post.date}>
-                    {new Date(post.date).toLocaleDateString('lt-LT')}
-                  </time>
+          {blogPosts.map((post) => {
+            const { width, height } = getImageDimensions(post.imageUrl);
+            return (
+              <article
+                key={post.id}
+                className="bg-white rounded-lg shadow-lg overflow-hidden"
+                itemScope
+                itemType="http://schema.org/BlogPosting"
+              >
+                <img
+                  src={post.imageUrl}
+                  alt={post.title}
+                  className="w-full h-48 object-cover"
+                  loading="lazy"
+                  decoding="async"
+                  width={width}
+                  height={height}
+                  itemProp="image"
+                />
+                <div className="p-6">
+                  <div className="flex items-center text-gray-500 text-sm mb-4">
+                    <Calendar className="w-4 h-4 mr-2" />
+                    <time itemProp="datePublished" dateTime={post.date}>
+                      {new Date(post.date).toLocaleDateString('lt-LT')}
+                    </time>
+                  </div>
+                  <h2 className="text-xl font-bold mb-3" itemProp="headline">{post.title}</h2>
+                  <p className="text-gray-600 mb-4" itemProp="description">{post.excerpt}</p>
+                  <Link
+                    to={`/naujienos/${post.slug}`}
+                    className="text-green-600 font-semibold hover:text-green-700"
+                  >
+                    Skaityti daugiau →
+                  </Link>
                 </div>
-                <h2 className="text-xl font-bold mb-3" itemProp="headline">{post.title}</h2>
-                <p className="text-gray-600 mb-4" itemProp="description">{post.excerpt}</p>
-                <Link
-                  to={`/naujienos/${post.slug}`}
-                  className="text-green-600 font-semibold hover:text-green-700"
-                >
-                  Skaityti daugiau →
-                </Link>
-              </div>
-            </article>
-          ))}
+              </article>
+            );
+          })}
         </div>
       </div>
     </div>

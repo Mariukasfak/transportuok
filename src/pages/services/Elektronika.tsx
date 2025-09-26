@@ -6,6 +6,7 @@ import { elektronikosFAQ } from '../../data/faqData';
 import ServiceSchema from '../../components/ServiceSchema';
 import SEO from '../../components/SEO';
 import CityTabs from '../../components/CityTabs';
+import { buildAbsoluteUrl, buildCanonicalUrl, withSeoId } from '../../lib/seo';
 
 const cityConfigs = {
   kaunas: {
@@ -43,7 +44,17 @@ const Elektronika = () => {
   const city = cityConfigs[cityKey] || cityConfigs.kaunas;
 
   const basePath = '/paslaugos/elektronikos-atlieku-isvezimas';
-  const canonicalUrl = `${'https://transportuok.lt'}${params.city ? `${basePath}/${params.city}` : basePath}`;
+  const canonicalPath = params.city ? `${basePath}/${params.city}` : basePath;
+  const canonicalUrl = buildCanonicalUrl(canonicalPath);
+  const homeCanonical = buildCanonicalUrl('/');
+  const servicesCanonical = buildCanonicalUrl('/paslaugos');
+  const providerLogo = buildAbsoluteUrl('/ikona_spalvotas.svg');
+  const primaryImage = buildAbsoluteUrl('/images/elektronika.webp');
+  const imageVariants = [
+    buildAbsoluteUrl('/images/elektronika-small.webp'),
+    buildAbsoluteUrl('/images/elektronika-medium.webp'),
+    buildAbsoluteUrl('/images/elektronika-large.webp')
+  ];
 
   useEffect(() => {
     // No imperative SEO updates needed; handled by SEO component
@@ -51,8 +62,8 @@ const Elektronika = () => {
 
   const provider = {
     name: 'UAB "Karavanas LT"',
-    url: 'https://transportuok.lt',
-    logo: '/ikona_spalvotas.svg',
+    url: homeCanonical,
+    logo: providerLogo,
     telephone: city.telHref.replace('tel:', ''),
     address: {
       streetAddress: cityKey === 'vilnius' || cityKey === 'lietuva' ? 'M. K. Čiurlionio g. 1-47' : 'Kauno g.',
@@ -66,8 +77,8 @@ const Elektronika = () => {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Pradžia', item: 'https://transportuok.lt/' },
-      { '@type': 'ListItem', position: 2, name: 'Paslaugos', item: 'https://transportuok.lt/paslaugos' },
+      { '@type': 'ListItem', position: 1, name: 'Pradžia', item: homeCanonical },
+      { '@type': 'ListItem', position: 2, name: 'Paslaugos', item: servicesCanonical },
       { '@type': 'ListItem', position: 3, name: `Elektronikos atliekų išvežimas ${city.locative}`, item: canonicalUrl }
     ]
   };
@@ -102,13 +113,9 @@ const Elektronika = () => {
     description: description,
     primaryImageOfPage: {
       '@type': 'ImageObject',
-      url: 'https://transportuok.lt/images/elektronika.webp'
+      url: primaryImage
     },
-    image: [
-      'https://transportuok.lt/images/elektronika-small.webp',
-      'https://transportuok.lt/images/elektronika-medium.webp',
-      'https://transportuok.lt/images/elektronika-large.webp'
-    ],
+    image: imageVariants,
     about: {
       '@type': 'Service',
       name: `Elektronikos atliekų išvežimas ${city.locative}`
@@ -131,11 +138,11 @@ const Elektronika = () => {
   const faqStructuredData = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
-    '@id': `${canonicalUrl}#faq`,
+    '@id': withSeoId(canonicalUrl, 'faq'),
     'inLanguage': 'lt',
     mainEntity: validFaqs.map(q => ({
       '@type': 'Question',
-      '@id': `${canonicalUrl}#question-${slugify(q.question)}`,
+      '@id': withSeoId(canonicalUrl, `question-${slugify(q.question)}`),
       name: q.question,
       acceptedAnswer: { '@type': 'Answer', text: q.answer }
     }))
@@ -148,7 +155,7 @@ const Elektronika = () => {
       <ServiceSchema
         name={`Elektronikos atliekų išvežimas ${city.locative}`}
         description={`Profesionalus elektronikos atliekų surinkimas, saugus duomenų sunaikinimas ir ekologiškas perdirbimas ${city.locative}.`}
-        image="https://transportuok.lt/images/elektronika.webp"
+        image={primaryImage}
         serviceId="elektronikos-atlieku-isvezimas"
         provider={provider}
         areaServed={cityKey === 'lietuva' ? 'Visa Lietuva' : city.name}
