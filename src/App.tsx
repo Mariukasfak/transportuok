@@ -23,6 +23,7 @@ const Naujienos = lazy(() => import('./pages/Naujienos'));
 const Services = lazy(() => import('./pages/Services'));
 const Kaunas = lazy(() => import('./pages/city/Kaunas'));
 const Vilnius = lazy(() => import('./pages/city/Vilnius'));
+const Partners = lazy(() => import('./pages/Partners'));
 
 const LoadingFallback = () => (
   <div className="min-h-screen flex items-center justify-center">
@@ -98,6 +99,7 @@ function App() {
                 <Route path="/kontaktai" element={<Contact />} />
                 <Route path="/naujienos" element={<Naujienos />} />
                 <Route path="/naujienos/:slug" element={<Naujienos />} />
+                <Route path="/partneriai" element={<Partners />} />
                 {/* City landing pages */}
                 <Route path="/kaunas" element={<Kaunas />} />
                 <Route path="/vilnius" element={<Vilnius />} />

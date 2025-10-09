@@ -7,6 +7,166 @@ import { buildAbsoluteUrl, buildCanonicalUrl } from '../lib/seo';
 
 const blogPosts = [
   {
+    id: 11,
+    slug: 'statybiniu-atlieku-isvezimas-vilniuje-2025',
+    title: 'Statybinių atliekų išvežimas Vilniuje 2025 – pilnas projektų gidas',
+    excerpt: 'Kaip 2025 m. Vilniuje teisėtai ir greitai išvežti statybines atliekas: leidimai, maršrutų planavimas, kainodara ir Transportuok.lt logistikos pranašumai.',
+    date: '2025-02-18',
+    imageUrl: '/images/straipsnis7.webp',
+    content: `
+  <h1 class="text-3xl font-bold mb-6">Statybinių atliekų išvežimas Vilniuje 2025 – pilnas projektų gidas</h1>
+  <p class="text-gray-700 mb-4"><strong>Transportuok.lt</strong> komanda pastebi, kad 2025 m. sostinėje išduodama rekordiškai daug statybos leidimų. Tai reiškia, kad greitas ir teisiškai tvarkingas <em>statybinių atliekų išvežimas Vilniuje</em> tampa kritine projekto dalimi – tiek renovuojant butus Naujamiestyje, tiek vystant verslo centrus Šnipiškėse.</p>
+
+  <div class="bg-green-50 border border-green-200 rounded-lg p-6 mb-8">
+    <h2 class="text-2xl font-semibold text-green-700 mb-3">Trumpa santrauka užimtiems vadovams</h2>
+    <ul class="list-disc pl-6 space-y-2 text-gray-700">
+      <li><span class="font-semibold">Reikalingi leidimai:</span> <em>Vilniaus atliekų laikino saugojimo</em> registracija ir sutartis dėl pavojingų frakcijų, jei šalinamas asbestas ar dažai.</li>
+      <li><span class="font-semibold">Terminai:</span> Transportavimo grafikas suplanuojamas per 24 val., konteineris pristatomas per 48 val. nuo užsakymo patvirtinimo.</li>
+      <li><span class="font-semibold">Maršrutai:</span> Senamiestyje – tik iki 12 t, kituose rajonuose galimi 18 t konteineriai su vakariniais išvežimais.</li>
+      <li><span class="font-semibold">Kontaktas:</span> +370 699 25 744 arba <a href="/kontaktai#contact-form" class="text-green-700 hover:text-green-800 font-semibold">kontaktų formoje</a>.</li>
+    </ul>
+  </div>
+
+  <h2 class="text-2xl font-semibold mt-8 mb-4 text-green-700">Kodėl verta pasirūpinti statybinėmis atliekomis iš anksto?</h2>
+  <div class="grid md:grid-cols-2 gap-4 mb-6">
+    <div class="bg-white border border-gray-200 rounded-lg p-4 shadow-sm">
+      <h3 class="font-semibold text-lg mb-2 text-gray-900">Teisinė atsakomybė</h3>
+      <p class="text-gray-700">Atliekų tvarkymo įstatymas numato baudas iki 560 eurų juridiniams asmenims, jei atliekos laikomos ilgiau nei 10 dienų be sutarties.</p>
+    </div>
+    <div class="bg-white border border-gray-200 rounded-lg p-4 shadow-sm">
+      <h3 class="font-semibold text-lg mb-2 text-gray-900">Projektų tvarumas</h3>
+      <p class="text-gray-700">Sertifikuotas frakcijų rūšiavimas padeda gauti papildomus BREEAM/LEED balus ir pagerina projekto reputaciją investuotojų akyse.</p>
+    </div>
+  </div>
+
+  <h2 class="text-2xl font-semibold mt-8 mb-4 text-green-700">Vilniaus rajonų specifika 2025 m.</h2>
+  <div class="grid md:grid-cols-3 gap-4 mb-6">
+    <div class="bg-gray-50 p-5 rounded-lg">
+      <h3 class="font-semibold mb-2 text-green-700">Centras ir Senamiestis</h3>
+      <p class="text-gray-600 text-sm">Reikalingi specialūs įvažiavimo leidimai, konteineriai pristatomi su mažesne technika, o išvežimas planuojamas iki 10:00 val.</p>
+    </div>
+    <div class="bg-gray-50 p-5 rounded-lg">
+      <h3 class="font-semibold mb-2 text-green-700">Šnipiškės ir Naujamiestis</h3>
+      <p class="text-gray-600 text-sm">Dažniausiai renkamės vakarinį grafiką, kad sumažintume eismo spūstis. Galimas grįžtamasis metalo laužo supirkimas.</p>
+    </div>
+    <div class="bg-gray-50 p-5 rounded-lg">
+      <h3 class="font-semibold mb-2 text-green-700">Pilaitė, Pašilaičiai, Perkūnkiemis</h3>
+      <p class="text-gray-600 text-sm">Didelės apimties daugiabučių renovacijos leidžia naudoti 30 m³ konteinerius; maršrutai jungiami su buitinės technikos išvežimu.</p>
+    </div>
+  </div>
+
+  <h2 class="text-2xl font-semibold mt-8 mb-4 text-green-700">Ką išvežame ir kaip rūšiuojame?</h2>
+  <div class="bg-green-50 border border-green-200 rounded-lg p-6 mb-8">
+    <div class="grid md:grid-cols-2 gap-4">
+      <div>
+        <h3 class="font-semibold text-green-800 mb-3">Populiariausios frakcijos</h3>
+        <ul class="list-disc pl-6 space-y-2 text-gray-700">
+          <li>Betonas, plytos, tinkas ir gipso kartono atliekos</li>
+          <li>Mediena, grindų dangos, durys ir langų rėmai</li>
+          <li>Metalo konstrukcijos, armatūra, kabeliai</li>
+          <li>Stiklas, plastikas, izoliacinės medžiagos</li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="font-semibold text-green-800 mb-3">Rūšiavimo eiga</h3>
+        <ol class="list-decimal pl-6 space-y-2 text-gray-700">
+          <li>Statybvietėje įrengiame konteinerius pagal frakcijas.</li>
+          <li>Transportuok.lt komanda sveria ir dokumentuoja kiekvieną išvežimą.</li>
+          <li>Atliekos perduodamos Vilniaus regiono tvarkytojams, gaunate aktus PDF formatu.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="text-2xl font-semibold mt-8 mb-4 text-green-700">Kainodara ir grafikai</h2>
+  <table class="w-full text-left border-collapse mb-6">
+    <thead>
+      <tr class="bg-gray-100">
+        <th class="p-3 text-sm font-semibold text-gray-700">Paslauga</th>
+        <th class="p-3 text-sm font-semibold text-gray-700">Tūris</th>
+        <th class="p-3 text-sm font-semibold text-gray-700">Orientacinė kaina*</th>
+        <th class="p-3 text-sm font-semibold text-gray-700">Išvežimo terminas</th>
+      </tr>
+    </thead>
+    <tbody class="text-gray-700 text-sm">
+      <tr class="border-b">
+        <td class="p-3">Mišrios statybinės atliekos</td>
+        <td class="p-3">10 m³ konteineris</td>
+        <td class="p-3">nuo 179 € + PVM</td>
+        <td class="p-3">48 val. nuo užsakymo</td>
+      </tr>
+      <tr class="border-b">
+        <td class="p-3">Mediena ir gipso kartonas</td>
+        <td class="p-3">20 m³ konteineris</td>
+        <td class="p-3">nuo 219 € + PVM</td>
+        <td class="p-3">72 val. (galimas savaitgalio grafikas)</td>
+      </tr>
+      <tr>
+        <td class="p-3">Metalo laužas</td>
+        <td class="p-3">15 m³ konteineris</td>
+        <td class="p-3">išvežimas nemokamas, supirkimas pagal biržos kainas</td>
+        <td class="p-3">Pagal metalo kiekį, derinama individualiai</td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="text-sm text-gray-500 mb-8">*Kainos preliminarios ir gali kisti pagal atliekų sudėtį, transporto atstumą ir užsakymo laiką. Rašykite mums dėl tikslios komercijos.</p>
+
+  <div class="border-l-4 border-green-500 pl-4 italic my-6 bg-green-50 p-4 rounded-r-lg">
+    <p class="font-semibold mb-2">Pro patarimas:</p>
+    <p>Sudėjus statybinių atliekų ir buitinės technikos išvežimą į vieną maršrutą, vidutiniškai sutaupoma 18 % logistikos kaštų. Tai ypač aktualu daugiabučių renovacijos projektuose.</p>
+  </div>
+
+  <h2 class="text-2xl font-semibold mt-8 mb-4 text-green-700">Kaip užsakyti Transportuok.lt komandą?</h2>
+  <div class="bg-green-600 text-white rounded-lg p-6 flex flex-col sm:flex-row sm:items-center sm:justify-between mb-8">
+    <div class="mb-4 sm:mb-0">
+      <h3 class="text-xl font-semibold">Supaprastintas 3 žingsnių procesas</h3>
+      <p class="text-sm opacity-90">Užklausa → projektų vadovo skambutis → konteineris prie objekto.</p>
+    </div>
+    <div class="flex flex-wrap gap-3">
+      <a href="tel:+37069925744" class="px-4 py-2 bg-white text-green-700 font-semibold rounded-lg hover:bg-green-100">Skambinti +370 699 25 744</a>
+      <a href="/kontaktai#contact-form" class="px-4 py-2 border border-white font-semibold rounded-lg hover:bg-white hover:text-green-700">Gauti pasiūlymą</a>
+    </div>
+  </div>
+
+  <div class="bg-white border border-gray-200 rounded-lg p-6 mb-8 shadow-sm">
+    <h3 class="text-lg font-semibold mb-3 text-gray-900">Dokumentai, kuriuos gausite</h3>
+    <ul class="list-disc pl-6 space-y-2 text-gray-700">
+      <li>Atliekų perdavimo-priėmimo aktai PDF formatu</li>
+      <li>Svorio kvitai iš priėmimo aikštelių</li>
+      <li>Pavojingų atliekų apskaitos žurnalo įrašai (jei taikoma)</li>
+      <li>Nuotraukų ataskaita su konteinerio užsandarinimu</li>
+    </ul>
+  </div>
+
+  <h2 class="text-2xl font-semibold mt-8 mb-4 text-green-700">DUK: statybinės atliekos Vilniuje</h2>
+  <div class="space-y-4">
+    <div class="bg-gray-50 p-5 rounded-lg">
+      <h3 class="font-bold text-green-700">Ar galima konteinerį laikyti ant šaligatvio?</h3>
+      <p class="text-gray-700">Taip, tačiau būtinas Vilniaus miesto savivaldybės leidimas. Jį paruošiame per 2 darbo dienas ir pridengiame apsaugine juosta bei ženklais.</p>
+    </div>
+    <div class="bg-gray-50 p-5 rounded-lg">
+      <h3 class="font-bold text-green-700">Ką daryti su asbestu ir kitomis pavojingomis medžiagomis?</h3>
+      <p class="text-gray-700">Reikalingas atskiras konteineris ir pažymėtas supakavimas. Mes pasirūpiname respiratoriais, sertifikuotu transportu ir perdavimo dokumentais.</p>
+    </div>
+    <div class="bg-gray-50 p-5 rounded-lg">
+      <h3 class="font-bold text-green-700">Ar teikiate paslaugas savaitgaliais?</h3>
+      <p class="text-gray-700">Taip, savaitgaliais dirbame 08:00–16:00. Tai ypač patogu prekybinių patalpų savininkams, kurie remonto darbus planuoja ne darbo valandomis.</p>
+    </div>
+  </div>
+
+  <div class="bg-green-50 border border-green-200 rounded-lg p-6 mt-8">
+    <h3 class="text-xl font-semibold text-green-800 mb-2">Pasiruošę pradėti?</h3>
+    <p class="text-gray-700 mb-4">Siųskite remonto planą arba nuotraukas – parengsime pasiūlymą su rekomenduojamu konteinerių skaičiumi, grafiku ir komplekto kaina.</p>
+    <a href="mailto:info@transportuok.lt" class="inline-block bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition">info@transportuok.lt</a>
+  </div>
+
+  <p class="text-sm text-gray-500 mt-8">Atnaujinta: 2025-02-18</p>
+    `,
+    metaTitle: 'Statybinių atliekų išvežimas Vilniuje 2025 | Transportuok.lt',
+    metaDescription: 'Išsamus 2025 m. statybinių atliekų išvežimo Vilniuje gidas: leidimai, konteinerių grafikai, kainodara, rūšiavimo reikalavimai ir Transportuok.lt kontaktai.',
+    ogImage: '/images/straipsnis7.webp',
+  },
+  {
     id: 9,
     slug: 'nemokamas-buitines-technikos-isvezimas-2025',
     title: 'Nemokamas buitinės technikos išvežimas Kaune ir Vilniuje – 2025 strategija',
@@ -2668,7 +2828,7 @@ const BlogList = () => {
     '@type': 'Blog',
     name: title,
     url: canonicalUrl,
-    blogPost: blogPosts.slice(0, 10).map(p => ({
+    blogPost: blogPosts.map(p => ({
       '@type': 'BlogPosting',
       headline: p.title,
       datePublished: p.date,

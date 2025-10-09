@@ -5,11 +5,9 @@ import { buildAbsoluteUrl, buildCanonicalUrl } from '../lib/seo';
 import { trackCTAClick } from '../utils/analytics';
 import OptimizedImage from '../components/OptimizedImage';
 import LazyGoogleReviews from '../components/LazyGoogleReviews';
-import partners from '../data/partners';
 // Below-the-fold bundles split to reduce initial JS and speed LCP
 const CitySelector = React.lazy(() => import('../components/CitySelector'));
 const BlogSection = React.lazy(() => import('../components/BlogSection'));
-const PartnersSection = React.lazy(() => import('../components/PartnersSection'));
 
 const Home = () => {
   const canonicalUrl = buildCanonicalUrl('/');
@@ -18,24 +16,6 @@ const Home = () => {
   const handleCTAClick = (ctaId: string, ctaText: string) => {
     trackCTAClick(ctaId, ctaText);
   };
-
-  const partnerStructuredData = {
-    '@context': 'https://schema.org',
-    '@type': 'ItemList',
-    name: 'Patikimi partneriai',
-    description: 'Transportuok LT partnerių sąrašas, papildantis mūsų paslaugas susijusiose srityse.',
-    itemListElement: partners.map((partner, index) => ({
-      '@type': 'ListItem',
-      position: index + 1,
-      item: {
-        '@type': 'Organization',
-        name: partner.name,
-        url: partner.url,
-        description: partner.description,
-        sameAs: partner.sameAs ?? [],
-      },
-    })),
-  } as const;
 
   return (
     <>
@@ -65,7 +45,6 @@ const Home = () => {
               { '@type': 'ListItem', position: 1, name: 'Pradžia', item: canonicalUrl }
             ]
           },
-          partnerStructuredData
         ]}
       />
 
@@ -241,10 +220,29 @@ const Home = () => {
           </div>
         </section>
 
-        {/* Partners Section (lazy) */}
-        <React.Suspense fallback={<div className="py-20 text-center text-gray-500">Įkeliame partnerių informaciją...</div>}>
-          <PartnersSection />
-        </React.Suspense>
+        {/* Partners teaser */}
+        <section className="py-12 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="rounded-2xl border border-gray-200 bg-gradient-to-r from-green-50 to-emerald-50 p-8 sm:p-12 shadow-sm">
+              <div className="max-w-3xl">
+                <span className="inline-flex items-center rounded-full bg-green-100 text-green-700 px-3 py-1 text-xs font-semibold tracking-wide uppercase">Partnerystė</span>
+                <h2 className="mt-4 text-2xl font-bold text-gray-900 sm:text-3xl">Atraskite mūsų partnerius</h2>
+                <p className="mt-3 text-gray-700">
+                  Dirbame su atrinktais partneriais, kurie papildo mūsų išvežimo paslaugas – nuo itališkos kavos tiekėjų iki eksterjero sprendimų ir pramoninių utilizavimo specialistų.
+                </p>
+              </div>
+              <div className="mt-6">
+                <Link
+                  to="/partneriai"
+                  className="inline-flex items-center gap-2 rounded-lg bg-[#167d36] px-5 py-3 text-sm font-semibold text-white shadow transition-colors hover:bg-[#0f5a26]"
+                >
+                  Peržiūrėti partnerius
+                  <span aria-hidden="true">→</span>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
 
         {/* City Selector (lazy) */}
         <React.Suspense fallback={<div className="py-20 text-center text-gray-500">Įkeliami miestai...</div>}>

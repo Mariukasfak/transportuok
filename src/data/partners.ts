@@ -29,6 +29,25 @@ export const partners: Partner[] = [
     tagline: 'Baseinų, SPA ir eksterjero prekių centras – nuo chemijos iki kompleksiškų įrengimo sprendimų.',
     sameAs: ['https://www.facebook.com/uabVALmarket/'],
   },
+  {
+    id: 'siemka',
+    name: 'Siemka.lt',
+    url: 'https://siemka.lt/',
+    description:
+      'Kūrybiški džemperiai, marškinėliai ir reklaminė tekstilė mamoms, poroms ir vaikams su individualiais užrašais bei kokybiška spauda.',
+    anchorText: 'kūrybiškus džemperius ir marškinėlius su spauda Siemka.lt el. parduotuvėje',
+    tagline: 'Lietuviška kūrybinė tekstilė, padedanti dovanoti asmeninį stilių šeimai, kolektyvams ir partneriams.',
+    sameAs: ['https://www.facebook.com/Siemka.Shop/', 'https://www.instagram.com/siemka.shop/'],
+  },
+  {
+    id: 'katalizatoriu-supirkimas',
+    name: 'Katalizatorių Supirkimas LT',
+    url: 'https://katalizatoriu-supirkimas.lt/',
+    description:
+      'Katalizatorių ir dyzelinių DPF filtrų supirkimas visoje Lietuvoje su XRF analize, skaidriu įkainiu ir atsiskaitymu tą pačią dieną.',
+    anchorText: 'katalizatorių ir DPF filtrų supirkimo pasiūlymus Katalizatorių Supirkimas LT svetainėje',
+    tagline: 'Profesionali komanda, kuri padeda saugiai parduoti katalizatorių pagal realią tauriųjų metalų vertę be tarpininkų.',
+  },
 ];
 
 export default partners;

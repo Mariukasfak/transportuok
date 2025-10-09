@@ -87,6 +87,12 @@ const Navbar = () => {
               Naujienos
             </Link>
             <Link
+              to="/partneriai"
+              className={`${isActive('/partneriai') ? 'text-green-700 font-semibold' : 'text-gray-800'} hover:text-green-700 transition-colors`}
+            >
+              Partneriai
+            </Link>
+            <Link
               to="/kontaktai"
               className={`${isActive('/kontaktai') ? 'text-green-700 font-semibold' : 'text-gray-800'} hover:text-green-700 transition-colors`}
             >
@@ -196,6 +202,14 @@ const Navbar = () => {
               onClick={() => setIsOpen(false)}
             >
               Naujienos
+            </Link>
+            <Link
+              to="/partneriai"
+              className={`block px-3 py-2 text-base font-medium rounded-md ${isActive('/partneriai') ? 'text-green-700 bg-green-50' : 'text-gray-800 hover:text-green-700 hover:bg-gray-50'
+                }`}
+              onClick={() => setIsOpen(false)}
+            >
+              Partneriai
             </Link>
             <Link
               to="/kontaktai"

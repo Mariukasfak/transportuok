@@ -26,7 +26,7 @@ const Footer = () => {
           <div>
             <h3 className="text-xl font-bold mb-4">Transportuok.LT</h3>
             <p className="text-gray-300 leading-relaxed">
-              Profesionalus buitinės technikos ir elektronikos atliekų išvežimas Lietuvoje.
+              Nemokamas buitinės technikos ir elektronikos atliekų išvežimas Lietuvoje.
             </p>
             <div className="flex space-x-4 mt-4">
               <a
@@ -88,6 +88,7 @@ const Footer = () => {
                 { to: '/paslaugos/metalo-lauzo-isvezimas', label: 'Metalo laužo išvežimas' },
                 { to: '/apie-mus', label: 'Apie mus' },
                 { to: '/naujienos', label: 'Naujienos' },
+                { to: '/partneriai', label: 'Partneriai' },
                 { to: '/kontaktai', label: 'Kontaktai' }
               ].map(i => (
                 <Link key={i.to} to={i.to} className="block text-gray-300 hover:text-white underline-offset-4 hover:underline focus-visible:underline focus-visible:outline-none">
@@ -125,6 +126,26 @@ const Footer = () => {
                     className="hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-green-500"
                   >
                     Lauko baseinai ir SPA sprendimai – Valmarket.lt
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://siemka.lt/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-green-500"
+                  >
+                    Reklaminė tekstilė ir dovanos – Siemka.lt
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://katalizatoriu-supirkimas.lt/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-green-500"
+                  >
+                    Katalizatorių ir DPF filtrų supirkimas
                   </a>
                 </li>
               </ul>
