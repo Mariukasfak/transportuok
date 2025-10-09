@@ -22,8 +22,8 @@ export const company = {
         },
     },
     rekvizitai: {
-        imonesKodas: '302705147', // TODO: pakeisti į tikrą įmonės kodą
-        pvmKodas: 'LT100006580016', // TODO: pakeisti į tikrą PVM kodą (jei taikoma)
+        imonesKodas: '302705147', 
+        pvmKodas: 'LT100006580016', 
     },
 } as const;
 

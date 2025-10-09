@@ -3,7 +3,7 @@ import { Phone, Mail, MapPin, Facebook, Instagram } from 'lucide-react';
 
 const PaslaugosIcon = () => (
   <svg
-    xmlns="images\paslaugos.svg"
+    xmlns="http://www.w3.org/2000/svg"
     width="24"
     height="24"
     viewBox="0 0 24 24"
@@ -103,6 +103,31 @@ const Footer = () => {
               <p>Pirm - Penkt: 8:00 - 18:00</p>
               <p>Šešt: 9:00 - 15:00</p>
               <p>Sekm: Nedirbame</p>
+            </div>
+            <div className="mt-6">
+              <h5 className="text-md font-semibold mb-3">Partneriai</h5>
+              <ul className="space-y-2 text-gray-300">
+                <li>
+                  <a
+                    href="https://kava1.lt/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-green-500"
+                  >
+                    Itališka kava ir kapsulės – Kava1.lt
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://valmarket.lt/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-green-500"
+                  >
+                    Lauko baseinai ir SPA sprendimai – Valmarket.lt
+                  </a>
+                </li>
+              </ul>
             </div>
           </div>
         </div>

@@ -5,9 +5,11 @@ import { buildAbsoluteUrl, buildCanonicalUrl } from '../lib/seo';
 import { trackCTAClick } from '../utils/analytics';
 import OptimizedImage from '../components/OptimizedImage';
 import LazyGoogleReviews from '../components/LazyGoogleReviews';
+import partners from '../data/partners';
 // Below-the-fold bundles split to reduce initial JS and speed LCP
 const CitySelector = React.lazy(() => import('../components/CitySelector'));
 const BlogSection = React.lazy(() => import('../components/BlogSection'));
+const PartnersSection = React.lazy(() => import('../components/PartnersSection'));
 
 const Home = () => {
   const canonicalUrl = buildCanonicalUrl('/');
@@ -16,6 +18,24 @@ const Home = () => {
   const handleCTAClick = (ctaId: string, ctaText: string) => {
     trackCTAClick(ctaId, ctaText);
   };
+
+  const partnerStructuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Patikimi partneriai',
+    description: 'Transportuok LT partnerių sąrašas, papildantis mūsų paslaugas susijusiose srityse.',
+    itemListElement: partners.map((partner, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      item: {
+        '@type': 'Organization',
+        name: partner.name,
+        url: partner.url,
+        description: partner.description,
+        sameAs: partner.sameAs ?? [],
+      },
+    })),
+  } as const;
 
   return (
     <>
@@ -44,7 +64,8 @@ const Home = () => {
             itemListElement: [
               { '@type': 'ListItem', position: 1, name: 'Pradžia', item: canonicalUrl }
             ]
-          }
+          },
+          partnerStructuredData
         ]}
       />
 
@@ -219,6 +240,11 @@ const Home = () => {
             </Link>
           </div>
         </section>
+
+        {/* Partners Section (lazy) */}
+        <React.Suspense fallback={<div className="py-20 text-center text-gray-500">Įkeliame partnerių informaciją...</div>}>
+          <PartnersSection />
+        </React.Suspense>
 
         {/* City Selector (lazy) */}
         <React.Suspense fallback={<div className="py-20 text-center text-gray-500">Įkeliami miestai...</div>}>
