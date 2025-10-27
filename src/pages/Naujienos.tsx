@@ -7,7 +7,7 @@ import { buildAbsoluteUrl, buildCanonicalUrl } from '../lib/seo';
 
 const blogPosts = [
   {
-    id: 6,
+    id: 12,
     slug: 'nemokamas-buitines-technikos-isvezimas-tvarka',
     title: 'Nemokamas buitinės technikos išvežimas Lietuvoje: tvarka be rūpesčių',
     excerpt: 'Išvežimo paslaugos be naudžių rūpesčių - išnešame, išvežame ir perdirbame. Dėl transportavimo ir formalumų pasirūpina Transportuok.lt profesionalai.',
