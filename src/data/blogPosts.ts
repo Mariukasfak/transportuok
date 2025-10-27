@@ -1,5 +1,182 @@
 export const blogPosts = [
   {
+    id: 6,
+    title: 'Nemokamas buitinės technikos išvežimas Lietuvoje: tvarka be rūpesčių',
+    slug: 'nemokamas-buitines-technikos-isvezimas-tvarka',
+    excerpt: 'Išvežimo paslaugos be naudžių rūpesčių - išnešame, išvežame ir perdirbame. Dėl transportavimo ir formalumų pasirūpina Transportuok.lt profesionalai.',
+    content: `
+# Nemokamas buitinės technikos išvežimas Lietuvoje: tvarka be rūpesčių
+
+Ar pažįstate tą jausmą, kai vienas senas šaldytuvas ar skalbyklė „suriša" visą koridorių? **Transportuok.lt** sukurta paslauga nuima šį mazgą taip pat lengvai, kaip išsikviesti pavežėją: pasirenkate laiką, mes išnešame ir nemokamai išvežame (elektronika ir metalas), o jūs tą pačią dieną atgaunate erdvę ir ramybę.
+
+## Kodėl tai veikia: trijų barjerų sprendimas
+
+### Neturiu transporto
+**Mes turime savo transportą**, pritaikytą sunkiai technikai – nereikia ieškoti kempinės ar prašyti draugų pagalbos.
+
+### Bijau nešti
+**Išnešame iš bet kurio aukšto** – turime vežimėlius, diržus ir daugiau nei 10 metų patirtį. Jūs tik atidarote duris.
+
+### Nežinau kur priduoti
+**Perdirbame per patikimus partnerius**, prireikus pateikiame dokumentus. Jūs galite sekti savo atliekų kelią (B2B).
+
+## Kaip veikia: 3 aiškūs žingsniai
+
+### 1. Pasirink laiką internetu
+Internetine forma užpildyti reikia tik **30 sekundžių** – adresą, aukštą, kodą. Atvykstame **24/7** pagal jūsų grafiką.
+
+### 2. Atvykstame sutartu langu
+Paskambbiname prieš atvykimą. **Dažniausia – per 30-60 minučių** nuo patvirtinimo. Greitieji miestai: **Kaunas ir Vilnius** – dažnai šiandien arba rytoj.
+
+### 3. Išnešame → išvežame → perdirbame
+Jums – tik atverti duris. Sunkiausias darbas yra mūsų. **Dirbame visoje Lietuvoje.**
+
+## Ką paimame nemokamai?
+
+### Didžioji technika
+- ✅ Skalbimo mašinos (priekinės ir viršutinės kraunimo)
+- ✅ Džiovyklės (kondensacinės ir ištraukiamosios)
+- ✅ Šaldytuvai/šaldikliai (visos markės)
+- ✅ Viryklės (dujinės, elektrinės, indukcinės)
+- ✅ Orkaitės ir gartraukiai
+- ✅ Indaplausės (įmontuojamos ir atskirai stovinčios)
+
+### Elektronika
+- ✅ Televizoriai (įsk. CRT – senos cathode ray tube)
+- ✅ Monitoriai (LCD, LED, OLED)
+- ✅ Mikrobangės ir garso aparatūra
+- ✅ Nešiojamieji kompiuteriai ir planšetės
+
+### Kompiuterija ir smulki elektronika
+- ✅ Staliniai kompiuteriai ir serveriai
+- ✅ Spausdintuvai, kopirkai, skeneriai
+- ✅ Maršrutizatoriai ir tinklo įranga
+- ✅ Mobilieji telefonai ir laidai
+- ✅ Ats. jungikliai ir transformatoriai
+
+### Metalas ir kita
+- ✅ Metalo laužas (nemokamai, dažniausia superkame vietoje)
+- ✅ Elektronika ir metalas **nemokamai** (suderinimas reikalingas sunkiems ar dideliems kiekiams)
+
+## Kodėl verta: psichologija ir ekonomika
+
+### Sutaupote laiką ⏱️
+- 🚫 Jokių eilių aikštelėse
+- 🚫 Jokių „kur vežti?" paieškų
+- 📅 Nuo užsakymo iki išvežimo – 24-48 valandos
+
+### Saugiau 🏠
+- ✅ **Tvarkingas išnešimas** – sienų nebraižome, nugaros neskauda
+- ✅ **Profesionalus** – 10+ metų patirtis
+- ✅ **Asiguota** – jei kaip nors sugadinsime, atlygname
+
+### Ramybė 🧠
+- ✅ Žinote, kad daiktai **ne išmetami**, o **perdirbami**
+- ✅ Metalas – superkamas, elektronika – atsakingai utilizuojama
+- ✅ Atliekų kelias – dokumentuojamas (B2B)
+
+### Skaidrumas 📋
+- ✅ Galima gauti **perdavimo aktus** ir **ataskaitas**
+- ✅ Ypač aktualu **įmonėms ir NT valdytojams**
+- ✅ ESG reporting – sertifikuota utilizavimo procedūra
+
+## Įmonėms (B2B) – periodiniai maršrutai
+
+Siūlome **bendradarbiavimą su sutartimi:**
+
+- ✅ **Reaktyvus reagavimas** per 24 h
+- ✅ **Surinkimo dėžės smulkiai elektronikai** biure/gamyboje
+- ✅ **Perdavimo aktai** kiekvienam išvežimui
+- ✅ **Mėnesinės ataskaitos** – vertimas į jūsų ESG sistemą
+- ✅ **Vienas kontaktas** – nereikia dalintis, jei numainytas personalas
+- ✅ **Kainų nuolaidos** – didėjant maršrutų dažnumui
+
+**Padėkime jums pasiekti ESG tikslus!** Skambinkite: **+370 699 25 744** (Kaunas) arba **+370 664 24 024** (Vilnius).
+
+## Kaip pasiruošti išvežimui?
+
+### Šaldytuvo atveju
+1. Atjunkite iš elektros **24 valandas prieš** išvežimą (freonas turės nuslūgti)
+2. Išimkite maistą ir ištuštinkite vandenį
+3. Palikite atviras dureles – kelioms valandoms prieš mūsų atvykimą
+
+### Skalbimo mašinos/indaplausės atveju
+1. Atjunkite iš vandens ir elektros
+2. Ištuštinkite likusį vandenį iš šlanto
+3. Apvyskite šlantą krepšeliu – nesuteršus grindų
+
+### Viryklės/orkaitės atveju
+1. **Dujinę viryklę atjunkite profesionaliai** (paslaugą teikia dujų įmonės)
+2. Patikrinkite, kad nėra dujų nutekėjimo
+3. Pažymėkite, jei yra specialūs susimaišymai
+
+### Bendroji nuoroda
+- 🔧 Jei **labai siaura laiptinė** – pranešite! Atsivešime papildomą įrangą ar iš lauko pakelsiame krano
+- 📸 Pridėkite nuotrauką – padės mūsų komandai pasiruošti tinkamą įrangą
+
+## Dažniausiai klausiami klausimai (FAQ)
+
+### Ar tikrai nemokamai?
+**Taip.** Elektronika ir metalas – nemokamai. Kai kuriems plasmasams pasiūlysime sprendimą pagal situaciją (pvz., jei kūne yra specifinė tarša).
+
+### Ar išnešate be lifto?
+**Taip.** Dirbame **dviese/trise**, turime **vežimėlius ir diržus**. Iš 5-o aukšto be lifto – be problemos.
+
+### Ar atvykstate už miesto?
+**Taip – visa Lietuva.** Didesniems miestams (Vilnius, Kaunas, Klaipėda) – per 24 h. Rajonams – per 2-3 darbo dienas (suplanuojame optimaliuosius maršrutus).
+
+### Ar reikia atjungti iš elektros?
+**Taip, saugumo sumetimais.** Bent 4-6 valandas prieš išvežimą atjunkite. Jei pamiršote – nusakykit telefone, kai paskambinsime prieš atvykimą.
+
+### Ar gaunamas perdavimo aktas?
+**Taip (B2B atveju).** Šiuolaikinių atliekų į surinkimo centrą – automatinis. Jei reikia oficialaus dokumento, susitarkite telefoniu.
+
+### Ar superkate metalą vietoje?
+**Dažniausia – taip.** Jei metalų yra daug (>100 kg), susitarkite iš anksto: **+370 699 25 744** (Kaunas) arba **+370 664 24 024** (Vilnius). Atmeskite skaičių – pasiūlysime kainą.
+
+## Specialūs atvejai
+
+### Grūtis ir dideli elektroniniai daiktai
+- Jei TV ar monitorius **naudoti negalima** – jokios problemos, mes priimame.
+- CRT (senų kineskopinių) TV – ypatingai saugus utilizavimas, nes turi švino.
+
+### Krovinio draudimas
+- Dideles buitines technikas draudžiame jų transportavimo metu.
+- Jei kažkas atsitiktai sugenda – pareikalaukite kompensacijos (remdamiesi nuotrauka).
+
+### Dokumentavimas
+- Įmonėms – **foto-video fiksacija** prieš ir po išvežimo (1000 Eur + PVM pasluga).
+- Asmenims – **perdavimo aktas** ant vietos (nemokamai).
+
+## Užbaikime nešvarų darbą šiandien
+
+Pasirinkite laiką, o mes grąžinsime tvarką ir erdvę jūsų namuose.
+
+### Kontaktai
+
+**Kaunas ir Kauno regionas:**
+- 📞 **+370 699 25 744**
+- 📧 **info@transportuok.lt**
+- 🕒 Pirmadienį-sekmadienį: 8:00-20:00
+
+**Vilnius ir visa Lietuva:**
+- 📞 **+370 664 24 024**
+- 📧 **karavanaslt@gmail.com**
+- 🕒 Pirmadienį-sekmadienį: 8:00-20:00
+
+### CTA Mygtukai
+👉 **[Užsakyti išvežimą dabar](https://transportuok.lt/kontaktai#contact-form)**
+👉 **[B2B pasiūlymas: Periodiniai maršrutai](https://transportuok.lt/kontaktai)**
+    `,
+    date: '2025-10-27',
+    author: 'Transportuok.lt',
+    category: 'Nemokamas išvežimas',
+    city: 'Visa Lietuva',
+    image: '/images/optimized/straipsnis-buitine-technika-network.webp',
+    imageWidth: 1920,
+    imageHeight: 1080
+  },
+  {
     id: 4,
     title: 'Nemokamas buitinės technikos išvežimas 2025 – Kaunas ir Vilnius',
     slug: 'nemokamas-buitines-technikos-isvezimas-2025',

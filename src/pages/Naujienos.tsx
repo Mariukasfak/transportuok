@@ -7,6 +7,146 @@ import { buildAbsoluteUrl, buildCanonicalUrl } from '../lib/seo';
 
 const blogPosts = [
   {
+    id: 6,
+    slug: 'nemokamas-buitines-technikos-isvezimas-tvarka',
+    title: 'Nemokamas buitinės technikos išvežimas Lietuvoje: tvarka be rūpesčių',
+    excerpt: 'Išvežimo paslaugos be naudžių rūpesčių - išnešame, išvežame ir perdirbame. Dėl transportavimo ir formalumų pasirūpina Transportuok.lt profesionalai.',
+    date: '2025-10-27',
+    imageUrl: '/images/optimized/straipsnis-buitine-technika-network.webp',
+    content: `
+  <h1 class="text-3xl font-bold mb-6">Nemokamas buitinės technikos išvežimas Lietuvoje: tvarka be rūpesčių</h1>
+  <p class="text-gray-700 mb-4">Ar pažįstate tą jausmą, kai vienas senas šaldytuvas ar skalbyklė „suriša" visą koridorių? <strong>Transportuok.lt</strong> sukurta paslauga nuima šį mazgą taip pat lengvai, kaip išsikviesti pavežėją: pasirenkate laiką, mes išnešame ir nemokamai išvežame (elektronika ir metalas), o jūs tą pačią dieną atgaunate erdvę ir ramybę.</p>
+
+  <h2 class="text-2xl font-semibold mt-8 mb-4 text-green-700">Kodėl tai veikia: trijų barjerų sprendimas</h2>
+  <div class="grid md:grid-cols-3 gap-4 mb-8">
+    <div class="bg-white border border-green-200 rounded-lg p-6 shadow-sm">
+      <h3 class="font-semibold text-lg mb-3 text-gray-900">🚫 Neturiu transporto</h3>
+      <p class="text-gray-700">Turime savo, pritaikytą sunkiai technikai – nereikia ieškoti kempinės ar prašyti draugų pagalbos.</p>
+    </div>
+    <div class="bg-white border border-green-200 rounded-lg p-6 shadow-sm">
+      <h3 class="font-semibold text-lg mb-3 text-gray-900">💪 Bijau nešti</h3>
+      <p class="text-gray-700">Išnešame iš bet kurio aukšto – turime vežimėlius, diržus ir daugiau nei 10 metų patirtį.</p>
+    </div>
+    <div class="bg-white border border-green-200 rounded-lg p-6 shadow-sm">
+      <h3 class="font-semibold text-lg mb-3 text-gray-900">❓ Nežinau kur priduoti</h3>
+      <p class="text-gray-700">Perdirbame per patikimus partnerius, prireikus pateikiame dokumentus ir ataskaitas.</p>
+    </div>
+  </div>
+
+  <h2 class="text-2xl font-semibold mt-8 mb-4 text-green-700">Kaip veikia: 3 aiškūs žingsniai</h2>
+  <ol class="list-decimal pl-6 space-y-4 text-gray-700 mb-8">
+    <li><span class="font-semibold">Pasirink laiką internetu</span> – 24/7, tik ~30 sekundžių. Adresą, aukštą, kodą.</li>
+    <li><span class="font-semibold">Atvykstame sutartu langu</span> – paskambbiname prieš atvykimą. Kaunas/Vilnius – dažnai šiandien/rytoj.</li>
+    <li><span class="font-semibold">Išnešame → išvežame → perdirbame</span> – jums tik atverti duris. Dirbame visoje Lietuvoje.</li>
+  </ol>
+
+  <h2 class="text-2xl font-semibold mt-8 mb-4 text-green-700">Ką paimame nemokamai?</h2>
+  <div class="bg-green-50 border border-green-200 rounded-lg p-6 mb-8">
+    <div class="grid md:grid-cols-3 gap-6">
+      <div>
+        <h3 class="font-semibold text-green-800 mb-3">Didžioji buitinė technika</h3>
+        <ul class="space-y-1 text-gray-700 text-sm">
+          <li>✅ Skalbimo mašinos, džiovyklės</li>
+          <li>✅ Šaldytuvai, viryklės</li>
+          <li>✅ Orkaitės, indaplausės</li>
+          <li>✅ Gartraukiai, mikrobangės</li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="font-semibold text-green-800 mb-3">Elektronika</h3>
+        <ul class="space-y-1 text-gray-700 text-sm">
+          <li>✅ Televizoriai (įsk. CRT)</li>
+          <li>✅ Monitoriai, audio aparatūra</li>
+          <li>✅ Nešiojamieji kompiuteriai</li>
+          <li>✅ Serveriai, spausdintuvai</li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="font-semibold text-green-800 mb-3">Metalas ir kita</h3>
+        <ul class="space-y-1 text-gray-700 text-sm">
+          <li>✅ Metalo laužas (superkame)</li>
+          <li>✅ Laidai ir jungikliai</li>
+          <li>✅ Kompiuterių dalys</li>
+          <li>✅ Mobilieji telefonai</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="text-2xl font-semibold mt-8 mb-4 text-green-700">Kodėl verta?</h2>
+  <div class="grid md:grid-cols-2 gap-4 mb-8">
+    <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
+      <h3 class="font-semibold mb-2">Sutaupote laiką ⏱️</h3>
+      <ul class="list-disc pl-5 text-sm text-gray-700 space-y-1">
+        <li>Jokių eilių aikštelėse</li>
+        <li>Nuo užsakymo – per 24-48 h</li>
+      </ul>
+    </div>
+    <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
+      <h3 class="font-semibold mb-2">Saugiau 🏠</h3>
+      <ul class="list-disc pl-5 text-sm text-gray-700 space-y-1">
+        <li>Tvarkingas išnešimas</li>
+        <li>10+ metų patirtis</li>
+      </ul>
+    </div>
+    <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
+      <h3 class="font-semibold mb-2">Ramybė 🧠</h3>
+      <ul class="list-disc pl-5 text-sm text-gray-700 space-y-1">
+        <li>Daiktai perdirbami, ne išmetami</li>
+        <li>Elektronika – atsakingai utilizuojama</li>
+      </ul>
+    </div>
+    <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
+      <h3 class="font-semibold mb-2">Skaidrumas 📋</h3>
+      <ul class="list-disc pl-5 text-sm text-gray-700 space-y-1">
+        <li>Perdavimo aktai ir ataskaitos</li>
+        <li>Aktualu įmonėms ir NT valdytojams</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2 class="text-2xl font-semibold mt-8 mb-4 text-green-700">Dažniausiai klausiami klausimai</h2>
+  <div class="space-y-4 mb-8">
+    <div class="bg-white border border-gray-200 rounded-lg p-4">
+      <h3 class="font-semibold text-gray-900 mb-2">❓ Ar tikrai nemokamai?</h3>
+      <p class="text-gray-700 text-sm">Taip – elektronika ir metalas. Nestandartams pasiūlysime sprendimą pagal situaciją.</p>
+    </div>
+    <div class="bg-white border border-gray-200 rounded-lg p-4">
+      <h3 class="font-semibold text-gray-900 mb-2">❓ Ar išnešate be lifto?</h3>
+      <p class="text-gray-700 text-sm">Taip. Dirbame dviese/trise, turime vežimėlius ir diržus.</p>
+    </div>
+    <div class="bg-white border border-gray-200 rounded-lg p-4">
+      <h3 class="font-semibold text-gray-900 mb-2">❓ Ar atvykstate už miesto?</h3>
+      <p class="text-gray-700 text-sm">Taip – visa Lietuva. Didesniams miestams per 24 h, rajonams – per 2-3 darbo dienas.</p>
+    </div>
+  </div>
+
+  <div class="bg-gradient-to-r from-green-600 to-green-700 text-white rounded-lg p-6 mb-8">
+    <h2 class="text-2xl font-semibold mb-4">Kontaktai</h2>
+    <div class="grid md:grid-cols-2 gap-6">
+      <div>
+        <h3 class="font-semibold mb-2">Kaunas ir regionas</h3>
+        <p class="text-sm opacity-90">📞 +370 699 25 744</p>
+        <p class="text-sm opacity-90">📧 info@transportuok.lt</p>
+      </div>
+      <div>
+        <h3 class="font-semibold mb-2">Vilnius ir visa Lietuva</h3>
+        <p class="text-sm opacity-90">📞 +370 664 24 024</p>
+        <p class="text-sm opacity-90">📧 karavanaslt@gmail.com</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="flex gap-3 flex-wrap">
+    <a href="/kontaktai#contact-form" class="px-6 py-3 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700">👉 Užsakyti išvežimą dabar</a>
+    <a href="/kontaktai" class="px-6 py-3 border-2 border-green-600 text-green-600 font-semibold rounded-lg hover:bg-green-50">👉 B2B pasiūlymas</a>
+  </div>
+    `,
+    metaTitle: 'Nemokamas buitinės technikos išvežimas | Transportuok.lt',
+    metaDescription: 'Nemokamai išvešame buitinę techniką, elektroniką ir metalą Lietuvoje. Profesionalus išnešimas, tvarki perdirbimo procedūra. Užsakykite per 30 sekundžių.',
+    ogImage: '/images/optimized/straipsnis-buitine-technika-network.webp',
+  },
+  {
     id: 11,
     slug: 'nemokamas-buitines-technikos-paemimas-is-namu-2025',
     title: 'Nemokamas buitinės technikos paėmimas iš namų Kaune ir Vilniuje – žalioji instrukcija 2025',
