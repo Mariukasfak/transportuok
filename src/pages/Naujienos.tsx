@@ -12,7 +12,7 @@ const blogPosts = [
     title: 'Nemokamas buitinės technikos išvežimas Lietuvoje: tvarka be rūpesčių',
     excerpt: 'Išvežimo paslaugos be naudžių rūpesčių - išnešame, išvežame ir perdirbame. Dėl transportavimo ir formalumų pasirūpina Transportuok.lt profesionalai.',
     date: '2025-10-27',
-    imageUrl: '/images/optimized/straipsnis-buitine-technika-network.webp',
+    imageUrl: 'images\optimized\straipsnis-buitine-technika-network.webp',
     content: `
   <h1 class="text-3xl font-bold mb-6">Nemokamas buitinės technikos išvežimas Lietuvoje: tvarka be rūpesčių</h1>
   <p class="text-gray-700 mb-4">Ar pažįstate tą jausmą, kai vienas senas šaldytuvas ar skalbyklė „suriša" visą koridorių? <strong>Transportuok.lt</strong> sukurta paslauga nuima šį mazgą taip pat lengvai, kaip išsikviesti pavežėją: pasirenkate laiką, mes išnešame ir nemokamai išvežame (elektronika ir metalas), o jūs tą pačią dieną atgaunate erdvę ir ramybę.</p>
