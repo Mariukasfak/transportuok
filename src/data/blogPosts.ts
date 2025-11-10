@@ -673,6 +673,133 @@ Mūsų baldų utilizavimo principai:
     image: "/images/optimized/baldai.webp",
     imageWidth: 1024,
     imageHeight: 1024
+  },
+  {
+    id: 13,
+    title: '100+ atsiliepimų ir 5.0/5: ačiū, Lietuva! Nemokamas buitinės technikos išvežimas – ir toliau be rūpesčių',
+    slug: '100-reviews-acia-lietuva-buitines-technikos-isvezimas',
+    excerpt: 'Dėkojame už 100+ atsiliepimų (5.0/5)! Greitumas, patogumas ir skaidrumas – tai, ką jūs vertinate. Toliau atsivešame įrangą, išnešame iš bet kurio aukšto, perdirbame atsakingai.',
+    content: `
+# 100+ atsiliepimų ir 5.0/5: ačiū, Lietuva!
+
+**Transportuok.lt bendruomenė užaugino gražų skaičių – 100+ atsiliepimų, vidurkis 5.0/5.** Dėkojame kiekvienam, kas skambino, registravo laiką, atvėrė duris ir paliko įvertinimą. Šis skaičius mums reiškia įsipareigojimą: išnešti greičiau, palikti švariau, o atliekas perdirbti atsakingiau.
+
+## Ką klientai vertina labiausiai
+
+### ⚡ Greitį
+Kaune ir Vilniuje dažnai atvykstame **šiandien arba rytoj**. Nėra nuolatinių eilių, nėra atidėliojimų – tik konkretus laikas ir punktualumas.
+
+### 🏠 Patogumą
+- Išnešame iš **bet kurio aukšto** (1-5+)
+- Atsivežame **vežimėlius, diržus, apsaugą**
+- **Saugom sienas ir grindis** – naudojame specialius padėklus
+- Greiti, mandagūs aptarnautojai
+
+### 📋 Skaidrumą
+- Elektronika ir metalas – **nemokamai** (pagal perdirbimo sąlygas)
+- Pasakom, **kas ir kur keliauja**
+- Galima gauti **perdavimo aktus** (ypač svarbūs B2B)
+- Nėra paslėptų mokesčių
+
+### 📱 Komunikaciją
+- **Laiko langai** (8-12, 12-16, 16-20)
+- **Skambutis prieš atvykimą** – žinote, kada laukti
+- Reagavimas per **24 h** į B2B užklausas
+
+## Kaip veikia paslauga (3 žingsniai – mažiau trinties)
+
+### 1️⃣ Registruokite laiką internetu
+- **24/7** (turėkite ryšio, bet net jei ne – priminsime)
+- Tik **~30 sekundžių**: adresas, aukštas, kodas (jei reikalingas)
+- Pasirinkite patogų laiko langą
+
+### 2️⃣ Atvykstame sutartu langu
+- **Paskambiname prieš kelionę** (±15 min)
+- Suvedame jums laiko langu
+- Turime savo furgonus ir transportą
+
+### 3️⃣ Išnešame → išvežame → perdirbame
+- **Jums – tik atverti duris**
+- Mes nuryšiavame, pakrauname, išvešame
+- Jūs to pačios dienos vakare turite naują erdvę
+
+## Ką išvežame (nemokamai arba už dalį ėjusio metalo)
+
+### Didžioji technika
+✅ Skalbimo mašinos (priekinės ir viršutinės kraunimo)
+✅ Džiovyklės (kondensacinės, ištraukiamosios)
+✅ Šaldytuvai ir šaldikliai (visos markės)
+✅ Viryklės (dujinės, elektrinės, indukcinės)
+✅ Orkaitės ir gartraukiai
+✅ Indaplousės
+
+### Elektronika
+✅ Televizoriai (įsk. CRT – senosios)
+✅ Monitoriai (LCD, LED, OLED)
+✅ Mikrobangės ir garso aparatūra
+
+### Kompiuterija ir smulki elektronika
+✅ Kompiuteriai ir serveriai
+✅ Spausdintuvai, kopirkai
+✅ Maršrutizatoriai
+✅ Mobilieji telefonai ir laidai
+✅ Transformatoriai
+
+### Metalas
+✅ Metalo laužas **nemokamai** (dažniausia superkame vietoje)
+
+## 🌍 Kur dirbame?
+
+**Greitieji miestai:** Kaunas ir Vilnius (dažnai šiandien/rytoj)
+**Rajonai ir kitos Lietuvos savivaldybės:** Aptarnaujame per 48-72 h
+**Visoje Lietuvoje:** Nuo Panevėžio iki Marijampolės, nuo Telšių iki Utenos
+
+## 💼 Įmonėms (B2B) – periodiniai maršrutai
+
+Siūlome **bendradarbiavimą su sutartimi:**
+
+- ✅ **Reaktyvus reagavimas** per 24 h
+- ✅ **Surinkimo dėžės smulkiai elektronikai** biure/gamyboje
+- ✅ **Perdavimo aktai** kiekvienam išvežimui
+- ✅ **Mėnesinės ataskaitos** – vertimas į jūsų ESG sistemą
+- ✅ **Vienas kontaktas** – nereikia dalintis, jei numainytas personalas
+- ✅ **Kainų nuolaidos** – didėjant maršrutų dažnumui
+
+**Padėkime jums pasiekti ESG tikslus!** Skambinkite:
+- **Kaunas:** +370 699 25 744
+- **Vilnius:** +370 664 24 024
+
+## ❓ DUK (Dažnai Užduodami Klausimai)
+
+**Ar tikrai nemokamai?**
+Taip – elektronika ir metalas dažniausiai nemokamai. Nestandartams (pavyzdžiui, labai sunkus šaldytuvas ketvirtame aukšte) pateikiame sprendimą. Būkite atvirūs – iš mūsų pusės taip pat.
+
+**Ar išnešate be lifto?**
+Taip, turime vežimėlius, diržus, stiprią komandą ir 10+ metų patirtį. Jei neįmanoma civilizuotai – pasakysime atvirai.
+
+**Ar atvykstate už miesto?**
+Taip – nuo Šiaulių iki Alytaus, nuo jūros iki Vilniaus. Rajonuose laukimas truputį ilgesnis (48-72 h), bet mes pasiekiame.
+
+**Ar reikia dokumentų?**
+Gyventojams – nereikia. Organizacijoms – teikiame perdavimo aktus ir ataskaitas. Elektronikos – naudojame sertifikuotus partnerius.
+
+**Ar grindys/sienos nepažeistos?**
+Garantuojame! Turime specialius padėklus, mažiausiai žalingas atsargą ir darbą. Jei bus problema – atlygynam.
+
+## 🙏 Ačiū už pasitikėjimą
+
+Jeigu turite **skalbyklę, šaldytuvą, TV ar kitu buitine technika**, kuris tik užima vietą – **užsakykite laiką dabar**, o mes grąžinsime erdvę ir tvarką.
+
+**Grąžina jūs turėsite dar šiandien.**
+
+---
+
+**CTA (šauktukas):**
+
+👉 [Užsakyti išvežimą dabar](https://transportuok.lt/paslaugos/buitines-technikos-isvezimas)
+
+👉 [Gauti B2B pasiūlymą](https://transportuok.lt/kontaktai)
+`
   }
 ];
 
