@@ -26,6 +26,56 @@ const Home = () => {
         structuredData={[
           {
             '@context': 'https://schema.org',
+            '@type': 'LocalBusiness',
+            '@id': canonicalUrl,
+            name: 'Transportuok.lt',
+            description: 'Nemokamas buitinės technikos ir elektronikos išvežimas',
+            url: canonicalUrl,
+            telephone: '+370 699 25 744',
+            areaServed: 'LT',
+            image: heroImage,
+            priceRange: 'Free',
+            address: {
+              '@type': 'PostalAddress',
+              streetAddress: 'Sukilėlių pr. 69',
+              addressLocality: 'Kaunas',
+              postalCode: '49336',
+              addressCountry: 'LT',
+              addressRegion: 'Kauno m. sav.'
+            },
+            geo: {
+              '@type': 'GeoCoordinates',
+              latitude: 54.9253215,
+              longitude: 23.9260707
+            },
+            aggregateRating: {
+              '@type': 'AggregateRating',
+              ratingValue: '5.0',
+              reviewCount: '100+',
+              bestRating: '5',
+              worstRating: '1'
+            },
+            openingHoursSpecification: [
+              {
+                '@type': 'OpeningHoursSpecification',
+                dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+                opens: '08:00',
+                closes: '18:00'
+              },
+              {
+                '@type': 'OpeningHoursSpecification',
+                dayOfWeek: ['Saturday', 'Sunday'],
+                opens: '10:00',
+                closes: '16:00'
+              }
+            ],
+            sameAs: [
+              'https://www.facebook.com/transportuoklt',
+              'https://www.google.com/maps/place/Nemokamas+buitin%C4%97s+technikos+i%C5%A1ve%C5%BEimas+Lietuvoje+%7C+Transportuok.lt/@54.9336882,23.9215899,4990m/data=!3m1!1e3!4m6!3m5!1s0x46e7199566a10751:0x43765a5d67a55030!8m2!3d54.9253215!4d23.9260707!16s%2Fg%2F11gtzcck0t?entry=ttu&g_ep=EgoyMDI1MTEyMy4xIKXMDSoASAFQAw%3D%3D'
+            ]
+          },
+          {
+            '@context': 'https://schema.org',
             '@type': 'WebPage',
             name: 'Nemokamas elektronikos ir buitinės technikos išvežimas',
             url: canonicalUrl,
@@ -76,9 +126,9 @@ const Home = () => {
             <Link
               to="/kontaktai#contact-form"
               className="inline-block bg-[#167d36] hover:bg-[#0f5a26] text-white font-bold text-base px-6 py-3 rounded-lg shadow-md transition-colors"
-              onClick={() => handleCTAClick('hero_cta', 'Pateikti užklausą')}
+              onClick={() => handleCTAClick('hero_cta', 'Nemokamas išvežimas')}
             >
-              Pateikti užklausą
+              Nemokamas išvežimas
             </Link>
           </div>
         </section>

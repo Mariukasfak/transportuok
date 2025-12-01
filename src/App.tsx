@@ -6,6 +6,7 @@ import Footer from './components/Footer';
 import ConsentBanner from './components/ConsentBanner';
 import GlobalSchema from './components/GlobalSchema';
 import ErrorBoundary from './components/ErrorBoundary';
+import HolidayPopup from './components/HolidayPopup';
 
 // Main page
 const Home = lazy(() => import('./pages/Home'));
@@ -109,6 +110,7 @@ function App() {
         </main>
         <Footer />
         <ConsentBanner />
+        <HolidayPopup />
       </div>
     </ErrorBoundary>
   );

@@ -7,6 +7,136 @@ import { buildAbsoluteUrl, buildCanonicalUrl } from '../lib/seo';
 
 const blogPosts = [
   {
+    id: 14,
+    slug: 'sventes-2025-nemokamas-buitines-technikos-isvezimas',
+    title: '🎄 Linksmų švenčių! Nemokamas buitinės technikos išvežimas ir 2025-aisiais',
+    excerpt: 'Artėjant šventėms dėkojame už pasitikėjimą ir primename – išvežame seną techniką nemokamai visoje Lietuvoje. Vilniaus skyrius dirba, Kaunas atsinaujina nuo sausio 5 d.',
+    date: '2025-12-01',
+    imageUrl: '/images/optimized/sventes-2025-buitine-technika-large.webp',
+    content: `
+  <h1 class="text-3xl font-bold mb-6">🎄 Linksmų švenčių nuo Transportuok.lt!</h1>
+  
+  <div class="bg-gradient-to-r from-red-800 to-green-800 text-white rounded-2xl p-8 mb-8 text-center">
+    <p class="text-2xl font-bold mb-2">Dėkojame už nuostabius 2025-uosius!</p>
+    <p class="text-lg opacity-90">Jūsų pasitikėjimas įkvepia mus tobulėti kiekvieną dieną ❤️</p>
+  </div>
+
+  <p class="text-gray-700 mb-6 text-lg leading-relaxed">
+    Artėjant <strong>Kalėdoms ir Naujiesiems metams</strong>, norime nuoširdžiai padėkoti visiems klientams, kurie šiais metais patikėjo mums savo seną buitinę techniką, elektroniką ir metalą. Jūsų dėka šimtai tonų atliekų buvo <strong>atsakingai perdirbta</strong>, o ne išmesta į sąvartynus.
+  </p>
+
+  <h2 class="text-2xl font-semibold mt-8 mb-4 text-green-700">🎁 Šventinis grafikas</h2>
+  
+  <div class="grid md:grid-cols-2 gap-4 mb-8">
+    <div class="bg-green-50 border-2 border-green-500 rounded-xl p-6">
+      <h3 class="font-bold text-xl mb-3 text-green-800">✅ Vilniaus skyrius</h3>
+      <p class="text-gray-700 mb-2"><strong>Dirba įprastu grafiku!</strong></p>
+      <p class="text-gray-600 text-sm">Priimame užsakymus ir atvykstame švenčių metu.</p>
+      <p class="text-green-700 font-semibold mt-3">📞 +370 664 24 024</p>
+    </div>
+    <div class="bg-amber-50 border-2 border-amber-500 rounded-xl p-6">
+      <h3 class="font-bold text-xl mb-3 text-amber-800">⏸️ Kauno skyrius</h3>
+      <p class="text-gray-700 mb-2"><strong>Atostogos iki sausio 5 d.</strong></p>
+      <p class="text-gray-600 text-sm">Galite registruotis dabar – atvyksime iškart po Naujųjų!</p>
+      <p class="text-amber-700 font-semibold mt-3">📞 +370 699 25 744</p>
+    </div>
+  </div>
+
+  <h2 class="text-2xl font-semibold mt-8 mb-4 text-green-700">🚛 Ką išvežame nemokamai?</h2>
+  
+  <p class="text-gray-700 mb-4">Primename, kad <strong>Transportuok.lt</strong> nemokamai išveža:</p>
+  
+  <div class="grid md:grid-cols-3 gap-4 mb-8">
+    <div class="bg-white border border-gray-200 rounded-lg p-5 shadow-sm hover:shadow-md transition-shadow">
+      <h3 class="font-semibold text-lg mb-3 text-gray-900">🧊 Didžioji technika</h3>
+      <ul class="text-gray-700 text-sm space-y-1">
+        <li>✓ Šaldytuvai ir šaldikliai</li>
+        <li>✓ Skalbimo mašinos</li>
+        <li>✓ Džiovyklės</li>
+        <li>✓ Indaplovės</li>
+        <li>✓ Viryklės ir orkaitės</li>
+        <li>✓ Gartraukiai</li>
+      </ul>
+    </div>
+    <div class="bg-white border border-gray-200 rounded-lg p-5 shadow-sm hover:shadow-md transition-shadow">
+      <h3 class="font-semibold text-lg mb-3 text-gray-900">📺 Elektronika</h3>
+      <ul class="text-gray-700 text-sm space-y-1">
+        <li>✓ Televizoriai (įsk. CRT)</li>
+        <li>✓ Monitoriai</li>
+        <li>✓ Kompiuteriai</li>
+        <li>✓ Spausdintuvai</li>
+        <li>✓ Garso aparatūra</li>
+        <li>✓ Mikrobangės</li>
+      </ul>
+    </div>
+    <div class="bg-white border border-gray-200 rounded-lg p-5 shadow-sm hover:shadow-md transition-shadow">
+      <h3 class="font-semibold text-lg mb-3 text-gray-900">🔩 Metalas</h3>
+      <ul class="text-gray-700 text-sm space-y-1">
+        <li>✓ Metalo laužas</li>
+        <li>✓ Senos vonios</li>
+        <li>✓ Radiatoriai</li>
+        <li>✓ Vamzdžiai</li>
+        <li>✓ Metaliniai baldai</li>
+        <li>✓ Kita metalinė įranga</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2 class="text-2xl font-semibold mt-8 mb-4 text-green-700">🌟 Kodėl rinktis mus?</h2>
+  
+  <div class="space-y-4 mb-8">
+    <div class="flex items-start gap-4 bg-gray-50 rounded-lg p-4">
+      <span class="text-3xl">⚡</span>
+      <div>
+        <h3 class="font-semibold text-gray-900">Greitis</h3>
+        <p class="text-gray-700 text-sm">Vilniuje ir Kaune dažnai atvykstame tą pačią arba kitą dieną.</p>
+      </div>
+    </div>
+    <div class="flex items-start gap-4 bg-gray-50 rounded-lg p-4">
+      <span class="text-3xl">💪</span>
+      <div>
+        <h3 class="font-semibold text-gray-900">Pilnas servisas</h3>
+        <p class="text-gray-700 text-sm">Išnešame iš bet kurio aukšto – turime įrangą ir patirtį.</p>
+      </div>
+    </div>
+    <div class="flex items-start gap-4 bg-gray-50 rounded-lg p-4">
+      <span class="text-3xl">♻️</span>
+      <div>
+        <h3 class="font-semibold text-gray-900">Atsakingas perdirbimas</h3>
+        <p class="text-gray-700 text-sm">Visa technika keliauja į sertifikuotus perdirbimo centrus.</p>
+      </div>
+    </div>
+    <div class="flex items-start gap-4 bg-gray-50 rounded-lg p-4">
+      <span class="text-3xl">📋</span>
+      <div>
+        <h3 class="font-semibold text-gray-900">Dokumentai (B2B)</h3>
+        <p class="text-gray-700 text-sm">Įmonėms teikiame perdavimo aktus ir ataskaitas.</p>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="text-2xl font-semibold mt-8 mb-4 text-green-700">🎯 2026-ieji – dar daugiau galimybių!</h2>
+  
+  <p class="text-gray-700 mb-4">
+    Naujaisiais metais planuojame <strong>išplėsti aptarnavimo zoną</strong>, sutrumpinti atvykimo laiką ir pasiūlyti dar patogesnę registracijos sistemą. Mūsų tikslas – kad kiekvienas Lietuvos gyventojas galėtų lengvai ir <strong>nemokamai</strong> atsikratyti senos technikos.
+  </p>
+
+  <div class="bg-gradient-to-r from-green-600 to-green-700 text-white rounded-2xl p-8 mb-8 text-center">
+    <p class="text-xl font-bold mb-4">🎄 Linkime jaukių švenčių ir laimingų Naujųjų metų!</p>
+    <p class="text-lg opacity-90 mb-6">Iki pasimatymo 2026-aisiais – su švaresne aplinka ir daugiau erdvės jūsų namuose!</p>
+    <p class="text-sm opacity-75">— Transportuok.lt komanda</p>
+  </div>
+
+  <div class="flex gap-3 flex-wrap justify-center">
+    <a href="/kontaktai#contact-form" class="px-6 py-3 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 shadow-lg">📅 Registruotis dabar</a>
+    <a href="/paslaugos/buitines-technikos-isvezimas" class="px-6 py-3 border-2 border-green-600 text-green-600 font-semibold rounded-lg hover:bg-green-50">ℹ️ Daugiau apie paslaugą</a>
+  </div>
+    `,
+    metaTitle: 'Linksmų švenčių 2026! Nemokamas buitinės technikos išvežimas | Transportuok.lt',
+    metaDescription: 'Dėkojame už 2025-uosius! Nemokamas buitinės technikos, elektronikos ir metalo išvežimas visoje Lietuvoje. Vilnius dirba, Kaunas – nuo sausio 5 d.',
+    ogImage: '/images/optimized/sventes-2025-buitine-technika-large.webp',
+  },
+  {
     id: 13,
     slug: '100-reviews-acia-lietuva-buitines-technikos-isvezimas',
     title: '100+ atsiliepimų ir 5.0/5: ačiū, Lietuva! Nemokamas buitinės technikos išvežimas – ir toliau be rūpesčių',

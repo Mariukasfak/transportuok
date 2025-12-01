@@ -1,5 +1,48 @@
 export const blogPosts = [
   {
+    id: 14,
+    title: '🎄 Linksmų švenčių! Nemokamas buitinės technikos išvežimas ir 2025-aisiais',
+    slug: 'sventes-2025-nemokamas-buitines-technikos-isvezimas',
+    excerpt: 'Artėjant šventėms dėkojame už pasitikėjimą ir primename – išvežame seną techniką nemokamai visoje Lietuvoje. Vilniaus skyrius dirba, Kaunas atsinaujina nuo sausio 5 d.',
+    content: `
+# 🎄 Linksmų švenčių nuo Transportuok.lt!
+
+Artėjant **Kalėdoms ir Naujiesiems metams**, norime nuoširdžiai padėkoti visiems klientams, kurie šiais metais patikėjo mums savo seną buitinę techniką, elektroniką ir metalą.
+
+## 🎁 Šventinis grafikas
+
+### ✅ Vilniaus skyrius
+**Dirba įprastu grafiku!** Priimame užsakymus ir atvykstame švenčių metu.
+📞 +370 664 24 024
+
+### ⏸️ Kauno skyrius
+**Atostogos iki sausio 5 d.** Galite registruotis dabar – atvyksime iškart po Naujųjų!
+📞 +370 699 25 744
+
+## 🚛 Ką išvežame nemokamai?
+
+- Šaldytuvai ir šaldikliai
+- Skalbimo mašinos ir džiovyklės
+- Televizoriai (įsk. CRT)
+- Kompiuteriai ir elektronika
+- Metalo laužas
+
+## 🎯 2026-ieji – dar daugiau galimybių!
+
+Naujaisiais metais planuojame išplėsti aptarnavimo zoną ir sutrumpinti atvykimo laiką.
+
+**Linkime jaukių švenčių ir laimingų Naujųjų metų!**
+— Transportuok.lt komanda
+`,
+    date: '2025-12-01',
+    author: 'Transportuok.lt',
+    category: 'Naujienos',
+    city: 'Lietuva',
+    image: '/images/optimized/sventes-2025-buitine-technika-large.webp',
+    imageWidth: 1024,
+    imageHeight: 1024
+  },
+  {
     id: 12,
     title: 'Nemokamas buitinės technikos išvežimas Lietuvoje: tvarka be rūpesčių',
     slug: 'nemokamas-buitines-technikos-isvezimas-tvarka',
