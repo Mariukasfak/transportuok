@@ -1,7 +1,7 @@
 import React from 'react';
 import { Calendar, User, MapPin, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import blogPosts from '../data/blogPosts';
+import { blogPosts } from '../data/blogPosts';
 
 const BlogSection: React.FC = () => {
   const formatDate = (dateString: string) => {
@@ -103,7 +103,7 @@ const BlogSection: React.FC = () => {
                   </div>
 
                   <Link
-                    to="/naujienos"
+                    to={`/naujienos/${post.slug}`}
                     className="text-green-600 font-semibold text-sm hover:text-green-700 transition-colors inline-flex items-center flex-shrink-0"
                     aria-label={`Skaityti daugiau: ${post.title}`}
                   >

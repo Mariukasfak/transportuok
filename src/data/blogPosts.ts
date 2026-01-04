@@ -910,7 +910,7 @@ Jeigu turite **skalbyklę, šaldytuvą, TV ar kitu buitine technika**, kuris tik
 👉 [Užsakyti išvežimą dabar](https://transportuok.lt/paslaugos/buitines-technikos-isvezimas)
 
 👉 [Gauti B2B pasiūlymą](https://transportuok.lt/kontaktai)
-`,
+  `,
     date: '2025-11-20',
     author: 'Transportuok.lt',
     category: 'Atsiliepimai',
