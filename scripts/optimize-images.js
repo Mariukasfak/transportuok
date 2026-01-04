@@ -40,6 +40,11 @@ const optimizeImages = async () => {
 
       console.log(`Processing ${image}...`);
 
+      if (!fs.existsSync(imagePath)) {
+        console.warn(`  Warning: Input file missing: ${imagePath} - skipping.`);
+        continue;
+      }
+
       // Optimize original image
       await sharp(imagePath)
         .webp({ quality: 80, effort: 6 })
