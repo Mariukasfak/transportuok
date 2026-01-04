@@ -1,5 +1,73 @@
 export const blogPosts = [
   {
+    id: 15,
+    title: '2026-ieji startuoja: Nemokamas buitinės technikos išvežimas Kaune, Vilniuje ir visoje Lietuvoje tęsiamas',
+    slug: '2026-nemokamas-buitines-technikos-isvezimas-kaunas-vilnius',
+    excerpt: 'Ačiū už nuostabius praėjusius metus! 2026-aisiais dirbame dar intensyviau: nemokamas buitinės technikos išvežimas, laimingi klientai ir švaresnė Lietuva. Registruokitės išvežimui Kaune ir Vilniuje.',
+    content: `
+# 2026-ieji: Darbai tęsiasi pilnu pajėgumu!
+
+Sveikiname visus su **2026-aisiais**! Praėjusieji metai mums buvo ypatingi – tūkstančiai tonų perdirbtos technikos, šimtai patenkintų klientų ir švaresnė aplinka. Džiaugiamės galėdami pranešti, kad **tęsiame darbus įprastu grafiku** ir šiais metais esame pasiruošę padėti dar daugiau žmonių atsikratyti senos technikos be rūpesčių.
+
+![Mūsų komanda pasiruošusi padėti](/images/optimized/komanda-darbe-2026.png)
+
+## Ačiū, kad buvote su mumis!
+Praėjusiais metais pamatėme, kiek daug žmonių rūpinasi ekologija ir savo namų tvarka. Jūsų atsiliepimai ir šypsenos motyvuoja mus tobulėti.
+- **Laimingi klientai:** Daugiau nei 98% teigiamų įvertinimų.
+- **Švaresnė gamta:** Visa surinkta technika keliauja tiesiai į perdirbimą.
+- **Greitis:** Kaune ir Vilniuje dažniausiai atvykstame tą pačią arba kitą dieną.
+
+## Ką išvežame 2026-aisiais?
+Mūsų sąlygos išlieka tokios pat palankios jums – **elektronika ir metalas išvežami NEMOKAMAI**.
+
+### Pagrindinės kategorijos:
+1. **Buitinė technika**:
+   - Skalbimo mašinos, džiovyklės
+   - Šaldytuvai, šaldikliai (freonas saugiai pašalinamas)
+   - Indaplausės, viryklės (dujinės/elektrinės)
+2. **Elektronika**:
+   - Televizoriai, monitoriai, kompiuteriai
+   - Smulki elektronika (mikrobangės, siurbliai, laidai)
+3. **Metalo laužas**:
+   - Radiatoriai, vonios, vamzdžiai, skardos.
+
+## Paslaugos Kaune, Vilniuje ir visoje Lietuvoje
+
+### 📍 KAUNAS – Mūsų tvirtovė
+Kaune ir Kauno rajone dirbame ypač operatyviai.
+- **Raktiniai žodžiai 2026**: Nemokamas buitinės technikos išvežimas Kaune, senų baldų išvežimas (mokama paslauga), elektronikos utilizavimas.
+- Atvykstame į visus mikrorajonus: Šilainiai, Dainava, Eiguliai, Aleksotas ir kt.
+
+### 📍 VILNIUS – Sostinės tempu
+Vilniuje prisitaikome prie jūsų grafiko. Dirbame ir vakarais, kad jūsų diena nebūtų sugadinta laukiant.
+- Išnešame iš bet kurio aukšto.
+
+### 📍 VISA LIETUVA
+Važiuojame į visus Lietuvos miestus ir miestelius. Jei turite didesnį kiekį, suderinsime atvykimą patogiausiu metu.
+
+## Kaip užsisakyti?
+Procesas išlieka maksimaliai paprastas:
+1. **Skambinkite arba pildykite formą** internetu.
+2. **Suderinkite laiką**.
+3. **Mes atvykstame, išnešame ir išvežame**.
+
+Nelaukite pavasario tvarkymosi – atlaisvinkite vietą naujiems planams jau dabar!
+
+**Kontaktai užsakymams:**
+- 📞 **Kaunas:** +370 699 25 744
+- 📞 **Vilnius:** +370 664 24 024
+
+2026-ieji bus švaros ir tvarkos metai. Ačiū, kad renkatės **Transportuok.lt**!
+`,
+    date: '2026-01-04',
+    author: 'Transportuok.lt',
+    category: 'Naujienos',
+    city: 'Kaunas, Vilnius, Visa Lietuva',
+    image: '/images/optimized/isvezimas-2026-kaunas.png',
+    imageWidth: 1024,
+    imageHeight: 1024
+  },
+  {
     id: 14,
     title: '🎄 Linksmų švenčių! Nemokamas buitinės technikos išvežimas ir 2025-aisiais',
     slug: 'sventes-2025-nemokamas-buitines-technikos-isvezimas',
