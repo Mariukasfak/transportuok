@@ -910,7 +910,14 @@ Jeigu turite **skalbyklę, šaldytuvą, TV ar kitu buitine technika**, kuris tik
 👉 [Užsakyti išvežimą dabar](https://transportuok.lt/paslaugos/buitines-technikos-isvezimas)
 
 👉 [Gauti B2B pasiūlymą](https://transportuok.lt/kontaktai)
-`
+`,
+    date: '2025-11-20',
+    author: 'Transportuok.lt',
+    category: 'Atsiliepimai',
+    city: 'Visa Lietuva',
+    image: '/images/optimized/100-reviews-saligatvis-large.webp',
+    imageWidth: 1024,
+    imageHeight: 1024
   }
 ];
 

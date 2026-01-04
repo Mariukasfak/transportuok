@@ -21,6 +21,8 @@ const sizes = {
 };
 
 const images = [
+  'isvezimas-2026-kaunas.png',
+  'komanda-darbe-2026.png',
   'hero-bg-appliances.webp',
   'metalo-lauzas.webp',
   'baldai.webp',
@@ -30,37 +32,41 @@ const images = [
 
 const optimizeImages = async () => {
   try {
+    console.log(`Found ${images.length} images to process: ${images.join(', ')}`);
+
     for (const image of images) {
       const imagePath = join(imagesDir, image);
       const fileNameBase = parse(imagePath).name;
-      
+
       console.log(`Processing ${image}...`);
-      
+
       // Optimize original image
       await sharp(imagePath)
         .webp({ quality: 80, effort: 6 })
         .toFile(join(outputDir, `${fileNameBase}.webp`));
-      
+
+      console.log(`  Saved optimized base: ${fileNameBase}.webp`);
+
       // Create responsive versions
       for (const [size, dimensions] of Object.entries(sizes)) {
         const outputPath = join(outputDir, `${fileNameBase}-${size}.webp`);
-        
+
         await sharp(imagePath)
-          .resize(dimensions.width, dimensions.height, { 
+          .resize(dimensions.width, dimensions.height, {
             fit: 'cover',
             withoutEnlargement: true
           })
-          .webp({ 
+          .webp({
             quality: 75,
             effort: 6,
             reductionEffort: 6
           })
           .toFile(outputPath);
-        
-        console.log(`Created: ${fileNameBase}-${size}.webp`);
+
+        console.log(`  Created: ${fileNameBase}-${size}.webp`);
       }
     }
-    
+
     console.log('Image optimization complete!');
   } catch (error) {
     console.error('Error optimizing images:', error);

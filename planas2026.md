@@ -61,3 +61,10 @@ Vartotojai susiduria su klaidos pranešimu "Atsiprašome, įvyko klaida", kurį 
 
 **Taikomas Sprendimas**:
 - [x] Atnaujinti `netlify.toml` failą, pridedant `'unsafe-eval'` į `Content-Security-Policy` -> `script-src` direktyvą. Tai leidžia legitimiems trečiųjų šalių skriptams veikti be klaidų.
+
+## 6. Naujienų Puslapio Sutvarkymas (Atlikta)
+Buvo pastebėta, kad naujas 2026 m. straipsnis neatvaizduojamas "Naujienos" skiltyje.
+**Sprendimas:**
+- [x] Perrašytas `src/pages/Naujienos.tsx`, kad naudotų bendrą `src/data/blogPosts.ts` duomenų šaltinį vietoje "hardcoded" masyvo.
+- [x] Įdiegta Markdown -> HTML konversija straipsnių atvaizdavimui.
+- [x] Užtikrinta, kad nuotraukos (`isvezimas-2026-kaunas.png`, `komanda-darbe-2026.png`) būtų `public/images/optimized` kataloge.
