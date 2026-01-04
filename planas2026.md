@@ -53,3 +53,11 @@ Nors yra `optimize-images.js`, svarbu užtikrinti, kad:
 4. **Nuolatinis**: Paveikslėlių optimizavimas kiekvieno atnaujinimo metu.
 
 Šis planas užtikrins, kad "Transportuok.lt" išliktų greita, randama ir tvarkinga sistema.
+
+## 5. Skubūs Klaidų Taisymai (CSP ir 'Atsiprašome, įvyko klaida')
+Vartotojai susiduria su klaidos pranešimu "Atsiprašome, įvyko klaida", kurį dažnai išsprendžia puslapio perkrovimas.
+
+**Diagnozė**: Google Chrome konsolėje matoma klaida `Use of eval is blocked by CSP`. Tai reiškia, kad tam tikri išoriniai skriptai (pvz., Google Maps arba GTM) bando vykdyti kodo evaluaciją, kurią blokuoja griežta saugumo politika.
+
+**Taikomas Sprendimas**:
+- [x] Atnaujinti `netlify.toml` failą, pridedant `'unsafe-eval'` į `Content-Security-Policy` -> `script-src` direktyvą. Tai leidžia legitimiems trečiųjų šalių skriptams veikti be klaidų.
