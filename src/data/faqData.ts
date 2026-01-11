@@ -1,3 +1,47 @@
+export const homeFAQ = [
+  {
+    question: "Kaip užsakyti nemokamą išvežimą?",
+    answer: `
+      <p>Užsakyti išvežimą galite labai paprastai:</p>
+      <ul>
+        <li>Užpildykite <a href="/kontaktai#contact-form">užklausos formą</a> internetu</li>
+        <li>Paskambinkite mums telefono numeriu <a href="tel:+37069925744">+370 699 25744</a></li>
+      </ul>
+      <p>Susisieksime su jumis ir suderinsime patogų laiką.</p>
+    `
+  },
+  {
+    question: "Ar išvežimas tikrai nemokamas?",
+    answer: `
+      <p>Taip, dauguma atvejų buitinės technikos, elektronikos ir metalo laužo išvežimas yra visiškai nemokamas. Tai galioja:</p>
+      <ul>
+        <li>Buitinei technikai (šaldytuvai, skalbyklės)</li>
+        <li>Elektronikos atliekoms</li>
+        <li>Metalo laužui (nuo 100 kg)</li>
+      </ul>
+      <p>Mokamas gali būti tik baldų arba statybinių atliekų išvežimas.</p>
+    `
+  },
+  {
+    question: "Kuriuose miestuose dirbate?",
+    answer: `
+      <p>Pagrindiniai mūsų veiklos centrai yra <strong>Kaunas</strong> ir <strong>Vilnius</strong>, tačiau aptarnaujame ir aplinkinius rajonus. Dėl išvežimo kituose miestuose – susisiekite individualiai.</p>
+    `
+  },
+  {
+    question: "Ar išnešate techniką iš buto?",
+    answer: `
+      <p>Taip, mūsų komanda atvyksta su reikiama įranga ir nemokamai išneša techniką iš bet kurio aukšto. Jums nereikia niekuo rūpintis, tik parodyti, ką paimti.</p>
+    `
+  },
+  {
+    question: "Kur keliauja surinkta technika?",
+    answer: `
+      <p>Visa surinkta technika keliauja į licencijuotus perdirbimo centrus. Mes griežtai laikomės aplinkosaugos reikalavimų ir užtikriname, kad atliekos būtų tvarkomos atsakingai.</p>
+    `
+  }
+];
+
 export const buitinesTechnikosFAQ = [
   {
     question: "Kaip išmesti seną šaldytuvą nemokamai?",

@@ -8,6 +8,9 @@ import LazyGoogleReviews from '../components/LazyGoogleReviews';
 // Below-the-fold bundles split to reduce initial JS and speed LCP
 const CitySelector = React.lazy(() => import('../components/CitySelector'));
 const BlogSection = React.lazy(() => import('../components/BlogSection'));
+const FAQ = React.lazy(() => import('../components/FAQ'));
+import { homeFAQ } from '../data/faqData';
+import { withSeoId } from '../lib/seo';
 
 const Home = () => {
   const canonicalUrl = buildCanonicalUrl('/');
@@ -95,6 +98,18 @@ const Home = () => {
               { '@type': 'ListItem', position: 1, name: 'Pradžia', item: canonicalUrl }
             ]
           },
+          {
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            '@id': withSeoId(canonicalUrl, 'faq'),
+            'inLanguage': 'lt',
+            mainEntity: homeFAQ.map(q => ({
+              '@type': 'Question',
+              '@id': withSeoId(canonicalUrl, `question-${q.question.toLowerCase().replace(/[^\w]+/g, '-')}`),
+              name: q.question,
+              acceptedAnswer: { '@type': 'Answer', text: q.answer.replace(/<[^>]+>/g, '') }
+            }))
+          }
         ]}
       />
 
@@ -306,6 +321,13 @@ const Home = () => {
         {/* Blog Section (lazy) */}
         <React.Suspense fallback={<div className="py-20 text-center text-gray-500">Įkeliami straipsniai...</div>}>
           <BlogSection />
+        </React.Suspense>
+
+        {/* FAQ Section */}
+        <React.Suspense fallback={null}>
+          <div className="bg-gray-50 py-12">
+            <FAQ items={homeFAQ} title="Dažniausiai užduodami klausimai" suppressSchema />
+          </div>
         </React.Suspense>
 
         {/* Reviews Section */}

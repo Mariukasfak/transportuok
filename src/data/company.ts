@@ -2,7 +2,7 @@ export const company = {
     legalName: 'UAB "Karavanas LT"',
     brandName: 'Karavanas LT',
     domain: 'https://transportuok.lt',
-    gbpUrl: 'https://share.google/9WVQWATF9SIcSLDEb',
+    gbpUrl: 'https://share.google/JCaKlktWGK8ffzJkp',
     contacts: {
         vilnius: {
             phone: '+370 664 24 024',
@@ -22,8 +22,8 @@ export const company = {
         },
     },
     rekvizitai: {
-        imonesKodas: '302705147', 
-        pvmKodas: 'LT100006580016', 
+        imonesKodas: '302705147',
+        pvmKodas: 'LT100006580016',
     },
 } as const;
 
