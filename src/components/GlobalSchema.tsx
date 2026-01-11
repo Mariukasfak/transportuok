@@ -9,12 +9,14 @@ const GlobalSchema: React.FC = () => {
         '@id': `${company.domain}/#organization`,
         name: company.brandName,
         legalName: company.legalName,
+        alternateName: company.brandAlternative,
         url: company.domain,
         logo: `${company.domain}/ikona_spalvotas.svg`,
         sameAs: [
-            'https://facebook.com/karavanaslt',
-            'https://instagram.com/karavanaslt',
+            company.facebookUrl,
             company.gbpUrl,
+            'https://rekvizitai.vz.lt/imone/karavanas_lt/',
+            // Google Knowledge Graph ID if publicly available or claimed
         ],
         hasOfferCatalog: {
             '@type': 'OfferCatalog',

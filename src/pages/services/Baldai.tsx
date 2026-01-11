@@ -105,6 +105,7 @@ const Baldai = () => {
         serviceId="baldu-isvezimas"
         provider={provider}
         areaServed="Kaunas"
+        price="nuo 30 EUR"
       />
       <script type="application/ld+json">{JSON.stringify(breadcrumbLd)}</script>
       <script type="application/ld+json">{JSON.stringify(howToLd)}</script>

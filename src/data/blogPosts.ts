@@ -60,7 +60,7 @@ Nelaukite pavasario tvarkymosi – atlaisvinkite vietą naujiems planams jau dab
 2026-ieji bus švaros ir tvarkos metai. Ačiū, kad renkatės **Transportuok.lt**!
 `,
     date: '2026-01-04',
-    author: 'Transportuok.lt',
+    author: 'Marius, Vadovas',
     category: 'Naujienos',
     city: 'Kaunas, Vilnius, Visa Lietuva',
     image: '/images/optimized/isvezimas-2026-kaunas.webp',
@@ -103,7 +103,7 @@ Naujaisiais metais planuojame išplėsti aptarnavimo zoną ir sutrumpinti atvyki
 — Transportuok.lt komanda
 `,
     date: '2025-12-01',
-    author: 'Transportuok.lt',
+    author: 'Marius, Vadovas',
     category: 'Naujienos',
     city: 'Lietuva',
     image: '/images/optimized/sventes-2025-buitine-technika-large.webp',
@@ -280,7 +280,7 @@ Pasirinkite laiką, o mes grąžinsime tvarką ir erdvę jūsų namuose.
 👉 **[B2B pasiūlymas: Periodiniai maršrutai](https://transportuok.lt/kontaktai)**
     `,
     date: '2025-10-27',
-    author: 'Transportuok.lt',
+    author: 'Marius, Vadovas',
     category: 'Nemokamas išvežimas',
     city: 'Visa Lietuva',
     image: '/images/optimized/straipsnis-buitine-technika-network.webp',
@@ -329,7 +329,7 @@ Sostinėje dirbame tiek daugiabučių, tiek verslo objektuose. Taip pat aptarnau
 
 `,
     date: '2025-02-05',
-    author: 'Karavanas LT',
+    author: 'Marius, Vadovas',
     category: 'Nemokamas išvežimas',
     city: 'Kaunas ir Vilnius',
     image: '/images/optimized/buitine-technika.webp',
@@ -364,7 +364,7 @@ Registruokite užklausą +370 664 24 024 arba internetu – mes suplanavę marš
 
 `,
     date: '2025-02-12',
-    author: 'Karavanas LT',
+    author: 'Marius, Vadovas',
     category: 'Partnerystės',
     city: 'Visa Lietuva',
     image: '/images/optimized/elektronika.webp',
@@ -457,7 +457,7 @@ Teikiame paslaugas:
 *Rūpinkitės aplinka kartu su mumis! Užsakykite elektronikos išvežimą Vilniuje jau šiandien.*
     `,
     date: "2025-08-07",
-    author: "UAB Karavanas LT",
+    author: 'Marius, Vadovas',
     category: "Elektronikos išvežimas",
     city: "Vilnius",
     image: "/images/optimized/elektronika.webp",
@@ -912,7 +912,7 @@ Jeigu turite **skalbyklę, šaldytuvą, TV ar kitu buitine technika**, kuris tik
 👉 [Gauti B2B pasiūlymą](https://transportuok.lt/kontaktai)
   `,
     date: '2025-11-20',
-    author: 'Transportuok.lt',
+    author: 'Marius, Vadovas',
     category: 'Atsiliepimai',
     city: 'Visa Lietuva',
     image: '/images/optimized/100-reviews-saligatvis-large.webp',

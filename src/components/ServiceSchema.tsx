@@ -60,7 +60,10 @@ const ServiceSchema: React.FC<ServiceSchemaProps> = ({
       "@type": "Offer",
       "price": price,
       "priceCurrency": "EUR"
-    }
+    },
+    ...(price.includes('-') || price.includes('nuo') ? {
+      "priceRange": price
+    } : {})
   };
 
   return (

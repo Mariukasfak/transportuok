@@ -7,6 +7,7 @@ import ConsentBanner from './components/ConsentBanner';
 import GlobalSchema from './components/GlobalSchema';
 import ErrorBoundary from './components/ErrorBoundary';
 import HolidayPopup from './components/HolidayPopup';
+import StickyMobileCTA from './components/StickyMobileCTA';
 
 // Main page
 const Home = lazy(() => import('./pages/Home'));
@@ -111,6 +112,7 @@ function App() {
         <Footer />
         <ConsentBanner />
         <HolidayPopup />
+        <StickyMobileCTA />
       </div>
     </ErrorBoundary>
   );
