@@ -108,6 +108,17 @@
   to = "/paslaugos/buitines-technikos-isvezimas"
   status = 301
 
+# Additional legacy URL patterns causing duplicate content
+[[redirects]]
+  from = "/naujienos/nemokamas-buitines-technikos-paemimas-is-namu-2025"
+  to = "/naujienos/nemokamas-buitines-technikos-isvezimas-2025"
+  status = 301
+
+[[redirects]]
+  from = "/video-post"
+  to = "/naujienos"
+  status = 301
+
 # Legacy WP paths and archives -> new canonical locations
 [[redirects]]
   from = "/contact"

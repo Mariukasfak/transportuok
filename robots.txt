@@ -16,5 +16,14 @@ Allow: /naujienos/
 Allow: /apie-mus/
 Allow: /kontaktai/
 
+# Block query parameter variants that create duplicate content
+Disallow: /*?query=
+Disallow: /*?utm_source=
+Disallow: /*?utm_medium=
+Disallow: /*?utm_campaign=
+Disallow: /*?gclid=
+Disallow: /*?fbclid=
+Disallow: /*?replytocom=
+
 # Sitemap location
 Sitemap: https://transportuok.lt/sitemap.xml

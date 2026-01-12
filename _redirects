@@ -36,6 +36,8 @@ https://www.transportuok.lt/*  https://transportuok.lt/:splat  301!
 /buitinetechnika                                   /paslaugos/buitines-technikos-isvezimas 301
 /buitinetechnika/                                  /paslaugos/buitines-technikos-isvezimas 301
 /transporto-uzsakymas-2/                          /kontaktai                 301
+/naujienos/nemokamas-buitines-technikos-paemimas-is-namu-2025 /naujienos/nemokamas-buitines-technikos-isvezimas-2025 301
+/video-post                                       /naujienos                 301
 
 # Handle SPA routing (keep last)
 /*  /index.html  200

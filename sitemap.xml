@@ -3,7 +3,7 @@
   <!-- Pagrindinis puslapis -->
   <url>
     <loc>https://transportuok.lt/</loc>
-    <lastmod>2025-05-01</lastmod>
+    <lastmod>2026-01-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -11,25 +11,25 @@
   <!-- Paslaugų puslapiai -->
   <url>
     <loc>https://transportuok.lt/paslaugos/buitines-technikos-isvezimas</loc>
-    <lastmod>2025-05-01</lastmod>
+    <lastmod>2026-01-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://transportuok.lt/paslaugos/elektronikos-atlieku-isvezimas</loc>
-    <lastmod>2025-05-01</lastmod>
+    <lastmod>2026-01-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://transportuok.lt/paslaugos/baldu-isvezimas</loc>
-    <lastmod>2025-05-01</lastmod>
+    <lastmod>2026-01-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://transportuok.lt/paslaugos/metalo-lauzo-isvezimas</loc>
-    <lastmod>2025-05-01</lastmod>
+    <lastmod>2026-01-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -37,9 +37,67 @@
   <!-- Naujienos ir straipsniai -->
   <url>
     <loc>https://transportuok.lt/naujienos</loc>
-    <lastmod>2025-05-01</lastmod>
+    <lastmod>2026-01-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
+  </url>
+  
+  <!-- 2026 straipsniai -->
+  <url>
+    <loc>https://transportuok.lt/naujienos/2026-nemokamas-buitines-technikos-isvezimas-kaunas-vilnius</loc>
+    <lastmod>2026-01-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- 2025 straipsniai -->
+  <url>
+    <loc>https://transportuok.lt/naujienos/sventes-2025-nemokamas-buitines-technikos-isvezimas</loc>
+    <lastmod>2025-12-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://transportuok.lt/naujienos/100-reviews-acia-lietuva-buitines-technikos-isvezimas</loc>
+    <lastmod>2025-11-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://transportuok.lt/naujienos/nemokamas-buitines-technikos-isvezimas-tvarka</loc>
+    <lastmod>2025-10-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://transportuok.lt/naujienos/elektronikos-isvezimas-vilniuje</loc>
+    <lastmod>2025-08-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://transportuok.lt/naujienos/buitines-technikos-isvezimas-lietuvoje</loc>
+    <lastmod>2025-08-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://transportuok.lt/naujienos/baldu-isvezimas-kaune-pasiruosimas</loc>
+    <lastmod>2025-08-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://transportuok.lt/naujienos/partneryste-su-katalizatoriu-supirkimas-lt</loc>
+    <lastmod>2025-02-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://transportuok.lt/naujienos/nemokamas-buitines-technikos-isvezimas-2025</loc>
+    <lastmod>2025-02-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://transportuok.lt/naujienos/kaip-teisingai-utilizuoti-saldytuva-kaunieciai</loc>
@@ -81,13 +139,13 @@
   <!-- Kiti puslapiai -->
   <url>
     <loc>https://transportuok.lt/apie-mus</loc>
-    <lastmod>2025-05-01</lastmod>
+    <lastmod>2026-01-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://transportuok.lt/kontaktai</loc>
-    <lastmod>2025-05-01</lastmod>
+    <lastmod>2026-01-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
