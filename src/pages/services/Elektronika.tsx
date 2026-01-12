@@ -101,9 +101,14 @@ const Elektronika = () => {
     ]
   } as const;
 
-  // WebPage schema to strengthen context
-  const title = `Elektronikos atliekų išvežimas ${city.locative} | Nemokamas surinkimas | Karavanas LT`;
-  const description = `Nemokamas elektronikos atliekų surinkimas ${city.locative}: kompiuteriai, TV, monitoriai, spausdintuvai ir kt. Duomenų sunaikinimas ir ekologiškas perdirbimas.`;
+  // Unique title/description for base URL vs city variants
+  const isBaseUrl = !params.city;
+  const title = isBaseUrl
+    ? 'Elektronikos atliekų išvežimas Lietuvoje | Nemokamas surinkimas | Karavanas LT'
+    : `Elektronikos atliekų išvežimas ${city.locative} | Nemokamas surinkimas | Karavanas LT`;
+  const description = isBaseUrl
+    ? 'Nemokamas elektronikos atliekų surinkimas visoje Lietuvoje: kompiuteriai, TV, monitoriai, spausdintuvai ir kt. Duomenų sunaikinimas ir ekologiškas perdirbimas.'
+    : `Nemokamas elektronikos atliekų surinkimas ${city.locative}: kompiuteriai, TV, monitoriai, spausdintuvai ir kt. Duomenų sunaikinimas ir ekologiškas perdirbimas.`;
 
   const webPageLd = {
     '@context': 'https://schema.org',

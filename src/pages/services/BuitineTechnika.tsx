@@ -95,8 +95,14 @@ const BuitineTechnika = () => {
     ]
   };
 
-  const title = `Nemokamas buitinės technikos išvežimas ${city.locative} | Karavanas LT`;
-  const description = `Nemokamas šaldytuvų, skalbimo mašinų ir kitos buitinės technikos išvežimas ${city.locative}. Greitas atvykimas, saugus išnešimas, ekologiškas utilizavimas.`;
+  // Unique title/description for base URL vs city variants
+  const isBaseUrl = !params.city;
+  const title = isBaseUrl
+    ? 'Buitinės technikos išvežimas Lietuvoje | Nemokama paslauga | Karavanas LT'
+    : `Nemokamas buitinės technikos išvežimas ${city.locative} | Karavanas LT`;
+  const description = isBaseUrl
+    ? 'Nemokamas šaldytuvų, skalbimo mašinų ir buitinės technikos išvežimas visoje Lietuvoje. Atvykstame į Vilnių, Kauną ir kitus miestus. Ekologiškas utilizavimas.'
+    : `Nemokamas šaldytuvų, skalbimo mašinų ir kitos buitinės technikos išvežimas ${city.locative}. Greitas atvykimas, saugus išnešimas, ekologiškas utilizavimas.`;
 
   const webPageLd = {
     '@context': 'https://schema.org',

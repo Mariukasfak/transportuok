@@ -34,6 +34,14 @@
     <priority>0.9</priority>
   </url>
 
+  <!-- SEO Landing puslapiai -->
+  <url>
+    <loc>https://transportuok.lt/buitines-technikos-isvezimas-kaune</loc>
+    <lastmod>2026-01-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+
   <!-- Naujienos ir straipsniai -->
   <url>
     <loc>https://transportuok.lt/naujienos</loc>

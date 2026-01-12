@@ -27,6 +27,9 @@ const Kaunas = lazy(() => import('./pages/city/Kaunas'));
 const Vilnius = lazy(() => import('./pages/city/Vilnius'));
 const Partners = lazy(() => import('./pages/Partners'));
 
+// SEO Landing Pages
+const BuitineTechnikaKaunas = lazy(() => import('./pages/landing/BuitineTechnikaKaunas'));
+
 const LoadingFallback = () => (
   <div className="min-h-screen flex items-center justify-center">
     <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-green-500"></div>
@@ -105,6 +108,9 @@ function App() {
                 {/* City landing pages */}
                 <Route path="/kaunas" element={<Kaunas />} />
                 <Route path="/vilnius" element={<Vilnius />} />
+
+                {/* SEO Landing pages */}
+                <Route path="/buitines-technikos-isvezimas-kaune" element={<BuitineTechnikaKaunas />} />
               </Routes>
             </Suspense>
           </ErrorBoundary>

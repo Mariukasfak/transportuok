@@ -39,8 +39,8 @@ const ReviewSchema: React.FC<ReviewSchemaProps> = ({ reviews, itemReviewed }) =>
     })),
     "aggregateRating": {
       "@type": "AggregateRating",
-      "ratingValue": (reviews.reduce((acc, review) => acc + review.reviewRating, 0) / reviews.length).toFixed(1),
-      "reviewCount": reviews.length.toString()
+      "ratingValue": Number((reviews.reduce((acc, review) => acc + review.reviewRating, 0) / reviews.length).toFixed(1)),
+      "reviewCount": reviews.length
     }
   };
 

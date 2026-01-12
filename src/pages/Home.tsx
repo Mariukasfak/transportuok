@@ -53,10 +53,10 @@ const Home = () => {
             },
             aggregateRating: {
               '@type': 'AggregateRating',
-              ratingValue: '5.0',
-              reviewCount: '100+',
-              bestRating: '5',
-              worstRating: '1'
+              ratingValue: 5.0,
+              reviewCount: 114,
+              bestRating: 5,
+              worstRating: 1
             },
             openingHoursSpecification: [
               {
@@ -74,6 +74,7 @@ const Home = () => {
             ],
             sameAs: [
               'https://www.facebook.com/transportuoklt',
+              'https://share.google/JCaKlktWGK8ffzJkp',
               'https://www.google.com/maps/place/Nemokamas+buitin%C4%97s+technikos+i%C5%A1ve%C5%BEimas+Lietuvoje+%7C+Transportuok.lt/@54.9336882,23.9215899,4990m/data=!3m1!1e3!4m6!3m5!1s0x46e7199566a10751:0x43765a5d67a55030!8m2!3d54.9253215!4d23.9260707!16s%2Fg%2F11gtzcck0t?entry=ttu&g_ep=EgoyMDI1MTEyMy4xIKXMDSoASAFQAw%3D%3D'
             ]
           },
