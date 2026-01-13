@@ -127,13 +127,15 @@
     });
     // GA4 config inicijuojama ir esant denied – veikia tik kaip cookieless ping (pagerina žymos aprėpties aptikimą)
     gtag('config', 'G-320YE0N58G', { send_page_view: false, allow_ad_personalization_signals: false });
+    // Google Ads konversijų stebėjimas (AW-817227439)
+    gtag('config', 'AW-817227439');
   </script>
   <!-- GA script atidėtas iki idle -->
   <script>
     (function () {
       function loadGA() {
         var s = document.createElement('script');
-        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-320YE0N58G';
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=AW-817227439';
         s.async = true; document.head.appendChild(s);
       }
       if ('requestIdleCallback' in window) { requestIdleCallback(loadGA, { timeout: 2500 }); }

@@ -4,9 +4,8 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { Mail, MapPin, Clock, CheckCircle, Home, Trash2, Loader2, HelpCircle } from 'lucide-react';
 import emailjs from '@emailjs/browser';
-import { trackFormSubmission } from '../utils/analytics';
+import { trackFormSubmission, trackPhoneClick } from '../utils/analytics';
 import SEO from '../components/SEO';
-import company from '../data/company';
 import { buildCanonicalUrl } from '../lib/seo';
 
 const TOP_CITIES = [
@@ -416,14 +415,14 @@ const Contact = () => {
                       <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-green-500 mr-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h2.28a2 2 0 011.789 1.106l1.2 2.4a2 2 0 01-.45 2.31l-1.2 1.2a16 16 0 006.36 6.36l1.2-1.2a2 2 0 012.31-.45l2.4 1.2A2 2 0 0121 18.72V21a2 2 0 01-2 2h-1C9.163 23 1 14.837 1 5V4a2 2 0 012-2h0z" /></svg>
                       <div>
                         <h3 className="font-semibold">Kaunas ir kauno apskritis</h3>
-                        <a href="tel:+37069925744" className="text-gray-600 hover:text-green-500">+370 699 25744</a>
+                        <a href="tel:+37069925744" className="text-gray-600 hover:text-green-500" onClick={() => trackPhoneClick('+37069925744')}>+370 699 25744</a>
                       </div>
                     </div>
                     <div className="flex items-center">
                       <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-green-500 mr-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h2.28a2 2 0 011.789 1.106l1.2 2.4a2 2 0 01-.45 2.31l-1.2 1.2a16 16 0 006.36 6.36l1.2-1.2a2 2 0 012.31-.45l2.4 1.2A2 2 0 0121 18.72V21a2 2 0 01-2 2h-1C9.163 23 1 14.837 1 5V4a2 2 0 012-2h0z" /></svg>
                       <div>
                         <h3 className="font-semibold">Vilnius ir visa Lietuva</h3>
-                        <a href="tel:+37066424024" className="text-gray-600 hover:text-green-500">+370 664 24024</a>
+                        <a href="tel:+37066424024" className="text-gray-600 hover:text-green-500" onClick={() => trackPhoneClick('+37066424024')}>+370 664 24024</a>
                       </div>
                     </div>
                   </div>

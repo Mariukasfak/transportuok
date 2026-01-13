@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Phone, Calendar } from 'lucide-react';
+import { trackPhoneClick } from '../utils/analytics';
 
 const StickyMobileCTA = () => {
     const [isVisible, setIsVisible] = useState(false);
@@ -26,10 +27,7 @@ const StickyMobileCTA = () => {
             <a
                 href="tel:+37069925744"
                 className="flex-1 flex items-center justify-center bg-white border-2 border-green-600 text-green-700 font-bold py-3 rounded-lg shadow-sm active:bg-green-50 transition-colors"
-                onClick={() => {
-                    // Optional: Track call click
-                    if (window.gtag) window.gtag('event', 'mobile_sticky_call');
-                }}
+                onClick={() => trackPhoneClick('+37069925744')}
             >
                 <Phone className="w-5 h-5 mr-2" />
                 Skambinti

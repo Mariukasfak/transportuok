@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, Phone, Calendar, X } from 'lucide-react';
+import { trackPhoneClick } from '../utils/analytics';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -106,6 +107,7 @@ const Navbar = () => {
               href="tel:+37069925744"
               className="flex items-center px-3 lg:px-4 py-2 border-2 border-green-600 text-green-600 rounded-lg hover:bg-green-50 transition-colors text-sm whitespace-nowrap"
               aria-label="Skambinti Kaunas: +370 699 25744"
+              onClick={() => trackPhoneClick('+37069925744')}
             >
               <Phone className="w-4 h-4 mr-2" />
               <span className="hidden xl:inline text-xs font-medium mr-2">Kaunas</span>
@@ -115,6 +117,7 @@ const Navbar = () => {
               href="tel:+37066424024"
               className="flex items-center px-3 lg:px-4 py-2 border-2 border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 transition-colors text-sm whitespace-nowrap"
               aria-label="Skambinti Vilnius: +370 664 24024"
+              onClick={() => trackPhoneClick('+37066424024')}
             >
               <Phone className="w-4 h-4 mr-2" />
               <span className="hidden xl:inline text-xs font-medium mr-2">Vilnius</span>
@@ -226,7 +229,7 @@ const Navbar = () => {
               <a
                 href="tel:+37069925744"
                 className="flex items-center justify-center w-full px-4 py-2 border-2 border-green-600 text-green-600 rounded-lg hover:bg-green-50 transition-colors"
-                onClick={() => setIsOpen(false)}
+                onClick={() => { trackPhoneClick('+37069925744'); setIsOpen(false); }}
                 aria-label="Skambinti Kaunas: +370 699 25744"
               >
                 <Phone className="w-5 h-5 mr-2" />
@@ -237,7 +240,7 @@ const Navbar = () => {
               <a
                 href="tel:+37066424024"
                 className="flex items-center justify-center w-full px-4 py-2 border-2 border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 transition-colors"
-                onClick={() => setIsOpen(false)}
+                onClick={() => { trackPhoneClick('+37066424024'); setIsOpen(false); }}
                 aria-label="Skambinti Vilnius: +370 664 24024"
               >
                 <Phone className="w-5 h-5 mr-2" />

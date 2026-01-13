@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Phone, Mail, MapPin, Facebook, Instagram } from 'lucide-react';
+import { trackPhoneClick } from '../utils/analytics';
 
 const PaslaugosIcon = () => (
   <svg
@@ -62,7 +63,7 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-semibold mb-4">Kontaktai</h4>
             <div className="space-y-2">
-              <a href="tel:+37069925744" className="flex items-center text-gray-200 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-green-500">
+              <a href="tel:+37069925744" className="flex items-center text-gray-200 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-green-500" onClick={() => trackPhoneClick('+37069925744')}>
                 <Phone className="w-4 h-4 mr-2" />
                 +370 699 25744
               </a>
