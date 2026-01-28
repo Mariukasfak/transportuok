@@ -23,21 +23,30 @@ const BuitineTechnikaKaunas: React.FC = () => {
     const logoUrl = buildAbsoluteUrl('/ikona_spalvotas.svg');
     const primaryImage = buildAbsoluteUrl('/images/buitine-technika.webp');
 
-    // Schema.org structured data
+    // Schema.org structured data - GEO optimized for AI search engines
     const localBusinessLd = {
         '@context': 'https://schema.org',
-        '@type': 'LocalBusiness',
+        '@type': ['LocalBusiness', 'RecyclingCenter'],
         '@id': withSeoId(canonicalUrl, 'local-business'),
-        name: `${company.brandName} – Buitinės technikos išvežimas Kaune`,
+        name: 'Transportuok.lt – Nemokamas Buitinės Technikos Išvežimas Kaune',
+        alternateName: company.brandName,
+        description: 'Nemokamas šaldytuvų, skalbimo mašinų ir kitos buitinės technikos išvežimas Kaune. 100% nemokama paslauga Kauno mieste ir rajone.',
         url: canonicalUrl,
         image: primaryImage,
         telephone: phone,
         email: email,
+        // Parent organization for trust linking
+        parentOrganization: {
+            '@type': 'Organization',
+            name: company.legalName,
+            url: company.rekvizitaiUrl
+        },
         address: {
             '@type': 'PostalAddress',
             streetAddress: address,
             addressLocality: 'Kaunas',
             postalCode: postalCode,
+            addressRegion: 'Kauno apskritis',
             addressCountry: 'LT'
         },
         geo: {
@@ -49,6 +58,14 @@ const BuitineTechnikaKaunas: React.FC = () => {
             { '@type': 'City', name: 'Kaunas' },
             { '@type': 'AdministrativeArea', name: 'Kauno rajonas' }
         ],
+        // Google Maps CID for location verification
+        hasMap: company.googleMapsUrl,
+        // Trust signals - critical for AI search
+        sameAs: [
+            company.rekvizitaiUrl,
+            company.facebookUrl,
+            company.gbpUrl
+        ],
         priceRange: '€0 (nemokama)',
         aggregateRating: {
             '@type': 'AggregateRating',
@@ -57,12 +74,20 @@ const BuitineTechnikaKaunas: React.FC = () => {
             bestRating: 5,
             worstRating: 1
         },
-        openingHoursSpecification: [{
-            '@type': 'OpeningHoursSpecification',
-            dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-            opens: '08:00',
-            closes: '18:00'
-        }]
+        openingHoursSpecification: [
+            {
+                '@type': 'OpeningHoursSpecification',
+                dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+                opens: '08:00',
+                closes: '18:00'
+            },
+            {
+                '@type': 'OpeningHoursSpecification',
+                dayOfWeek: 'Saturday',
+                opens: '09:00',
+                closes: '15:00'
+            }
+        ]
     } as const;
 
     const breadcrumbLd = {

@@ -172,14 +172,14 @@ const Home = () => {
                   </h3>
                 </Link>
                 <p className="text-gray-600 mb-4">
-                  Išvežame <Link to="/paslaugos/buitines-technikos-isvezimas" className="text-green-800 underline decoration-2 underline-offset-2 font-semibold hover:text-green-900">šaldytuvus, skalbimo mašinas, virykles</Link> ir kitus buities prietaisus – nemokamai.
+                  Išvežame <Link to="/buitines-technikos-isvezimas-kaune" className="text-green-800 underline decoration-2 underline-offset-2 font-semibold hover:text-green-900">šaldytuvus, skalbimo mašinas, virykles Kaune</Link> ir <Link to="/paslaugos/buitines-technikos-isvezimas/vilnius" className="text-green-700 hover:text-green-900">Vilniuje</Link> – nemokamai.
                 </p>
                 <Link
-                  to="/kontaktai#contact-form"
+                  to="/buitines-technikos-isvezimas-kaune"
                   className="inline-block bg-[#167d36] hover:bg-[#0f5a26] text-white font-bold px-6 py-3 rounded-lg transition-colors"
                   onClick={() => handleCTAClick('service_cta_appliances', 'Gauti nemokamą išvežimą')}
                 >
-                  Gauti nemokamą išvežimą
+                  Išvežimas Kaune
                 </Link>
               </div>
 

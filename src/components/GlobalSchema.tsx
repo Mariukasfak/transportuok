@@ -3,6 +3,82 @@ import { Helmet } from 'react-helmet-async';
 import company from '../data/company';
 
 const GlobalSchema: React.FC = () => {
+    // LocalBusiness + RecyclingCenter for GEO optimization
+    const localBusiness = {
+        '@context': 'https://schema.org',
+        '@type': ['LocalBusiness', 'RecyclingCenter'],
+        '@id': `${company.domain}/#local-business`,
+        name: 'Transportuok.lt – Nemokamas Buitinės Technikos Išvežimas',
+        alternateName: company.brandName,
+        description: 'Nemokamas buitinės technikos, elektronikos ir baldų išvežimas Kaune, Vilniuje ir visoje Lietuvoje. Ekologiškas utilizavimas.',
+        url: company.domain,
+        logo: `${company.domain}/ikona_spalvotas.svg`,
+        image: `${company.domain}/images/buitine-technika.webp`,
+        telephone: company.contacts.kaunas.phone, // Primary Kaunas phone
+        email: company.contacts.kaunas.email,
+        priceRange: '€0 (nemokama)',
+        currenciesAccepted: 'EUR',
+        paymentAccepted: 'Cash, Bank Transfer',
+        // Parent organization for trust
+        parentOrganization: {
+            '@type': 'Organization',
+            name: company.legalName,
+            url: company.rekvizitaiUrl
+        },
+        // Kaunas as primary address
+        address: {
+            '@type': 'PostalAddress',
+            streetAddress: company.contacts.kaunas.address,
+            addressLocality: 'Kaunas',
+            postalCode: company.contacts.kaunas.postalCode,
+            addressRegion: 'Kauno apskritis',
+            addressCountry: 'LT'
+        },
+        geo: {
+            '@type': 'GeoCoordinates',
+            latitude: 54.8985,
+            longitude: 23.9036
+        },
+        // Multiple area served - Kaunas first for priority
+        areaServed: [
+            { '@type': 'City', name: 'Kaunas' },
+            { '@type': 'City', name: 'Vilnius' },
+            { '@type': 'AdministrativeArea', name: 'Kauno rajonas' },
+            { '@type': 'AdministrativeArea', name: 'Vilniaus rajonas' },
+            { '@type': 'Country', name: 'Lietuva' }
+        ],
+        // Google Maps CID for location verification
+        hasMap: company.googleMapsUrl,
+        // Trust signals - Rekvizitai URL critical for AI
+        sameAs: [
+            company.rekvizitaiUrl,
+            company.facebookUrl,
+            company.gbpUrl,
+            'https://rekvizitai.vz.lt/imone/karavanas_lt/'
+        ],
+        aggregateRating: {
+            '@type': 'AggregateRating',
+            ratingValue: 5.0,
+            reviewCount: 114,
+            bestRating: 5,
+            worstRating: 1
+        },
+        openingHoursSpecification: [
+            {
+                '@type': 'OpeningHoursSpecification',
+                dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+                opens: '08:00',
+                closes: '18:00'
+            },
+            {
+                '@type': 'OpeningHoursSpecification',
+                dayOfWeek: 'Saturday',
+                opens: '09:00',
+                closes: '15:00'
+            }
+        ]
+    } as const;
+
     const org = {
         '@context': 'https://schema.org',
         '@type': 'Organization',
@@ -13,10 +89,10 @@ const GlobalSchema: React.FC = () => {
         url: company.domain,
         logo: `${company.domain}/ikona_spalvotas.svg`,
         sameAs: [
+            company.rekvizitaiUrl,
             company.facebookUrl,
             company.gbpUrl,
             'https://rekvizitai.vz.lt/imone/karavanas_lt/',
-            // Google Knowledge Graph ID if publicly available or claimed
         ],
         hasOfferCatalog: {
             '@type': 'OfferCatalog',
@@ -46,19 +122,20 @@ const GlobalSchema: React.FC = () => {
             { '@type': 'Offer', itemOffered: { '@id': `${company.domain}/#service-baldu-isvezimas` } },
             { '@type': 'Offer', itemOffered: { '@id': `${company.domain}/#service-metalo-lauzo-isvezimas` } }
         ],
+        // Kaunas contact listed first for priority
         contactPoint: [
-            {
-                '@type': 'ContactPoint',
-                telephone: company.contacts.vilnius.phone,
-                contactType: 'customer service',
-                areaServed: 'LT-Vilnius',
-                availableLanguage: ['lt'],
-            },
             {
                 '@type': 'ContactPoint',
                 telephone: company.contacts.kaunas.phone,
                 contactType: 'customer service',
                 areaServed: 'LT-Kaunas',
+                availableLanguage: ['lt'],
+            },
+            {
+                '@type': 'ContactPoint',
+                telephone: company.contacts.vilnius.phone,
+                contactType: 'customer service',
+                areaServed: 'LT-Vilnius',
                 availableLanguage: ['lt'],
             }
         ]
@@ -78,6 +155,7 @@ const GlobalSchema: React.FC = () => {
 
     return (
         <Helmet>
+            <script type="application/ld+json">{JSON.stringify(localBusiness)}</script>
             <script type="application/ld+json">{JSON.stringify(org)}</script>
             <script type="application/ld+json">{JSON.stringify(website)}</script>
         </Helmet>

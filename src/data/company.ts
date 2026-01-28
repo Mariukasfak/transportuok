@@ -5,6 +5,9 @@ export const company = {
     domain: 'https://transportuok.lt',
     gbpUrl: 'https://share.google/JCaKlktWGK8ffzJkp',
     gbpId: '2317523442871817775',
+    googleMapsCid: '2317523442871817775',
+    googleMapsUrl: 'https://www.google.com/maps?cid=2317523442871817775',
+    rekvizitaiUrl: 'https://rekvizitai.vz.lt/imone/transportuok_lt/',
     facebookUrl: 'https://www.facebook.com/transportuok.lt',
     contacts: {
         vilnius: {

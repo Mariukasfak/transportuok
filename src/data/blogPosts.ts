@@ -1,5 +1,138 @@
 export const blogPosts = [
   {
+    id: 16,
+    title: 'Nemokamas buitinės technikos išvežimas Kaune – išvežame patys iš bet kurio aukšto',
+    slug: 'nemokamas-buitines-technikos-isvezimas-kaune-isvezame-patys',
+    excerpt: 'Ar turite seną šaldytuvą, skalbimo mašiną ar viryklę Kaune? Transportuok.lt išveža buitinę techniką NEMOKAMAI – patys išnešame iš bet kurio aukšto, patys pakrauname ir ekologiškai utilizuojame. Skambinkite jau šiandien!',
+    content: `
+# Nemokamas buitinės technikos išvežimas Kaune – išvežame patys iš bet kurio aukšto
+
+Turite seną šaldytuvą ar skalbimo mašiną, kuri užima vietą namuose? Nežinote, kaip jas tinkamai utilizuoti? **Transportuok.lt** – tai UAB „Karavanas LT" projektas, siūlantis **visiškai nemokamą buitinės technikos išvežimą Kaune** ir Kauno rajone. Mes atvykstame, patys išnešame iš bet kurio aukšto ir ekologiškai perdirbame.
+
+## Kodėl Kauniečiai renkasi mus?
+
+Senoji buitinė technika kelia du didelius rūpesčius:
+
+1. **Svoris ir gabaritai** – šaldytuvas gali sverti iki 100 kg, skalbimo mašina – 60-80 kg. Išnešti tokius daiktus iš 5-o aukšto be lifto – tikras iššūkis.
+2. **Ekologija** – buitinė technika turi pavojingų medžiagų (freonas, švinas, gyvsidabris), kurias būtina tinkamai utilizuoti.
+
+**Transportuok.lt sprendžia abi problemas vienu skambučiu.**
+
+---
+
+## Kaip užsisakyti išvežimą?
+
+Procesas yra maksimaliai paprastas – tik **4 žingsniai**:
+
+### 1. Skambinkite arba registruokitės internetu
+📞 **+370 699 25 744** (Kaunas)  
+Arba užpildykite formą svetainėje [transportuok.lt/kontaktai](https://transportuok.lt/kontaktai#contact-form).
+
+### 2. Suderinkite laiką
+Per **24 valandas** susisieksime ir sutarsime jums patogų atvykimo laiką. Dažniausiai atvykstame **tą pačią arba kitą dieną**.
+
+### 3. Atvykimas ir išnešimas
+Mūsų komanda atvyksta sutartu laiku. **Patys išnešame techniką iš BET KURIO aukšto** – su liftu ar be jo. Jums tereikia atverti duris.
+
+### 4. Ekologiškas utilizavimas
+Visa surinkta technika pristatoma licencijuotiems perdirbėjams. Freonas iš šaldytuvų saugiai pašalinamas, metalai ir plastikas perdirbami pagal ES standartus.
+
+---
+
+## Kokią buitinę techniką išvežame Kaune?
+
+Mes priimame visą stambiąją buitinę techniką:
+
+### ✅ Virtuvės technika
+- Šaldytuvai ir šaldikliai (visų markių)
+- Viryklės (dujinės, elektrinės, indukcinės)
+- Orkaitės ir gartraukiai
+- Indaplovės (įmontuojamos ir laisvai stovinčios)
+- Mikrobangų krosnelės
+
+### ✅ Skalbimo technika
+- Skalbimo mašinos (frontinio ir viršutinio kraunimo)
+- Džiovinimo mašinos
+- Skalbimo-džiovinimo kombinuotos mašinos
+
+### ✅ Kita buitinė technika
+- Dulkių siurbliai
+- Elektriniai šildytuvai ir kondicionieriai
+- Vandens šildytuvai (boileriai)
+
+---
+
+## Kodėl Transportuok.lt?
+
+| Privalumas | Aprašymas |
+|------------|-----------|
+| 💰 **Visiškai nemokama** | Jokių paslėptų mokesčių – buitinė technika išvežama nemokamai |
+| 🏢 **UAB „Karavanas LT" patikimumas** | 13+ metų patirtis transporto ir atliekų tvarkymo srityje |
+| ⚡ **Greitis** | Atvykstame per 24 val., dažnai – tą pačią dieną |
+| 💪 **Išnešimas iš bet kurio aukšto** | Turime vežimėlius, diržus ir patirties – 5 aukštas be lifto nėra problema |
+| ♻️ **Ekologiškas utilizavimas** | Visa technika perdirbama pagal ES direktyvas |
+
+---
+
+## Aptarnaujami Kauno rajonai
+
+Dirbame **visame Kauno mieste** ir **Kauno rajone**:
+
+- **Centras** – greitai pasiekiame senamiestį ir aplinkinius kvartalus
+- **Šilainiai** – didelis rajonas, dažni išvežimai
+- **Dainava** – daugiabučių zona, išnešame iš visų aukštų
+- **Eiguliai** – individualūs namai ir daugiabučiai
+- **Žaliakalnis** – istorinis rajonas su sudėtingomis laiptinėmis
+- **Aleksotas** – ir gyvenamieji rajonai, ir pramoninė zona
+- **Vilijampolė** – greitas reagavimas
+- **Šančiai** – tradicinis Kauno rajonas
+- **Petrašiūnai** – daugiabučiai ir individualūs namai
+- **Panemunė** – rami zona, atvykstame pagal grafiką
+- **Garliava, Karmėlava, Akademija** – Kauno rajonas taip pat aptarnaujamas
+
+---
+
+## Dažniausiai užduodami klausimai
+
+### Ar buitinės technikos išvežimas Kaune tikrai nemokamas?
+**Taip, Transportuok.lt paslauga Kaune yra 100% nemokama.** Mes atvykstame, patys išnešame seną techniką iš bet kurio aukšto ir ją išvežame perdirbimui. Jums nieko mokėti nereikia.
+
+### Kur randasi Transportuok.lt?
+**Veikiame Kaune ir Vilniuje.** Mus galite rasti [Google Maps (UAB Karavanas LT)](https://www.google.com/maps?cid=2317523442871817775). Esame oficialiai registruota įmonė, patikrinti [Rekvizitai.lt](https://rekvizitai.vz.lt/imone/transportuok_lt/).
+
+### Ar išvežate senus baldus?
+Baldų išvežimas yra **mokama paslauga** (nuo 30 EUR). Tačiau jei kartu su baldais turite buitinės technikos ar metalo laužo – galime suderinti nuolaidą. Skambinkite ir pasiteiraukite.
+
+### Kaip pasiruošti šaldytuvo išvežimui?
+1. Atjunkite šaldytuvą iš elektros **24 val. prieš išvežimą**
+2. Ištuštinkite maistą ir vandenį
+3. Palikite atviras dureles – kad išgaruotų drėgmė
+
+---
+
+## Susisiekite jau šiandien!
+
+Nelaukite – atlaisvinkite erdvę namuose jau šią savaitę!
+
+📞 **Kaunas: +370 699 25 744**  
+📧 **info@transportuok.lt**  
+🕒 **Darbo laikas:** I-V 8:00-18:00, VI 9:00-15:00  
+
+👉 **[Užsakyti nemokamą išvežimą dabar](https://transportuok.lt/kontaktai#contact-form)**
+
+---
+
+*Transportuok.lt – UAB „Karavanas LT" projektas. Nemokamas šaldytuvų surinkimas, skalbimo mašinų išvežimas ir buitinės technikos utilizavimas Kaune nuo 2013 m.*
+`,
+    date: '2026-01-28',
+    author: 'Marius, Vadovas',
+    category: 'Nemokamas išvežimas',
+    city: 'Kaunas',
+    image: '/images/optimized/buitine-technika.webp',
+    imageWidth: 1536,
+    imageHeight: 1024
+  },
+  {
     id: 15,
     title: '2026-ieji startuoja: Nemokamas buitinės technikos išvežimas Kaune, Vilniuje ir visoje Lietuvoje tęsiamas',
     slug: '2026-nemokamas-buitines-technikos-isvezimas-kaunas-vilnius',

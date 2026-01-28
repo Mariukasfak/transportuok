@@ -155,6 +155,21 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-300">
+          {/* GEO Trust Signal: Brand-Entity Connection */}
+          <p className="text-sm text-gray-400 mb-3">
+            <strong>Transportuok.lt</strong> yra oficialus <strong>UAB „Karavanas LT"</strong> projektas. Veiklą vykdome <strong>Kaune</strong> ir <strong>Vilniuje</strong>.
+          </p>
+          <p className="text-sm text-gray-400 mb-4">
+            <a
+              href="https://www.google.com/maps?cid=2317523442871817775"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 text-green-400 hover:text-white underline-offset-4 hover:underline transition-colors"
+            >
+              <MapPin className="w-4 h-4" />
+              Mus rasite: Google Maps (MB Karavanas LT)
+            </a>
+          </p>
           <p>&copy; {new Date().getFullYear()} Karavanas LT. Visos teisės saugomos.</p>
           <small className="block mt-2 text-gray-400">
             Mūsų komandą aprengia <a href="https://siemka.lt" target="_blank" rel="noopener noreferrer" aria-label="Siemka.lt - marškinėliai ir džemperiai su spauda" className="text-green-400 font-semibold hover:text-white underline-offset-4 hover:underline focus-visible:underline focus-visible:outline-none transition-colors">Siemka.lt</a> – marškinėliai ir džemperiai su spauda
