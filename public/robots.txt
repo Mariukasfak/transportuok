@@ -29,6 +29,28 @@ Disallow: /test_logs/
 # Lėto indeksavimo atveju (nenaudojama dabar) galima aktyvuoti:
 # Crawl-delay: 5
 
+# AI Search Engine Bots – allow full access for GEO (Generative Engine Optimization)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
 # Specialūs botai (galima išplėsti jei bus agresyvių scraperių)
 User-agent: MJ12bot
 Disallow: /

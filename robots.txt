@@ -16,6 +16,28 @@ Allow: /naujienos/
 Allow: /apie-mus/
 Allow: /kontaktai/
 
+# AI Search Engine Bots – allow full access for GEO
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
 # Block query parameter variants that create duplicate content
 Disallow: /*?query=
 Disallow: /*?utm_source=

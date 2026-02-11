@@ -2,6 +2,11 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { buildAbsoluteUrl, buildCanonicalUrl } from '../lib/seo';
 
+interface BreadcrumbItem {
+  name: string;
+  url: string;
+}
+
 interface SEOProps {
   title: string;
   description: string;
@@ -10,6 +15,8 @@ interface SEOProps {
   ogType?: string;
   /** Single JSON-LD object or array of objects */
   structuredData?: object | object[];
+  /** Breadcrumb trail — auto-generates BreadcrumbList JSON-LD */
+  breadcrumbs?: BreadcrumbItem[];
 }
 
 export const SEO: React.FC<SEOProps> = ({
@@ -18,10 +25,23 @@ export const SEO: React.FC<SEOProps> = ({
   canonicalUrl,
   ogImage = '/images/hero-bg-appliances.webp',
   ogType = 'website',
-  structuredData
+  structuredData,
+  breadcrumbs
 }) => {
   const resolvedCanonical = buildCanonicalUrl(canonicalUrl);
   const resolvedOgImage = buildAbsoluteUrl(ogImage);
+
+  // Auto-generate BreadcrumbList JSON-LD from breadcrumbs prop
+  const breadcrumbSchema = breadcrumbs && breadcrumbs.length > 0 ? {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: breadcrumbs.map((item, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: item.name,
+      item: buildAbsoluteUrl(item.url)
+    }))
+  } : null;
 
   return (
     <Helmet>
@@ -65,6 +85,13 @@ export const SEO: React.FC<SEOProps> = ({
               {JSON.stringify(structuredData)}
             </script>
           )
+      )}
+
+      {/* BreadcrumbList */}
+      {breadcrumbSchema && (
+        <script type="application/ld+json">
+          {JSON.stringify(breadcrumbSchema)}
+        </script>
       )}
     </Helmet>
   );

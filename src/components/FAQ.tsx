@@ -18,7 +18,7 @@ interface FAQProps {
 const FAQ: React.FC<FAQProps> = ({
   items,
   title = "Dažniausiai užduodami klausimai",
-  suppressSchema = true,
+  suppressSchema = false,
   sanitizeAnswers = true
 }) => {
   const [openIndex, setOpenIndex] = React.useState<number | null>(null);
