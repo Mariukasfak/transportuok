@@ -81,22 +81,27 @@ const BlogPost = () => {
   const metaDescription = (post as any).metaDescription || post.excerpt;
   const ogImage = (post as any).ogImage || post.image;
 
-  // Article structured data
+  // BlogPosting structured data (enhanced for GEO)
+  const wordCount = post.content.replace(/<[^>]+>/g, '').split(/\s+/).filter(Boolean).length;
   const articleSchema = {
     '@context': 'https://schema.org',
-    '@type': 'Article',
+    '@type': 'BlogPosting',
     headline: post.title,
     datePublished: post.date,
     dateModified: post.date,
     image: buildAbsoluteUrl(ogImage),
-    mainEntityOfPage: canonicalUrl,
-    author: { '@type': 'Organization', name: company.brandName },
+    mainEntityOfPage: { '@type': 'WebPage', '@id': canonicalUrl },
+    author: { '@type': 'Organization', name: company.brandName, url: company.domain },
     publisher: {
       '@type': 'Organization',
       name: company.brandName,
       logo: { '@type': 'ImageObject', url: buildAbsoluteUrl('/ikona_spalvotas.svg') }
     },
-    description: metaDescription
+    description: metaDescription,
+    wordCount,
+    inLanguage: 'lt',
+    articleSection: (post as any).category || 'Naujienos',
+    keywords: (post as any).keywords ? (post as any).keywords.join(', ') : undefined
   } as const;
 
   const breadcrumbLd = {
