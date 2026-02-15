@@ -36,8 +36,8 @@ const GlobalSchema: React.FC = () => {
         },
         geo: {
             '@type': 'GeoCoordinates',
-            latitude: 54.8985,
-            longitude: 23.9036
+            latitude: 54.9253215,
+            longitude: 23.9260707
         },
         // Multiple area served - Kaunas first for priority
         areaServed: [

@@ -336,7 +336,7 @@ Nelaukite – atlaisvinkite erdvę namuose jau šią savaitę!
 
 Sveikiname visus su **2026-aisiais**! Praėjusieji metai mums buvo ypatingi – tūkstančiai tonų perdirbtos technikos, šimtai patenkintų klientų ir švaresnė aplinka. Džiaugiamės galėdami pranešti, kad **tęsiame darbus įprastu grafiku** ir šiais metais esame pasiruošę padėti dar daugiau žmonių atsikratyti senos technikos be rūpesčių.
 
-![Mūsų komanda pasiruošusi padėti](/images/optimized/komanda-darbe-2026.webp)
+![Mūsų komanda pasiruošusi padėti](/images/optimized/komanda-darbe-2026.png)
 
 ## Ačiū, kad buvote su mumis!
 Praėjusiais metais pamatėme, kiek daug žmonių rūpinasi ekologija ir savo namų tvarka. Jūsų atsiliepimai ir šypsenos motyvuoja mus tobulėti.
@@ -390,7 +390,7 @@ Nelaukite pavasario tvarkymosi – atlaisvinkite vietą naujiems planams jau dab
     author: 'Marius, Vadovas',
     category: 'Naujienos',
     city: 'Kaunas, Vilnius, Visa Lietuva',
-    image: '/images/optimized/isvezimas-2026-kaunas.webp',
+    image: '/images/optimized/isvezimas-2026-kaunas.png',
     imageWidth: 1024,
     imageHeight: 1024
   },

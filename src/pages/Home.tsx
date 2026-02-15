@@ -23,8 +23,8 @@ const Home = () => {
   return (
     <>
       <SEO
-        title="Nemokamas buitinės technikos išvežimas | Transportuok LT"
-        description="Nemokamas buitinės technikos ir elektronikos išvežimas Kaune, Vilniuje ir visoje Lietuvoje. Išvežame šaldytuvus, skalbimo mašinas, televizorius ir kitą elektroniką. Taip pat baldų ir metalo laužo išvežimas."
+        title="Nemokamas buitinės technikos išvežimas Kaune ir Lietuvoje | Transportuok LT"
+        description="Nemokamas buitinės technikos išvežimas Kaune. Išvežame šaldytuvus, skalbimo mašinas, televizorius ir kitą elektroniką Kaune, Vilniuje ir visoje Lietuvoje. Nemokama paslauga."
         canonicalUrl={canonicalUrl}
         structuredData={[
           {
@@ -137,7 +137,7 @@ const Home = () => {
           </picture>
           <div className="hero-overlay" />
           <div className="hero-content">
-            <h1 className="hero-title">Nemokamas buitinės technikos išvežimas Lietuvoje</h1>
+            <h1 className="hero-title">Nemokamas buitinės technikos išvežimas Kaune ir Lietuvoje</h1>
             <p className="hero-description">Kaunas, Vilnius ir visa Lietuva. Nemokamai išvežame buitinę techniką ir elektroniką – greitai ir patikimai.</p>
             <Link
               to="/kontaktai#contact-form"
