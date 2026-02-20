@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+declare var process: any;
 
 // Simple crawler to check internal links and missing meta
 test.describe('SEO Agent: Site Health Monitor', () => {

@@ -42,9 +42,9 @@ test.describe('SEO & GEO Agent Audit', () => {
         expect(JSON.stringify(address)).toMatch(/Kaunas/);
 
         // 6. Check GA4/GTM Config
-        const dataLayer = await page.evaluate(() => window.dataLayer);
+        const dataLayer = await page.evaluate(() => (window as any).dataLayer || []);
         expect(dataLayer).toBeTruthy();
-        const hasGA4Config = dataLayer.some(item =>
+        const hasGA4Config = dataLayer.some((item: any) =>
             // Check for config command or arguments that look like G-XXXXXXXXXX
             JSON.stringify(item).includes('G-320YE0N58G')
         );

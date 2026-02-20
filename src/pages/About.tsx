@@ -19,9 +19,46 @@ const About = () => {
     ]
   } as const;
 
+  const localBusinessLd = {
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    name: company.legalName,
+    image: buildCanonicalUrl('/ikona_spalvotas.svg'),
+    url: homeCanonical,
+    telephone: company.contacts.vilnius.phone,
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: company.contacts.vilnius.address,
+      addressLocality: 'Vilnius',
+      addressRegion: 'Vilniaus apskritis',
+      addressCountry: 'LT'
+    },
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: '54.6872',
+      longitude: '25.2797'
+    },
+    openingHoursSpecification: [
+      {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: [
+          'Monday',
+          'Tuesday',
+          'Wednesday',
+          'Thursday',
+          'Friday',
+          'Saturday',
+          'Sunday'
+        ],
+        opens: '08:00',
+        closes: '20:00'
+      }
+    ]
+  } as const;
+
   return (
     <>
-      <SEO title={title} description={description} canonicalUrl={canonicalUrl} structuredData={breadcrumbLd} />
+      <SEO title={title} description={description} canonicalUrl={canonicalUrl} structuredData={[breadcrumbLd, localBusinessLd]} />
       <div className="py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Hero */}

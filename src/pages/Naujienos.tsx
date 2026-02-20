@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { Link, useNavigate } from 'react-router-dom';
 import { Calendar, Share2, ArrowLeft } from 'lucide-react';
 import SEO from '../components/SEO';
@@ -35,11 +35,7 @@ const markdownToHtml = (markdown: string) => {
   return html;
 };
 
-const getImageDimensions = (src: string) => {
-  // Fallback dimensions if explicit ones aren't provided in the data
-  // mostly for potentially missing data, but 2026 posts have it.
-  return { width: 1024, height: 1024 };
-};
+
 
 const BlogPost = () => {
   const navigate = useNavigate();
