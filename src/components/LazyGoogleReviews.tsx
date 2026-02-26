@@ -72,7 +72,7 @@ const LazyGoogleReviews = () => {
                   />
                 ))}
               </div>
-              <p className="text-lg text-gray-600">4.8 iš 5 (140+ atsiliepimų)</p>
+              <p className="text-lg text-gray-600">5.0 iš 5 (115+ atsiliepimų)</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

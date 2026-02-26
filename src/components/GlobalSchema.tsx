@@ -69,7 +69,7 @@ const GlobalSchema: React.FC = () => {
         aggregateRating: {
             '@type': 'AggregateRating',
             ratingValue: 5.0,
-            reviewCount: 140,
+            reviewCount: 115,
             bestRating: 5,
             worstRating: 1
         },
@@ -120,7 +120,7 @@ const GlobalSchema: React.FC = () => {
         aggregateRating: {
             '@type': 'AggregateRating',
             ratingValue: 5.0,
-            reviewCount: 140,
+            reviewCount: 115,
             bestRating: 5,
             worstRating: 1
         },
