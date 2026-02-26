@@ -1,3 +1,12 @@
+# CRITICAL: Never cache index.html – ensures chunk filenames always match after deploy
+/
+  Cache-Control: no-cache, no-store, must-revalidate
+  Pragma: no-cache
+
+/index.html
+  Cache-Control: no-cache, no-store, must-revalidate
+  Pragma: no-cache
+
 # Force correct MIME types for all assets
 /assets/additional-styles.css
   Content-Type: text/css; charset=utf-8

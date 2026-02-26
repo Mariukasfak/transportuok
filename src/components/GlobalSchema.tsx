@@ -84,11 +84,7 @@ const GlobalSchema: React.FC = () => {
             'Ekologiškas utilizavimas',
             'Žiedinė ekonomika'
         ],
-        parentOrganization: {
-            '@type': 'Organization',
-            '@id': `${company.domain}/#organization`,
-            name: company.legalName
-        }
+        parentOrganization: { '@id': `${company.domain}/#organization` }
     } as const;
 
     // SECONDARY – Vilnius LocalBusiness (separate SAB location)
@@ -107,7 +103,9 @@ const GlobalSchema: React.FC = () => {
         priceRange: '€0',
         address: {
             '@type': 'PostalAddress',
+            streetAddress: company.contacts.vilnius.address,
             addressLocality: 'Vilnius',
+            postalCode: company.contacts.vilnius.postalCode,
             addressRegion: 'Vilniaus apskritis',
             addressCountry: 'LT'
         },
@@ -128,11 +126,7 @@ const GlobalSchema: React.FC = () => {
         },
         openingHours: openingHoursStrings,
         openingHoursSpecification,
-        parentOrganization: {
-            '@type': 'Organization',
-            '@id': `${company.domain}/#organization`,
-            name: company.legalName
-        }
+        parentOrganization: { '@id': `${company.domain}/#organization` }
     } as const;
 
     // Organization entity
