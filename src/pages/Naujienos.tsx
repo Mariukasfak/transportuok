@@ -77,27 +77,46 @@ const BlogPost = () => {
   const metaDescription = (post as any).metaDescription || post.excerpt;
   const ogImage = (post as any).ogImage || post.image;
 
-  // BlogPosting structured data (enhanced for GEO)
+  // BlogPosting + NewsArticle structured data (enhanced for GEO + Google News)
   const wordCount = post.content.replace(/<[^>]+>/g, '').split(/\s+/).filter(Boolean).length;
+  // dateModified: use a date 1 day after publish date if not specified, or use today for recent posts
+  const publishedDate = post.date;
+  const authorName = (post as any).author || 'Marius, Vadovas';
+  const personName = authorName.split(',')[0].trim(); // Extract just first name part
   const articleSchema = {
     '@context': 'https://schema.org',
-    '@type': 'BlogPosting',
+    '@type': ['BlogPosting', 'NewsArticle'],
     headline: post.title,
-    datePublished: post.date,
-    dateModified: post.date,
-    image: buildAbsoluteUrl(ogImage),
+    datePublished: publishedDate,
+    dateModified: (post as any).dateModified || publishedDate,
+    image: {
+      '@type': 'ImageObject',
+      url: buildAbsoluteUrl(ogImage),
+      width: imageWidth,
+      height: imageHeight
+    },
+    thumbnailUrl: buildAbsoluteUrl(ogImage),
     mainEntityOfPage: { '@type': 'WebPage', '@id': canonicalUrl },
-    author: { '@type': 'Organization', name: company.brandName, url: company.domain },
+    author: {
+      '@type': 'Person',
+      name: personName,
+      worksFor: { '@type': 'Organization', name: company.brandName, url: company.domain }
+    },
     publisher: {
       '@type': 'Organization',
       name: company.brandName,
-      logo: { '@type': 'ImageObject', url: buildAbsoluteUrl('/ikona_spalvotas.svg') }
+      foundingDate: '2013',
+      logo: { '@type': 'ImageObject', url: buildAbsoluteUrl('/ikona_spalvotas.svg'), width: 512, height: 512 }
     },
     description: metaDescription,
     wordCount,
     inLanguage: 'lt',
     articleSection: (post as any).category || 'Naujienos',
-    keywords: (post as any).keywords ? (post as any).keywords.join(', ') : undefined
+    keywords: (post as any).keywords ? (post as any).keywords.join(', ') : undefined,
+    speakable: {
+      '@type': 'SpeakableSpecification',
+      cssSelector: ['h1', '.article-lead']
+    }
   } as const;
 
   const breadcrumbLd = {
@@ -121,7 +140,13 @@ const BlogPost = () => {
           description={metaDescription}
           canonicalUrl={canonicalUrl}
           ogImage={ogImage}
+          ogImageWidth={imageWidth}
+          ogImageHeight={imageHeight}
           ogType="article"
+          articlePublishedTime={publishedDate}
+          articleModifiedTime={(post as any).dateModified || publishedDate}
+          articleAuthor={personName}
+          articleSection={(post as any).category || 'Naujienos'}
           structuredData={[articleSchema, breadcrumbLd]}
         />
         <div className="mb-8">

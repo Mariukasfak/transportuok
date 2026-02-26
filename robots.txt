@@ -16,11 +16,32 @@ Allow: /naujienos/
 Allow: /apie-mus/
 Allow: /kontaktai/
 
+# Google News Bot – allow full access to news articles
+User-agent: Googlebot-News
+Allow: /naujienos/
+Allow: /
+
+# Standard search engine bots
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
 # AI Search Engine Bots – allow full access for GEO
 User-agent: GPTBot
 Allow: /
 
 User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
 Allow: /
 
 User-agent: PerplexityBot
@@ -38,6 +59,12 @@ Allow: /
 User-agent: cohere-ai
 Allow: /
 
+User-agent: YouBot
+Allow: /
+
+User-agent: meta-externalagent
+Allow: /
+
 # Block query parameter variants that create duplicate content
 Disallow: /*?query=
 Disallow: /*?utm_source=
@@ -47,5 +74,6 @@ Disallow: /*?gclid=
 Disallow: /*?fbclid=
 Disallow: /*?replytocom=
 
-# Sitemap location
+# Sitemap locations
 Sitemap: https://transportuok.lt/sitemap.xml
+Sitemap: https://transportuok.lt/news_sitemap.xml

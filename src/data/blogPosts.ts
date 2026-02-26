@@ -1,5 +1,138 @@
 export const blogPosts = [
   {
+    id: 18,
+    title: 'Šaldytuvo išvežimas Kaune 2026 – nemokama ir greita paslauga',
+    slug: 'saldytuvo-isvezimas-kaune-2026',
+    excerpt: 'Kaip 2026 m. nemokamai ir greitai išvežti seną šaldytuvą Kaune? Transportuok.lt atvyksta per 24 val., išneša iš bet kurio aukšto ir ekologiškai utilizuoja. 5.0 ⭐ Google įvertinimas.',
+    metaTitle: 'Šaldytuvo išvežimas Kaune 2026 – nemokama | Transportuok.lt',
+    metaDescription: 'Nemokamas šaldytuvo išvežimas Kaune 2026. Atvykstame per 24 val., išnešame iš bet kurio aukšto. UAB Karavanas LT – 5.0 ⭐ Google įvertinimas, 114+ atsiliepimų.',
+    content: `
+# Šaldytuvo išvežimas Kaune 2026 – kaip tai veikia ir kodėl tai nemokama
+
+**Trumpas atsakymas:** Šaldytuvo išvežimas Kaune yra visiškai nemokamas. **Transportuok.lt** (UAB „Karavanas LT") atvyksta per 24 valandas, pats išneša šaldytuvą iš bet kurio aukšto ir ekologiškai utilizuoja pagal ES standartus. Skambinkite **+370 699 25 744** arba [registruokitės internetu](https://transportuok.lt/kontaktai#contact-form).
+
+---
+
+## Kodėl šaldytuvo išvežimas Kaune yra nemokamas?
+
+Tai nėra stebuklas – tai žiedinė ekonomika. Senas šaldytuvas turi vertingų medžiagų:
+
+- **Plienas ir ketus** – 40-60 kg, 100% perdirbama
+- **Varis ir aliuminis** – šaldymo grandinėje
+- **Freonas** – saugiai pašalinamas ir perdirbamas
+
+**Transportuok.lt** uždirba iš perdirbimo pajamų. Gyventojams – paslauga visiškai nemokama.
+
+> Pagal Europos Sąjungos direktyvą 2012/19/ES (WEEE), šaldytuvai klasifikuojami kaip pavojingos atliekos ir negali būti dedami į buitinių atliekų konteinerius. Tinkamas utilizavimas yra privalomas pagal įstatymą.
+
+---
+
+## Kaip greitai atvykstate?
+
+| Miestas | Vidutinis atvykimo laikas |
+|---------|--------------------------|
+| **Kaunas (centras)** | 4–12 val. |
+| **Kaunas (periferija)** | 12–24 val. |
+| **Kauno rajonas** | 24–48 val. |
+| **Vilnius** | 24–48 val. |
+
+Registruodamiesi ryte – dažniausiai atvykstame tą pačią dieną.
+
+---
+
+## Kaip pasiruošti šaldytuvo išvežimui?
+
+### 3 būtini žingsniai:
+
+1. **Atjunkite šaldytuvą iš elektros 24 val. prieš išvežimą** – freonui reikia laiko nusistovėti iki saugaus slėgio
+2. **Ištuštinkite maistą ir vandenį** – ypač iš ledintuvų skyriaus
+3. **Palikite atviras dureles kelias valandas** – ventiliacijai ir drėgmės išgarinimui
+
+> ⚠️ Dujinė technika: jei turite dujinę viryklę kartu, ją privaloma atjungti kvalifikuotas dujų specialistas.
+
+---
+
+## Kokius šaldytuvus išvežame Kaune?
+
+✅ **Stovintys šaldytuvai** – visų markių ir dydžių (Bosch, Samsung, LG, Indesit ir kt.)
+✅ **Šaldikliai** – stalčiai ir viendurio stovintys
+✅ **„Side-by-side" modeliai** – dideli amerikietiški šaldytuvai
+✅ **Įmontuojami šaldytuvai** – išmontuojame ir išvežame
+✅ **Maži šaldytuvėliai** – miegamojo, baro ir mini formato
+✅ **Seni kineskopiniai šaldytuvai** – su freonovomis grandinėmis
+✅ **Pramoninius šaldytuvai** – restoranams ir įmonėms
+
+---
+
+## Šaldytuvo išvežimas Kaune vs. kitos galimybės
+
+| Variantas | Kaina | Laukimo laikas | Išnešimas iš aukšto |
+|-----------|-------|----------------|---------------------|
+| **Transportuok.lt** | **Nemokama** | **Per 24 val.** | **Taip, bet kuris aukštas** |
+| Savivaldybės punktas | Nemokama | 5–10 d.d. | Pats turi atvežti |
+| Parduotuvių grąžinimas | Nemokama | Tik perkant naują | Apribota |
+| Žaidimų konsolė atšaukimas | 15–50 EUR | 2–7 d.d. | Taip |
+| Privatūs vežėjai | 30–80 EUR | 1–3 d.d. | Taip |
+
+---
+
+## Aptarnaujami Kauno rajonai
+
+Dirbame **visame Kauno mieste ir rajone**:
+
+- **Šilainiai, Dainava, Eiguliai** – didelius rajonus aptarnaujame kasdien
+- **Centras ir Senamiestis** – siauras laiptines aprūpiname vežimėliais
+- **Žaliakalnis, Vilijampolė, Šančiai** – reguliarūs maršrutai
+- **Aleksotas, Petrašiūnai, Panemunė** – atvykstame pagal grafiką
+- **Garliava, Karmėlava, Akademija** – Kauno rajonas taip pat aptarnaujamas
+
+---
+
+## DUK apie šaldytuvo išvežimą Kaune
+
+### Ar tikrai nemokamai išveža šaldytuvą Kaune?
+**Taip, 100% nemokama.** Transportuok.lt pajamas gauna iš perdirbimo, todėl gyventojams paslauga yra nemokama. Jokių paslėptų mokesčių nėra.
+
+### Ar išnešate iš 5-o aukšto be lifto?
+**Taip.** Mūsų komanda dirba dviese ar trise, turime specializuotus vežimėlius laiptams. Iš 5-o aukšto be lifto – tai mūsų kasdienybė.
+
+### Ką daryti jei šaldytuvas dar veikia?
+**Nieko nekeičia.** Priimame ir veikiančius, ir sugedusius šaldytuvus. Jei veikiantis šaldytuvas jums nebereikalingas – jis bus tinkamai utilizuojamas arba, jei tinkamas, perduodamas toliau.
+
+### Ar galima išvežti du šaldytuvus iš karto?
+**Taip.** Galima išvežti kelis prietaisus vienu metu – šaldytuvą, skalbimo mašiną, televizorių ir pan. Tai tik patogu abiem pusėms.
+
+### Ar gausite perdavimo dokumentą?
+**Taip (B2B atveju).** Fiziniams asmenims perdavimo aktas paprastai nereikalingas, tačiau pageidaujant – išduodamas. Įmonėms – visada.
+
+---
+
+## Susisiekite dabar
+
+Nedelskite – atlaisvinkite erdvę namuose jau šiandien:
+
+📞 **Kaunas:** [+370 699 25 744](tel:+37069925744)
+📞 **Vilnius:** [+370 664 24 024](tel:+37066424024)
+📧 **info@transportuok.lt**
+🕒 I–V 08:00–18:00 | VI 09:00–15:00
+
+👉 **[Užregistruoti šaldytuvo išvežimą dabar](https://transportuok.lt/kontaktai#contact-form)**
+
+---
+
+*Transportuok.lt – UAB „Karavanas LT" projektas. Nemokamas šaldytuvų, skalbimo mašinų ir buitinės technikos išvežimas Kaune nuo 2013 m.*
+`,
+    date: '2026-02-26',
+    author: 'Marius, Vadovas',
+    category: 'Nemokamas išvežimas',
+    city: 'Kaunas',
+    image: '/images/optimized/buitine-technika.webp',
+    imageWidth: 1536,
+    imageHeight: 1024,
+    keywords: ['šaldytuvo išvežimas Kaune', 'nemokamas šaldytuvo išvežimas', 'šaldytuvas Kaunas', 'nemokamas išvežimas Kaune 2026', 'šaldytuvo utilizavimas']
+  },
+
+  {
     id: 17,
     title: 'Nemokamas buitinės technikos išvežimas Kaune 2026 – pilnas gidas gyventojams ir įmonėms',
     slug: 'nemokamas-buitines-technikos-isvezimas-kaune-2026-gidas',

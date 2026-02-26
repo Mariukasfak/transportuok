@@ -77,6 +77,16 @@ const GlobalSchema: React.FC = () => {
                 closes: '15:00'
             }
         ]
+        ,
+        knowsAbout: [
+            'Buitinės technikos išvežimas',
+            'Elektronikos atliekų tvarkymas',
+            'Metalo laužo surinkimas',
+            'WEEE direktyva',
+            'ES atliekų tvarkymo reikalavimai',
+            'Ekologiškas utilizavimas',
+            'Žiedinė ekonomika'
+        ]
     } as const;
 
     const org = {
@@ -88,6 +98,16 @@ const GlobalSchema: React.FC = () => {
         alternateName: company.brandAlternative,
         url: company.domain,
         logo: `${company.domain}/ikona_spalvotas.svg`,
+        foundingDate: '2013',
+        numberOfEmployees: { '@type': 'QuantitativeValue', value: 16 },
+        knowsAbout: [
+            'Buitinės technikos išvežimas ir utilizavimas',
+            'Elektronikos atliekų surinkimas (WEEE)',
+            'Metalo laužo surinkimas ir perdirbimas',
+            'Baldų išvežimas',
+            'ES aplinkosaugos direktyvų laikymasis',
+            'Žiedinė ekonomika Lietuvoje'
+        ],
         sameAs: [
             company.rekvizitaiUrl,
             company.facebookUrl,
