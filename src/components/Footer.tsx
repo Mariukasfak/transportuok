@@ -159,7 +159,7 @@ const Footer = () => {
           <p className="text-sm text-gray-400 mb-3">
             <strong>Transportuok.lt</strong> yra oficialus <strong>UAB „Karavanas LT"</strong> projektas. Veiklą vykdome <strong>Kaune</strong> ir <strong>Vilniuje</strong>.
           </p>
-          <p className="text-sm text-gray-400 mb-4">
+          <p className="text-sm text-gray-400 mb-4 flex flex-wrap justify-center gap-4">
             <a
               href="https://www.google.com/maps?cid=2317523442871817775"
               target="_blank"
@@ -167,7 +167,15 @@ const Footer = () => {
               className="inline-flex items-center gap-1 text-green-400 hover:text-white underline-offset-4 hover:underline transition-colors"
             >
               <MapPin className="w-4 h-4" />
-              Mus rasite: Google Maps (MB Karavanas LT)
+              Google Maps (UAB Karavanas LT)
+            </a>
+            <a
+              href="https://rekvizitai.vz.lt/imone/karavanas_lt/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 text-green-400 hover:text-white underline-offset-4 hover:underline transition-colors"
+            >
+              Rekvizitai.vz.lt (UAB Karavanas LT)
             </a>
           </p>
           <p>&copy; {new Date().getFullYear()} Karavanas LT. Visos teisės saugomos.</p>
