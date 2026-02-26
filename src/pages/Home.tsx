@@ -137,8 +137,8 @@ const Home = () => {
           </picture>
           <div className="hero-overlay" />
           <div className="hero-content">
-            <h1 className="hero-title">Nemokamas buitinės technikos išvežimas Kaune ir Lietuvoje</h1>
-            <p className="hero-description">Kaunas, Vilnius ir visa Lietuva. Nemokamai išvežame buitinę techniką ir elektroniką – greitai ir patikimai.</p>
+            <h1 className="hero-title">Buitinės technikos išvežimas iš namų – nemokamai</h1>
+            <p className="hero-description">Kaunas, Vilnius ir visa Lietuva. Seno šaldytuvo, skalbimo mašinos ar elektronikos utilizavimas – greitai ir ekologiškai.</p>
             <Link
               to="/kontaktai#contact-form"
               className="inline-block bg-[#167d36] hover:bg-[#0f5a26] text-white font-bold text-base px-6 py-3 rounded-lg shadow-md transition-colors"
@@ -146,6 +146,30 @@ const Home = () => {
             >
               Nemokamas išvežimas
             </Link>
+          </div>
+        </section>
+
+        {/* GEO: Conclusion First summary block – AI search scannable */}
+        <section className="bg-white py-10 border-b border-gray-100" aria-labelledby="summary-heading">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 id="summary-heading" className="text-xl font-bold text-gray-900 mb-4">Trumpai: kas, kur ir kaip?</h2>
+            <ul className="space-y-2 text-gray-700 text-base">
+              <li>✅ <strong>Kas išvežama nemokamai:</strong> šaldytuvai, skalbimo mašinos, viryklės, orkaitės, indaplovės, televizoriai, kompiuteriai, metalo laužas</li>
+              <li>✅ <strong>Kur:</strong> Kaunas, Vilnius ir visa Lietuva – atvykstame į namus, išnešame iš bet kurio aukšto</li>
+              <li>✅ <strong>Kaina:</strong> 0 € – buitinė technika, elektronika ir metalo laužas (nuo 100 kg) išvežami visiškai nemokamai</li>
+              <li>⏱ <strong>Atvykimo laikas:</strong> vidutiniškai 12–24 val. po registracijos Kaune; 24–48 val. Vilniuje</li>
+              <li>⭐ <strong>Patikimumas:</strong> 140+ Google atsiliepimų, 5.0 įvertinimas – UAB „Karavanas LT", veikia nuo 2013 m.</li>
+              <li>♻️ <strong>Utilizavimas:</strong> 100 % ekologiškas, pagal ES WEEE direktyvą 2012/19/ES – surinkta technika perduodama licencijuotiems perdirbimo centrams</li>
+            </ul>
+            <div className="mt-5">
+              <Link
+                to="/kontaktai#contact-form"
+                className="inline-block bg-[#167d36] hover:bg-[#0f5a26] text-white font-semibold px-5 py-2.5 rounded-lg transition-colors text-sm"
+                onClick={() => handleCTAClick('summary_cta', 'Užsakyti nemokamą išvežimą')}
+              >
+                Užsakyti nemokamą išvežimą →
+              </Link>
+            </div>
           </div>
         </section>
 
@@ -267,7 +291,69 @@ const Home = () => {
           </div>
         </section>
 
+        {/* GEO: Comparison table – AI search scannable structured data */}
+        <section className="py-12 bg-white" aria-labelledby="comparison-heading">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 id="comparison-heading" className="text-2xl font-bold text-gray-900 mb-2 text-center">
+              Kaip skiriasi turimos galimybės?
+            </h2>
+            <p className="text-gray-500 text-sm text-center mb-6">Seną šaldytuvą, skalbimo mašiną ar elektroniką galimybės išvežti</p>
+            <div className="overflow-x-auto rounded-lg border border-gray-200 shadow-sm">
+              <table className="w-full text-sm text-left">
+                <thead className="bg-gray-50 text-gray-600 uppercase text-xs font-semibold">
+                  <tr>
+                    <th className="px-4 py-3">Galimybė</th>
+                    <th className="px-4 py-3">Kaina</th>
+                    <th className="px-4 py-3">Laukimo laikas</th>
+                    <th className="px-4 py-3">Išneša iš aukšto?</th>
+                    <th className="px-4 py-3">Legalu?</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-gray-100">
+                  <tr className="bg-green-50 font-medium">
+                    <td className="px-4 py-3 text-green-800">✅ Transportuok.lt</td>
+                    <td className="px-4 py-3 text-green-700 font-bold">Nemokama</td>
+                    <td className="px-4 py-3">12–24 val. (Kaunas)</td>
+                    <td className="px-4 py-3 text-green-700">Taip, bet kuris aukštas</td>
+                    <td className="px-4 py-3 text-green-700">Taip – ES WEEE</td>
+                  </tr>
+                  <tr className="bg-white">
+                    <td className="px-4 py-3 text-gray-700">Savivaldybės surinkimo aikštelė</td>
+                    <td className="px-4 py-3">Nemokama</td>
+                    <td className="px-4 py-3">Pats turi atvežti</td>
+                    <td className="px-4 py-3 text-red-600">Ne – pats privalo atvežti</td>
+                    <td className="px-4 py-3 text-green-700">Taip</td>
+                  </tr>
+                  <tr className="bg-gray-50">
+                    <td className="px-4 py-3 text-gray-700">Parduotuvių paėmimas</td>
+                    <td className="px-4 py-3">Nemokama</td>
+                    <td className="px-4 py-3">Tik perkant naują</td>
+                    <td className="px-4 py-3 text-yellow-700">Paprastai taip</td>
+                    <td className="px-4 py-3 text-green-700">Taip</td>
+                  </tr>
+                  <tr className="bg-white">
+                    <td className="px-4 py-3 text-gray-700">Privatūs vežėjai</td>
+                    <td className="px-4 py-3 text-red-700">30–80 €</td>
+                    <td className="px-4 py-3">1–3 d.d.</td>
+                    <td className="px-4 py-3 text-yellow-700">Mokamas priedas</td>
+                    <td className="px-4 py-3 text-yellow-700">Kartais</td>
+                  </tr>
+                  <tr className="bg-gray-50">
+                    <td className="px-4 py-3 text-gray-700">Išmesti į konteinerį</td>
+                    <td className="px-4 py-3">Nemokama</td>
+                    <td className="px-4 py-3">Iš karto</td>
+                    <td className="px-4 py-3 text-red-600">Ne</td>
+                    <td className="px-4 py-3 text-red-700 font-semibold">Ne – bauda iki 500 €</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p className="text-xs text-gray-400 mt-3 text-center">* Buitinė technika priskiriama EEĮA atliekoms pagal ES direktyvą 2012/19/ES – draudžiama mesti į buitinių atliekų konteinerius.</p>
+          </div>
+        </section>
+
         {/* CTA Section */}
+
         <section className="py-12 sm:py-16 bg-[#167d36]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">

@@ -3,29 +3,41 @@ import { Helmet } from 'react-helmet-async';
 import company from '../data/company';
 
 const GlobalSchema: React.FC = () => {
-    // LocalBusiness + RecyclingCenter for GEO optimization
-    const localBusiness = {
+    // Shared opening hours – both string (for quick parsing) and structured (for semantic richness)
+    const openingHoursStrings = ['Mo-Fr 08:00-18:00', 'Sa 09:00-15:00'];
+    const openingHoursSpecification = [
+        {
+            '@type': 'OpeningHoursSpecification',
+            dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+            opens: '08:00',
+            closes: '18:00'
+        },
+        {
+            '@type': 'OpeningHoursSpecification',
+            dayOfWeek: 'Saturday',
+            opens: '09:00',
+            closes: '15:00'
+        }
+    ];
+
+    // PRIMARY – Kaunas LocalBusiness
+    // Name matches exact brand (no keyword stuffing – GBP compliant)
+    const localBusinessKaunas = {
         '@context': 'https://schema.org',
         '@type': ['LocalBusiness', 'RecyclingCenter'],
-        '@id': `${company.domain}/#local-business`,
-        name: 'Transportuok.lt – Nemokamas Buitinės Technikos Išvežimas',
-        alternateName: company.brandName,
-        description: 'Nemokamas buitinės technikos, elektronikos ir baldų išvežimas Kaune, Vilniuje ir visoje Lietuvoje. Ekologiškas utilizavimas.',
+        '@id': `${company.domain}/#local-business-kaunas`,
+        name: company.brandName,   // "Transportuok.lt" – exact brand name only
+        legalName: company.legalName,
+        description: 'Nemokamas buitinės technikos, elektronikos atliekų ir metalo laužo išvežimas Kaune. Ekologiškas utilizavimas pagal ES WEEE direktyvą.',
         url: company.domain,
         logo: `${company.domain}/ikona_spalvotas.svg`,
-        image: `${company.domain}/images/buitine-technika.webp`,
-        telephone: company.contacts.kaunas.phone, // Primary Kaunas phone
+        image: `${company.domain}/images/optimized/buitine-technika.webp`,
+        telephone: company.contacts.kaunas.phone,
         email: company.contacts.kaunas.email,
-        priceRange: '€0 (nemokama)',
-        currenciesAccepted: 'EUR',
+        priceRange: '€0',
         paymentAccepted: 'Cash, Bank Transfer',
-        // Parent organization for trust
-        parentOrganization: {
-            '@type': 'Organization',
-            name: company.legalName,
-            url: company.rekvizitaiUrl
-        },
-        // Kaunas as primary address
+        currenciesAccepted: 'EUR',
+        // Primary physical address – Kaunas
         address: {
             '@type': 'PostalAddress',
             streetAddress: company.contacts.kaunas.address,
@@ -39,7 +51,7 @@ const GlobalSchema: React.FC = () => {
             latitude: 54.9253215,
             longitude: 23.9260707
         },
-        // Multiple area served - Kaunas first for priority
+        // Service area business – covers all of Lithuania from Kaunas base
         areaServed: [
             { '@type': 'City', name: 'Kaunas' },
             { '@type': 'City', name: 'Vilnius' },
@@ -47,9 +59,7 @@ const GlobalSchema: React.FC = () => {
             { '@type': 'AdministrativeArea', name: 'Vilniaus rajonas' },
             { '@type': 'Country', name: 'Lietuva' }
         ],
-        // Google Maps CID for location verification
         hasMap: company.googleMapsUrl,
-        // Trust signals - Rekvizitai URL critical for AI
         sameAs: [
             company.rekvizitaiUrl,
             company.facebookUrl,
@@ -59,36 +69,73 @@ const GlobalSchema: React.FC = () => {
         aggregateRating: {
             '@type': 'AggregateRating',
             ratingValue: 5.0,
-            reviewCount: 114,
+            reviewCount: 140,
             bestRating: 5,
             worstRating: 1
         },
-        openingHoursSpecification: [
-            {
-                '@type': 'OpeningHoursSpecification',
-                dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-                opens: '08:00',
-                closes: '18:00'
-            },
-            {
-                '@type': 'OpeningHoursSpecification',
-                dayOfWeek: 'Saturday',
-                opens: '09:00',
-                closes: '15:00'
-            }
-        ]
-        ,
+        openingHours: openingHoursStrings,
+        openingHoursSpecification,
         knowsAbout: [
             'Buitinės technikos išvežimas',
             'Elektronikos atliekų tvarkymas',
             'Metalo laužo surinkimas',
-            'WEEE direktyva',
+            'WEEE direktyva 2012/19/ES',
             'ES atliekų tvarkymo reikalavimai',
             'Ekologiškas utilizavimas',
             'Žiedinė ekonomika'
-        ]
+        ],
+        parentOrganization: {
+            '@type': 'Organization',
+            '@id': `${company.domain}/#organization`,
+            name: company.legalName
+        }
     } as const;
 
+    // SECONDARY – Vilnius LocalBusiness (separate SAB location)
+    const localBusinessVilnius = {
+        '@context': 'https://schema.org',
+        '@type': ['LocalBusiness', 'RecyclingCenter'],
+        '@id': `${company.domain}/#local-business-vilnius`,
+        name: company.brandName,
+        legalName: company.legalName,
+        description: 'Nemokamas buitinės technikos, elektronikos atliekų ir metalo laužo išvežimas Vilniuje. Ekologiškas utilizavimas pagal ES WEEE direktyvą.',
+        url: company.domain,
+        logo: `${company.domain}/ikona_spalvotas.svg`,
+        image: `${company.domain}/images/optimized/elektronika.webp`,
+        telephone: company.contacts.vilnius.phone,
+        email: company.contacts.vilnius.email,
+        priceRange: '€0',
+        address: {
+            '@type': 'PostalAddress',
+            addressLocality: 'Vilnius',
+            addressRegion: 'Vilniaus apskritis',
+            addressCountry: 'LT'
+        },
+        areaServed: [
+            { '@type': 'City', name: 'Vilnius' },
+            { '@type': 'AdministrativeArea', name: 'Vilniaus rajonas' }
+        ],
+        sameAs: [
+            company.rekvizitaiUrl,
+            company.facebookUrl
+        ],
+        aggregateRating: {
+            '@type': 'AggregateRating',
+            ratingValue: 5.0,
+            reviewCount: 140,
+            bestRating: 5,
+            worstRating: 1
+        },
+        openingHours: openingHoursStrings,
+        openingHoursSpecification,
+        parentOrganization: {
+            '@type': 'Organization',
+            '@id': `${company.domain}/#organization`,
+            name: company.legalName
+        }
+    } as const;
+
+    // Organization entity
     const org = {
         '@context': 'https://schema.org',
         '@type': 'Organization',
@@ -112,51 +159,34 @@ const GlobalSchema: React.FC = () => {
             company.rekvizitaiUrl,
             company.facebookUrl,
             company.gbpUrl,
-            'https://rekvizitai.vz.lt/imone/karavanas_lt/',
+            'https://rekvizitai.vz.lt/imone/karavanas_lt/'
         ],
         hasOfferCatalog: {
             '@type': 'OfferCatalog',
             name: 'Išvežimo paslaugų katalogas',
             itemListElement: [
-                {
-                    '@type': 'Offer',
-                    itemOffered: { '@type': 'Service', '@id': `${company.domain}/#service-buitines-technikos-isvezimas`, name: 'Buitinės technikos išvežimas', url: `${company.domain}/paslaugos/buitines-technikos-isvezimas` }
-                },
-                {
-                    '@type': 'Offer',
-                    itemOffered: { '@type': 'Service', '@id': `${company.domain}/#service-elektronikos-atlieku-isvezimas`, name: 'Elektronikos atliekų išvežimas', url: `${company.domain}/paslaugos/elektronikos-atlieku-isvezimas` }
-                },
-                {
-                    '@type': 'Offer',
-                    itemOffered: { '@type': 'Service', '@id': `${company.domain}/#service-baldu-isvezimas`, name: 'Baldų išvežimas', url: `${company.domain}/paslaugos/baldu-isvezimas` }
-                },
-                {
-                    '@type': 'Offer',
-                    itemOffered: { '@type': 'Service', '@id': `${company.domain}/#service-metalo-lauzo-isvezimas`, name: 'Metalo laužo išvežimas', url: `${company.domain}/paslaugos/metalo-lauzo-isvezimas` }
-                }
+                { '@type': 'Offer', itemOffered: { '@type': 'Service', '@id': `${company.domain}/#service-buitines-technikos-isvezimas`, name: 'Buitinės technikos išvežimas', url: `${company.domain}/paslaugos/buitines-technikos-isvezimas` } },
+                { '@type': 'Offer', itemOffered: { '@type': 'Service', '@id': `${company.domain}/#service-elektronikos-atlieku-isvezimas`, name: 'Elektronikos atliekų išvežimas', url: `${company.domain}/paslaugos/elektronikos-atlieku-isvezimas` } },
+                { '@type': 'Offer', itemOffered: { '@type': 'Service', '@id': `${company.domain}/#service-baldu-isvezimas`, name: 'Baldų išvežimas', url: `${company.domain}/paslaugos/baldu-isvezimas` } },
+                { '@type': 'Offer', itemOffered: { '@type': 'Service', '@id': `${company.domain}/#service-metalo-lauzo-isvezimas`, name: 'Metalo laužo išvežimas', url: `${company.domain}/paslaugos/metalo-lauzo-isvezimas` } }
             ]
         },
-        makesOffer: [
-            { '@type': 'Offer', itemOffered: { '@id': `${company.domain}/#service-buitines-technikos-isvezimas` } },
-            { '@type': 'Offer', itemOffered: { '@id': `${company.domain}/#service-elektronikos-atlieku-isvezimas` } },
-            { '@type': 'Offer', itemOffered: { '@id': `${company.domain}/#service-baldu-isvezimas` } },
-            { '@type': 'Offer', itemOffered: { '@id': `${company.domain}/#service-metalo-lauzo-isvezimas` } }
-        ],
-        // Kaunas contact listed first for priority
         contactPoint: [
             {
                 '@type': 'ContactPoint',
                 telephone: company.contacts.kaunas.phone,
+                email: company.contacts.kaunas.email,
                 contactType: 'customer service',
-                areaServed: 'LT-Kaunas',
-                availableLanguage: ['lt'],
+                areaServed: 'LT',
+                availableLanguage: ['lt']
             },
             {
                 '@type': 'ContactPoint',
                 telephone: company.contacts.vilnius.phone,
+                email: company.contacts.vilnius.email,
                 contactType: 'customer service',
-                areaServed: 'LT-Vilnius',
-                availableLanguage: ['lt'],
+                areaServed: 'LT',
+                availableLanguage: ['lt']
             }
         ]
     } as const;
@@ -175,7 +205,8 @@ const GlobalSchema: React.FC = () => {
 
     return (
         <Helmet>
-            <script type="application/ld+json">{JSON.stringify(localBusiness)}</script>
+            <script type="application/ld+json">{JSON.stringify(localBusinessKaunas)}</script>
+            <script type="application/ld+json">{JSON.stringify(localBusinessVilnius)}</script>
             <script type="application/ld+json">{JSON.stringify(org)}</script>
             <script type="application/ld+json">{JSON.stringify(website)}</script>
         </Helmet>
